@@ -37,6 +37,16 @@ header {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+header h1 {
+    color: white;
+}
+
+ul {
+    padding-left: 0; 
+    margin-left: 0;  
+    list-style-position: inside; 
+}
+
 nav {
     background-color: var(--dark);
     border-radius: 10px;
