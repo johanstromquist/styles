@@ -1,0 +1,108 @@
+/* Reset default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Calculator container */
+.calculator {
+  max-width: 300px;
+  margin: 20px auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background-color: #f8f9fa;
+  overflow: hidden;
+}
+
+/* Display screen */
+.display {
+  width: 100%;
+  padding: 20px;
+  background-color: #343a40;
+  color: white;
+  text-align: right;
+  font-size: 24px;
+  border: none;
+  outline: none;
+}
+
+/* Button grid */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Button styling */
+.btn {
+  border: 1px solid #dee2e6;
+  height: 60px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  background-color: #ffffff;
+}
+
+.btn:hover {
+  background-color: #e9ecef;
+}
+
+.btn:active {
+  background-color: #dee2e6;
+}
+
+/* Operator buttons */
+.operator {
+  background-color: #f8f9fa;
+}
+
+/* Equal button */
+.equal {
+  background-color: #007bff;
+  color: white;
+}
+
+.equal:hover {
+  background-color: #0069d9;
+}
+
+/* Clear button */
+.clear {
+  background-color: #dc3545;
+  color: white;
+}
+
+.clear:hover {
+  background-color: #c82333;
+}
+
+/* For larger screens, make the calculator larger */
+@media (min-width: 768px) {
+  .calculator {
+    max-width: 350px;
+  }
+  
+  .btn {
+    height: 70px;
+    font-size: 22px;
+  }
+  
+  .display {
+    font-size: 28px;
+  }
+}
+
+/* For mobile screens, ensure the calculator is usable */
+@media (max-width: 320px) {
+  .calculator {
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  .btn {
+    height: 50px;
+    font-size: 18px;
+  }
+}
