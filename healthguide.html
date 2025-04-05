@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livsstil och Hälsa - Interaktiv Studiehandledning</title>
+    <link rel="stylesheet" href="https://johanstromquist.github.io/styles/studyguide.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Livsstil och Hälsa</h1>
+            <p>En interaktiv studiehandledning för Naturkunskap 1b</p>
+        </header>
+        
+        <nav>
+            <ul>
+                <li><a href="#" class="active" data-section="intro">Introduktion</a></li>
+                <li><a href="#" data-section="vetenskap">4.1 Vetenskap om hälsa</a></li>
+                <li><a href="#" data-section="psykisk">4.2 Psykisk hälsa och stress</a></li>
+                <li><a href="#" data-section="somn">4.3 Sömn</a></li>
+                <li><a href="#" data-section="fysisk">4.4 Fysisk aktivitet</a></li>
+                <li><a href="#" data-section="droger">4.5 Droger</a></li>
+                <li><a href="#" data-section="quiz">Quiz</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Introduktion -->
+        <section id="intro" class="section active animated">
+            <h2>Välkommen till din interaktiva studiehandledning!</h2>
+            <p>Denna guide hjälper dig att förbereda dig inför provet i Naturkunskap 1b, moment 3 om livsstil och hälsa. Guiden är uppdelad i 5 huvuddelar som motsvarar kursens delar.</p>
+            
+            <div class="info-box">
+                <h3>📝 Så använder du studiehandledningen</h3>
+                <p>Navigera mellan olika avsnitt genom menyn ovan. Varje avsnitt innehåller:</p>
+                <ul>
+                    <li>Viktiga begrepp och definitioner</li>
+                    <li>Förklaringar med visuella hjälpmedel</li>
+                    <li>Övningsfrågor i slutet av varje avsnitt</li>
+                </ul>
+                <p>När du känner dig redo, testa dina kunskaper med det interaktiva quizet!</p>
+            </div>
+            
+            <div class="flex-container">
+                <div class="card">
+                    <h3>🏆 Prestationer att låsa upp</h3>
+                    <p>När du använder studiehandledningen kan du låsa upp prestationer:</p>
+                    <ul>
+                        <li>Kunskapssökaren - Besök alla avsnitt</li>
+                        <li>Quizmästaren - Få 100% rätt på quizet</li>
+                        <li>Snabbtänkaren - Slutför quizet på under 3 minuter</li>
+                        <li>Blixten - Slutför quizet på under 2 minuter</li>
+                        <li>Ljusets hastighet - Slutför quizet på under 1 minut</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>📊 Spåra dina framsteg</h3>
+                    <p>Dina resultat och prestationer sparas automatiskt så att du kan se din utveckling över tid. Försök att förbättra dina tider och resultat för varje försök!</p>
+                    <p>Ditt bästa resultat hittills:</p>
+                    <div id="best-time" class="time-record">Inte satt än</div>
+                    <div class="achievement-tier">
+                        <div class="tier tier-1">3 min</div>
+                        <div class="tier tier-2">2 min</div>
+                        <div class="tier tier-3">1 min</div>
+                    </div>
+                </div>
+            </div>
+            
+            <button onclick="document.querySelector('[data-section=\'vetenskap\']').click()">Börja studera nu!</button>
+            
+            <div class="achievements">
+                <div class="achievement" id="explorer" data-name="Kunskapssökaren">
+                    <div class="achievement-icon">🧭</div>
+                    <h3>Kunskapssökaren</h3>
+                    <p>Besök alla avsnitt i studiehandledningen</p>
+                    <div class="locked-overlay">🔒</div>
+                </div>
+                <div class="achievement" id="quiz-master" data-name="Quizmästaren">
+                    <div class="achievement-icon">🏆</div>
+                    <h3>Quizmästaren</h3>
+                    <p>Få 100% rätt på quizet</p>
+                    <div class="locked-overlay">🔒</div>
+                </div>
+                <div class="achievement" id="speed-demon" data-name="Snabbtänkaren">
+                    <div class="achievement-icon">⚡</div>
+                    <h3>Snabbtänkaren</h3>
+                    <p>Slutför quizet på under 3 minuter</p>
+                    <div class="locked-overlay">🔒</div>
+                </div>
+                <div class="achievement" id="lightning" data-name="Blixten">
+                    <div class="achievement-icon">⚡⚡</div>
+                    <h3>Blixten</h3>
+                    <p>Slutför quizet på under 2 minuter</p>
+                    <div class="locked-overlay">🔒</div>
+                </div>
+                <div class="achievement" id="light-speed" data-name="Ljusets hastighet">
+                    <div class="achievement-icon">🚀</div>
+                    <h3>Ljusets hastighet</h3>
+                    <p>Slutför quizet på under 1 minut</p>
+                    <div class="locked-overlay">🔒</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 4.1 Vetenskap om hälsa -->
+        <section id="vetenskap" class="section animated">
+            <h2>4.1 Vetenskap om hälsa</h2>
+            
+            <div class="definition">
+                <h3>Livsstil</h3>
+                <p>Livsstil omfattar de vanor och val vi gör i vardagen. Det är sådant vi själva har möjlighet att förändra och välja. Exempelvis våra mat- och motionsvanor, sömnrutiner, och vårt förhållningssätt till stress.</p>
+            </div>
+            
+            <h3>Livsstilsfaktorer som påverkar hälsan</h3>
+            <div class="flex-container">
+                <div class="card">
+                    <h4>🍷 Alkohol och droger</h4>
+                    <p>Användning av alkohol och andra droger påverkar både fysisk och psykisk hälsa negativt.</p>
+                </div>
+                <div class="card">
+                    <h4>🚬 Rökning</h4>
+                    <p>Tobaksrökning skadar lungorna och ökar risken för flera allvarliga sjukdomar.</p>
+                </div>
+                <div class="card">
+                    <h4>🏃‍♀️ Fysisk aktivitet</h4>
+                    <p>Regelbunden motion stärker kroppen och förbättrar psykiskt välbefinnande.</p>
+                </div>
+                <div class="card">
+                    <h4>🍎 Näringsintag och dieter</h4>
+                    <p>Vad vi äter påverkar vår energi, vårt humör och vår långsiktiga hälsa.</p>
+                </div>
+                <div class="card">
+                    <h4>😴 Sömn</h4>
+                    <p>Tillräcklig och kvalitativ sömn är avgörande för både fysisk och mental återhämtning.</p>
+                </div>
+                <div class="card">
+                    <h4>😰 Stress</h4>
+                    <p>Kronisk stress påverkar både fysiska och mentala funktioner negativt.</p>
+                </div>
+            </div>
+            
+            <!-- Övningsfrågor för detta avsnitt -->
+            <h3>Övningsfrågor - Vetenskap om hälsa</h3>
+            <div id="vetenskap-questions"></div>
+            
+            <button onclick="document.querySelector('[data-section=\'psykisk\']').click()">Gå vidare till nästa avsnitt</button>
+        </section>
+        
+        <!-- 4.2 Psykisk hälsa och stress -->
+        <section id="psykisk" class="section animated">
+            <h2>4.2 Psykisk hälsa och stress</h2>
+            
+            <div class="definition">
+                <h3>Psykisk hälsa</h3>
+                <p>God psykisk hälsa kännetecknas av:</p>
+                <ul>
+                    <li>Förmågan att hantera livets upp- och nedgångar</li>
+                    <li>Att ofta ha en positiv framtidssyn</li>
+                    <li>Att känna lust och glädje</li>
+                    <li>Att ha goda relationer</li>
+                </ul>
+            </div>
+            
+            <!-- Övningsfrågor för detta avsnitt -->
+            <h3>Övningsfrågor - Psykisk hälsa och stress</h3>
+            <div id="psykisk-questions"></div>
+            
+            <button onclick="document.querySelector('[data-section=\'somn\']').click()">Gå vidare till nästa avsnitt</button>
+        </section>
+        
+        <!-- 4.3 Sömn -->
+        <section id="somn" class="section animated">
+            <h2>4.3 Sömn</h2>
+            
+            <div class="definition">
+                <h3>Sömn</h3>
+                <p>Sömn utgör en tredjedel av en människas liv. Det är kroppens viktigaste tid för tre kritiska processer:</p>
+                <ul>
+                    <li>Återhämtning</li>
+                    <li>Städning av slaggprodukter från hjärnan</li>
+                    <li>Bearbeta information och skapa minnen</li>
+                </ul>
+            </div>
+            
+            <!-- Övningsfrågor för detta avsnitt -->
+            <h3>Övningsfrågor - Sömn</h3>
+            <div id="somn-questions"></div>
+            
+            <button onclick="document.querySelector('[data-section=\'fysisk\']').click()">Gå vidare till nästa avsnitt</button>
+        </section>
+        
+        <!-- 4.4 Fysisk aktivitet -->
+        <section id="fysisk" class="section animated">
+            <h2>4.4 Fysisk aktivitet</h2>
+            
+            <div class="definition">
+                <h3>Fysisk aktivitet</h3>
+                <p>Kroppsrörelse som ökar energiförbrukningen utöver viloförbrukning. Detta kan vara allt från vardagsaktiviteter till planerad träning.</p>
+            </div>
+            
+            <h3>Rekommendationer för fysisk aktivitet</h3>
+            <div class="flex-two-column">
+                <div class="column">
+                    <h4>Vuxna</h4>
+                    <p>Alla typer av fysisk aktivitet är gynnsamma, även för kognitiva förmågor. Mental bearbetningshastighet förbättras mest med fysisk aktivitet.</p>
+                    <p>Rekommendation:</p>
+                    <ul>
+                        <li>150-300 minuter måttlig intensitet per vecka</li>
+                        <li>ELLER 75-150 minuter hög intensitet per vecka</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h4>Barn och ungdomar</h4>
+                    <p>Bör vara fysiskt aktiva minst 60 minuter dagligen, med hög intensitet minst tre gånger per vecka.</p>
+                    
+                    <div class="activity-icons">
+                        <div class="activity-icon">🏃‍♀️</div>
+                        <div class="activity-icon">🚴‍♂️</div>
+                        <div class="activity-icon">🏊‍♀️</div>
+                        <div class="activity-icon">🏋️‍♀️</div>
+                        <div class="activity-icon">⚽</div>
+                        <div class="activity-icon">🧘‍♀️</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Övningsfrågor för detta avsnitt -->
+            <h3>Övningsfrågor - Fysisk aktivitet</h3>
+            <div id="fysisk-questions"></div>
+            
+            <button onclick="document.querySelector('[data-section=\'droger\']').click()">Gå vidare till nästa avsnitt</button>
+        </section>
+        
+        <!-- 4.5 Droger -->
+        <section id="droger" class="section animated">
+            <h2>4.5 Droger</h2>
+            
+            <div class="definition">
+                <h3>Droger</h3>
+                <p>Ämnen som påverkar det centrala nervsystemet (CNS). De liknar hjärnans egna signalsubstanser och binder till receptorer, vilket påverkar hjärnans funktion. Effekten varierar mellan olika individer eftersom våra hjärnor skiljer sig från varandra.</p>
+            </div>
+            
+            <!-- Övningsfrågor för detta avsnitt -->
+            <h3>Övningsfrågor - Droger</h3>
+            <div id="droger-questions"></div>
+            
+            <button onclick="document.querySelector('[data-section=\'quiz\']').click()">Gå vidare till quiz</button>
+        </section>
+        
+        <!-- Quiz -->
+        <section id="quiz" class="section animated">
+            <h2>Quiz - Testa dina kunskaper</h2>
+            
+            <div id="quiz-start">
+                <div class="info-box">
+                    <h3>Dags att testa dina kunskaper!</h3>
+                    <p>Detta quiz innehåller slumpmässigt utvalda frågor från alla avsnitt i studiehandledningen. Försök att svara så snabbt och korrekt som möjligt för att få högsta poäng!</p>
+                    <ul>
+                        <li>Du får poäng för varje rätt svar</li>
+                        <li>Ju snabbare du slutför quizet, desto fler bonuspoäng får du</li>
+                        <li>Kan du slå ditt eget rekord?</li>
+                    </ul>
+                </div>
+                
+                <div class="achievement-tier">
+                    <div class="tier tier-1">Nivå 1: Slutför på under 3 minuter</div>
+                    <div class="tier tier-2">Nivå 2: Slutför på under 2 minuter</div>
+                    <div class="tier tier-3">Nivå 3: Slutför på under 1 minut</div>
+                </div>
+                
+                <div id="best-time-display" class="time-record">Ditt snabbaste resultat: Inte satt än</div>
+                
+                <button onclick="startQuiz()">Starta Quiz</button>
+            </div>
+            
+            <div id="quiz-progress" style="display: none;">
+                <div class="timer" id="quiz-timer">0:00</div>
+                <div class="progress-container">
+                    <div class="progress-bar" id="quiz-progress-bar"></div>
+                </div>
+                <p id="quiz-progress-text">0 av 0 besvarade</p>
+            </div>
+            
+            <div id="quiz-questions" style="display: none;"></div>
+            
+            <div id="quiz-result" style="display: none;"></div>
+            
+            <!-- Floating quiz status - visas endast under aktiv quiz -->
+            <div id="quiz-status-floating" class="quiz-status-floating" style="display: none;">
+                <div class="timer" id="floating-timer">0:00</div>
+                <div class="mini-progress">
+                    <div class="mini-progress-bar" id="floating-progress-bar"></div>
+                </div>
+                <div class="status-text" id="floating-status">0/15 besvarade</div>
+            </div>
+        </section>
+    </div>
+    
+    <script>
+        // Databas med frågor för varje avsnitt
+        const questionsDB = {
+            vetenskap: [
+                {
+                    question: "Vad menas med livsstil?",
+                    options: [
+                        "Enbart genetiska faktorer som påverkar hälsan",
+                        "Vanor och val vi gör i vardagen som vi kan förändra",
+                        "Sjukdomar som är direkt nedärvda från våra föräldrar",
+                        "Den sociala ställning man har i samhället"
+                    ],
+                    correctIndex: 1
+                },
+                {
+                    question: "Hur definierar WHO hälsa?",
+                    options: [
+                        "Endast frånvaro av sjukdom",
+                        "Endast mentalt välbefinnande",
+                        "Ett tillstånd av fullständigt fysiskt, mentalt och socialt välbefinnande och inte enbart frånvaro av sjukdom",
+                        "Endast god fysik och kondition"
+                    ],
+                    correctIndex: 2
+                },
+                {
+                    question: "Vilka utmaningar finns med vetenskapliga studier om hälsa?",
+                    options: [
+                        "Det är lätt att isolera effekten av en enskild faktor",
+                        "Alla människor reagerar exakt likadant på samma åtgärder",
+                        "Självrapporterad hälsa via enkäter kan vara subjektiv",
+                        "Det finns inga etiska begränsningar för hälsostudier"
+                    ],
+                    correctIndex: 2
+                },
+                {
+                    question: "Vad kännetecknar bra vetenskapliga studier?",
+                    options: [
+                        "De är sponsrade av företag med vinstintresse",
+                        "De har få deltagare för att kunna kontrollera alla variabler",
+                        "De har inga etiska godkännanden",
+                        "De är reproducerbara och har genomgått expertgranskning"
+                    ],
+                    correctIndex: 3
+                },
+                {
+                    question: "Vad menas med 'blå zoner'?",
+                    options: [
+                        "Områden med särskilt hög vattenförbrukning",
+                        "Områden i världen där människor mätbart lever längre",
+                        "Områden med hög teknologisk utveckling",
+                        "Områden med hög förekomst av depression"
+                    ],
+                    correctIndex: 1
+                },
+                {
+                    question: "Vad är 'infodemi'?",
+                    options: [
+                        "En pandemi som endast påverkar hjärnfunktionen",
+                        "Överflöd av information, både korrekt och felaktig, som gör det svårt att hitta tillförlitliga källor",
+                        "En sjukdom som endast sprids via datorer",
+                        "Information som endast finns tillgänglig för medicinska experter"
+                    ],
+                    correctIndex: 1
+                }
+            ],
+            psykisk: [
+                {
+                    question: "Vad kännetecknar god psykisk hälsa?",
+                    options: [
+                        "Att aldrig känna sig nedstämd",
+                        "Förmågan att hantera livets upp- och nedgångar",
+                        "Att meditera dagligen",
+                        "Att ta antidepressiva mediciner"
+                    ],
+                    correctIndex: 1
+                },
+                {
+                    question: "Vilket system aktiveras vid stress?",
+                    options: [
+                        "Parasympatiska nervsystemet",
+                        "Sympatiska nervsystemet",
+                        "Endokrina systemet",
+                        "Lymfatiska systemet"
+                    ],
+                    correctIndex: 1
+                },
+                {
+                    question: "Vilken hjärnstruktur fungerar som hjärnans alarmsystem?",
+                    options: [
+                        "Frontallob",
+                        "Hippocampus",
+                        "Amygdala",
+                        "Cerebellum"
+                    ],
+                    correctIndex: 2
+                },
+                {
+                    question: "Vad är kortisol?",
+                    options: [
+                        "En signalsubstans som gör oss glada",
+                        "Ett stresshormon som frisätts från binjurarna",
+                        "Ett sömnhormon",
+                        "En smärtlindrande substans"
+                    ],
+                    correctIndex: 1
+                },
+                {
+                    question: "Vilken del av hjärnan utvecklas sist (runt 25-årsåldern)?",
+                    options: [
+                        "Frontalloben",
+                        "Amygdala",
+                        "Lillhjärnan",
+                        "Hjärnstammen"
+                    ],
+                    correctIndex: 0
+                },
+                {
+                    question: "Vad är en panikattack?",
+                    options: [
+                        "Ett livshotande tillstånd där hjärtat stannar",
+                        "En mild form av nedstämdhet",
+                        "Den mest intensiva formen av ångest med stark obehagskänsla",
+                        "En långvarig depression"
+                    ],
+                    correctIndex: 2
+                }
+            ],
+            somn: [
+                {
+                    question: "Vilka är de tre huvudtyperna av sömn?",
+                    options: [
+                        "Lätt sömn, djup sömn och komatös sömn",
+                        "Drömsömn (REM), bassömn och djupsömn",
+                        "Aktiv sömn, passiv sömn och halvvaken sömn",
+                        "Alfa-sömn, beta-sömn och delta-sömn"
+                    ],
+                    correctIndex: 1
+                },
+                {
+                    question: "Vad är melatonin?",
+                    options: [
+                        "Ett stresshormon",
+                        "Ett sömnhormon som produceras i tallkottkörteln",
+                        "Ett humörhöjande hormon",
+                        "Ett smärtlindrande hormon"
+                    ],
+                    correctIndex: 1
+                },
+                {
+                    question: "Vilken faktor är viktigast för att ställa in vår biologiska klocka?",
+                    options: [
+                        "Månen",
+                        "Temperatur",
+                        "Solljus",
+                        "Magnetfält"
+                    ],
+                    correctIndex: 2
+                },
+                {
+                    question: "Vilken process sker i hjärnan under sömn som är viktigt för att förhindra neurodegenerativa sjukdomar?",
+                    options: [
+                        "Produktion av stresshormoner",
+                        "Minskning av hjärnvolymen",
+                        "Rengöring genom ökat flöde av cerebrospinalvätska",
+                        "Förstärkning av nervkopplingar"
+                    ],
+                    correctIndex: 2
+                },
+                {
+                    question: "Hur påverkar blått ljus från skärmar sömnen?",
+                    options: [
+                        "Det har ingen påverkan på sömnen",
+                        "Det ökar melatoninproduktionen",
+                        "Det hämmar melatoninproduktionen",
+                        "Det ökar produktionen av serotonin"
+                    ],
+                    correctIndex: 2
+                },
+                {
+                    question: "Hur många timmars sömn rekommenderas för tonåringar (13-18 år)?",
+                    options: [
+                        "6 timmar",
+                        "7 timmar",
+                        "8 timmar",
+                        "9 timmar"
+                    ],
+                    correctIndex: 3
+                }
+            ],
+            fysisk: [
+                {
+                    question: "Hur definieras fysisk aktivitet?",
+                    options: [
+                        "Endast planerad träning på gym",
+                        "Endast aktivitet som görs under minst 30 minuter",
+                        "Kroppsrörelse som ökar energiförbrukningen utöver viloförbrukning",
+                        "Endast aktivitet som gör dig andfådd"
+                    ],
+                    correctIndex: 2
+                },
+                {
+                    question: "Hur mycket måttlig fysisk aktivitet rekommenderas för vuxna per vecka?",
+                    options: [
+                        "30-60 minuter",
+                        "75-150 minuter",
+                        "150-300 minuter",
+                        "300-450 minuter"
+                    ],
+                    correctIndex: 2
+                },
+                {
+                    question: "Hur mycket fysisk aktivitet rekommenderas för barn och ungdomar dagligen?",
+                    options: [
+                        "15 minuter",
+                        "30 minuter",
+                        "45 minuter",
+                        "60 minuter"
+                    ],
+                    correctIndex: 3
+                },
+                {
+                    question: "Vilken kognitiv förmåga förbättras mest av fysisk aktivitet?",
+                    options: [
+                        "Långtidsminne",
+                        "Mental bearbetningshastighet",
+                        "Språkförmåga",
+                        "Matematisk förmåga"
+                    ],
+                    correctIndex: 1
+                },
+                {
+                    question: "Vilken hjärnstruktur kan öka i volym hos fysiskt aktiva personer?",
+                    options: [
+                        "Amygdala",
+                        "Hippocampus",
+                        "Tallkottkörtel",
+                        "Lillhjärnan"
+                    ],
+                    correctIndex: 1
+                },
+                {
+                    question: "Vilken av följande är INTE en dokumenterad hälsofördel med fysisk aktivitet?",
+                    options: [
+                        "Förbättrad kondition",
+                        "Starkare skelett",
+                        "Bättre minne och koncentration",
+                        "Ökad risk för hjärt-kärlsjukdomar"
+                    ],
+                    correctIndex: 3
+                }
+            ],
+            droger: [
+                {
+                    question: "Vad är droger?",
+                    options: [
+                        "Endast olagliga substanser",
+                        "Endast receptbelagda läkemedel",
+                        "Ämnen som påverkar det centrala nervsystemet",
+                        "Endast substanser som injiceras"
+                    ],
+                    correctIndex: 2
+                },
+                {
+                    question: "Vad menas med toleransutveckling?",
+                    options: [
+                        "Att kroppen läker snabbare efter droganvändning",
+                        "Att en större mängd av drogen behövs för att uppnå samma effekt",
+                        "Att användaren blir mer social av drogen",
+                        "Att drogen inte längre kan tas in i kroppen"
+                    ],
+                    correctIndex: 1
+                },
+                {
+                    question: "Vilken del av hjärnan är central för drogers belönande effekter?",
+                    options: [
+                        "Amygdala",
+                        "Frontalloben",
+                        "Belöningssystemet",
+                        "Lillhjärnan"
+                    ],
+                    correctIndex: 2
+                },
+                {
+                    question: "Vilken av följande är en centralstimulerande drog?",
+                    options: [
+                        "Alkohol",
+                        "Heroin",
+                        "Nikotin",
+                        "GHB"
+                    ],
+                    correctIndex: 2
+                },
+                {
+                    question: "Vad är abstinens?",
+                    options: [
+                        "När man tar en större dos än vanligt",
+                        "Obehag som uppstår när man slutar ta en drog",
+                        "Känslan av välbehag när droger tas",
+                        "När man blandar olika droger"
+                    ],
+                    correctIndex: 1
+                },
+                {
+                    question: "Vad är en konsekvens av nikotinanvändning?",
+                    options: [
+                        "Minskad risk för hjärt-kärlsjukdomar",
+                        "Förbättrad lungfunktion",
+                        "Ökad risk för hjärt-kärlsjukdomar",
+                        "Bättre sömn"
+                    ],
+                    correctIndex: 2
+                }
+            ]
+        };
+        
+        // Globala variabler för quiz
+        let quizQuestions = [];
+        let quizAnswers = {};
+        let quizStartTime = null;
+        let quizInProgress = false;
+        let quizTimerInterval = null;
+        
+        // Lagra och visa bästa tider
+        let bestTime = localStorage.getItem('quizBestTime') ? parseInt(localStorage.getItem('quizBestTime')) : null;
+        
+        // Uppdatera bästa tid-visningen
+        function updateBestTimeDisplay() {
+            const bestTimeElem = document.getElementById('best-time');
+            const bestTimeDisplayElem = document.getElementById('best-time-display');
+            
+            if (bestTime) {
+                const minutes = Math.floor(bestTime / 60);
+                const seconds = bestTime % 60;
+                const timeString = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+                
+                if (bestTimeElem) bestTimeElem.textContent = timeString;
+                if (bestTimeDisplayElem) bestTimeDisplayElem.textContent = `Ditt snabbaste resultat: ${timeString}`;
+            } else {
+                if (bestTimeElem) bestTimeElem.textContent = "Inte satt än";
+                if (bestTimeDisplayElem) bestTimeDisplayElem.textContent = "Ditt snabbaste resultat: Inte satt än";
+            }
+        }
+        
+        // Funktion för att visa sektionsfrågor
+        function renderSectionQuestions(section) {
+            if (!questionsDB[section]) return '';
+            
+            let html = '';
+            
+            questionsDB[section].forEach((q, i) => {
+                html += `
+                    <div class="question">
+                        <h4>${i + 1}. ${q.question}</h4>
+                        <div class="options">
+                            ${q.options.map((option, j) => `
+                                <div class="option" onclick="selectSectionAnswer('${section}', ${i}, ${j}, ${j === q.correctIndex})">
+                                    ${option}
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            return html;
+        }
+        
+        // Funktion för att välja svar på sektionsfrågor
+        function selectSectionAnswer(section, questionIndex, optionIndex, isCorrect) {
+            const options = document.querySelectorAll(`.question:nth-child(${questionIndex + 1}) .option`);
+            
+            options.forEach((option, index) => {
+                option.classList.remove('selected', 'correct', 'wrong');
+                
+                if (index === optionIndex) {
+                    option.classList.add('selected');
+                    option.classList.add(isCorrect ? 'correct' : 'wrong');
+                } else if (index === questionsDB[section][questionIndex].correctIndex && !isCorrect) {
+                    option.classList.add('correct');
+                }
+            });
+        }
+        
+        // Funktion för att hämta slumpmässiga frågor
+        function getRandomQuestions(count = 15) {
+            const allQuestions = [];
+            
+            // Combine all sections' questions
+            Object.keys(questionsDB).forEach(section => {
+                questionsDB[section].forEach(q => {
+                    allQuestions.push({...q, section});
+                });
+            });
+            
+            // Shuffle questions
+            const shuffled = [...allQuestions].sort(() => 0.5 - Math.random());
+            
+            // Return the specified count
+            return shuffled.slice(0, count);
+        }
+        
+        // Funktion för att starta quiz
+        function startQuiz() {
+            // Reset quiz variables
+            quizQuestions = getRandomQuestions(15);
+            quizAnswers = {};
+            quizStartTime = new Date().getTime();
+            quizInProgress = true;
+            
+            // Reset timer display
+            document.getElementById('quiz-timer').textContent = '0:00';
+            document.getElementById('floating-timer').textContent = '0:00';
+            
+            // Reset progress
+            const progressBar = document.getElementById('quiz-progress-bar');
+            const floatingProgressBar = document.getElementById('floating-progress-bar');
+            progressBar.style.width = '0%';
+            floatingProgressBar.style.width = '0%';
+            
+            // Update progress text
+            document.getElementById('quiz-progress-text').textContent = `0 av ${quizQuestions.length} besvarade`;
+            document.getElementById('floating-status').textContent = `0/${quizQuestions.length} besvarade`;
+            
+            // Render questions
+            let questionsHTML = '';
+            quizQuestions.forEach((q, i) => {
+                questionsHTML += `
+                    <div class="question">
+                        <h4>${i + 1}. ${q.question}</h4>
+                        <div class="options">
+                            ${q.options.map((option, j) => `
+                                <div class="option" data-question="${i}" onclick="selectQuizAnswer(${i}, ${j}, ${j === q.correctIndex})">
+                                    ${option}
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            // Update the page
+            document.getElementById('quiz-start').style.display = 'none';
+            document.getElementById('quiz-result').style.display = 'none';
+            document.getElementById('quiz-progress').style.display = 'block';
+            document.getElementById('quiz-questions').innerHTML = questionsHTML;
+            document.getElementById('quiz-questions').style.display = 'block';
+            document.getElementById('quiz-status-floating').style.display = 'block';
+            
+            // Start the timer
+            startTimer();
+        }
+        
+        // Funktion för att välja svar i quizet
+        function selectQuizAnswer(questionIndex, optionIndex, isCorrect) {
+            quizAnswers[questionIndex] = {
+                selected: optionIndex,
+                correct: isCorrect
+            };
+            
+            // Update the selected option's appearance
+            const options = document.querySelectorAll(`.option[data-question="${questionIndex}"]`);
+            options.forEach(option => {
+                option.classList.remove('selected');
+            });
+            options[optionIndex].classList.add('selected');
+            
+            updateQuizProgress();
+        }
+        
+        // Funktion för att uppdatera quizets framsteg
+        function updateQuizProgress() {
+            const totalQuestions = quizQuestions.length;
+            const answered = Object.keys(quizAnswers).length;
+            
+            // Update progress bar
+            const progressBar = document.getElementById('quiz-progress-bar');
+            const floatingProgressBar = document.getElementById('floating-progress-bar');
+            const progressPercentage = (answered / totalQuestions) * 100;
+            progressBar.style.width = `${progressPercentage}%`;
+            floatingProgressBar.style.width = `${progressPercentage}%`;
+            
+            // Update progress text
+            document.getElementById('quiz-progress-text').textContent = `${answered} av ${totalQuestions} besvarade`;
+            document.getElementById('floating-status').textContent = `${answered}/${totalQuestions} besvarade`;
+            
+            // Check if quiz is complete
+            if (answered === totalQuestions) {
+                finishQuiz();
+            }
+        }
+        
+        // Funktion för att starta timer
+        function startTimer() {
+            if (quizTimerInterval) {
+                clearInterval(quizTimerInterval);
+            }
+            
+            quizTimerInterval = setInterval(() => {
+                if (!quizInProgress) return;
+                
+                const currentTime = new Date().getTime();
+                const elapsedSeconds = Math.floor((currentTime - quizStartTime) / 1000);
+                const minutes = Math.floor(elapsedSeconds / 60);
+                const seconds = elapsedSeconds % 60;
+                
+                const timeDisplay = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+                document.getElementById('quiz-timer').textContent = timeDisplay;
+                document.getElementById('floating-timer').textContent = timeDisplay;
+            }, 500);
+        }
+        
+        // Funktion för att avsluta quiz
+        function finishQuiz() {
+            quizInProgress = false;
+            clearInterval(quizTimerInterval);
+            
+            // Hide floating status
+            document.getElementById('quiz-status-floating').style.display = 'none';
+            
+            // Calculate results
+            const totalQuestions = quizQuestions.length;
+            const answered = Object.keys(quizAnswers).length;
+            const correct = Object.values(quizAnswers).filter(a => a.correct).length;
+            const score = Math.round((correct / totalQuestions) * 100);
+            
+            // Calculate time bonus
+            const currentTime = new Date().getTime();
+            const elapsedSeconds = Math.floor((currentTime - quizStartTime) / 1000);
+            
+            // Update best time if this is a new record
+            if (answered === totalQuestions && (bestTime === null || elapsedSeconds < bestTime)) {
+                bestTime = elapsedSeconds;
+                localStorage.setItem('quizBestTime', bestTime);
+                updateBestTimeDisplay();
+            }
+            
+            // Time bonus calculation (based on completion time)
+            const timeBonus = Math.max(0, 300 - elapsedSeconds) * 2; // 2 points for each second under 5 minutes
+            
+            const totalScore = score + timeBonus;
+            
+            // Display results
+            const resultContainer = document.getElementById('quiz-result');
+            resultContainer.innerHTML = `
+                <h3>Quiz Resultat</h3>
+                <p>Du svarade på ${answered} av ${totalQuestions} frågor.</p>
+                <p>Rätta svar: ${correct} (${score}%)</p>
+                <p>Tid: ${Math.floor(elapsedSeconds / 60)}:${elapsedSeconds % 60 < 10 ? '0' : ''}${elapsedSeconds % 60}</p>
+                <p>Tidsbonus: +${timeBonus} poäng</p>
+                <p class="result">Din totalpoäng: ${totalScore}</p>
+                
+                ${bestTime === elapsedSeconds && answered === totalQuestions ? 
+                  '<p class="time-record">Nytt personligt rekord!</p>' : ''}
+                
+                <button onclick="startQuiz()">Försök igen</button>
+                <button onclick="showQuizAnswers()">Visa rätta svar</button>
+            `;
+            
+            document.getElementById('quiz-questions').style.display = 'none';
+            document.getElementById('quiz-start').style.display = 'none';
+            document.getElementById('quiz-progress').style.display = 'none';
+            resultContainer.style.display = 'block';
+            
+            // Check for achievements
+            checkForAchievements(correct, totalQuestions, elapsedSeconds);
+        }
+        
+        // Funktion för att visa rätta svar
+        function showQuizAnswers() {
+            let answersHTML = '<h3>Rätta svar</h3>';
+            
+            quizQuestions.forEach((q, i) => {
+                const userAnswer = quizAnswers[i] ? quizAnswers[i].selected : null;
+                const isCorrect = quizAnswers[i] ? quizAnswers[i].correct : false;
+                
+                answersHTML += `
+                    <div class="question">
+                        <h4>${i + 1}. ${q.question}</h4>
+                        <div class="options">
+                            ${q.options.map((option, j) => `
+                                <div class="option ${j === q.correctIndex ? 'correct' : ''} ${j === userAnswer && j !== q.correctIndex ? 'wrong' : ''} ${j === userAnswer ? 'selected' : ''}">
+                                    ${option} ${j === q.correctIndex ? '✓' : ''}
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            answersHTML += '<button onclick="document.getElementById(\'quiz-result\').style.display = \'block\'; document.getElementById(\'quiz-answers\').style.display = \'none\';">Tillbaka till resultat</button>';
+            
+            const answersContainer = document.createElement('div');
+            answersContainer.id = 'quiz-answers';
+            answersContainer.innerHTML = answersHTML;
+            
+            document.getElementById('quiz-result').style.display = 'none';
+            document.getElementById('quiz').appendChild(answersContainer);
+        }
+        
+        // Funktion för att kontrollera achievements
+        function checkForAchievements(correct, total, time) {
+            if (correct === total) {
+                unlockAchievement('quiz-master');
+            }
+            
+            if (correct === total) {
+                if (time < 60) {
+                    unlockAchievement('light-speed');
+                    unlockAchievement('lightning');
+                    unlockAchievement('speed-demon');
+                } else if (time < 120) {
+                    unlockAchievement('lightning');
+                    unlockAchievement('speed-demon');
+                } else if (time < 180) {
+                    unlockAchievement('speed-demon');
+                }
+            }
+        }
+        
+        // Funktion för att låsa upp achievement
+        function unlockAchievement(id) {
+            const achievement = document.getElementById(id);
+            if (achievement && achievement.querySelector('.locked-overlay')) {
+                achievement.querySelector('.locked-overlay').style.display = 'none';
+                achievement.classList.add('unlocked');
+                
+                // Save achievement
+                const achievementsUnlocked = JSON.parse(localStorage.getItem('achievementsUnlocked') || '[]');
+                if (!achievementsUnlocked.includes(id)) {
+                    achievementsUnlocked.push(id);
+                    localStorage.setItem('achievementsUnlocked', JSON.stringify(achievementsUnlocked));
+                    
+                    // Show notification
+                    showNotification(`Prestation upplåst: ${achievement.getAttribute('data-name')}`);
+                }
+            }
+        }
+        
+        // Funktion för att visa notifikation
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 100);
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 500);
+            }, 3000);
+        }
+        
+        // Funktion för att ladda prestationer från localStorage
+        function loadAchievements() {
+            const achievementsUnlocked = JSON.parse(localStorage.getItem('achievementsUnlocked') || '[]');
+            achievementsUnlocked.forEach(id => {
+                const achievement = document.getElementById(id);
+                if (achievement && achievement.querySelector('.locked-overlay')) {
+                    achievement.querySelector('.locked-overlay').style.display = 'none';
+                    achievement.classList.add('unlocked');
+                }
+            });
+        }
+        
+        // Funktion för att spåra sektionsbesök
+        function trackSectionVisit(section) {
+            const sectionsVisited = JSON.parse(localStorage.getItem('sectionsVisited') || '[]');
+            if (!sectionsVisited.includes(section)) {
+                sectionsVisited.push(section);
+                localStorage.setItem('sectionsVisited', JSON.stringify(sectionsVisited));
+                
+                // Check if all content sections have been visited
+                const contentSections = ['vetenskap', 'psykisk', 'somn', 'fysisk', 'droger'];
+                const allVisited = contentSections.every(s => sectionsVisited.includes(s));
+                
+                if (allVisited) {
+                    unlockAchievement('explorer');
+                }
+            }
+        }
+        
+        // Initiera sidan när den laddas
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load best time
+            updateBestTimeDisplay();
+            
+            // Render section questions
+            const sections = ['vetenskap', 'psykisk', 'somn', 'fysisk', 'droger'];
+            sections.forEach(section => {
+                const questionsContainer = document.getElementById(`${section}-questions`);
+                if (questionsContainer) {
+                    questionsContainer.innerHTML = renderSectionQuestions(section);
+                }
+            });
+            
+            // Set up navigation
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Update active navigation
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show corresponding section
+                    const sections = document.querySelectorAll('.section');
+                    sections.forEach(s => s.classList.remove('active'));
+                    
+                    const targetSection = this.getAttribute('data-section');
+                    document.getElementById(targetSection).classList.add('active', 'animated');
+                    
+                    // If quiz is in progress and user navigates away, confirm
+                    if (quizInProgress && targetSection !== 'quiz') {
+                        if (confirm('Vill du avbryta pågående quiz? Dina svar kommer att förloras.')) {
+                            finishQuiz();
+                        } else {
+                            return; // Stay on quiz page
+                        }
+                    }
+                    
+                    // Hide quiz floating status if navigating away from quiz
+                    if (targetSection !== 'quiz') {
+                        document.getElementById('quiz-status-floating').style.display = 'none';
+                    }
+                    
+                    // Track visit for explorer achievement
+                    trackSectionVisit(targetSection);
+                });
+            });
+            
+            // Load achievements from localStorage
+            loadAchievements();
+            
+            // Add CSS for notification
+            const style = document.createElement('style');
+            style.textContent = `
+                .notification {
+                    position: fixed;
+                    top: 20px;
+                    left: 50%;
+                    transform: translateX(-50%) translateY(-100px);
+                    background-color: #2ecc71;
+                    color: white;
+                    padding: 15px 20px;
+                    border-radius: 5px;
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                    transition: transform 0.5s ease;
+                    z-index: 1000;
+                }
+                
+                .notification.show {
+                    transform: translateX(-50%) translateY(0);
+                }
+                
+                .quiz-status-floating {
+                    position: fixed;
+                    bottom: 20px;
+                    right: 20px;
+                    background-color: var(--dark);
+                    color: white;
+                    padding: 15px;
+                    border-radius: 10px;
+                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+                    z-index: 1000;
+                    min-width: 180px;
+                    opacity: 0.9;
+                    transition: opacity 0.3s, transform 0.3s;
+                }
+                
+                .quiz-status-floating:hover {
+                    opacity: 1;
+                    transform: translateY(-5px);
+                }
+                
+                .quiz-status-floating .timer {
+                    font-size: 24px;
+                    margin-bottom: 10px;
+                    text-align: center;
+                }
+                
+                .mini-progress {
+                    height: 8px;
+                    background-color: rgba(255, 255, 255, 0.3);
+                    border-radius: 4px;
+                    overflow: hidden;
+                    margin-bottom: 10px;
+                }
+                
+                .mini-progress-bar {
+                    height: 100%;
+                    background-color: var(--secondary);
+                    border-radius: 4px;
+                    width: 0;
+                    transition: width 0.5s;
+                }
+                
+                .status-text {
+                    text-align: center;
+                    font-size: 14px;
+                }
+                
+                @media (max-width: 768px) {
+                    .quiz-status-floating {
+                        bottom: 10px;
+                        right: 10px;
+                        padding: 10px;
+                        min-width: 150px;
+                    }
+                    
+                    .quiz-status-floating .timer {
+                        font-size: 20px;
+                        margin-bottom: 5px;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
+</html>
