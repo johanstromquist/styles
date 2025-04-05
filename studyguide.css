@@ -6,6 +6,7 @@
     --dark: #2c3e50;
     --correct: #27ae60;
     --wrong: #c0392b;
+    --gold: #f39c12;
 }
 
 * {
@@ -338,16 +339,21 @@ tr:nth-child(even) {
     flex: 1 1 200px;
     text-align: center;
     position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
 }
 
 .achievement.unlocked {
     background-color: #dff0d8;
     border: 1px solid #d6e9c6;
+    box-shadow: 0 0 15px rgba(46, 204, 113, 0.5);
 }
 
 .achievement-icon {
     font-size: 36px;
     margin-bottom: 10px;
+    position: relative;
+    z-index: 2;
 }
 
 .locked-overlay {
@@ -363,6 +369,8 @@ tr:nth-child(even) {
     justify-content: center;
     color: white;
     font-size: 24px;
+    transition: opacity 0.5s;
+    z-index: 3;
 }
 
 .activity-icons {
@@ -461,6 +469,116 @@ tr:nth-child(even) {
     font-size: 14px;
 }
 
+/* Notifications for achievements */
+.achievement-notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-150px);
+    background-color: var(--dark);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    z-index: 1010;
+    display: flex;
+    align-items: center;
+    max-width: 450px;
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.achievement-notification.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.achievement-notification .icon {
+    font-size: 40px;
+    margin-right: 15px;
+    animation: bounce 1s infinite;
+}
+
+.achievement-notification .content h3 {
+    margin: 0 0 5px 0;
+    color: white;
+}
+
+.achievement-notification .content p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.achievement-stack {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1010;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    pointer-events: none;
+}
+
+.achievement-badge {
+    background-color: var(--dark);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.5s, transform 0.5s;
+    pointer-events: none;
+}
+
+.achievement-badge.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.achievement-badge .emoji {
+    font-size: 20px;
+    margin-right: 8px;
+}
+
+@keyframes achievement-unlock {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes shine {
+    0% { background-position: -100px; }
+    40% { background-position: 300px; }
+    100% { background-position: 300px; }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.achievement.unlocking {
+    animation: achievement-unlock 0.8s ease-in-out;
+    background-image: linear-gradient(90deg, 
+        rgba(255,255,255,0) 0%, 
+        rgba(255,255,255,0.4) 50%, 
+        rgba(255,255,255,0) 100%);
+    background-size: 200px 100%;
+    background-repeat: no-repeat;
+    animation: achievement-unlock 0.8s ease-in-out, 
+               shine 1.5s ease-in-out;
+}
+
+.achievement .locked-overlay.hiding {
+    opacity: 0;
+}
+
 @media (max-width: 768px) {
     .flex-container, .flex-two-column {
         flex-direction: column;
@@ -481,6 +599,15 @@ tr:nth-child(even) {
         font-size: 20px;
         margin-bottom: 5px;
     }
+    
+    .achievement-notification {
+        width: 90%;
+        padding: 15px;
+    }
+    
+    .achievement-notification .icon {
+        font-size: 30px;
+    }
 }
 
 @keyframes fadeIn {
@@ -500,4 +627,25 @@ tr:nth-child(even) {
 
 .pulse {
     animation: pulse 2s infinite;
+}
+
+.confetti {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: var(--gold);
+    opacity: 0;
+    animation: confetti-fall 3s ease-in-out forwards;
+    z-index: 1;
+}
+
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100px) rotate(360deg);
+        opacity: 0;
+    }
 }
