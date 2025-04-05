@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Livsstil och Hälsa - Interaktiv Studiehandledning</title>
-    <link rel="stylesheet" href="https://johanstromquist.github.io/styles/studyguide.css">
+    <link rel="stylesheet" href="studyguide.css">
 </head>
 <body>
     <div class="container">
@@ -44,30 +44,28 @@
             <div class="flex-container">
                 <div class="card">
                     <h3>🏆 Prestationer att låsa upp</h3>
-                    <p>När du använder studiehandledningen kan du låsa upp prestationer:</p>
-                    <ul>
-                        <li>Kunskapssökaren - Besök alla avsnitt</li>
-                        <li>Quizmästaren - Få 100% rätt på quizet</li>
-                        <li>Snabbtänkaren - Slutför quizet på under 3 minuter</li>
-                        <li>Blixten - Slutför quizet på under 2 minuter</li>
-                        <li>Ljusets hastighet - Slutför quizet på under 1 minut</li>
-                    </ul>
+                    <p>När du använder studiehandledningen kan du låsa upp olika prestationer genom att utforska innehållet och testa dina kunskaper i quizet. Se listan nedan för att se vilka prestationer som finns och hur du låser upp dem!</p>
                 </div>
                 <div class="card">
                     <h3>📊 Spåra dina framsteg</h3>
                     <p>Dina resultat och prestationer sparas automatiskt så att du kan se din utveckling över tid. Försök att förbättra dina tider och resultat för varje försök!</p>
-                    <p>Ditt bästa resultat hittills:</p>
-                    <div id="best-time" class="time-record">Inte satt än</div>
-                    <div class="achievement-tier">
-                        <div class="tier tier-1">3 min</div>
-                        <div class="tier tier-2">2 min</div>
-                        <div class="tier tier-3">1 min</div>
+                    <h4>🏆 Bästa Quiz-resultat:</h4>
+                    <div class="best-score-display">
+                        <p><span class="icon">✔️</span> Rätt svar: <strong id="best-score-correct">--</strong></p>
+                        <p><span class="icon">⏱️</span> Tid: <strong id="best-score-time">--:--</strong></p>
+                        <p><span class="icon">⭐</span> Poäng: <strong id="best-score-points">----</strong></p>
                     </div>
                 </div>
             </div>
             
             <button onclick="document.querySelector('[data-section=\'vetenskap\']').click()">Börja studera nu!</button>
             
+            <!-- Container for dynamically generated achievements -->
+            <div id="achievements-list" class="achievements">
+                <!-- Achievements will be loaded here by studyguide-core.js -->
+            </div>
+            
+            <!-- Original hardcoded list commented out for reference
             <div class="achievements">
                 <div class="achievement" id="explorer" data-name="Kunskapssökaren">
                     <div class="achievement-icon">🧭</div>
@@ -100,6 +98,7 @@
                     <div class="locked-overlay">🔒</div>
                 </div>
             </div>
+            -->
         </section>
         
         <!-- 4.1 Vetenskap om hälsa -->
@@ -107,46 +106,52 @@
             <h2>4.1 Vetenskap om hälsa</h2>
             
             <div class="definition">
-                <h3>Livsstil</h3>
+                <h3><span class="box-icon">📖</span> Livsstil</h3>
                 <p>Livsstil omfattar de vanor och val vi gör i vardagen. Det är sådant vi själva har möjlighet att förändra och välja. Exempelvis våra mat- och motionsvanor, sömnrutiner, och vårt förhållningssätt till stress.</p>
             </div>
             
             <h3>Livsstilsfaktorer som påverkar hälsan</h3>
-            <div class="flex-container">
-                <div class="card">
-                    <h4>🍷 Alkohol och droger</h4>
+            <div class="flex-container lifestyle-factors animated-children-stagger">
+                <div class="card lifestyle-card factor-negative">
+                    <div class="card-bg-icon">🍷</div>
+                    <h4>Alkohol och droger</h4>
                     <p>Användning av alkohol och andra droger påverkar både fysisk och psykisk hälsa negativt.</p>
                 </div>
-                <div class="card">
-                    <h4>🚬 Rökning</h4>
+                <div class="card lifestyle-card factor-negative">
+                    <div class="card-bg-icon">🚬</div>
+                    <h4>Rökning</h4>
                     <p>Tobaksrökning skadar lungorna och ökar risken för flera allvarliga sjukdomar.</p>
                 </div>
-                <div class="card">
-                    <h4>🏃‍♀️ Fysisk aktivitet</h4>
+                <div class="card lifestyle-card factor-positive">
+                     <div class="card-bg-icon">🏃‍♀️</div>
+                   <h4>Fysisk aktivitet</h4>
                     <p>Regelbunden motion stärker kroppen och förbättrar psykiskt välbefinnande.</p>
                 </div>
-                <div class="card">
-                    <h4>🍎 Näringsintag och dieter</h4>
+                <div class="card lifestyle-card factor-neutral">
+                     <div class="card-bg-icon">🍎</div>
+                    <h4>Näringsintag och dieter</h4>
                     <p>Vad vi äter påverkar vår energi, vårt humör och vår långsiktiga hälsa.</p>
                 </div>
-                <div class="card">
-                    <h4>😴 Sömn</h4>
+                <div class="card lifestyle-card factor-positive">
+                     <div class="card-bg-icon">😴</div>
+                    <h4>Sömn</h4>
                     <p>Tillräcklig och kvalitativ sömn är avgörande för både fysisk och mental återhämtning.</p>
                 </div>
-                <div class="card">
-                    <h4>😰 Stress</h4>
+                <div class="card lifestyle-card factor-negative">
+                     <div class="card-bg-icon">😰</div>
+                    <h4>Stress</h4>
                     <p>Kronisk stress påverkar både fysiska och mentala funktioner negativt.</p>
                 </div>
             </div>
             
             <div class="definition">
-                <h3>Hälsa enligt WHO</h3>
+                <h3><span class="box-icon">🌐</span> Hälsa enligt WHO</h3>
                 <p>WHO (Världshälsoorganisationen) definierar hälsa som "ett tillstånd av fullständigt fysiskt, mentalt och socialt välbefinnande och inte enbart frånvaro av sjukdom".</p>
             </div>
             
             <h3>Hälsans dimensioner</h3>
-            <div class="flex-two-column">
-                <div class="column">
+            <div class="flex-two-column health-dimensions">
+                <div class="column illustration-column">
                     <div class="illustration">
                         <svg width="300" height="300" viewBox="0 0 300 300">
                             <circle cx="150" cy="150" r="120" fill="#e3f2fd" stroke="#3498db" stroke-width="2" />
@@ -158,12 +163,12 @@
                         </svg>
                     </div>
                 </div>
-                <div class="column">
+                <div class="column text-column">
                     <p>Hälsa kan delas in i flera dimensioner:</p>
-                    <ul>
-                        <li><strong>Fysisk hälsa</strong> - Avser kroppens funktioner, såsom kondition, immunförsvar och frånvaro av fysiska sjukdomar.</li>
-                        <li><strong>Psykisk hälsa</strong> - Handlar om vårt mentala och emotionella välbefinnande, hur vi hanterar stress och livets utmaningar.</li>
-                        <li><strong>Sexuell hälsa</strong> - Omfattar sexuell utveckling, relationer och förmåga till närhet.</li>
+                    <ul class="icon-list-alt">
+                        <li><span class="list-icon">💪</span> <strong>Fysisk hälsa:</strong> Avser kroppens funktioner, såsom kondition, immunförsvar och frånvaro av fysiska sjukdomar.</li>
+                        <li><span class="list-icon">🧠</span> <strong>Psykisk hälsa:</strong> Handlar om vårt mentala och emotionella välbefinnande, hur vi hanterar stress och livets utmaningar.</li>
+                        <li><span class="list-icon">❤️‍🩹</span> <strong>Sexuell hälsa:</strong> Omfattar sexuell utveckling, relationer och förmåga till närhet.</li>
                     </ul>
                     <p>Alla dessa dimensioner hänger ihop och påverkar varandra. Dessutom påverkas vår hälsa av våra livsval och livsstilsfaktorer.</p>
                 </div>
@@ -171,8 +176,8 @@
             
             <h3>Utmaningar med vetenskapliga studier om hälsa</h3>
             <div class="info-box">
-                <p>Det är svårt att studera hur livsstilsfaktorer påverkar hälsan av flera anledningar:</p>
-                <ul>
+                <h3><span class="box-icon">🤔</span> Svårigheter i hälsostudier</h3>
+                <ul class="styled-list check-list-alt red-checks">
                     <li>Människor fungerar inte på samma sätt</li>
                     <li>Många yttre faktorer kan påverka resultatet i en hälsostudie (svårt att kontrollera alla variabler)</li>
                     <li>Många människor har svårt att dela med sig av personlig information</li>
@@ -181,9 +186,9 @@
             </div>
             
             <div class="definition">
-                <h3>Bättre vetenskapliga studier</h3>
+                <h3><span class="box-icon">⭐</span> Bättre vetenskapliga studier</h3>
                 <p>Bra vetenskapliga studier karaktäriseras av att de är:</p>
-                <ul>
+                <ul class="styled-list check-list-alt green-checks">
                     <li><strong>Reproducerbara</strong> - Kan upprepas och verifieras</li>
                     <li><strong>Granskade</strong> - Har genomgått expertgranskning</li>
                     <li><strong>Etiskt godkända</strong> - Har nödvändiga etiska tillstånd</li>
@@ -194,9 +199,9 @@
             </div>
             
             <div class="warning-box">
-                <h3>Källkritik: Vad är hälsosamt?</h3>
+                <h3><span class="box-icon">⚠️</span> Källkritik: Vad är hälsosamt?</h3>
                 <p>Det är viktigt att vara kritisk mot påståenden om hälsa i media! Var uppmärksam på att:</p>
-                <ul>
+                <ul class="styled-list cross-list-alt">
                     <li>Det är svårt att genomföra kontrollerade studier inom detta område</li>
                     <li>Produkter marknadsförs ofta av företag (miljard-industrier)</li>
                     <li>Information på bloggar och hemsidor har generellt inte genomgått någon faktagranskning</li>
@@ -207,34 +212,47 @@
             <h3>Infodemi av hälsopåståenden</h3>
             <p>Information sprids som ett virus. Det gör också felaktig information. När det är spännande kan det spridas ännu snabbare. Och det kan vara dödligt.</p>
             
-            <div class="definition">
-                <h3>Blå zoner</h3>
+            <div class="definition blue-zone-box">
+                <h3><span class="box-icon">🌍</span> Blå zoner</h3>
                 <p>Områden i världen där människor mätbart lever längre. Gemensamma livsstilsfaktorer i blå zoner:</p>
-                <ul>
-                    <li>Naturlig rörelse - vardagsmotion är integrerad i livsstilen</li>
-                    <li>Syfte - att ha mening med livet</li>
-                    <li>Stressreducering - regelbundna rutiner för att minska stress</li>
-                    <li>80%-regeln - äter tills man är 80% mätt</li>
-                    <li>Växtbaserad kost - mycket bönor, grönsaker och fullkorn</li>
-                    <li>Måttlig alkoholkonsumtion</li>
-                    <li>Andlighet/religion - deltagande i någon form av andlig gemenskap</li>
-                    <li>Familjen först - nära familjerelationer</li>
-                    <li>Tillhörighet - del av en social gemenskap</li>
+                <ul class="icon-list-alt cols-2">
+                    <li><span class="list-icon">🚶</span> Naturlig rörelse</li>
+                    <li><span class="list-icon">🎯</span> Syfte</li>
+                    <li><span class="list-icon">🧘</span> Stressreducering</li>
+                    <li><span class="list-icon">🍽️</span> 80%-regeln</li>
+                    <li><span class="list-icon">🌱</span> Växtbaserad kost</li>
+                    <li><span class="list-icon">🍇</span> Måttlig alkohol</li>
+                    <li><span class="list-icon">🙏</span> Andlighet/Tro</li>
+                    <li><span class="list-icon">🧑‍🧑‍🧒‍🧒</span> Familjen först</li>
+                    <li><span class="list-icon">🤝</span> Tillhörighet</li>
                 </ul>
             </div>
             
             <h3>Människan i en förändrad värld</h3>
-            <div class="info-box">
-                <p>Människan (Homo sapiens) har levt som jägare-samlare i ca 200 000 år. Vi har haft jordbruk i 10 000 år, industrialisering i 200 år och mobiltelefoner i 30 år.</p>
-                <p>Vår livsstil har utvecklats i rasande fart, men vår biologi och grundläggande funktion har inte förändrats nämnvärt. Vi är fortfarande anpassade för ett liv i naturen, inklusive:</p>
-                <ul>
-                    <li>Stressreaktioner och ångest för faror</li>
-                    <li>Sömnbehov för återhämtning</li>
-                    <li>Varierad kost med relativt dålig matförvaring</li>
-                    <li>Konstant fysisk aktivitet</li>
-                    <li>Grupplevnad (sociala relationer)</li>
-                </ul>
+            <div class="info-box comparison-box">
+                <h3><span class="box-icon">⏳</span> Dåtid vs. Nutid</h3>
+                 <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <h4>DÅ <span class="icon">🔥</span></h4>
+                        <p>Stress för överlevnad</p>
+                        <p>Sömn efter solen</p>
+                        <p>Knapp, varierad kost</p>
+                        <p>Konstant rörelse</p>
+                        <p>Starka flockband</p>
+                    </div>
+                     <div class="comparison-item">
+                        <h4>NU <span class="icon">📱</span></h4>
+                        <p>Stress för deadlines etc.</p>
+                        <p>Sömn störd av ljus</p>
+                        <p>Överflöd, processat</p>
+                        <p>Stillasittande</p>
+                        <p>Komplexa relationer</p>
+                    </div>
+                 </div>
+                 <p class="comparison-footer">Denna obalans mellan vår biologi och moderna livsstil kan bidra till hälsoutmaningar.</p>
             </div>
+            
+            <div id="vetenskap-questions" class="quiz-container"></div>
             
             <button onclick="document.querySelector('[data-section=\'psykisk\']').click()">Gå vidare till nästa avsnitt</button>
         </section>
@@ -242,138 +260,147 @@
         <!-- 4.2 Psykisk hälsa och stress -->
         <section id="psykisk" class="section animated">
             <h2>4.2 Psykisk hälsa och stress</h2>
-            
-            <div class="definition">
-                <h3>Psykisk hälsa</h3>
-                <p>God psykisk hälsa kännetecknas av:</p>
-                <ul>
-                    <li>Förmågan att hantera livets upp- och nedgångar</li>
-                    <li>Att ofta ha en positiv framtidssyn</li>
-                    <li>Att känna lust och glädje</li>
-                    <li>Att ha goda relationer</li>
-                </ul>
-            </div>
-            
-            <div class="info-box">
-                <h3>Stödresurser vid psykisk ohälsa</h3>
-                <p>Om du eller någon du känner mår dåligt finns det hjälp att få:</p>
-                <ul>
-                    <li><strong>UMO</strong> - För den som mår dåligt</li>
-                    <li><strong>Mind Självmordslinjen</strong> - För den som har självmordstankar, tel. 90101</li>
-                    <li><strong>Suicide Zero</strong> - Arbetar sedan 2013 för att minska självmord i Sverige</li>
-                    <li><strong>Hjärnkoll</strong> - Stödtjänster speciellt för unga</li>
-                </ul>
-                <p><strong>ANDRA SOM GÅR ATT KONTAKTA:</strong><br>
-                Jourhavande medmänniska: Ring 08-702 16 80<br>
-                Jourhavande präst: Ring 112 och be om att bli kopplad<br>
-                Vårdguiden: Ring 1177 och be om nummer till närmaste psykiatriska akutmottagning</p>
-            </div>
-            
-            <h3>Psykisk ohälsa bland unga</h3>
-            <p>Unga personer, särskilt skolungdomar, är överrepresenterade bland dem som rapporterar psykisk ohälsa. Varför är det så?</p>
-            <p>Sedan 1990 har användningen av antidepressiva läkemedel ökat med 500-1000% i Sverige. Över 1 miljon svenskar över 16 år äter antidepressiva läkemedel.</p>
-            <p>Mår vi sämre? Oklart... det finns olika perspektiv:</p>
-            <ul>
-                <li><strong>Nej:</strong> Idag söker fler vård och samhället är mer öppet kring psykisk ohälsa. Läkare är också mer benägna att skriva ut medicin.</li>
-                <li><strong>Ja:</strong> Våra moderna liv med internet, sociala medier och digitala skärmar är en huvudbidragande faktor.</li>
-            </ul>
-            
-            <div class="flex-two-column">
-                <div class="column">
-                    <div class="definition">
-                        <h3>Hjärnan och stress</h3>
-                        <p>Kroppens kommunikationssystem består av:</p>
-                        <ul>
-                            <li><strong>Hormonsystemet</strong> - Kemiska signaler via blodet</li>
-                            <li><strong>Nervsystemet</strong> - Elektriska signaler via nervtrådar</li>
-                        </ul>
-                        <p>Centrala nervsystemet (CNS) består av hjärnan och ryggmärgen.</p>
-                        <p>Perifera nervsystemet (PNS) består av nervceller mellan CNS och kroppen.</p>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="definition">
-                        <h3>Amygdala - hjärnans larmsystem</h3>
-                        <p>Amygdala kan aktivera stressystemet (enligt brandlarmprincipen):</p>
-                        <ul>
-                            <li>Speciellt vid potentiellt hotfulla situationer</li>
-                            <li>Skannar ständigt omgivningen (utifrån sinnesintryck)</li>
-                            <li>Har historiskt varit livräddande för vanliga dödsorsaker förr: ormar, spindlar, höjder, trånga utrymmen</li>
-                        </ul>
-                    </div>
+
+            <!-- Section 1: Understanding Mental Health -->
+            <div class="subsection mental-health-intro">
+                <div class="definition">
+                    <h3><span class="box-icon">😊</span> Vad är psykisk hälsa?</h3>
+                    <p>Psykisk hälsa handlar om vårt mentala och emotionella välbefinnande. God psykisk hälsa kännetecknas av:</p>
+                    <ul class="styled-list check-list-alt green-checks">
+                        <li>Förmågan att hantera livets upp- och nedgångar</li>
+                        <li>Att ofta ha en positiv framtidssyn</li>
+                        <li>Att känna lust och glädje</li>
+                        <li>Att ha goda relationer</li>
+                    </ul>
                 </div>
             </div>
-            
-            <h3>Stressystemets funktion</h3>
-            <p>Stressystemet har utvecklats för överlevnad. Kortsiktig stress ger skärpt fokus och vakenhet. Våra förfäder levde i en betydligt farligare värld med fler hot som krävde snabb handling.</p>
-            <p>De som tvekade för länge överlevde inte, medan de som snabbt flydde tack vare sitt aktiverade stressystem överlevde och förde sina gener vidare.</p>
-            <p>Samma system aktiveras vid både akuta hot (t.ex. lejon) och psykosociala "hot" (t.ex. ångest över provresultat eller sista-minuten-uppgifter).</p>
-            
-            <div class="warning-box">
-                <h3>Långvarig stress</h3>
-                <p>Stressystemet är inte utvecklat för att vara på under långa perioder = långvarig stress.</p>
-                <p>Det har istället många negativa konsekvenser:</p>
-                <ul>
-                    <li><strong>Hjärtat:</strong> Tvingas jobba hårt - Sliter på hjärtat</li>
-                    <li><strong>Matsmältning:</strong> Tarmarnas rörelser blir långsammare/oregelbundna = förstoppning eller diarréer, illamående, orolig mage</li>
-                    <li><strong>Hjärnan:</strong> Minnes- och koncentrationssvårigheter, mental trötthet, vissa delar av hjärnan kan krympa</li>
-                </ul>
+
+            <!-- Section 2: The Stress Response: An Ancient Survival Kit -->
+            <div class="subsection stress-response">
+                <h3><span class="box-icon">🔥</span> Stress: Kroppens uråldriga larm</h3>
+                <p>Stress är en naturlig reaktion utvecklad för överlevnad. När våra förfäder mötte ett hot (som ett lejon) behövde kroppen snabbt mobilisera energi för att fly eller slåss.</p>
+                
+                <div class="stress-flow-diagram">
+                     <h4>Så fungerar stressystemet:</h4>
+                     <ol class="flow-steps">
+                         <li><strong>Hot uppfattas:</strong> Sinnen signalerar fara.</li>
+                         <li><strong>Amygdala larmar (🚨):</strong> Hjärnans 'brandvarnare' aktiveras.</li>
+                         <li><strong>Sympatiska nervsystemet går igång:</strong> 'Gasen i botten' - puls ökar, blodtryck stiger, muskler spänns.</li>
+                         <li><strong>Kortisol & Adrenalin (⚡):</strong> Stresshormoner frigörs från binjurarna, ger extra energi och fokus.</li>
+                     </ol>
+                     <p class="diagram-note">Detta system är livsviktigt vid akuta faror.</p>
+                 </div>
+
+                <div class="warning-box">
+                    <h3><span class="box-icon">⚠️</span> Problemet med långvarig stress</h3>
+                    <p>Stresssystemet är byggt för korta insatser, inte för att vara påslaget konstant som i vårt moderna liv. Långvarig stress sliter på kroppen:</p>
+                    <ul class="icon-list-alt">
+                        <li><span class="list-icon">❤️‍🩹</span> <strong>Hjärtat:</strong> Högre belastning, ökad risk för problem.</li>
+                        <li><span class="list-icon">🤢</span> <strong>Matsmältning:</strong> Kan leda till orolig mage, IBS-symtom.</li>
+                        <li><span class="list-icon">🤯</span> <strong>Hjärnan:</strong> Kan försämra minne, koncentration och t.o.m. få delar att krympa.</li>
+                    </ul>
+                </div>
             </div>
-            
-            <div class="info-box">
-                <h3>Varför extra lätt att bli stressad i ung ålder?</h3>
-                <p>Frontalloben, hjärnans "bromssystem", utvecklas inte fullt ut förrän vid ca 25 års ålder. Detta gör att unga ofta upplever starkare känslor och kan ha svårare att reglera sina reaktioner.</p>
+
+            <!-- Section 3: Stress in the Modern World -->
+            <div class="subsection modern-stress">
+                <h3><span class="box-icon">📱</span> Stress i vår tid</h3>
+                <p>Varför upplever så många, särskilt unga, stress idag? Kraven från skola, sociala medier och ett ständigt uppkopplat liv spelar stor roll. Mår vi sämre?</p>
+                <div class="comparison-grid perspective-grid">
+                     <div class="comparison-item perspective-no">
+                        <h4>NEJ <span class="icon">📈</span></h4>
+                        <p>Fler söker vård idag.</p>
+                        <p>Ökad öppenhet.</p>
+                        <p>Läkare skriver ut medicin oftare.</p>
+                    </div>
+                     <div class="comparison-item perspective-yes">
+                        <h4>JA <span class="icon">💻</span></h4>
+                        <p>Moderna livsstilen.</p>
+                        <p>Internet & sociala medier.</p>
+                        <p>Ökad skärmtid.</p>
+                    </div>
+                </div>
+
+                <div class="info-box teenage-brain box-with-bg-icon" data-bg-icon="🏎️">
+                    <h3>Tonårshjärnan: Ferrari-motor, cykelbromsar</h3>
+                    <p>Enligt Anders Hansen mognar känslosystemet (motorn) snabbare än frontalloben (bromsen), som styr impulskontroll och planering. Denna obalans (som jämnas ut först runt 25-årsåldern) kan göra tonåren känslomässigt intensiv och reaktionerna starkare.</p>
+                </div>
             </div>
-            
-            <div class="definition">
-                <h3>Viktigt att ha med sig</h3>
-                <p>Även om mycket av nervsystemet inte kan styras direkt (autonoma nervsystemet), kan vi aktivt göra saker som påverkar det autonoma nervsystemet och därmed minska stressnivåerna.</p>
+
+            <!-- Section 4: When Stress Overwhelms -->
+            <div class="subsection stress-overwhelms">
+                 <h3><span class="box-icon">🌊</span> När stressen tar över</h3>
+                 <div class="flex-two-column">
+                     <div class="column">
+                         <div class="definition anxiety-box box-with-bg-icon" data-bg-icon="😟">
+                             <h4>Ångest</h4>
+                             <p>Stresssystemet aktiveras inför ett <em>potentiellt</em> hot. Känslan av oro eller rädsla för något som kanske ska hända. Stressystemet ligger ständigt 'på sparlåga'.</p>
+                         </div>
+                     </div>
+                     <div class="column">
+                          <div class="warning-box panic-box box-with-bg-icon" data-bg-icon="😱">
+                             <h4>Panikattack</h4>
+                             <p>Den mest intensiva formen av ångest. Kraftiga fysiska reaktioner (hjärtklappning, andnöd) och en känsla av att tappa kontrollen. Hjärnan feltolkar signalerna som livshotande.</p>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="definition depression-box box-with-bg-icon" data-bg-icon="😔">
+                    <h3>Depression</h3>
+                     <p>Mer än bara tillfällig nedstämdhet; en ihållande låg sinnesstämning som påverkar vardagen. Långvarig stress är en vanlig utlösande faktor. Hjärnan signalerar att något är fel, ibland genom att dra ner energinivån.</p>
+                 </div>
             </div>
-            
-            <div class="definition">
-                <h3>Ångest</h3>
-                <p>Något som är ett hot = stress</p>
-                <p>Något som skulle kunna vara ett hot (d.v.s. stress i förväg) = ångest</p>
-                <p>Ångest innebär att stressystemet drar igång i förväg - inte fullt ut, men ständigt på sparlåga. Detta hänger ihop med människans förmåga att förutse framtiden.</p>
+
+            <!-- Section 5: Building Resilience & Finding Support -->
+            <div class="subsection resilience-support">
+                <h3><span class="box-icon">💪</span> Bygga motståndskraft & Hitta stöd</h3>
+                <p>Även om stressreaktionen är automatisk, kan vi påverka hur vi hanterar den och bygga motståndskraft.</p>
+                
+                <div class="info-box quote-box">
+                    <h4><span class="box-icon">💬</span> Viktiga insikter</h4>
+                    <blockquote>
+                         <p>"Det är inte mitt fel... Min hjärna gör det den utvecklats att göra."</p>
+                    </blockquote>
+                     <blockquote>
+                         <p>"Det är okej att få panikattack." / "Det är bara min amygdala..."</p>
+                     </blockquote>
+                </div>
+
+                <h4>Åtgärder för att hantera stress:</h4>
+                 <ul class="icon-list-alt cols-2 actions-list">
+                     <li><span class="list-icon">🏃</span> Fysisk aktivitet</li>
+                     <li><span class="list-icon">🧘</span> Mindfulness/Avslappning</li>
+                     <li><span class="list-icon">😴</span> God sömn</li>
+                     <li><span class="list-icon">📵</span> Skärmpauser</li>
+                     <li><span class="list-icon">🗣️</span> Prata med någon</li>
+                     <li><span class="list-icon">📅</span> Planering</li>
+                     <li><span class="list-icon">☕</span> Pauser & Vila</li>
+                 </ul>
+                
+                <div class="flex-two-column support-section">
+                    <div class="column">
+                        <div class="info-box friend-support-box">
+                            <h4><span class="box-icon">🤝</span> Var en bra vän</h4>
+                            <p>Visa att du bryr dig. Att lyssna och finnas där är viktigare än att ha perfekta råd.</p>
+                        </div>
+                    </div>
+                    <div class="column">
+                         <div class="info-box support-box">
+                             <h4><span class="box-icon">🆘</span> Professionell hjälp</h4>
+                             <p>Om du mår dåligt, tveka inte att söka hjälp:</p>
+                             <ul class="support-list">
+                                 <li><strong>UMO:</strong> Stöd för unga <a href="https://www.umo.se/att-ma-daligt/" target="_blank">umo.se</a></li>
+                                 <li><strong>Mind:</strong> 90101</li>
+                                 <li><strong>1177:</strong> Vårdguiden</li>
+                                 <li>Skolkurator/Elevhälsa</li>
+                                 <!-- Lägg till fler vid behov -->
+                             </ul>
+                         </div>
+                    </div>
+                </div>
             </div>
-            
-            <div class="warning-box">
-                <h3>Panikattack</h3>
-                <p>Den mest intensiva formen av ångest. Kännetecknas av extraordinärt stark obehagskänsla med hjärtklappning och andningssvårigheter, tillsammans med en förlamande känsla av att tappa kontrollen.</p>
-                <p>Många som drabbas första gången tror att de får en hjärtattack.</p>
-                <p>Hjärnan feltolkar stressystemets signaler som en livshotande situation, vilket startar en högre nivå av stressreaktion, vilket skapar en ond cirkel mot panik.</p>
-            </div>
-            
-            <div class="definition">
-                <h3>Depression</h3>
-                <p>Enligt WHO lider 280 miljoner människor världen över av depression.</p>
-                <p>Depression kännetecknas av en ihållande låg sinnesstämning som inte löser sig av sig själv.</p>
-                <p>Långvarig stress är den vanligaste orsaken till depression.</p>
-                <p>Evolutionär förklaring: Hjärnan försöker styra oss bort från det den tolkar som en farlig miljö genom våra känslor, gör oss deprimerade så vi isolerar oss.</p>
-            </div>
-            
-            <div class="info-box">
-                <h3>Några citat</h3>
-                <p>"Det är inte mitt fel att jag är stressad/deprimerad. Min hjärna gör helt enkelt det den har utvecklats att göra i en värld som såg annorlunda ut än den jag lever i."</p>
-                <p>"Mannen som fick panikattack i tunnelbanan berättade långt senare att attackerna kom mer sällan när han till slut insåg att 'det är okej att få panikattack'. En annan patient beskrev hur hon lugnade sig med tanken 'det är bara min amygdala som vill att jag ska vara rädd'."</p>
-            </div>
-            
-            <h3>Åtgärder mot stress</h3>
-            <p>Här är några tips för att hantera stress:</p>
-            <ul>
-                <li>Regelbunden fysisk aktivitet</li>
-                <li>Mindfulness och avslappningsövningar</li>
-                <li>Tillräcklig sömn</li>
-                <li>Begränsa skärmtid, särskilt före läggdags</li>
-                <li>Socialt stöd - prata med vänner eller familj</li>
-                <li>Prioritera och planera för att minska känslan av överväldigande</li>
-                <li>Ta pauser och vila</li>
-            </ul>
-            
-            <div class="info-box">
-                <h3>Var en bra vän</h3>
-                <p>Man behöver inte vara expert på psykisk hälsa för att göra skillnad. När någon mår psykiskt dåligt känner man sig ofta osäker, blir rädd för att säga eller göra fel saker, vilket leder till att man undviker personen. Det är det värsta man kan göra. Det viktigaste är att visa att man bryr sig.</p>
-            </div>
+
+            <!-- Quiz & Navigation -->
+            <div id="psykisk-questions" class="quiz-container"></div>
             
             <button onclick="document.querySelector('[data-section=\'somn\']').click()">Gå vidare till nästa avsnitt</button>
         </section>
@@ -381,122 +408,118 @@
         <!-- 4.3 Sömn -->
         <section id="somn" class="section animated">
             <h2>4.3 Sömn</h2>
-            
-            <div class="definition">
-                <h3>Sömn</h3>
-                <p>Sömn utgör en tredjedel av en människas liv. Det är kroppens viktigaste tid för tre kritiska processer:</p>
-                <ul>
-                    <li>Återhämtning</li>
-                    <li>Städning av slaggprodukter från hjärnan</li>
-                    <li>Bearbeta information och skapa minnen</li>
-                </ul>
-                <p><strong>Sömnrekommendationer:</strong></p>
-                <ul>
-                    <li>Tonåringar (13-18 år): 9 timmar</li>
-                    <li>Medelålders vuxna: 7-8 timmar</li>
-                    <li>Äldre personer (70+): 6-7 timmar</li>
-                </ul>
+
+            <!-- Section 1: Why Sleep? -->
+            <div class="subsection sleep-why">
+                <h3><span class="box-icon">❓</span> Varför sover vi?</h3>
+                <div class="definition">
+                    <p>Sömn utgör ca en tredjedel av livet och är avgörande för:</p>
+                    <ul class="styled-list check-list-alt green-checks">
+                        <li>Återhämtning (kropp och hjärna)</li>
+                        <li>Städning av slaggprodukter från hjärnan (skyddar mot sjukdomar som Alzheimers)</li>
+                        <li>Bearbetning av information och minnesbildning</li>
+                    </ul>
+                    <p><strong>Sömnrekommendationer (per natt):</strong> Tonåringar (13-18 år): ca 9 timmar, Vuxna: 7-8 timmar, Äldre (70+): 6-7 timmar.</p>
+                 </div>
+                 <div class="definition brain-cleaning">
+                     <h4><span class="box-icon">🧹</span> Hjärnans städpatrull</h4>
+                     <p>Under sömnen ökar flödet av cerebrospinalvätska som sköljer bort skadliga "skräpproteiner". Detta är en viktig skyddsmekanism för hjärnans långsiktiga hälsa.</p>
+                </div>
             </div>
-            
-            <h3>Sömncykler & -stadier</h3>
-            <div class="flex-two-column">
-                <div class="column">
-                    <div class="illustration">
-                        <svg width="400" height="250" viewBox="0 0 400 250">
-                            <rect x="0" y="0" width="400" height="250" fill="#f8f9fa" rx="5" ry="5" />
-                            <!-- VAKEN -->
-                            <line x1="50" y1="30" x2="350" y2="30" stroke="#ddd" stroke-width="1" />
-                            <!-- REM -->
-                            <line x1="50" y1="70" x2="350" y2="70" stroke="#ddd" stroke-width="1" />
-                            <!-- S1 -->
-                            <line x1="50" y1="110" x2="350" y2="110" stroke="#ddd" stroke-width="1" />
-                            <!-- S2 -->
-                            <line x1="50" y1="150" x2="350" y2="150" stroke="#ddd" stroke-width="1" />
-                            <!-- S3 -->
-                            <line x1="50" y1="190" x2="350" y2="190" stroke="#ddd" stroke-width="1" />
-                            <!-- S4 -->
-                            <line x1="50" y1="230" x2="350" y2="230" stroke="#ddd" stroke-width="1" />
-                            
-                            <!-- Text labels -->
-                            <text x="20" y="35" font-size="12" fill="#333">VAKEN</text>
-                            <text x="20" y="75" font-size="12" fill="#333">REM</text>
-                            <text x="20" y="115" font-size="12" fill="#333">S1</text>
-                            <text x="20" y="155" font-size="12" fill="#333">S2</text>
-                            <text x="20" y="195" font-size="12" fill="#333">S3</text>
-                            <text x="20" y="235" font-size="12" fill="#333">S4</text>
-                            
-                            <!-- Sleep cycle 1 -->
-                            <polyline points="50,30 60,115 75,155 90,195 105,230 120,230 135,195 150,155 165,70 180,30" 
-                                    fill="none" stroke="#3498db" stroke-width="2" />
-                            
-                            <!-- Sleep cycle 2 -->
-                            <polyline points="180,30 190,115 200,155 210,195 220,230 230,230 240,195 250,155 260,70 270,30" 
-                                    fill="none" stroke="#3498db" stroke-width="2" />
-                            
-                            <!-- Sleep cycle 3 -->
-                            <polyline points="270,30 280,115 285,155 290,195 295,230 300,195 305,155 315,70 325,30" 
-                                    fill="none" stroke="#3498db" stroke-width="2" />
-                            
-                            <text x="200" y="15" font-size="14" text-anchor="middle" fill="#3498db" font-weight="bold">Sömncykler under natten</text>
-                        </svg>
+
+            <!-- Section 2: Rhythm & Phases -->
+            <div class="subsection sleep-phases">
+                <h3><span class="box-icon">📊</span> Sömnens rytm & faser</h3>
+                <div class="flex-two-column">
+                    <div class="column">
+                        <div class="illustration sleep-cycle-svg">
+                            <svg width="400" height="250" viewBox="0 0 400 250">
+                                <rect x="0" y="0" width="400" height="250" fill="#f8f9fa" rx="5" ry="5" />
+                                <!-- Simplified labels and lines for clarity -->
+                                <line x1="50" y1="30" x2="350" y2="30" stroke="#ddd" stroke-width="1" />
+                                <line x1="50" y1="90" x2="350" y2="90" stroke="#ddd" stroke-width="1" />
+                                <line x1="50" y1="150" x2="350" y2="150" stroke="#ddd" stroke-width="1" />
+                                <line x1="50" y1="210" x2="350" y2="210" stroke="#ddd" stroke-width="1" />
+                                <text x="20" y="35" font-size="12" fill="#333">VAKEN</text>
+                                <text x="20" y="95" font-size="12" fill="#333">REM</text>
+                                <text x="20" y="155" font-size="12" fill="#333">LÄTT</text> 
+                                <text x="20" y="215" font-size="12" fill="#333">DJUP</text>
+                                <!-- Sleep cycle example (simplified path) -->
+                                <polyline points="50,30 80,150 110,210 140,150 170,90 180,30 210,150 240,210 270,150 300,90 310,30" 
+                                        fill="none" stroke="#3498db" stroke-width="2" />
+                                <text x="200" y="15" font-size="14" text-anchor="middle" fill="#3498db" font-weight="bold">Typisk sömncykel (ca 90 min)</text>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <h4>Tre huvudtyper av sömn:</h4>
+                        <ul class="icon-list-alt">
+                            <li><span class="list-icon">💭</span> <strong>Drömsömn (REM):</strong> Aktiv hjärna (känslor, minne), bearbetning av intryck.</li>
+                            <li><span class="list-icon">💤</span> <strong>Bassömn (Lätt sömn):</strong> Utgör största delen av sömnen.</li>
+                            <li><span class="list-icon">🌙</span> <strong>Djupsömn:</strong> Viktigast för fysisk återhämtning, lugnar stressystemet. Svårväckt.</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="column">
-                    <p>Tre huvudtyper av sömn:</p>
-                    <ol>
-                        <li><strong>Drömsömn (REM)</strong> - Under denna fas är känslo- och minnescentrum aktiva medan frontalloben är inaktiv, vilket påverkar drömmens innehåll. Minnen och intryck bearbetas under denna fas.</li>
-                        <li><strong>Bassömn</strong> - Utgör den största delen av sömnen.</li>
-                        <li><strong>Djupsömn</strong> - Viktigast för återhämtning och lugnar kroppens stressystem. Att väckas under denna fas resulterar i förvirring och svårighet att känna sig helt vaken.</li>
-                    </ol>
-                </div>
+            </div>
+
+            <!-- Section 3: Body Clock & Hormones -->
+            <div class="subsection sleep-clock">
+                 <h3><span class="box-icon">☀️</span> Kroppens klocka & hormoner</h3>
+                 <div class="info-box biological-clock box-with-bg-icon" data-bg-icon="⏰">
+                     <h3>Biologisk klocka (Dygnsrytm)</h3>
+                     <p>Styrs främst av solljus och reglerar:</p>
+                     <ul>
+                         <li>Hormonutsöndring (inkl. sömnhormonet melatonin)</li>
+                         <li>Kroppstemperatur</li>
+                         <li>Blodtryck</li>
+                     </ul>
+                     <p>Klockan är omställbar, men det tar tid (t.ex. vid jetlag).</p>
+                 </div>
+                 <div class="definition melatonin-box">
+                     <h4><span class="box-icon"> हार्मोन (Hormone)</span> Melatonin - Nattens hormon</h4>
+                     <p>Bildas i tallkottkörteln när mörker faller. Gör oss sömniga och signalerar till kroppen att det är dags att varva ner.</p>
+                 </div>
             </div>
             
-            <div class="definition">
-                <h3>Hjärnans rengöringsprocess under sömn</h3>
-                <p>Flödet av cerebrospinalvätska genom hjärnvävnaden ökar när vi sover. Varje dag bildas flera gram "skräpproteiner" som behöver städas bort. Detta skyddar hjärnan från neurodegenerativa sjukdomar som till exempel Alzheimers, Huntingtons och Parkinsons sjukdom.</p>
+            <!-- Section 4: Sleep Thieves & Consequences -->
+            <div class="subsection sleep-thieves">
+                 <h3><span class="box-icon">👻</span> Sömntjuvar & konsekvenser</h3>
+                 <div class="warning-box blue-light box-with-bg-icon" data-bg-icon="📱">
+                     <h3>Blått ljus - En modern sömntjuv</h3>
+                     <p>Ljus, särskilt blått ljus från skärmar (mobiler, datorer, TV) och LED-lampor, lurar hjärnan att tro att det är dag:</p>
+                     <ul>
+                        <li>Hämmar melatoninproduktionen.</li>
+                        <li>Gör det svårare att somna.</li>
+                        <li>Kan försämra sömnkvaliteten.</li>
+                        <li>Även kort exponering (några minuter) kan påverka.</li>
+                     </ul>
+                 </div>
+                 <div class="info-box sleep-deprivation">
+                     <h4><span class="box-icon">😵</span> Konsekvenser av sömnbrist</h4>
+                     <p>För lite eller dålig sömn påverkar oss negativt:</p>
+                     <ul>
+                        <li><strong>Prestation:</strong> Sämre minne, koncentration, reaktionsförmåga (jämförbart med alkoholpåverkan!).</li>
+                        <li><strong>Hälsa:</strong> Ökad risk för sjukdomar, försvagat immunförsvar, ökad stresskänslighet.</li>
+                        <li><strong>Ekonomi:</strong> Kostar samhället miljarder (sjukskrivningar, minskad produktivitet).</li>
+                     </ul>
+                 </div>
+            </div>
+
+            <!-- Section 5: Tips for Better Sleep -->
+            <div class="subsection sleep-tips">
+                <h3><span class="box-icon">✨</span> Sov gott! Tips & råd</h3>
+                 <ul class="icon-list-alt cols-2">
+                     <li><span class="list-icon">📅</span> Skapa regelbundna sovtider (även helger).</li>
+                     <li><span class="list-icon">📵</span> Undvik skärmar 1-2 timmar före läggdags.</li>
+                     <li><span class="list-icon">🌑</span> Håll sovrummet mörkt, svalt och tyst.</li>
+                     <li><span class="list-icon">☕</span> Undvik koffein/alkohol/nikotin sent.</li>
+                     <li><span class="list-icon">🏃</span> Motionera regelbundet (men ej precis innan sömn).</li>
+                     <li><span class="list-icon">🧘</span> Varva ner innan läggdags (läs, lyssna lugnt).</li>
+                     <li><span class="list-icon">🚶</span> Stig upp om du inte somnar om på 20 min.</li>
+                 </ul>
             </div>
             
-            <div class="info-box">
-                <h3>Biologisk klocka</h3>
-                <p>Den biologiska klockan (dygnsrytmen) styrs främst av solljus. Den reglerar:</p>
-                <ul>
-                    <li>Frisättning av hormon (bl.a. sömnhormon/melatonin)</li>
-                    <li>Kroppstemperatur</li>
-                    <li>Blodtryck</li>
-                </ul>
-                <p>Den biologiska klockan är omprogrammerbar, men tar tid att anpassa.</p>
-            </div>
-            
-            <div class="definition">
-                <h3>Melatonin - nattens hormon</h3>
-                <p>Melatonin bildas i tallkottkörteln (bakom hjärnstammen) som aktiveras av mörker. Den gör oss sömniga oavsett om vi sover eller inte.</p>
-            </div>
-            
-            <h3>Sömnens fiender</h3>
-            <div class="warning-box">
-                <h3>Blått ljus</h3>
-                <p>Glödlampan = en timmes förlorad sömn<br>
-                Blått ljus = en timme förlorad till</p>
-                <p>LED-lampor och digitala skärmar innehåller vitt ljus = mycket blått ljus</p>
-                <p>I mörker: 2-5 minuter ljus (även svaga ljusnivåer) räcker för att hjärnaktivitet, hjärtfrekvens och kroppstemperatur ökar</p>
-            </div>
-            
-            <div class="info-box">
-                <h3>Konsekvenser av sömnbrist</h3>
-                <p>Att vara vaken i närmare ett dygn och sedan köra bil på natten är lika farligt som att köra med 0,8 promille alkohol i blodet. Gränsen för rattfylleri går vid 0,2 promille.</p>
-                <p>Enligt SBU (statens beredning för medicinsk och social utvärdering) beräknades sömnproblem kosta samhället 3 miljarder kronor årligen år 2010 på grund av faktorer som sjukskrivning, frånvaro från arbetet och nedsatt produktivitet.</p>
-            </div>
-            
-            <h3>Tips för bättre sömn</h3>
-            <ul>
-                <li>Skapa en regelbunden sömnrutin</li>
-                <li>Undvik skärmar och starkt ljus innan läggdags</li>
-                <li>Håll sovrummet mörkt, svalt och tyst</li>
-                <li>Undvik koffein, alkohol och nikotin sent på dagen</li>
-                <li>Motionera regelbundet, men inte precis innan läggdags</li>
-                <li>Varva ner innan sänggående med lugna aktiviteter</li>
-                <li>Om du inte kan somna inom 20 minuter, stig upp och gör något lugnt tills du känner dig sömnig</li>
-            </ul>
+            <div id="somn-questions" class="quiz-container"></div>
             
             <button onclick="document.querySelector('[data-section=\'fysisk\']').click()">Gå vidare till nästa avsnitt</button>
         </section>
@@ -504,86 +527,102 @@
         <!-- 4.4 Fysisk aktivitet -->
         <section id="fysisk" class="section animated">
             <h2>4.4 Fysisk aktivitet</h2>
-            
-            <div class="definition">
-                <h3>Fysisk aktivitet</h3>
-                <p>Kroppsrörelse som ökar energiförbrukningen utöver viloförbrukning. Detta kan vara allt från vardagsaktiviteter till planerad träning.</p>
+
+            <!-- Section 1: Intro & Context -->
+            <div class="subsection activity-intro">
+                 <h3><span class="box-icon">🏃‍♀️</span> Vad är fysisk aktivitet?</h3>
+                 <div class="definition">
+                     <p>All kroppsrörelse som ökar energiförbrukningen utöver vila. Det inkluderar allt från vardagssysslor till planerad träning.</p>
+                 </div>
+                 <div class="info-box history-context">
+                      <h4><span class="box-icon">⏳</span> Anpassade för rörelse: Dåtid vs. Nutid</h4>
+                      <p>Historiskt sett var människan mycket mer aktiv (ca 14 000-18 000 steg/dag). Idag rör vi oss betydligt mindre (ca 5 000 steg/dag), delvis på grund av ökad skärmtid och stillasittande arbeten/fritid.</p>
+                 </div>
             </div>
             
-            <h3>Anpassade för ett liv i rörelse</h3>
-            <p>Våra förfäder levde ett fysiskt aktivt liv från morgon till kväll. De tog ca 14 000-18 000 steg varje dag (jämfört med ca 5 000 steg/dag idag). Skärmanvändning har minskat den fysiska aktiviteten bland 14-åringar med 24-30% jämfört med början av 2000-talet.</p>
-            
-            <h3>Rekommendationer för fysisk aktivitet</h3>
-            <div class="flex-two-column">
-                <div class="column">
-                    <h4>Vuxna</h4>
-                    <p>Alla typer av fysisk aktivitet är gynnsamma, även för kognitiva förmågor. Mental bearbetningshastighet förbättras mest med fysisk aktivitet.</p>
-                    <p>Rekommendation:</p>
-                    <ul>
-                        <li>150-300 minuter måttlig intensitet per vecka</li>
-                        <li>ELLER 75-150 minuter hög intensitet per vecka</li>
-                    </ul>
-                </div>
-                <div class="column">
-                    <h4>Barn och ungdomar</h4>
-                    <p>Bör vara fysiskt aktiva minst 60 minuter dagligen, med hög intensitet minst tre gånger per vecka.</p>
-                    
-                    <div class="activity-icons">
-                        <div class="activity-icon">🏃‍♀️</div>
-                        <div class="activity-icon">🚴‍♂️</div>
-                        <div class="activity-icon">🏊‍♀️</div>
-                        <div class="activity-icon">🏋️‍♀️</div>
-                        <div class="activity-icon">⚽</div>
-                        <div class="activity-icon">🧘‍♀️</div>
-                    </div>
-                </div>
+            <!-- Section 2: Recommendations -->
+            <div class="subsection activity-recs">
+                 <h3><span class="box-icon">🎯</span> Rekommendationer</h3>
+                 <div class="flex-two-column">
+                     <div class="column">
+                         <h4>Vuxna (18+ år)</h4>
+                         <p>Minst:</p>
+                         <ul class="styled-list">
+                             <li><strong>150-300 min/vecka</strong> måttlig intensitet (rask promenad)</li>
+                             <li><em>ELLER</em> <strong>75-150 min/vecka</strong> hög intensitet (löpning)</li>
+                             <li>Muskelstärkande aktivitet minst 2 dagar/vecka.</li>
+                         </ul>
+                     </div>
+                     <div class="column">
+                         <h4>Barn & Ungdomar (6-17 år)</h4>
+                          <p>Minst:</p>
+                         <ul class="styled-list">
+                             <li><strong>60 min/dag</strong> måttlig till hög intensitet.</li>
+                             <li>Högintensiv aktivitet minst 3 dagar/vecka.</li>
+                             <li>Muskel- och skelettstärkande aktivitet minst 3 dagar/vecka.</li>
+                         </ul>
+                         <p><small>Exempel: Lek, idrott, cykling, simning, styrketräning.</small></p>
+                     </div>
+                 </div>
+            </div>
+
+            <!-- Section 3: Benefits -->
+            <div class="subsection activity-benefits">
+                 <h3><span class="box-icon">✨</span> Hälsofördelar med fysisk aktivitet</h3>
+                 <div class="flex-container benefits-cards">
+                     <div class="card">
+                         <h4><span class="box-icon">❤️</span> Förbättrad kondition</h4>
+                         <p>Starkare hjärta, lägre vilopuls.</p>
+                     </div>
+                     <div class="card">
+                         <h4><span class="box-icon">💪</span> Starkare kropp</h4>
+                         <p>Starkare skelett, leder, muskler.</p>
+                     </div>
+                     <div class="card">
+                         <h4><span class="box-icon">🛡️</span> Minskad sjukdomsrisk</h4>
+                         <p>Lägre risk för hjärt-kärlsjukdom, typ 2-diabetes, vissa cancerformer.</p>
+                     </div>
+                     <div class="card">
+                         <h4><span class="box-icon">💡</span> Kognitiva förbättringar</h4>
+                         <p>Bättre minne, koncentration, inlärning.</p>
+                     </div>
+                     <div class="card">
+                         <h4><span class="box-icon">😌</span> Stressreducering</h4>
+                         <p>Högre stresstålighet, bättre humör.</p>
+                     </div>
+                     <div class="card">
+                         <h4><span class="box-icon">😊</span> Mental hälsa</h4>
+                         <p>Minskar symtom på depression och ångest.</p>
+                     </div>
+                 </div>
+            </div>
+
+            <!-- Section 4: Brain Connection -->
+            <div class="subsection activity-brain">
+                 <h3><span class="box-icon">🧠</span> Motion & Hjärnan</h3>
+                 <div class="info-box brain-hippocampus box-with-bg-icon" data-bg-icon="💡">
+                     <h3>Fysisk aktivitet stärker hjärnan</h3>
+                     <p>Studier visar att regelbunden motion kan öka volymen på <strong>hippocampus</strong> (viktig för minne och inlärning). Fysisk aktivitet stimulerar också:</p>
+                     <ul>
+                         <li>Bildandet av nya hjärnceller.</li>
+                         <li>Tillväxt av nya blodkärl i hjärnan.</li>
+                         <li>Förbättrad koppling mellan nervceller.</li>
+                         <li>Utsöndring av "må bra"-substanser (t.ex. endorfiner).</li>
+                     </ul>
+                 </div>
+                 <div class="definition brain-mental-link">
+                    <h4><span class="box-icon">🔗</span> Kopplingen till psykisk hälsa</h4>
+                     <p>Regelbunden motion påverkar psykisk hälsa genom att:</p>
+                     <ul class="styled-list check-list-alt green-checks">
+                         <li>Minska nivåerna av stresshormoner (kortisol, adrenalin).</li>
+                         <li>Förbättra sömnkvaliteten.</li>
+                         <li>Öka blodflödet och syresättningen till hjärnan.</li>
+                         <li>Frigöra signalsubstanser som förbättrar humöret.</li>
+                     </ul>
+                 </div>
             </div>
             
-            <h3>Hälsofördelar med fysisk aktivitet</h3>
-            <div class="flex-container">
-                <div class="card">
-                    <h4>Förbättrad kondition</h4>
-                    <p>Bättre kondition och lägre vilopuls.</p>
-                </div>
-                <div class="card">
-                    <h4>Starkare kropp</h4>
-                    <p>Starkare skelett, leder och muskler.</p>
-                </div>
-                <div class="card">
-                    <h4>Minskad sjukdomsrisk</h4>
-                    <p>Lägre risk för hjärt-kärlsjukdomar.</p>
-                </div>
-                <div class="card">
-                    <h4>Kognitiva förbättringar</h4>
-                    <p>Bättre minne och koncentration.</p>
-                </div>
-                <div class="card">
-                    <h4>Stressreducering</h4>
-                    <p>Högre stresstålighet.</p>
-                </div>
-                <div class="card">
-                    <h4>Mental hälsa</h4>
-                    <p>Bättre förutsättningar för god psykisk hälsa.</p>
-                </div>
-            </div>
-            
-            <div class="info-box">
-                <h3>Fysisk aktivitet och hjärnan</h3>
-                <p>Studier visar att minnescentrum (hippocampus) kan öka i volym hos fysiskt aktiva personer. Detta kan förklara de kognitiva fördelarna som kommer med regelbunden motion.</p>
-                <p>Forskare har observerat att fysisk aktivitet stimulerar bildandet av nya hjärnceller och förbättrar hjärnans förmåga att bilda nya kopplingar, vilket är avgörande för inlärning och minne.</p>
-            </div>
-            
-            <div class="definition">
-                <h3>Hur fysisk aktivitet och psykisk hälsa hänger ihop</h3>
-                <p>Regelbunden fysisk aktivitet påverkar hjärnan genom att:</p>
-                <ul>
-                    <li>Öka utsöndringen av endorfiner och andra "må bra"-hormoner</li>
-                    <li>Minska nivåerna av stresshormoner som adrenalin och kortisol</li>
-                    <li>Förbättra sömnkvaliteten, vilket indirekt förbättrar mental hälsa</li>
-                    <li>Öka blodflödet till hjärnan, vilket förbättrar hjärnfunktion</li>
-                    <li>Stimulera tillväxt av nya blodkärl och nervceller i viktiga hjärnregioner</li>
-                </ul>
-            </div>
+            <div id="fysisk-questions" class="quiz-container"></div>
             
             <button onclick="document.querySelector('[data-section=\'droger\']').click()">Gå vidare till nästa avsnitt</button>
         </section>
@@ -591,224 +630,143 @@
         <!-- 4.5 Droger -->
         <section id="droger" class="section animated">
             <h2>4.5 Droger</h2>
-            
-            <div class="definition">
-                <h3>Droger</h3>
-                <p>Ämnen som påverkar det centrala nervsystemet (CNS). De liknar hjärnans egna signalsubstanser och binder till receptorer, vilket påverkar hjärnans funktion. Effekten varierar mellan olika individer eftersom våra hjärnor skiljer sig från varandra.</p>
+
+            <!-- Section 1: Intro -->
+            <div class="subsection drugs-intro">
+                <h3><span class="box-icon">💊</span> Vad är droger?</h3>
+                 <div class="definition">
+                     <p>Ämnen som påverkar det centrala nervsystemet (CNS). De härmar eller stör hjärnans egna signalsubstanser och förändrar dess funktion. Effekten varierar mellan individer.</p>
+                 </div>
+                 <div class="info-box support-box">
+                     <h4><span class="box-icon">🆘</span> Stödresurser vid drogproblematik</h4>
+                     <p>Hjälp finns att få. Några exempel:</p>
+                     <ul class="support-list">
+                         <li><strong>UMO:</strong> Stöd för unga <a href="https://www.umo.se/att-ta-hjalp/sok-stod-och-hjalp/" target="_blank">umo.se</a></li>
+                         <li><strong>Droghjälpen:</strong> <a href="https://droghjalpen.se/" target="_blank">droghjalpen.se</a></li>
+                         <li><strong>AA (Anonyma Alkoholister):</strong> För alkoholproblem</li>
+                         <li><strong>BRIS:</strong> För barn/unga</li>
+                         <li>Elevhälsa/Skolkurator</li>
+                     </ul>
+                 </div>
             </div>
-            
-            <div class="info-box">
-                <h3>Stödresurser vid drogproblematik</h3>
-                <p>Om du behöver stöd eller hjälp med drogproblem, finns flera resurser:</p>
-                <ul>
-                    <li>UMO:s stödsida - www.umo.se/att-ta-hjalp/sok-stod-och-hjalp/</li>
-                    <li>AA - För alkoholproblem</li>
-                    <li>Alkoholhjälpen</li>
-                    <li>BRIS - För barn och unga</li>
-                    <li>Droghjälpen</li>
-                    <li>Drugsmart</li>
-                    <li>Hjälplinjen</li>
-                </ul>
-            </div>
-            
-            <h3>Hur nervsignaler överförs</h3>
-            <div class="flex-two-column">
-                <div class="column">
-                    <div class="illustration">
-                        <svg width="350" height="250" viewBox="0 0 350 250">
-                            <rect x="0" y="0" width="350" height="250" fill="#f8f9fa" rx="5" ry="5" />
-                            
-                            <!-- Sending neuron -->
-                            <path d="M30,100 C50,60 80,40 120,50 C140,55 160,70 180,100 C200,130 230,150 270,130" 
-                                  fill="none" stroke="#3498db" stroke-width="3" />
-                            
-                            <!-- Dendrites -->
-                            <path d="M30,100 C20,80 15,70 10,60" fill="none" stroke="#3498db" stroke-width="2" />
-                            <path d="M30,100 C20,110 15,120 10,130" fill="none" stroke="#3498db" stroke-width="2" />
-                            <path d="M30,100 C25,90 20,85 15,85" fill="none" stroke="#3498db" stroke-width="2" />
-                            <path d="M30,100 C25,105 20,110 15,115" fill="none" stroke="#3498db" stroke-width="2" />
-                            
-                            <!-- Cell body -->
-                            <circle cx="30" cy="100" r="15" fill="#b3dbff" stroke="#3498db" stroke-width="2" />
-                            <circle cx="30" cy="100" r="8" fill="#3498db" />
-                            
-                            <!-- Receiving neuron -->
-                            <path d="M290,130 C310,140 330,150 340,170" fill="none" stroke="#9b59b6" stroke-width="3" />
-                            
-                            <!-- Dendrites -->
-                            <path d="M290,130 C280,120 275,110 270,100" fill="none" stroke="#9b59b6" stroke-width="2" />
-                            <path d="M290,130 C285,120 280,115 275,110" fill="none" stroke="#9b59b6" stroke-width="2" />
-                            <path d="M290,130 C280,135 275,140 270,145" fill="none" stroke="#9b59b6" stroke-width="2" />
-                            
-                            <!-- Cell body -->
-                            <circle cx="290" cy="130" r="15" fill="#e8daef" stroke="#9b59b6" stroke-width="2" />
-                            <circle cx="290" cy="130" r="8" fill="#9b59b6" />
-                            
-                            <!-- Synapse -->
-                            <circle cx="280" cy="125" r="10" fill="#f39c12" fill-opacity="0.3" stroke="#f39c12" stroke-width="1" />
-                            
-                            <!-- Labels -->
-                            <text x="30" y="70" font-size="12" text-anchor="middle">Cellkropp</text>
-                            <text x="30" y="140" font-size="12" text-anchor="middle">Cellkärna</text>
-                            <text x="175" y="30" font-size="12" text-anchor="middle">Axon med myelinskida</text>
-                            <text x="270" y="80" font-size="12" text-anchor="middle">Nervändslut</text>
-                            <text x="280" y="185" font-size="12" text-anchor="middle">Synaps</text>
-                            
-                            <!-- Signal direction -->
-                            <line x1="100" y1="180" x2="250" y2="180" stroke="#e67e22" stroke-width="2" marker-end="url(#arrowhead)" />
-                            <text x="175" y="200" font-size="12" text-anchor="middle" fill="#e67e22">Nervsignalens riktning</text>
-                            
-                            <!-- Arrow marker -->
-                            <defs>
-                                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-                                    <polygon points="0 0, 10 3.5, 0 7" fill="#e67e22" />
-                                </marker>
-                            </defs>
-                        </svg>
+
+            <!-- Section 2: How Drugs Work -->
+            <div class="subsection drugs-mechanism">
+                <h3><span class="box-icon">🧠</span> Hur påverkas hjärnan?</h3>
+                <div class="flex-two-column neuron-explanation">
+                    <div class="column illustration-column">
+                        <div class="illustration neuron-svg">
+                            <svg width="350" height="250" viewBox="0 0 350 250">
+                                <rect x="0" y="0" width="350" height="250" fill="#f8f9fa" rx="5" ry="5" />
+                                <!-- Simplified Neuron Diagram -->
+                                <circle cx="50" cy="125" r="30" fill="#b3dbff" stroke="#3498db" stroke-width="2" /> 
+                                <text x="50" y="130" text-anchor="middle" font-size="12">Cellkropp</text>
+                                <line x1="80" y1="125" x2="200" y2="125" stroke="#3498db" stroke-width="3" />
+                                <text x="140" y="110" font-size="12">Axon</text>
+                                <circle cx="250" cy="125" r="15" fill="#f39c12" stroke="#e67e22" stroke-width="2"/>
+                                <text x="250" y="160" text-anchor="middle" font-size="12">Synaps</text>
+                                <line x1="265" y1="125" x2="310" y2="100" stroke="#9b59b6" stroke-width="2" />
+                                <line x1="265" y1="125" x2="310" y2="150" stroke="#9b59b6" stroke-width="2" />
+                                <text x="310" y="80" font-size="12">Mottagare</text>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="column text-column">
+                        <h4>Normal nervsignal:</h4>
+                        <ol class="styled-list simple-steps">
+                            <li>Elektrisk impuls når nervändslut.</li>
+                            <li>Signalsubstanser släpps ut i synapsen (mellanrummet).</li>
+                            <li>Signalsubstanser binder till mottagare på nästa cell.</li>
+                            <li>Ny impuls startar i mottagarcellen.</li>
+                            <li>Signalsubstanser tas tillbaka eller bryts ner.</li>
+                        </ol>
                     </div>
                 </div>
-                <div class="column">
-                    <h4>Processen för nervsignaler</h4>
-                    <ol>
-                        <li>En nervimpuls når nervändslutet på en nervcell, vilket gör att membranblåsor som innehåller signalsubstanser släpper ut sitt innehåll i den synaptiska klyftan.</li>
-                        <li>Signalsubstanserna binder till receptorer på den mottagande cellen, vilket gör att jonkanaler öppnas. Joner som natrium kan då flöda fritt in i cellen, vilket resulterar i en elektrisk impuls i den mottagande cellen.</li>
-                        <li>Signalsubstanserna lossnar från receptorerna. Vissa återupptas genom speciella kanaler i axonet, medan andra bryts ner av enzymer i den synaptiska klyftan.</li>
-                        <li>Nya membranblåsor innehållande signalsubstanser bildas. Nervcellen är då redo att överföra en ny nervsignal.</li>
-                    </ol>
-                </div>
-            </div>
-            
-            <h3>Drogers påverkan på hjärnan</h3>
-            <div class="warning-box">
-                <p>Droger påverkar det centrala nervsystemet genom att:</p>
-                <ul>
-                    <li>Minska produktionen av signalsubstanser</li>
-                    <li>Öka eller minska frisättningen av signalsubstanser</li>
-                    <li>Binda till receptorer istället för signalsubstansen</li>
-                    <li>Förändra receptorstrukturen</li>
-                    <li>Hämma enzymatisk nedbrytning av signalsubstanser</li>
-                    <li>Hämma återupptaget av signalsubstanser till axonet</li>
-                </ul>
-            </div>
-            
-            <h3>Belöningssystemet och droger</h3>
-            <p>Belöningssystemet involverar hjärnregioner som förknippas med motivation, njutning och humör. Dopamin är den främsta signalsubstansen i detta system.</p>
-            <p>Hjärnans belöningskrets frigör dopaminsignaler som skapar positiva känslor, vilket förstärker beteenden. Aktiviteter som motion, godis, sex, och shopping stimulerar detta system i varierande grad, med droger som har starkast effekt eftersom de "kidnappar belöningssystemet".</p>
-            
-            <div class="definition">
-                <h3>Olika typer av droger</h3>
-                <ol>
-                    <li><strong>Centralstimulerande droger</strong>:
-                        <ul>
-                            <li>Nikotin - Lagligt i Sverige</li>
-                            <li>Koffein - Lagligt i Sverige</li>
-                            <li>Kokain</li>
-                            <li>Amfetamin</li>
-                            <li>Metamfetamin</li>
-                        </ul>
-                    </li>
-                    <li><strong>Centralhämmande droger</strong>:
-                        <ul>
-                            <li>Alkohol - Lagligt i Sverige</li>
-                            <li>Bensodiazepiner</li>
-                            <li>GHB</li>
-                            <li>Opioider</li>
-                        </ul>
-                    </li>
-                    <li><strong>Hallucinogena droger</strong>:
-                        <ul>
-                            <li>LSD</li>
-                            <li>Psilocybin och psilocin</li>
-                            <li>Meskalin</li>
-                            <li>DMT</li>
-                            <li>Ecstasy/MDMA</li>
-                            <li>Cannabis</li>
-                        </ul>
-                    </li>
-                </ol>
-            </div>
-            
-            <h3>Beroende och abstinens</h3>
-            <div class="flex-two-column">
-                <div class="column">
-                    <div class="definition">
-                        <h3>Fysiskt beroende</h3>
-                        <p>Förändrar nervcellerna och hjärnfunktionen:</p>
-                        <ul>
-                            <li>Anpassning efter drogbruk (fler/färre receptorer)</li>
-                            <li>Blockerad frontallob (påverkar omdömet)</li>
-                            <li>Områden för vanor och impulsivitet påverkas</li>
-                            <li>Skapar ständigt sug efter drogen</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="definition">
-                        <h3>Abstinens</h3>
-                        <p>Obehag som uppstår när man slutar ta en drog. Exempel:</p>
-                        <ul>
-                            <li>Opioider som lindrar smärta kan orsaka smärta och sömnlöshet när man slutar</li>
-                            <li>Andra abstinenssymtom inkluderar illamående, kramper, hjärtklappning, svettningar och koncentrationssvårigheter</li>
-                            <li>När man slutar använda droger kan man fungera sämre eftersom hjärnan inte längre fungerar som tidigare</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="warning-box">
-                <h3>Tolerans och överdos</h3>
-                <p>Toleransutveckling innebär att en större mängd av drogen behövs för att uppnå samma effekt. Detta beror på att hjärnan anpassar sig genom att reducera antalet receptorer eller förändra deras känslighet.</p>
-                <p>Dödlig överdosering jämfört med normaldos:</p>
-                <ul>
-                    <li>Heroin: 5 gånger normaldos (0,05 g dödlig mängd)</li>
-                    <li>Alkohol: 10 gånger normaldos (300-400 g dödlig mängd)</li>
-                    <li>Kokain: 15 gånger normaldos (1 g dödlig mängd)</li>
-                    <li>Ecstacy/MDMA: 15 gånger normaldos (2 g dödlig mängd)</li>
-                    <li>Koffein: 100 gånger normaldos (10 g dödlig mängd)</li>
-                    <li>Cannabis: 1000 gånger normaldos (2 g THC dödlig mängd)</li>
-                </ul>
-            </div>
-            
-            <h3>Skador och risker</h3>
-            <div class="flex-container">
-                <div class="card">
-                    <h4>Fysiska skador</h4>
+                <div class="warning-box drug-interference">
+                    <h4><span class="box-icon">🚫</span> Så stör droger kommunikationen</h4>
+                    <p>Droger kan på olika sätt störa denna process, t.ex. genom att:</p>
                     <ul>
-                        <li>Beroende/beroendeutveckling</li>
-                        <li>Långsammare reaktionsförmåga</li>
-                        <li>Organskador</li>
-                        <li>Oavsiktliga skador eller dödsfall</li>
-                        <li>Överdos</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h4>Akademiska skador</h4>
-                    <ul>
-                        <li>Svårare att koncentrera sig</li>
-                        <li>Sämre betyg</li>
-                        <li>Avstängning från skola</li>
-                        <li>Svårare att få jobb eller utbildningsplats</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h4>Sociala-emotionella skador</h4>
-                    <ul>
-                        <li>Förvärrar depression eller ångest</li>
-                        <li>Orsakar konflikter med vänner, familj eller lärare</li>
-                        <li>Familjer som splittras</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h4>Juridiska skador</h4>
-                    <ul>
-                        <li>Böter</li>
-                        <li>Samhällstjänst</li>
-                        <li>Obligatoriska kurser</li>
-                        <li>Arrestering</li>
-                        <li>Fängelse</li>
+                        <li>Blockera återupptaget (mer signalsubstans stannar kvar).</li>
+                        <li>Härma signalsubstansen och aktivera mottagare.</li>
+                        <li>Blockera mottagare så signalsubstansen inte kan binda.</li>
+                        <li>Påverka frisättning eller nedbrytning.</li>
                     </ul>
                 </div>
             </div>
+
+            <!-- Section 3: Reward System -->
+            <div class="subsection drugs-reward">
+                <h3><span class="box-icon">✨</span> Belöningssystemet kidnappas</h3>
+                 <div class="info-box reward-system box-with-bg-icon" data-bg-icon="🎯"> 
+                    <h3>Dopamin & Belöning</h3>
+                     <p>Hjärnans belöningssystem använder främst signalsubstansen <strong>dopamin</strong> för att förstärka beteenden som är bra för överlevnad (mat, social kontakt). Det ger en känsla av välbehag och motivation.</p>
+                     <p>Droger "kapar" detta system och orsakar en onaturligt stor dopaminfrisättning, vilket skapar ett starkt begär och driver beroendeutveckling.</p>
+                 </div>
+            </div>
+            
+            <!-- Section 4: Drug Categories -->
+            <div class="subsection drugs-categories">
+                 <h3><span class="box-icon">📊</span> Olika typer av droger</h3>
+                 <div class="definition">
+                     <ul class="styled-list category-list">
+                         <li><strong>Centralstimulerande (Uppåt):</strong> Ökar vakenhet, energi. <em>Ex: Nikotin, Koffein, Amfetamin, Kokain.</em></li>
+                         <li><strong>Centralhämmande (Nedåt):</strong> Verkar lugnande, dämpande. <em>Ex: Alkohol, Bensodiazepiner (lugnande medel), GHB, Opioider (Heroin, Morfin).</em></li>
+                         <li><strong>Hallucinogena (Utåt):</strong> Förändrar sinnesintryck och medvetandetillstånd. <em>Ex: Cannabis, LSD, Psilocybin (svampar), Ecstasy/MDMA.</em></li>
+                     </ul>
+                 </div>
+            </div>
+
+            <!-- Section 5: The Downside -->
+            <div class="subsection drugs-downside">
+                 <h3><span class="box-icon">⚠️</span> Beroende, Tolerans & Abstinens</h3>
+                 <div class="flex-two-column">
+                     <div class="column">
+                         <div class="definition dependence-box">
+                             <h4><span class="box-icon">⛓️</span> Fysiskt beroende</h4>
+                             <p>Hjärnan anpassar sig till drogen. Nervceller förändras, antalet mottagare kan ändras. Frontalloben (omdöme) påverkas. Skapar starkt sug.</p>
+                         </div>
+                     </div>
+                     <div class="column">
+                          <div class="definition abstinence-box">
+                             <h4><span class="box-icon">😖</span> Abstinens</h4>
+                             <p>Fysiskt och psykiskt obehag när drogen försvinner ur systemet. Symtomen är ofta motsatsen till drogens effekt (t.ex. smärta vid opiat-avtändning). Hjärnan "protesterar".</p>
+                         </div>
+                     </div>
+                 </div>
+                  <div class="warning-box tolerance-overdose box-with-bg-icon" data-bg-icon="📈">
+                     <h3>Tolerans & Överdos</h3>
+                     <p><strong>Tolerans:</strong> Större dos behövs för samma effekt, eftersom hjärnan anpassar sig.</p>
+                     <p><strong>Överdosrisk:</strong> Toleransen gör att man kan ta doser som annars vore direkt dödliga. Risken varierar stort mellan olika droger (se exempel i listan nedan - endast illustrativt!).</p>
+                     <!-- Original list removed for brevity, point made -->
+                 </div>
+            </div>
+            
+             <!-- Section 6: Risks & Support -->
+            <div class="subsection drugs-risks-support">
+                 <h3><span class="box-icon">💔</span> Skador, Risker & Vart man vänder sig</h3>
+                 <h4>Potentiella konsekvenser av droganvändning:</h4>
+                 <div class="flex-container risks-cards">
+                     <div class="card">
+                         <h4><span class="box-icon">🤕</span> Fysiska</h4>
+                         <ul><li>Beroende</li><li>Organskador</li><li>Olyckor</li><li>Överdos</li></ul>
+                     </div>
+                     <div class="card">
+                          <h4><span class="box-icon">🎓</span> Akademiska</h4>
+                          <ul><li>Koncentrationssvårigheter</li><li>Sämre resultat</li><li>Avstängning</li></ul>
+                     </div>
+                     <div class="card">
+                          <h4><span class="box-icon">😥</span> Sociala/Emotionella</h4>
+                          <ul><li>Förvärrad ångest/depression</li><li>Konflikter</li><li>Isolering</li></ul>
+                     </div>
+                     <div class="card">
+                          <h4><span class="box-icon">⚖️</span> Juridiska</h4>
+                          <ul><li>Böter</li><li>Prick i registret</li><li>Fängelse</li></ul>
+                     </div>
+                 </div>
+                 <!-- Support Resources moved to Intro -->
+            </div>
+
+            <div id="droger-questions" class="quiz-container"></div>
             
             <button onclick="document.querySelector('[data-section=\'quiz\']').click()">Gå vidare till quiz</button>
         </section>
@@ -836,6 +794,23 @@
                 
                 <div id="best-time-display" class="time-record">Ditt snabbaste resultat: Inte satt än</div>
                 
+                <!-- Wrapper to center the inline-block switch -->
+                <div class="difficulty-switch-wrapper">
+                    <!-- Difficulty Switch -->
+                    <div class="difficulty-switch">
+                        <label for="difficulty-normal">Svårighetsgrad:</label>
+                        <div class="switch-container">
+                            <input type="radio" id="difficulty-normal" name="difficulty" value="normal" checked>
+                            <label for="difficulty-normal" class="switch-label switch-label-left">Normal 🙂</label>
+                            
+                            <input type="radio" id="difficulty-crazy" name="difficulty" value="crazy">
+                            <label for="difficulty-crazy" class="switch-label switch-label-right">Crazy Bananas! 🤪🍌</label>
+                            
+                            <span class="switch-selection"></span>
+                        </div>
+                    </div>
+                </div>
+                
                 <button id="start-quiz-btn">Starta Quiz</button>
             </div>
             
@@ -850,270 +825,29 @@
             <div id="quiz-questions" style="display: none;"></div>
             
             <div id="quiz-result" style="display: none;"></div>
-            
-            <!-- Floating quiz status - visas endast under aktiv quiz -->
-            <div id="quiz-status-floating" class="quiz-status-floating" style="display: none;">
-                <div class="timer" id="floating-timer">0:00</div>
-                <div class="mini-progress">
-                    <div class="mini-progress-bar" id="floating-progress-bar"></div>
-                </div>
-                <div class="status-text" id="floating-status">0/15 besvarade</div>
-            </div>
-            
-            <!-- Achievement popup -->
-            <div id="achievement-popup" class="achievement-popup">
-                <div class="icon">🏆</div>
-                <h3>Prestation upplåst!</h3>
-                <p id="achievement-name">Namn på prestation</p>
-            </div>
         </section>
+        
+        <!-- Floating quiz status - visas endast under aktiv quiz -->
+        <div id="quiz-status-floating" class="quiz-status-floating" style="display: none;">
+            <div class="timer" id="floating-timer">0:00</div>
+            <div class="mini-progress">
+                <div class="mini-progress-bar" id="floating-progress-bar"></div>
+            </div>
+            <div class="status-text" id="floating-status">0/15 besvarade</div>
+        </div>
     </div>
     
-    <script src="https://johanstromquist.github.io/styles/healthquiz.js"></script>
+    <!-- Ladda in JavaScript-resurserna -->
+    <script src="studyguide-core.js"></script>
+    <script src="healthquiz.js"></script>
+    <script src="interactive-quiz.js"></script>
     <script>
-        // Sparar vilka sektioner som besökts
-        let visitedSections = JSON.parse(localStorage.getItem('visitedSections') || '[]');
-        const achievementsEarned = JSON.parse(localStorage.getItem('achievementsEarned') || '[]');
-        
-        // Ladda upplåsta prestationer
-        function loadAchievements() {
-            achievementsEarned.forEach(id => {
-                const achievementElement = document.getElementById(id);
-                if (achievementElement) {
-                    const lockOverlay = achievementElement.querySelector('.locked-overlay');
-                    if (lockOverlay) {
-                        lockOverlay.style.display = 'none';
-                    }
-                    achievementElement.classList.add('unlocked');
-                }
-            });
-        }
-        
-        // Visa prestation när den är upplåst
-        function showAchievementNotification(id) {
-            const achievement = document.getElementById(id);
-            if (!achievement) return;
-            
-            const name = achievement.getAttribute('data-name');
-            
-            // Uppdatera popup-innehållet
-            document.getElementById('achievement-name').textContent = name;
-            
-            // Visa popup
-            const popup = document.getElementById('achievement-popup');
-            popup.style.display = 'block';
-            
-            // Ändra popup-ikon baserat på prestationstyp
-            const iconElement = popup.querySelector('.icon');
-            if (id === 'explorer') {
-                iconElement.textContent = '🧭';
-            } else if (id === 'quiz-master') {
-                iconElement.textContent = '🏆';
-            } else if (id === 'speed-demon') {
-                iconElement.textContent = '⚡';
-            } else if (id === 'lightning') {
-                iconElement.textContent = '⚡⚡';
-            } else if (id === 'light-speed') {
-                iconElement.textContent = '🚀';
-            }
-            
-            // Dölj popup efter 3 sekunder
-            setTimeout(() => {
-                popup.style.display = 'none';
-            }, 3000);
-            
-            // Visa prestation-badge till höger
-            const badge = document.createElement('div');
-            badge.className = 'achievement-badge';
-            badge.innerHTML = `<span class="emoji">${iconElement.textContent}</span>${name}`;
-            document.body.appendChild(badge);
-            
-            // Visa badge med en liten fördröjning för animation
-            setTimeout(() => {
-                badge.classList.add('show');
-            }, 100);
-            
-            // Ta bort badge efter 5 sekunder
-            setTimeout(() => {
-                badge.classList.remove('show');
-                setTimeout(() => {
-                    document.body.removeChild(badge);
-                }, 500);
-            }, 5000);
-        }
-        
-        // Lås upp prestation om det inte redan är upplåst
-        function unlockAchievement(id) {
-            if (!achievementsEarned.includes(id)) {
-                achievementsEarned.push(id);
-                localStorage.setItem('achievementsEarned', JSON.stringify(achievementsEarned));
-                
-                const achievementElement = document.getElementById(id);
-                if (achievementElement) {
-                    const lockOverlay = achievementElement.querySelector('.locked-overlay');
-                    if (lockOverlay) {
-                        lockOverlay.style.display = 'none';
-                    }
-                    achievementElement.classList.add('unlocked');
-                }
-                
-                showAchievementNotification(id);
-            }
-        }
-        
-        // Kontrollera Explorer achievement
-        function checkExplorerAchievement() {
-            const requiredSections = ['vetenskap', 'psykisk', 'somn', 'fysisk', 'droger'];
-            const allVisited = requiredSections.every(section => visitedSections.includes(section));
-            
-            if (allVisited) {
-                unlockAchievement('explorer');
-            }
-        }
-        
         document.addEventListener('DOMContentLoaded', function() {
-            // Ladda prestationer
-            loadAchievements();
-            
-            // Ladda bästa tid om det finns
-            const bestTime = localStorage.getItem('bestTime');
-            if (bestTime) {
-                const time = parseInt(bestTime);
-                const minutes = Math.floor(time / 60);
-                const seconds = time % 60;
-                const formattedTime = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-                
-                document.getElementById('best-time').textContent = formattedTime;
-                document.getElementById('best-time-display').textContent = `Ditt snabbaste resultat: ${formattedTime}`;
-            }
-            
-            // Navigering mellan sektioner
-            const navLinks = document.querySelectorAll('nav a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    // Aktiv navigation
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    // Visa motsvarande sektion
-                    const sections = document.querySelectorAll('.section');
-                    sections.forEach(s => s.classList.remove('active'));
-                    
-                    const targetSection = this.getAttribute('data-section');
-                    document.getElementById(targetSection).classList.add('active', 'animated');
-                    
-                    // Registrera besök om inte redan registrerat
-                    if (!visitedSections.includes(targetSection)) {
-                        visitedSections.push(targetSection);
-                        localStorage.setItem('visitedSections', JSON.stringify(visitedSections));
-                        
-                        // Kontrollera Explorer achievement
-                        checkExplorerAchievement();
-                    }
-                    
-                    // Dölj quiz-status om man navigerar bort från quiz
-                    if (targetSection !== 'quiz') {
-                        document.getElementById('quiz-status-floating').style.display = 'none';
-                    }
-                });
+            // Initiera studiehandledningen
+            initStudyGuide({
+                requiredSections: ['vetenskap', 'psykisk', 'somn', 'fysisk', 'droger'],
+                sectionQuestions: true
             });
-            
-            // Initialisera quiz
-            document.getElementById('start-quiz-btn').addEventListener('click', function() {
-                startQuiz();
-            });
-            
-            function startQuiz() {
-                // Dölj start och visa quiz
-                document.getElementById('quiz-start').style.display = 'none';
-                document.getElementById('quiz-result').style.display = 'none';
-                document.getElementById('quiz-progress').style.display = 'block';
-                
-                // Visa flytande status
-                document.getElementById('quiz-status-floating').style.display = 'block';
-                
-                // Starta quiz från externt script
-                if (typeof window.initializeQuiz === 'function') {
-                    window.initializeQuiz({
-                        questionsContainerId: 'quiz-questions',
-                        timerElementId: 'quiz-timer',
-                        floatingTimerId: 'floating-timer',
-                        progressBarId: 'quiz-progress-bar',
-                        floatingProgressBarId: 'floating-progress-bar',
-                        progressTextId: 'quiz-progress-text',
-                        floatingStatusId: 'floating-status',
-                        onComplete: function(result) {
-                            // Visa resultat
-                            document.getElementById('quiz-progress').style.display = 'none';
-                            document.getElementById('quiz-questions').style.display = 'none';
-                            
-                            const resultElement = document.getElementById('quiz-result');
-                            resultElement.style.display = 'block';
-                            
-                            // Formatera och visa resultat
-                            const correct = result.correctAnswers;
-                            const total = result.totalQuestions;
-                            const time = result.timeElapsed;
-                            const score = Math.round((correct / total) * 100);
-                            
-                            // Formatera tid
-                            const minutes = Math.floor(time / 60);
-                            const seconds = time % 60;
-                            const timeString = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-                            
-                            // Spara bästa tid om det är ett nytt rekord
-                            const currentBestTime = localStorage.getItem('bestTime');
-                            if (!currentBestTime || time < parseInt(currentBestTime)) {
-                                localStorage.setItem('bestTime', time);
-                                
-                                // Uppdatera visningen av bästa tid
-                                document.getElementById('best-time').textContent = timeString;
-                                document.getElementById('best-time-display').textContent = `Ditt snabbaste resultat: ${timeString}`;
-                            }
-                            
-                            // Beräkna tidsbonus (2 poäng för varje sekund under 5 minuter)
-                            const timeBonus = Math.max(0, 300 - time) * 2;
-                            const totalScore = score + timeBonus;
-                            
-                            // Generera resultatinnehåll
-                            resultElement.innerHTML = `
-                                <h3>Quiz Resultat</h3>
-                                <p>Du svarade på ${result.answeredQuestions} av ${total} frågor.</p>
-                                <p>Rätta svar: ${correct} (${score}%)</p>
-                                <p>Tid: ${timeString}</p>
-                                <p>Tidsbonus: +${timeBonus} poäng</p>
-                                <p class="result">Din totalpoäng: ${totalScore}</p>
-                                
-                                ${currentBestTime && time < parseInt(currentBestTime) ? 
-                                  '<p class="time-record">Nytt personligt rekord!</p>' : ''}
-                                
-                                <button onclick="document.getElementById('start-quiz-btn').click()">Försök igen</button>
-                            `;
-                            
-                            // Dölj flytande status
-                            document.getElementById('quiz-status-floating').style.display = 'none';
-                            
-                            // Kontrollera achievements
-                            if (correct === total) {
-                                unlockAchievement('quiz-master');
-                            }
-                            
-                            if (time < 60) {
-                                unlockAchievement('light-speed');
-                                unlockAchievement('lightning');
-                                unlockAchievement('speed-demon');
-                            } else if (time < 120) {
-                                unlockAchievement('lightning');
-                                unlockAchievement('speed-demon');
-                            } else if (time < 180) {
-                                unlockAchievement('speed-demon');
-                            }
-                        }
-                    });
-                }
-            }
         });
     </script>
 </body>
