@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samhällsekonomi - Interaktiv Studiehandledning</title>
+    <link rel="stylesheet" href="studyguide.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Samhällsekonomi och Ekonomisk Politik</h1>
+            <p>En interaktiv studiehandledning</p>
+        </header>
+        
+        <nav>
+            <ul>
+                <li><a href="#" class="active" data-section="intro">Introduktion</a></li>
+                <li><a href="#" data-section="grundlaggande">Grundläggande Begrepp</a></li>
+                <li><a href="#" data-section="system">Ekonomiska System</a></li>
+                <li><a href="#" data-section="mal">Ekonomiska Mål</a></li>
+                <li><a href="#" data-section="politik">Ekonomisk Politik</a></li>
+                <li><a href="#" data-section="quiz">Quiz</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Introduktion -->
+        <section id="intro" class="section active animated">
+            <h2>Välkommen till din interaktiva studiehandledning!</h2>
+            <p>Denna guide hjälper dig att förstå grunderna i samhällsekonomi och ekonomisk politik. Guiden är uppdelad i 4 huvuddelar plus ett avslutande quiz.</p>
+            
+            <div class="info-box">
+                <h3>📝 Så använder du studiehandledningen</h3>
+                <p>Navigera mellan olika avsnitt genom menyn ovan. Varje avsnitt innehåller:</p>
+                <ul>
+                    <li>Viktiga begrepp och definitioner</li>
+                    <li>Förklaringar och exempel</li>
+                    <li>Övningsfrågor i slutet av varje avsnitt</li>
+                </ul>
+                <p>När du känner dig redo, testa dina kunskaper med det interaktiva quizet!</p>
+            </div>
+            
+            <div class="flex-container">
+                <div class="card icon-bg-card" data-bg-icon="🏅">
+                    <h3>🏆 Prestationer att låsa upp</h3>
+                    <p>När du använder studiehandledningen kan du låsa upp olika prestationer genom att utforska innehållet och testa dina kunskaper i quizet. Se listan nedan för att se vilka prestationer som finns och hur du låser upp dem!</p>
+                </div>
+                <div class="card icon-bg-card" data-bg-icon="📈">
+                    <h3>📊 Spåra dina framsteg</h3>
+                    <p>Dina resultat och prestationer sparas automatiskt så att du kan se din utveckling över tid. Försök att förbättra dina tider och resultat för varje försök!</p>
+                    <h4>🏆 Bästa Quiz-resultat:</h4>
+                    <div class="best-score-display">
+                        <p><span class="icon">✔️</span> Rätt svar: <strong id="best-score-correct">--</strong></p>
+                        <p><span class="icon">⏱️</span> Tid: <strong id="best-score-time">--:--</strong></p>
+                        <p><span class="icon">⭐</span> Poäng: <strong id="best-score-points">----</strong></p>
+                    </div>
+                </div>
+            </div>
+            
+            <button onclick="document.querySelector('[data-section=\'grundlaggande\']').click()">Börja studera nu!</button>
+            
+            <!-- Container for dynamically generated achievements -->
+            <div id="achievements-list" class="achievements">
+                <!-- Achievements will be loaded here by studyguide-core.js -->
+            </div>
+        </section>
+        
+        <!-- Grundläggande Begrepp -->
+        <section id="grundlaggande" class="section animated">
+            <h2>Grundläggande Begrepp</h2>
+            
+            <div class="subsection theme-lblue">
+                 <h3><span class="box-icon">🌍</span> Nationalekonomins Kärna</h3>
+                 <div class="definition">
+                    <p><strong>Nationalekonomi</strong> handlar om hur samhällen använder sina begränsade resurser för att tillfredsställa obegränsade mänskliga behov och önskemål. Centralt är begreppet <strong>knapphet</strong>.</p>
+                 </div>
+                 <div class="info-box box-with-bg-icon" data-bg-icon="🤔">
+                    <h3>Knapphetsproblemet</h3>
+                    <p>Eftersom resurser (arbetskraft, kapital, råvaror) är begränsade, men våra önskemål är oändliga, måste vi ständigt göra val. Varje val innebär en <strong>alternativkostnad</strong> – värdet av det bästa alternativet vi avstår från.</p>
+                 </div>
+            </div>
+
+            <div class="subsection theme-blue">
+                <h3><span class="box-icon">📈</span> Mäta Ekonomin: BNP & Inflation</h3>
+                <div class="flex-two-column">
+                    <div class="column">
+                        <div class="definition box-with-bg-icon" data-bg-icon="💰">
+                            <h4>Bruttonationalprodukt (BNP)</h4>
+                            <p>Det totala värdet av alla varor och tjänster som produceras i ett land under en viss period (oftast ett år). Används som ett mått på ekonomisk aktivitet och storlek.</p>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="warning-box box-with-bg-icon" data-bg-icon="🔥">
+                             <h4>Inflation</h4>
+                             <p>En allmän och ihållande ökning av prisnivån i ekonomin. Detta innebär att pengarnas köpkraft minskar över tid. Motsatsen kallas deflation.</p>
+                         </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="subsection theme-green">
+                <h3><span class="box-icon">⚖️</span> Utbud & Efterfrågan</h3>
+                <p>Grundläggande principer som styr priser på en marknad:</p>
+                <div class="flex-container icon-card-deck theme-benefit">
+                    <div class="card icon-bg-card" data-bg-icon="🛒">
+                        <h4><span class="box-icon">📉</span> Lagen om Efterfrågan</h4>
+                        <p>Ju lägre priset på en vara är, desto mer efterfrågar konsumenterna (allt annat lika).</p>
+                    </div>
+                    <div class="card icon-bg-card" data-bg-icon="🏭">
+                        <h4><span class="box-icon">📈</span> Lagen om Utbud</h4>
+                        <p>Ju högre priset på en vara är, desto mer är företagen villiga att producera och sälja (allt annat lika).</p>
+                    </div>
+                    <div class="card icon-bg-card" data-bg-icon="📍">
+                        <h4><span class="box-icon"> equilibrium </span> Jämviktspris</h4>
+                        <p>Det pris där den efterfrågade kvantiteten är lika med den utbjudna kvantiteten. Marknaden är i balans.</p>
+                    </div>
+                </div>
+                 <div class="illustration">
+                     <svg width="300" height="200" viewBox="0 0 300 200" style="border:1px solid #ccc; margin-top: 10px;">
+                        <title>Utbud och Efterfrågan Diagram</title>
+                        <desc>Ett diagram som visar hur utbuds- (S) och efterfrågekurvan (D) möts vid jämviktspriset (P*) och jämviktskvantiteten (Q*).</desc>
+                        <line x1="50" y1="150" x2="250" y2="50" stroke="var(--accent)" stroke-width="2" /> 
+                        <text x="255" y="55" fill="var(--accent)">D</text>
+                        <line x1="50" y1="50" x2="250" y2="150" stroke="var(--secondary)" stroke-width="2" />
+                        <text x="255" y="155" fill="var(--secondary)">S</text>
+                        <circle cx="150" cy="100" r="5" fill="var(--primary)" />
+                        <text x="160" y="95" fill="var(--primary)" font-weight="bold">Jämvikt</text>
+                        <line x1="150" y1="100" x2="150" y2="180" stroke="black" stroke-width="1" stroke-dasharray="2,2"/>
+                        <text x="140" y="195">Q*</text>
+                        <line x1="150" y1="100" x2="20" y2="100" stroke="black" stroke-width="1" stroke-dasharray="2,2"/>
+                        <text x="0" y="95">P*</text>
+                        <text x="270" y="195">Kvantitet</text>
+                        <text x="5" y="15" transform="rotate(-90 10 100)">Pris</text>
+                     </svg>
+                </div>
+            </div>
+
+            <div class="subsection theme-yellow">
+                <h3><span class="box-icon">🛠️</span> Produktionsfaktorer</h3>
+                 <div class="definition">
+                    <p>De resurser som används för att producera varor och tjänster. De delas traditionellt in i:</p>
+                    <ul class="icon-list-alt cols-2">
+                        <li><span class="list-icon">🧑‍🔧</span> <strong>Arbetskraft:</strong> Människors fysiska och mentala ansträngningar.</li>
+                        <li><span class="list-icon">🏗️</span> <strong>Realkapital:</strong> Maskiner, byggnader, verktyg etc.</li>
+                        <li><span class="list-icon">🌲</span> <strong>Naturresurser/Råvaror:</strong> Land, skog, mineraler etc.</li>
+                         <li><span class="list-icon">💡</span> <strong>Humankapital/Know-how:</strong> Kunskap, utbildning, teknologi.</li>
+                    </ul>
+                 </div>
+            </div>
+            
+            <div id="grundlaggande-questions" class="quiz-container"></div>
+            
+            <button onclick="document.querySelector('[data-section=\'system\']').click()">Gå vidare till Ekonomiska System</button>
+        </section>
+        
+        <!-- Ekonomiska System -->
+        <section id="system" class="section animated">
+            <h2>Ekonomiska System</h2>
+            
+             <div class="subsection theme-purple">
+                 <h3><span class="box-icon">🏛️</span> Vad är ett ekonomiskt system?</h3>
+                 <div class="definition">
+                    <p>Ett sätt för ett samhälle att organisera produktion, distribution och konsumtion av varor och tjänster. Systemet svarar på de grundläggande frågorna: <strong>Vad</strong> ska produceras? <strong>Hur</strong> ska det produceras? <strong>För vem</strong> ska det produceras?</p>
+                 </div>
+             </div>
+
+            <div class="subsection theme-orange">
+                <h3><span class="box-icon">🛒</span> Marknadsekonomi</h3>
+                <div class="info-box box-with-bg-icon" data-bg-icon="🤝">
+                    <h3>Kännetecken</h3>
+                    <ul class="styled-list check-list-alt green-checks">
+                        <li>Privat ägande av produktionsfaktorer.</li>
+                        <li>Beslut fattas decentraliserat av hushåll och företag.</li>
+                        <li>Priser bestäms av utbud och efterfrågan på marknader.</li>
+                        <li>Konkurrens driver effektivitet och innovation.</li>
+                        <li><strong>Adam Smiths "osynliga hand":</strong> Individers egenintresse leder (under ideala förhållanden) till samhällsnytta.</li>
+                    </ul>
+                    <p><strong>Utmaningar:</strong> Risk för monopol, ojämlikhet, miljöproblem, konjunktursvängningar.</p>
+                </div>
+            </div>
+
+            <div class="subsection theme-red">
+                <h3><span class="box-icon">📕</span> Planekonomi</h3>
+                 <div class="warning-box box-with-bg-icon" data-bg-icon="📋">
+                    <h3>Kännetecken</h3>
+                    <ul class="styled-list cross-list-alt">
+                        <li>Staten äger produktionsfaktorerna.</li>
+                        <li>Central planering (ofta femårsplaner) bestämmer produktion och priser.</li>
+                        <li>Liten eller ingen privat företagsamhet.</li>
+                        <li>Målet är ofta jämlik fördelning (men uppnås sällan).</li>
+                    </ul>
+                    <p><strong>Utmaningar:</strong> Ineffektivitet, brist på varor, dålig kvalitet, begränsad valfrihet, informationsproblem.</p>
+                </div>
+            </div>
+
+            <div class="subsection theme-cyan">
+                <h3><span class="box-icon">🔄</span> Blandekonomi & Kretsloppet</h3>
+                <div class="definition">
+                    <p>De flesta länder idag har <strong>blandekonomier</strong>, en mix av marknadsekonomi och statlig inblandning (regleringar, skatter, offentlig sektor).</p>
+                </div>
+                <div class="info-box">
+                    <h4><span class="box-icon">💸</span> Det Ekonomiska Kretsloppet</h4>
+                    <p>Visar hur pengar, varor och tjänster flödar mellan olika aktörer i ekonomin:</p>
+                    <ul class="icon-list-alt">
+                        <li><span class="list-icon">👨‍👩‍👧‍👦</span> <strong>Hushåll:</strong> Erbjuder arbetskraft, konsumerar varor/tjänster, betalar skatt, sparar.</li>
+                        <li><span class="list-icon">🏢</span> <strong>Företag:</strong> Producerar varor/tjänster, anställer arbetskraft, investerar, betalar skatt.</li>
+                        <li><span class="list-icon">🏛️</span> <strong>Offentlig sektor:</strong> Tillhandahåller service (vård, skola), omfördelar via skatter/bidrag, reglerar.</li>
+                        <li><span class="list-icon">🏦</span> <strong>Finanssektor:</strong> Förmedlar kapital mellan sparare och låntagare.</li>
+                        <li><span class="list-icon">🌍</span> <strong>Utlandet:</strong> Export och import av varor, tjänster och kapital.</li>
+                    </ul>
+                     <div class="illustration">
+                         <svg width="400" height="250" viewBox="0 0 400 250" style="border:1px solid #ccc; margin-top: 10px;">
+                            <title>Förenklat Ekonomiskt Kretslopp</title>
+                            <desc>Visar flöden mellan Hushåll, Företag, Offentlig Sektor och Finansmarknad.</desc>
+                            <!-- Nodes -->
+                            <rect x="50" y="50" width="100" height="50" rx="5" fill="#e3f2fd" stroke="var(--primary)" />
+                            <text x="100" y="80" text-anchor="middle">Hushåll</text>
+                            <rect x="250" y="50" width="100" height="50" rx="5" fill="#e8f5e9" stroke="var(--secondary)" />
+                            <text x="300" y="80" text-anchor="middle">Företag</text>
+                            <rect x="50" y="150" width="100" height="50" rx="5" fill="#fff9c4" stroke="var(--gold)" />
+                            <text x="100" y="180" text-anchor="middle">Offentlig Sektor</text>
+                            <rect x="250" y="150" width="100" height="50" rx="5" fill="#f3e5f5" stroke="#9b59b6" />
+                            <text x="300" y="180" text-anchor="middle">Finansmarknad</text>
+                            <!-- Arrows (Simplified) -->
+                            <path d="M 150 75 Q 200 40 250 75" stroke="#666" fill="none" stroke-width="1.5" marker-end="url(#arrow)"/>
+                            <text x="200" y="60" font-size="10px" text-anchor="middle">Varor/Tjänster</text>
+                            <path d="M 250 75 Q 200 110 150 75" stroke="#666" fill="none" stroke-width="1.5" marker-end="url(#arrow)"/>
+                            <text x="200" y="95" font-size="10px" text-anchor="middle">Betalning</text>
+                            <path d="M 100 100 V 150" stroke="#666" fill="none" stroke-width="1.5" marker-end="url(#arrow)"/> 
+                            <text x="85" y="130" font-size="10px">Skatt</text>
+                            <path d="M 300 100 V 150" stroke="#666" fill="none" stroke-width="1.5" marker-end="url(#arrow)"/>
+                             <text x="310" y="130" font-size="10px">Lån</text>
+                            <!-- Arrow marker definition -->
+                            <defs>
+                                <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                <path d="M 0 0 L 10 5 L 0 10 z" fill="#666" />
+                                </marker>
+                            </defs>
+                        </svg>
+                     </div>
+                </div>
+            </div>
+            
+            <div id="system-questions" class="quiz-container"></div>
+            
+            <button onclick="document.querySelector('[data-section=\'mal\']').click()">Gå vidare till Ekonomiska Mål</button>
+        </section>
+
+        <!-- Ekonomiska Mål -->
+        <section id="mal" class="section animated">
+            <h2>Ekonomiska Mål</h2>
+            
+            <div class="subsection theme-lblue">
+                 <h3><span class="box-icon">🎯</span> Varför har vi ekonomisk politik?</h3>
+                 <div class="definition">
+                    <p>Det övergripande syftet med ekonomisk politik är oftast att uppnå <strong>högsta möjliga samhälleliga välfärd</strong>. Detta bryts ner i flera konkreta mål.</p>
+                 </div>
+             </div>
+
+            <div class="subsection theme-green">
+                <h3><span class="box-icon">📊</span> Vanliga Samhällsekonomiska Mål</h3>
+                <div class="flex-container icon-card-deck theme-benefit">
+                    <div class="card icon-bg-card" data-bg-icon="💹">
+                        <h4><span class="box-icon">📈</span> Ekonomisk Tillväxt</h4>
+                        <p>Ökad produktion (BNP) över tid. Ska ge mer resurser att fördela.</p>
+                    </div>
+                    <div class="card icon-bg-card" data-bg-icon="🧑‍💼">
+                        <h4><span class="box-icon">💼</span> Låg Arbetslöshet</h4>
+                        <p>Hög sysselsättning, så många som möjligt som vill arbeta har jobb.</p>
+                    </div>
+                    <div class="card icon-bg-card" data-bg-icon="🪙">
+                        <h4><span class="box-icon">💲</span> Stabilt Penningvärde</h4>
+                        <p>Låg och stabil inflation (ofta runt 2%).</p>
+                    </div>
+                    <div class="card icon-bg-card" data-bg-icon="⚖️">
+                        <h4><span class="box-icon">🤝</span> Jämn Inkomstfördelning</h4>
+                        <p>Minska ekonomiska klyftor i samhället.</p>
+                    </div>
+                    <div class="card icon-bg-card" data-bg-icon="🚢">
+                        <h4><span class="box-icon">🌍</span> Extern Balans</h4>
+                        <p>Balans i utrikeshandeln (export ≈ import).</p>
+                    </div>
+                     <div class="card icon-bg-card" data-bg-icon="🌳">
+                        <h4><span class="box-icon">♻️</span> Miljömässig Hållbarhet</h4>
+                        <p>Ekonomisk utveckling som inte förstör miljön för framtida generationer.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="subsection theme-yellow">
+                 <h3><span class="box-icon">❓</span> Målkonflikter</h3>
+                 <div class="warning-box">
+                    <h4><span class="box-icon">⚠️</span> Svåra Avvägningar</h4>
+                    <p>Det är ofta svårt att uppnå alla mål samtidigt. Åtgärder för ett mål kan motverka ett annat. Exempel:</p>
+                    <ul class="styled-list cross-list-alt">
+                        <li><strong>Låg arbetslöshet vs. Låg inflation:</strong> Att stimulera ekonomin för att få ner arbetslösheten kan leda till högre inflation (Phillipskurvan).</li>
+                        <li><strong>Ekonomisk tillväxt vs. Miljö:</strong> Högre produktion kan leda till ökad miljöpåverkan om inte åtgärder vidtas.</li>
+                        <li><strong>Ekonomisk tillväxt vs. Jämn inkomstfördelning:</strong> Vissa tillväxtfrämjande åtgärder kan öka klyftorna, och omfördelning kan ibland dämpa tillväxtincitament.</li>
+                    </ul>
+                    <p>Ekonomisk politik handlar mycket om att göra avvägningar mellan olika önskvärda mål.</p>
+                </div>
+            </div>
+
+            <div id="mal-questions" class="quiz-container"></div>
+            
+            <button onclick="document.querySelector('[data-section=\'politik\']').click()">Gå vidare till Ekonomisk Politik</button>
+        </section>
+
+        <!-- Ekonomisk Politik -->
+        <section id="politik" class="section animated">
+            <h2>Ekonomisk Politik</h2>
+            
+            <div class="subsection theme-cyan">
+                 <h3><span class="box-icon">⚙️</span> Politikens Verktyg</h3>
+                 <div class="definition">
+                    <p>För att försöka nå de ekonomiska målen använder staten och centralbanken olika verktyg, främst <strong>finanspolitik</strong> och <strong>penningpolitik</strong>. Syftet är ofta <strong>stabiliseringspolitik</strong> - att jämna ut konjunktursvängningar.</p>
+                 </div>
+             </div>
+
+            <div class="subsection theme-blue">
+                <h3><span class="box-icon">🏛️</span> Finanspolitik (Regeringen/Riksdagen)</h3>
+                 <div class="info-box box-with-bg-icon" data-bg-icon="🧾">
+                    <h3>Budgetens Makt</h3>
+                    <p>Staten påverkar ekonomin genom <strong>statsbudgeten</strong>:</p>
+                    <ul class="icon-list-alt">
+                        <li><span class="list-icon">➕</span> <strong>Offentliga utgifter:</strong> Investeringar (vägar, järnvägar), konsumtion (vård, skola, försvar), transfereringar (bidrag, pensioner).</li>
+                        <li><span class="list-icon">➖</span> <strong>Skatter:</strong> Inkomstskatt, moms, punktskatter (bensin, alkohol), bolagsskatt.</li>
+                    </ul>
+                    <p><strong>Expansiv finanspolitik (stimulans):</strong> Öka utgifter/sänka skatter för att öka efterfrågan i lågkonjunktur.</p>
+                    <p><strong>Kontraktiv finanspolitik (åtstramning):</strong> Minska utgifter/höja skatter för att dämpa efterfrågan och inflation i högkonjunktur.</p>
+                 </div>
+            </div>
+            
+            <div class="subsection theme-purple">
+                 <h3><span class="box-icon">🏦</span> Penningpolitik (Riksbanken)</h3>
+                 <div class="info-box box-with-bg-icon" data-bg-icon="📊">
+                    <h3>Räntans Roll</h3>
+                    <p>Sveriges centralbank, <strong>Riksbanken</strong>, har huvudansvaret för penningpolitiken. Målet är att hålla inflationen kring 2%.</p>
+                    <p>Huvudverktyget är <strong>styrräntan</strong> (tidigare reporäntan):</p>
+                    <ul class="icon-list-alt">
+                        <li><span class="list-icon">⬆️</span> <strong>Höjd styrränta:</strong> Gör det dyrare för banker att låna, vilket leder till högre utlåningsräntor för hushåll/företag. Dämpar lånande, investeringar och konsumtion -> Lägre inflationstryck.</li>
+                        <li><span class="list-icon">⬇️</span> <strong>Sänkt styrränta:</strong> Gör det billigare att låna. Stimulerar lånande, investeringar och konsumtion -> Högre inflationstryck.</li>
+                    </ul>
+                    <p>Riksbanken kan också köpa/sälja statspapper (kvantitativa lättnader/åtstramningar) för att påverka långa räntor.</p>
+                 </div>
+            </div>
+
+            <div class="subsection theme-orange">
+                <h3><span class="box-icon">〰️</span> Konjunkturcykeln</h3>
+                <div class="info-box comparison-box">
+                    <h3><span class="box-icon">⏳</span> Hög vs. Lågkonjunktur</h3>
+                     <div class="comparison-grid">
+                        <div class="comparison-item">
+                            <h4>HÖG <span class="icon">☀️</span></h4>
+                            <p>BNP växer snabbt</p>
+                            <p>Hög sysselsättning</p>
+                            <p>Risk för inflation</p>
+                            <p>Optimism</p>
+                            <p>Politik: Åtstramande (högre ränta, högre skatt)</p>
+                        </div>
+                         <div class="comparison-item">
+                            <h4>LÅG <span class="icon">☁️</span></h4>
+                            <p>BNP växer långsamt/minskar</p>
+                            <p>Hög arbetslöshet</p>
+                            <p>Risk för deflation</p>
+                            <p>Pessimism</p>
+                            <p>Politik: Expansiv (lägre ränta, lägre skatt/ökade utgifter)</p>
+                        </div>
+                     </div>
+                     <p class="comparison-footer">Stabiliseringspolitik syftar till att dämpa dessa svängningar.</p>
+                </div>
+            </div>
+            
+            <div id="politik-questions" class="quiz-container"></div>
+            
+            <button onclick="document.querySelector('[data-section=\'quiz\']').click()">Gå vidare till Quiz</button>
+        </section>
+        
+        <!-- Quiz -->
+        <section id="quiz" class="section animated">
+            <h2>Quiz - Testa dina kunskaper</h2>
+            
+            <div id="quiz-start">
+                <div class="info-box">
+                    <h3>Dags att testa dina kunskaper!</h3>
+                    <p>Detta quiz innehåller slumpmässigt utvalda frågor från alla avsnitt i studiehandledningen. Försök att svara så snabbt och korrekt som möjligt för att få högsta poäng!</p>
+                    <ul>
+                        <li>Du får poäng för varje rätt svar</li>
+                        <li>Ju snabbare du slutför quizet, desto fler bonuspoäng får du</li>
+                        <li>Kan du slå ditt eget rekord?</li>
+                    </ul>
+                </div>
+                
+                <div class="achievement-tier">
+                    <div class="tier tier-1">Nivå 1: Slutför på under 3 minuter</div>
+                    <div class="tier tier-2">Nivå 2: Slutför på under 2 minuter</div>
+                    <div class="tier tier-3">Nivå 3: Slutför på under 1 minut</div>
+                </div>
+                
+                <div id="best-time-display" class="time-record">Ditt snabbaste resultat: Inte satt än</div>
+                
+                <!-- Wrapper to center the inline-block switch -->
+                <div class="difficulty-switch-wrapper">
+                    <!-- Difficulty Switch -->
+                    <div class="difficulty-switch">
+                        <label for="difficulty-normal">Svårighetsgrad:</label>
+                        <div class="switch-container">
+                            <input type="radio" id="difficulty-normal" name="difficulty" value="normal" checked>
+                            <label for="difficulty-normal" class="switch-label switch-label-left">Normal 🙂</label>
+                            
+                            <input type="radio" id="difficulty-crazy" name="difficulty" value="crazy">
+                            <label for="difficulty-crazy" class="switch-label switch-label-right">Crazy Bananas! 🤪🍌</label>
+                            
+                            <span class="switch-selection"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="start-quiz-btn">Starta Quiz</button>
+            </div>
+            
+            <div id="quiz-progress" style="display: none;">
+                <div class="timer" id="quiz-timer">0:00</div>
+                <div class="progress-container">
+                    <div class="progress-bar" id="quiz-progress-bar"></div>
+                </div>
+                <p id="quiz-progress-text">0 av 0 besvarade</p>
+            </div>
+            
+            <div id="quiz-questions" style="display: none;"></div>
+            
+            <div id="quiz-result" style="display: none;"></div>
+        </section>
+        
+        <!-- Floating quiz status - visas endast under aktiv quiz -->
+        <div id="quiz-status-floating" class="quiz-status-floating" style="display: none;">
+            <div class="timer" id="floating-timer">0:00</div>
+            <div class="mini-progress">
+                <div class="mini-progress-bar" id="floating-progress-bar"></div>
+            </div>
+            <div class="status-text" id="floating-status">0/15 besvarade</div>
+        </div>
+    </div>
+    
+    <!-- Ladda in JavaScript-resurserna -->
+    <script src="studyguide-core.js"></script>
+    <script src="economicsquiz.js"></script> <!-- Länka till den nya frågedatabasen -->
+    <script src="interactive-quiz.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initiera studiehandledningen med korrekta sektions-ID för prestationer
+            initStudyGuide({
+                guideId: 'economics',
+                requiredSections: ['grundlaggande', 'system', 'mal', 'politik'], // Uppdaterad lista
+                sectionQuestions: true
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaktiva Studiehandledningar - Index</title>
+    <link rel="stylesheet" href="studyguide.css">
+    <style>
+        /* Add some specific styles for the index page */
+        body {
+            background-color: var(--light);
+        }
+        .index-header {
+            background-color: var(--dark);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 0 0 10px 10px; /* Rounded bottom corners */
+        }
+        .index-header h1 {
+            color: white;
+            margin-bottom: 5px;
+        }
+        /* Styles for Subject Grouping */
+        .subject-group {
+            margin-bottom: 40px; /* Space between subject groups */
+        }
+        .subject-group h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid; /* Default border */
+            display: inline-block; /* Keep border tight */
+        }
+        .subject-group h3 .icon { /* Style for icon span within h3 */
+            margin-right: 10px;
+            font-size: 1.1em; /* Adjust icon size relative to h3 */
+            vertical-align: middle; /* Align icon nicely */
+        }
+
+        /* Naturkunskap Specific Styles */
+        .subject-naturkunskap h3 {
+            color: var(--secondary); /* Green */
+            border-color: var(--secondary);
+        }
+
+        /* Samhällskunskap Specific Styles */
+        .subject-samhallskunskap h3 {
+            color: var(--primary); /* Blue */
+            border-color: var(--primary);
+        }
+         /* Historia Specific Styles (Example) */
+         .subject-historia h3 {
+            color: var(--accent); /* Red */
+            border-color: var(--accent);
+        }
+
+        .guide-list { /* This now applies to lists WITHIN each subject group */
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            /* justify-content: center; -- Let it align left within the group */
+        }
+        .guide-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            flex: 0 1 350px; /* Allow shrinking, base width 350px */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit; /* Inherit text color */
+            display: block; /* Make the whole card clickable */
+        }
+        .guide-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+        }
+        .guide-card h2 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+        .guide-card .course-info { /* Style for the course info paragraph */
+            font-size: 0.9em;
+            font-style: italic;
+            color: #666;
+            margin-bottom: 8px; /* Space between course and description */
+        }
+        .guide-card p {
+            color: var(--dark);
+            font-size: 1em;
+            margin-bottom: 0;
+        }
+         .guide-card .icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            display: block; /* Make icon block for spacing */
+        }
+        .guide-card p code {
+            font-size: 0.85em;
+            color: #555;
+            background-color: #eee;
+            padding: 2px 4px;
+            border-radius: 3px;
+            display: inline-block; /* Prevent breaking line */
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="index-header">
+        <h1>Tillgängliga Studiehandledningar</h1>
+        <p>Välj en guide nedan för att börja studera.</p>
+    </div>
+
+    <div class="container">
+
+        <!-- Naturkunskap Group -->
+        <div class="subject-group subject-naturkunskap">
+            <h3><span class="icon">🌳</span> Naturkunskap</h3>
+            <div class="guide-list">
+                <!-- Hälsa Guide Card -->
+                <a href="healthguide.html" class="guide-card">
+                    <span class="icon">❤️‍🩹</span>
+                    <h2>Livsstil och Hälsa</h2>
+                    <p class="course-info">Kurs: Naturkunskap 1b</p> 
+                    <p>En interaktiv guide om hälsa, stress, sömn, motion och droger. <code>ID: health</code></p>
+                </a>
+                <!-- Add more Naturkunskap guides here -->
+            </div>
+        </div>
+
+        <!-- Samhällskunskap Group -->
+        <div class="subject-group subject-samhallskunskap">
+             <h3><span class="icon">🏛️</span> Samhällskunskap</h3>
+            <div class="guide-list">
+                <!-- Ekonomi Guide Card -->
+                <a href="economicsguide.html" class="guide-card">
+                     <span class="icon">📈</span>
+                    <h2>Samhällsekonomi</h2>
+                     <p class="course-info">Kurs: Samhällskunskap 1b</p> 
+                    <p>En interaktiv guide om grundläggande ekonomi, system och politik. <code>ID: economics</code></p>
+                </a>
+                <!-- Add more Samhällskunskap guides here -->
+            </div>
+        </div>
+
+        <!-- Historia Group -->
+        <div class="subject-group subject-historia">
+             <h3><span class="icon">📜</span> Historia</h3>
+            <div class="guide-list">
+                 <a href="historyguide.html" class="guide-card">
+                    <span class="icon">⏳</span>
+                    <h2>Nationalism, Imperialism & WWI</h2>
+                    <p class="course-info">Kurs: Historia 1a/1b</p> 
+                    <p>Utforska 1800-talets ideologier och konflikten som formade 1900-talet. <code>ID: history1</code></p>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html> 

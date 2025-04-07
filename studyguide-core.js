@@ -3,10 +3,13 @@
  * Hanterar navigation, achievement-system och grundläggande studiefunktioner
  */
 
-// Spårar vilka sektioner som har besökts
-let visitedSections = JSON.parse(localStorage.getItem('visitedSections') || '[]');
-let achievementsEarned = JSON.parse(localStorage.getItem('achievementsEarned') || '[]');
-let newlyUnlockedAchievementsBatch = []; // Batch for current event
+// Global variable to store the current guide ID
+let currentGuideId = null;
+
+// Spårar vilka sektioner som har besökts (per guide)
+let visitedSections = {}; // Changed to object to hold multiple guides
+let achievementsEarned = {}; // Changed to object to hold multiple guides
+let newlyUnlockedAchievementsBatch = []; // Batch for current event (reset per quiz)
 
 // Define Achievement Data
 const achievementsData = [
@@ -70,6 +73,19 @@ const achievementsData = [
 ];
 
 /**
+ * Genererar nyckel för localStorage baserat på guideId.
+ * @param {string} baseKey - Grundnyckeln (t.ex. 'visitedSections').
+ * @returns {string} - Den guide-specifika nyckeln.
+ */
+function getStorageKey(baseKey) {
+    if (!currentGuideId) {
+        console.error("Guide ID not set. Cannot generate storage key.");
+        return baseKey; // Fallback, men bör inte hända
+    }
+    return `${currentGuideId}_${baseKey}`;
+}
+
+/**
  * Genererar HTML för achievement-listan och infogar den på sidan.
  * @param {string} containerId - ID för containerelementet där listan ska infogas.
  */
@@ -99,16 +115,18 @@ function renderAchievements(containerId = 'achievements-list') {
 }
 
 /**
- * Laddar och visar redan upplåsta prestationer
+ * Laddar och visar redan upplåsta prestationer för aktuell guide.
  */
 function loadAchievements() {
-    const container = document.getElementById('achievements-list'); // Get container once
+    const container = document.getElementById('achievements-list');
     if (!container) {
         console.error('Cannot load achievements, container #achievements-list not found.');
         return;
     }
 
-    achievementsEarned.forEach(id => {
+    const currentAchievements = achievementsEarned[currentGuideId] || []; // Hämta för aktuell guide
+
+    currentAchievements.forEach(id => {
         let achievementElement = document.getElementById(id);
         const achievementData = achievementsData.find(ach => ach.id === id);
 
@@ -269,11 +287,16 @@ function showBatchedAchievementNotifications(batchIds, isNewOverallBestTime = fa
 }
 
 /**
- * Lås upp prestation om det inte redan är upplåst
+ * Lås upp prestation om det inte redan är upplåst för aktuell guide.
  * @param {string} id - Prestations-ID
  */
 function unlockAchievement(id) {
-    if (!achievementsEarned.includes(id)) {
+    // Initialize if guide data doesn't exist
+    if (!achievementsEarned[currentGuideId]) {
+        achievementsEarned[currentGuideId] = [];
+    }
+
+    if (!achievementsEarned[currentGuideId].includes(id)) {
         // Find achievement data
         const achievementData = achievementsData.find(ach => ach.id === id);
         if (!achievementData) {
@@ -281,8 +304,8 @@ function unlockAchievement(id) {
             return;
         }
 
-        achievementsEarned.push(id);
-        localStorage.setItem('achievementsEarned', JSON.stringify(achievementsEarned));
+        achievementsEarned[currentGuideId].push(id);
+        localStorage.setItem(getStorageKey('achievementsEarned'), JSON.stringify(achievementsEarned[currentGuideId]));
         
         let achievementElement = document.getElementById(id);
         
@@ -331,29 +354,144 @@ function unlockAchievement(id) {
 }
 
 /**
- * Kontrollera om användaren har besökt alla sektioner och lås upp Explorer-prestationen om så är fallet
+ * Kontrollera om användaren har besökt alla sektioner för aktuell guide och lås upp Explorer-prestationen om så är fallet
  * @param {Array} requiredSections - Lista med obligatoriska sektionsnamn
  */
 function checkExplorerAchievement(requiredSections) {
-    const allVisited = requiredSections.every(section => visitedSections.includes(section));
-    
+    const currentVisited = visitedSections[currentGuideId] || []; // Hämta för aktuell guide
+    const allVisited = requiredSections.every(section => currentVisited.includes(section));
+
     if (allVisited) {
         unlockAchievement('explorer');
     }
 }
 
 /**
- * Initialisera studiehandbok med navigation och sektionshantering
- * @param {Object} options - Konfigurationsalternativ
+ * Function to create SVG dots for vertical timelines
+ * Finds all elements with the class '.timeline' and attempts to draw dots.
  */
-function initStudyGuide(options = {}) {
+function createVerticalTimelineDots() {
+    console.log('Attempting to create vertical timeline dots...'); // Debug Log
+    const timelines = document.querySelectorAll('.timeline'); // Select all vertical timelines by class
+
+    if (timelines.length === 0) {
+        console.log('No elements with class ".timeline" found.'); // Debug Log
+        return;
+    }
+
+    timelines.forEach((timeline, index) => {
+        const svg = timeline.querySelector('.timeline-dots-svg');
+        const events = timeline.querySelectorAll('.timeline-event');
+        console.log(`Processing timeline ${index + 1}: Found SVG? ${!!svg}, Found Events? ${events.length}`); // Debug Log
+
+        if (!svg || events.length < 2) {
+            console.log(`Skipping timeline ${index + 1} - SVG container or not enough events found.`);
+            return; // Skip this timeline if prerequisites aren't met
+        }
+
+        // Clear existing SVG content
+        svg.innerHTML = '';
+
+        // Set SVG height dynamically based on the timeline's scroll height
+        // Use offsetHeight as a fallback if scrollHeight is 0
+        const timelineHeight = timeline.scrollHeight > 0 ? timeline.scrollHeight : timeline.offsetHeight;
+        svg.setAttribute('viewBox', `0 0 ${timeline.offsetWidth} ${timelineHeight}`);
+        svg.style.height = `${timelineHeight}px`;
+        const svgHeight = timelineHeight;
+        const svgWidth = timeline.offsetWidth;
+        console.log(`Timeline ${index + 1} dimensions: Width=${svgWidth}, Height=${svgHeight}`); // Debug Log
+
+        if (svgHeight <= 0 || svgWidth <= 0) {
+             console.log(`Skipping timeline ${index + 1} due to zero dimensions.`);
+             return;
+        }
+
+        // --- Draw the main vertical line --- 
+        /* // Temporarily remove the straight line
+        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        const lineX = svgWidth / 2;
+        line.setAttribute('x1', lineX);
+        line.setAttribute('y1', 0);
+        line.setAttribute('x2', lineX);
+        line.setAttribute('y2', svgHeight);
+        svg.appendChild(line);
+        */
+
+        // --- Sine Wave Parameters for Dot Positioning ---
+        const waveAmplitude = 10; // Max horizontal deviation (pixels)
+        const waveFrequency = 0.03; // Adjust for more/fewer wiggles (radians per pixel)
+
+        // --- Calculate marker positions and draw dots between them --- 
+        const markerYPositions = [];
+        events.forEach((event, eventIndex) => {
+            const markerElement = event; // Use the event element itself for positioning
+            const markerStyle = window.getComputedStyle(markerElement, '::after');
+            const markerTopOffset = parseFloat(markerStyle.top) || 20; // From CSS
+
+            // Calculate visual height including border
+            const markerHeight = parseFloat(markerStyle.height) || 16;
+            const markerBorderTop = parseFloat(markerStyle.borderTopWidth) || 4;
+            const markerBorderBottom = parseFloat(markerStyle.borderBottomWidth) || 4;
+            const visualMarkerHeight = markerHeight + markerBorderTop + markerBorderBottom;
+
+            const markerCenterY = markerElement.offsetTop + markerTopOffset + (visualMarkerHeight / 2);
+
+            markerYPositions.push(markerCenterY);
+            console.log(`Timeline ${index + 1}, Event ${eventIndex}: offsetTop=${markerElement.offsetTop}, markerCenterY=${markerCenterY.toFixed(2)}`); // Debug Log
+        });
+
+        // Draw dots between markers
+        for (let i = 0; i < markerYPositions.length - 1; i++) {
+            const yStart = markerYPositions[i];
+            const yEnd = markerYPositions[i + 1];
+            const distance = yEnd - yStart;
+            console.log(`Timeline ${index + 1}, Segment ${i}: yStart=${yStart}, yEnd=${yEnd}, distance=${distance}`); // Debug Log
+
+            if (distance <= 40) continue; // Increase threshold slightly
+
+            const numDots = Math.max(1, Math.floor(distance / 25)); // INCREASED density (smaller divisor = more dots)
+            const spacing = distance / (numDots + 1);
+
+            for (let j = 1; j <= numDots; j++) {
+                const dotY = yStart + j * spacing;
+                // Calculate horizontal position based on sine wave
+                const dotX = svgWidth / 2 + waveAmplitude * Math.sin(dotY * waveFrequency);
+
+                const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                dot.setAttribute('cx', dotX); // Use calculated X
+                dot.setAttribute('cy', dotY);
+                dot.setAttribute('class', 'timeline-dot');
+                dot.setAttribute('r', '3');
+                svg.appendChild(dot);
+                console.log(`Timeline ${index + 1}, Segment ${i}, Dot ${j}: Added at x=${dotX.toFixed(2)}, y=${dotY.toFixed(2)}`); // Updated Log
+            }
+        }
+    });
+}
+
+/**
+ * Initialisera studiehandbok med navigation och sektionshantering
+ * @param {Object} options - Konfigurationsalternativ (inklusive guideId)
+ */
+function initStudyGuide(userConfig) {
     const defaultOptions = {
-        requiredSections: ['vetenskap', 'psykisk', 'somn', 'fysisk', 'droger'],
+        guideId: 'default', // Lägg till default guideId
+        requiredSections: [],
         sectionQuestions: true
     };
-    
-    const config = { ...defaultOptions, ...options };
-    
+
+    const config = { ...defaultOptions, ...userConfig };
+
+    if (!config.guideId) {
+        console.error("Fatal: guideId must be provided in initStudyGuide options!");
+        return;
+    }
+    currentGuideId = config.guideId; // Sätt global guideId
+
+    // Ladda guide-specifik data från localStorage
+    visitedSections[currentGuideId] = JSON.parse(localStorage.getItem(getStorageKey('visitedSections')) || '[]');
+    achievementsEarned[currentGuideId] = JSON.parse(localStorage.getItem(getStorageKey('achievementsEarned')) || '[]');
+
     // Render achievement list first
     renderAchievements(); // Uses default ID 'achievements-list'
     
@@ -415,10 +553,13 @@ function initStudyGuide(options = {}) {
             }
             // --- End UI Reset Logic ---
             
-            // Registrera besök om inte redan registrerat
-            if (!visitedSections.includes(targetSectionId)) {
-                visitedSections.push(targetSectionId);
-                localStorage.setItem('visitedSections', JSON.stringify(visitedSections));
+            // Registrera besök om inte redan registrerat för denna guide
+            if (!visitedSections[currentGuideId]) {
+                visitedSections[currentGuideId] = []; // Initialize if needed
+            }
+            if (!visitedSections[currentGuideId].includes(targetSectionId)) {
+                visitedSections[currentGuideId].push(targetSectionId);
+                localStorage.setItem(getStorageKey('visitedSections'), JSON.stringify(visitedSections[currentGuideId]));
                 
                 // Kontrollera Explorer achievement
                 checkExplorerAchievement(config.requiredSections);
@@ -436,22 +577,33 @@ function initStudyGuide(options = {}) {
             if (config.sectionQuestions && targetSectionId !== 'quiz' && targetSectionId !== 'intro') {
                 loadSectionQuestions(targetSectionId);
             }
+
+            // **NEW:** Call dot creation AFTER section is made visible
+            // Use a minimal timeout to allow rendering engine to catch up
+            setTimeout(createVerticalTimelineDots, 10); 
         });
     });
     
-    // Ladda sektionsfrågor för första aktiva sektionen om det behövs
-    const activeSection = document.querySelector('.section.active');
-    if (activeSection && config.sectionQuestions && activeSection.id !== 'quiz' && activeSection.id !== 'intro') {
-        loadSectionQuestions(activeSection.id);
+    // Initial setup
+    const initialSection = document.querySelector('.section.active');
+    if (initialSection) {
+         visitedSections[currentGuideId].push(initialSection.id);
+         // **NEW:** Call dot creation for initially active section
+         setTimeout(createVerticalTimelineDots, 100); // Longer timeout on initial load
     }
-    
+
     // Koppling av Quiz-startknapp om den finns
     const startQuizBtn = document.getElementById('start-quiz-btn');
     if (startQuizBtn) {
         startQuizBtn.addEventListener('click', function() {
-            // Call initializeQuiz, passing our results handler as the onComplete callback
+            // Rensa achievement-batch innan quiz startar
+            newlyUnlockedAchievementsBatch = [];
+            // Call initializeQuiz, passing our results handler and guideId
             if (typeof window.initializeQuiz === 'function') {
-                window.initializeQuiz({ onComplete: displayQuizResults }); 
+                window.initializeQuiz({ 
+                    onComplete: displayQuizResults, 
+                    guideId: currentGuideId // Skicka med guideId
+                }); 
             } else {
                 console.error("initializeQuiz function not found!");
             }
@@ -463,9 +615,9 @@ function initStudyGuide(options = {}) {
  * Uppdaterar visningen av bästa tid och bästa resultat på sidan.
  */
 function updateProgressDisplay() {
-    // --- Existing Best Time Logic (Quiz Section) ---
+    // --- Best Time Logic (Quiz Section - uses guide-specific key) ---
     const bestTimeDisplayQuiz = document.getElementById('best-time-display');
-    const savedBestTime = localStorage.getItem('bestTime');
+    const savedBestTime = localStorage.getItem(getStorageKey('bestTime')); // Använd guide-specifik nyckel
     if (bestTimeDisplayQuiz) {
         if (savedBestTime) {
             const minutes = Math.floor(savedBestTime / 60);
@@ -476,12 +628,12 @@ function updateProgressDisplay() {
         }
     }
     
-    // --- New Best Score Record Logic (Intro Section) ---
+    // --- Best Score Record Logic (Intro Section - uses guide-specific key) ---
     const bestScoreCorrectEl = document.getElementById('best-score-correct');
     const bestScoreTimeEl = document.getElementById('best-score-time');
     const bestScorePointsEl = document.getElementById('best-score-points');
     
-    const savedBestScoreRecord = localStorage.getItem('bestScoreRecord');
+    const savedBestScoreRecord = localStorage.getItem(getStorageKey('bestScoreRecord')); // Använd guide-specifik nyckel
     
     if (savedBestScoreRecord && bestScoreCorrectEl && bestScoreTimeEl && bestScorePointsEl) {
         try {
@@ -525,9 +677,9 @@ function updateProgressDisplay() {
     }
     
     // Keep the old best-time div update for backward compatibility or if still used elsewhere
-    const bestTimeDiv = document.getElementById('best-time');
+    const bestTimeDiv = document.getElementById('best-time'); // This ID seems deprecated/unused in HTML? Keep logic for safety.
      if (bestTimeDiv) {
-         if (savedBestTime) {
+         if (savedBestTime) { // Use already fetched guide-specific time
              const minutes = Math.floor(savedBestTime / 60);
              const seconds = savedBestTime % 60;
              bestTimeDiv.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
@@ -650,15 +802,9 @@ window.selectSectionAnswer = selectSectionAnswer;
 window.unlockAchievement = unlockAchievement;
 window.updateProgressDisplay = updateProgressDisplay;
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Ensure initStudyGuide is called before trying to access elements it might create
-    // (Assuming initStudyGuide handles achievement rendering etc.)
-    // If initStudyGuide uses options, pass them here.
-    initStudyGuide(); 
-
-    // Update the progress display after initialization
-    updateProgressDisplay(); 
-    
-    // Load achievements after rendering
-    // loadAchievements(); // Moved inside initStudyGuide? Ensure it runs after render.
+// Keep the resize listener
+let resizeTimeout;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(createVerticalTimelineDots, 250); // Debounce resize event
 });

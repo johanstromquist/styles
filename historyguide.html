@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studieguide: Nationalism, Imperialism & Första Världskriget</title>
+    <link rel="stylesheet" href="studyguide.css">
+</head>
+<body>
+
+    <header>
+        <h1>Nationalism, Imperialism & Första Världskriget</h1>
+        <p>En interaktiv studieguide (ca 1800-1920)</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#" class="active" data-section="intro">Introduktion</a></li>
+            <li><a href="#" data-section="nationalism">Nationalism</a></li>
+            <li><a href="#" data-section="imperialism">Imperialism</a></li>
+            <li><a href="#" data-section="wwi">Första Världskriget</a></li>
+            <li><a href="#" data-section="quiz">Slutquiz</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Introduktion -->
+        <section id="intro" class="section active animated">
+            <h2>Välkommen till din interaktiva studiehandledning!</h2>
+            <p>Denna guide hjälper dig att utforska nationalismens framväxt, den nya imperialismens tidsålder och det första världskrigets orsaker, förlopp och konsekvenser (ca 1800-1920).</p>
+
+            <div class="info-box">
+                <h3>📝 Så använder du studiehandledningen</h3>
+                <p>Navigera mellan olika avsnitt genom menyn ovan. Varje avsnitt innehåller:</p>
+                <ul>
+                    <li>Detaljerade sammanfattningar och nyckelbegrepp</li>
+                    <li>Historisk kontext och förklaringar</li>
+                    <li>Möjlighet att testa dina kunskaper med små quiz</li>
+                </ul>
+                <p>När du känner dig redo, testa dina kunskaper med det stora slutquizet!</p>
+            </div>
+
+            <div class="flex-container">
+                <div class="card">
+                    <h3>🏆 Prestationer att låsa upp</h3>
+                    <p>När du använder studiehandledningen kan du låsa upp olika prestationer genom att utforska innehållet och testa dina kunskaper i quizet. Se listan nedan för att se vilka prestationer som finns och hur du låser upp dem!</p>
+                </div>
+                <div class="card">
+                    <h3>📊 Spåra dina framsteg</h3>
+                    <p>Dina resultat och prestationer sparas automatiskt så att du kan se din utveckling över tid. Försök att förbättra dina resultat!</p>
+                    <h4>🏆 Bästa Slutquiz-resultat:</h4>
+                    <div class="best-score-display">
+                        <p><span class="icon">✔️</span> Rätt svar: <strong id="best-score-correct">--</strong></p>
+                        <p><span class="icon">⏱️</span> Tid: <strong id="best-score-time">--:--</strong></p>
+                        <p><span class="icon">⭐</span> Poäng: <strong id="best-score-points">----</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="document.querySelector('[data-section=\'nationalism\']').click()">Börja studera nu!</button>
+
+            <!-- Achievements List moved after button -->
+            <div id="achievements-list" class="achievements">
+                <!-- Prestationer renderas här av JS -->
+            </div>
+        </section>
+
+        <!-- Nationalism -->
+        <section id="nationalism" class="section animated">
+            <h2>Nationalismens Tidsålder (ca 1800-1914)</h2>
+
+            <div class="subsection theme-blue">
+                <h3><span class="box-icon">🌍</span> Nationalitetstankens Framväxt</h3>
+                <p>Under 1800-talet svepte idén om nationalism genom Europa. Folk började se sig som medlemmar av en <strong>nation</strong> (ett folk med gemensamt språk, historia, kultur) snarare än bara undersåtar till en kung. Denna idé utmanade den gamla ordningen med multietniska imperier och kungadömen.</p>
+                <div class="info-box box-with-bg-icon" data-bg-icon="🇫🇷">
+                    <h4><span class="box-icon">💡</span> Ursprung och Spridning</h4>
+                    <p>Idéerna fick starkt fäste under <strong>Franska revolutionen</strong> och <strong>Napoleonkrigen</strong>. Franska arméer spred idéer om folkstyre och "nationen" samtidigt som deras ockupation väckte motstånd och nationell medvetenhet hos andra folk (som tyskar, inspirerade av filosofer som Johann Fichte, och italienare). Begreppet "nation" började syfta på hela folket som delade en identitet.</p>
+                    <p><strong>Nationalitetstanken:</strong> Idén att varje folk borde ha rätt att bilda sin egen <strong>nationalstat</strong> baserad på <strong>självbestämmande</strong>, istället för att lyda under kejsare eller vara splittrade.</p>
+                </div>
+                 <ul class="icon-list-alt">
+                    <li><span class="list-icon">🗣️</span> <strong>Språk & Kultur:</strong> Fokus på gemensamt språk, folklore och hyllandet av den nationella <strong>folksjälen</strong> och historien för att bygga nationell identitet.</li>
+                    <li><span class="list-icon">🚩</span> <strong>Symboler:</strong> Nationsflaggor, nationalsånger och nationella personifikationer (som Moder Svea, Germania) blev viktiga för att ena folket känslomässigt. Kärleken till <strong>fäderneslandet</strong> politiserades.</li>
+                 </ul>
+            </div>
+
+            <div class="subsection theme-green">
+                <h3><span class="box-icon">🔗</span> Enande och Splittrande Kraft</h3>
+                <p>Nationalismen hade två sidor, den var både <strong>enande</strong> och <strong>splittrande</strong>:</p>
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <h4>Enande <span class="icon">🤝</span></h4>
+                        <p>Samlade folk som levde splittrat i olika stater till en nation (t.ex. Italiens enande, Tysklands enande).</p>
+                        <p>Kopplades ofta till <strong>liberala idéer</strong> om frihet och folkstyre (särskilt under revolutionsåret 1848, där folkmassor viftade med nationalflaggor och krävde folkstyre).</p>
+                    </div>
+                    <div class="comparison-item">
+                        <h4>Splittrande <span class="icon">💥</span></h4>
+                        <p>Hotade att bryta upp gamla multietniska imperier (t.ex. Österrike-Ungern, Osmanska riket) när olika folkgrupper inom dem krävde självständighet.</p>
+                        <p>Kunde bli konservativ och exkluderande. Makthavare lärde sig använda nationalismen för att ena "oss" mot "dem" och stärka sin egen makt. Nationalismen kunde bli en starkare kraft än t.ex. socialismens idé om internationell arbetarklassolidaritet ("Proletärer i alla länder, förena er!").</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection theme-yellow">
+                <h3><span class="box-icon">🇮🇹</span> Italiens Enande (Risorgimento)</h3>
+                <p>Italien var länge bara ett "geografiskt uttryck", splittrat i stater som Piemonte-Sardinien, Bägge Sicilierna, Kyrkostaten samt områden under österrikiskt styre (Lombardiet, Venetien). Enandet drevs av nationaliströrelsen <strong>Risorgimento</strong> ("Återuppståndelse") och skedde genom en kombination av diplomati, krig och revolutionär glöd:</p>
+                <div class="flex-container icon-card-deck theme-benefit">
+                    <div class="card">
+                        <h4><span class="box-icon">🧠</span> Cavour (Strategen)</h4>
+                        <p>Piemonte-Sardiniens premiärminister. Använde skicklig diplomati och krig (allians med Frankrike mot Österrike 1859) för att ena norra Italien.</p>
+                    </div>
+                     <div class="card">
+                        <h4><span class="box-icon">⚔️</span> Garibaldi (Hjälten)</h4>
+                        <p>Ledde "De tusendes expedition" (tusen rödskjortor) och erövrade Sicilien och södra Italien 1860. Enormt populär "folkets hjälte", känd som "Hjälten från två världar" för sina tidigare strider i Sydamerika.</p>
+                    </div>
+                     <div class="card">
+                        <h4><span class="box-icon">👑</span> Victor Emanuel II (Kungen)</h4>
+                        <p>Piemontes kung. Garibaldi överlämnade sin erövring till honom vid Teano 1860 för Italiens enhets skull. Victor Emanuel II blev det enade Italiens första kung 1861.</p>
+                    </div>
+                </div>
+                 <div class="info-box box-with-bg-icon" data-bg-icon="🗺️">
+                     <h4>Resultat</h4>
+                     <p><strong>Kungariket Italien</strong> utropades 1861. Venetien (Venedig) anslöts 1866 (efter Preussens seger mot Österrike) och Rom 1870 (när franska trupper drogs tillbaka p.g.a. fransk-tyska kriget). Italien var nu enat.</p>
+                 </div>
+            </div>
+
+            <div class="subsection theme-orange">
+                 <h3><span class="box-icon">🇩🇪</span> Tysklands Enande</h3>
+                 <p>Tyskland var också splittrat (<strong>Tyska förbundet</strong>). Enandet leddes av den starkaste tyska staten, <strong>Preussen</strong>, under den konservative och pragmatiske premiärministern <strong>Otto von Bismarck</strong> och hans <strong>Realpolitik</strong> (praktisk maktpolitik).</p>
+                 <div class="definition">
+                     <h4><span class="box-icon">💬</span> Bismarcks Metod: "Blod och Järn"</h4>
+                     <p>Bismarck menade att Tysklands enande inte skulle avgöras av "tal och majoritetsbeslut... utan genom blod och järn" – det vill säga militär styrka och beslutsamhet, inte liberala ideal.</p>
+                 </div>
+                <h4>Tre Krig för Enande:</h4>
+                 <div class="timeline">
+                     <div class="timeline-event left">
+                         <div class="timeline-content">
+                             <span class="timeline-date">1864</span>
+                             <h4>Krig mot Danmark 🇩🇰</h4>
+                             <p>Preussen & Österrike besegrar Danmark (om Schleswig-Holstein). Visade preussisk styrka.</p>
+                         </div>
+                     </div>
+                     <div class="timeline-event right">
+                         <div class="timeline-content">
+                             <span class="timeline-date">1866</span>
+                             <h4>Krig mot Österrike 🇦🇹</h4>
+                             <p>Preussen segrar snabbt (slaget vid Königgrätz/Sadowa). Österrike utestängs från tyska affärer. Nordtyska förbundet bildas.</p>
+                         </div>
+                     </div>
+                     <div class="timeline-event left">
+                         <div class="timeline-content">
+                             <span class="timeline-date">1870-71</span>
+                             <h4>Krig mot Frankrike 🇫🇷</h4>
+                             <p>Bismarck provocerar fram kriget (Emsdepeschen). Sydtyska stater ansluter sig. Avgörande tysk seger (Napoleon III tillfångatas vid Sedan).</p>
+                         </div>
+                     </div>
+                 </div>
+                <div class="info-box box-with-bg-icon" data-bg-icon="🏰">
+                     <h4>Resultat: Tyska Kejsardömet</h4>
+                     <p>Den 18 januari 1871 utropades det <strong>Tyska kejsardömet</strong> i Versailles spegelsal med Preussens kung Wilhelm I som kejsare (Kaiser) och Bismarck som rikskansler (även kallad <strong>Järnkanslern</strong>). Tyskland var enat "uppifrån" genom preussisk makt.</p>
+                 </div>
+            </div>
+
+            <div class="subsection theme-purple">
+                 <h3><span class="box-icon">👑</span> Imperiernas Problem & Minoriteter</h3>
+                 <p>För multietniska imperier som <strong>Österrike-Ungern</strong> och <strong>Osmanska riket</strong> var nationalismen ett existentiellt hot, då den var splittrande. Att dra nationella gränser var extremt svårt i dessa områden där folkgrupper levde blandat.</p>
+                 <div class="flex-two-column">
+                     <div class="column">
+                         <h4>Österrike-Ungern (Habsburg)</h4>
+                         <p>Hem åt tyskar, ungrare (magyarer), tjecker, slovaker, polacker, ukrainare, slovener, kroater, serber, rumäner, italienare m.fl.</p>
+                         <ul>
+                             <li><strong>1867 Ausgleich (Kompromissen):</strong> Skapade dubbelmonarkin Österrike-Ungern för att blidka ungrarna. Imperiet delades i en österrikisk och en ungersk del med varsin regering, men med gemensam monark och utrikespolitik.</li>
+                             <li><strong>Fortsatta spänningar:</strong> Andra slaviska folk (tjecker, polacker, sydslaver) kände sig fortfarande förtryckta. I den ungerska delen bedrevs <strong>Magyarisering</strong> – försök att påtvinga ungerskt språk och kultur.</li>
+                         </ul>
+                     </div>
+                     <div class="column">
+                         <h4>Osmanska Riket ("Europas sjuke man")</h4>
+                         <p>Nationalism ledde till självständighet för folk på <strong>Balkanhalvön</strong>:</p>
+                         <ul>
+                            <li>Grekland (ca 1830)</li>
+                            <li>Serbien, Montenegro, Rumänien (de facto självständiga vid mitten av 1800-talet, formellt 1878)</li>
+                            <li>Bulgarien (autonomt 1878, självständigt 1908)</li>
+                         </ul>
+                         <p>Dessa nya stater och deras rivalitet, tillsammans med stormakternas inblandning, skapade <strong>"Europas krutdurk"</strong> (powder keg of Europe) på Balkan.</p>
+                     </div>
+                 </div>
+                 <div class="warning-box">
+                    <h4><span class="box-icon">⚠️</span> Nationalismens Mörka Sida</h4>
+                    <p>Även i enade stater kunde nationalism leda till förtryck av minoriteter. Exempel: Bismarcks <strong>Kulturkampf</strong> ("kulturkamp") mot katoliker i Tyskland, försök att germanisera polacker i Preussen, russifiering i Ryssland, och framväxande antisemitism som hävdade att judar inte tillhörde "nationen".</p>
+                 </div>
+            </div>
+
+             <div class="subsection theme-cyan">
+                <h3><span class="box-icon">🗺️</span> En Ny Europakarta & Sociala Följder</h3>
+                <p>Nationalismen ritade om Europas karta och förändrade människors identitet och vardag.</p>
+                 <h4>Geografiska Förändringar:</h4>
+                <ul class="styled-list check-list-alt green-checks">
+                    <li>Nya stater: Italien, Tyskland, Grekland, Serbien, Rumänien, Bulgarien. Även <strong>Norge</strong> blev självständigt från Sverige genom fredlig unionsupplösning 1905.</li>
+                    <li>Imperier försvagades eller krympte (Osmanska riket, Österrikes inflytande minskade).</li>
+                    <li><strong>Polen</strong> förblev delat mellan Ryssland, Preussen och Österrike, men polsk nationalism levde starkt vidare.</li>
+                </ul>
+                <h4>Sociala & Kulturella Följder:</h4>
+                 <dl class="definition-list-alt">
+                     <dt>
+                        <span class="list-icon">👨‍👩‍👧‍👦</span> <strong>Nationell Identitet:</strong>
+                     </dt>
+                     <dd>
+                        Människor identifierade sig mer som "tyskar", "italienare" etc., inte bara som bayrare eller sicilianare.
+                     </dd>
+                     <dt>
+                        <span class="list-icon">📚</span> <strong>Utbildning & Språk:</strong>
+                     </dt>
+                     <dd>
+                        Skolväsendet och massmedia (tidningar) spred nationalspråk och en gemensam historieskrivning.
+                     </dd>
+                     <dt>
+                        <span class="list-icon">🎖️</span> <strong>Militärtjänst & Symboler:</strong>
+                     </dt>
+                     <dd>
+                        Allmän värnplikt och nationella symboler (flagga, hymn) stärkte samhörigheten och lojaliteten till staten.
+                     </dd>
+                     <dt>
+                        <span class="list-icon">🎭</span> <strong>Kultur & Sport:</strong>
+                     </dt>
+                     <dd>
+                        Nationell stolthet uttrycktes i konst (Verdi, Smetana), litteratur och idrott (t.ex. de moderna Olympiska Spelen från 1896).
+                     </dd>
+                     <dt>
+                        <span class="list-icon">🔥</span> <strong>Intensiv Hängivenhet:</strong>
+                     </dt>
+                     <dd>
+                        Nationalism blev en slags "civil religion", en kraftfull lojalitet som kunde överskugga andra identiteter och bidra till spänningar mellan nationer, vilket banade väg för Första världskriget.
+                     </dd>
+                 </dl>
+            </div>
+
+            <!-- Section Quiz for Nationalism -->
+            <div class="section-quiz">
+                <h3>Testa dina kunskaper om Nationalism!</h3>
+                <p>Svara på några snabba frågor om avsnittet du just läst.</p>
+                <div id="nationalism-questions" class="quiz-container">
+                    <!-- Quiz questions for this section will be loaded here by JS -->
+                </div>
+            </div>
+
+            <button onclick="document.querySelector('[data-section=\'imperialism\']').click()">Nästa Avsnitt: Imperialism</button>
+        </section>
+
+        <!-- Imperialism -->
+        <section id="imperialism" class="section animated">
+            <h2>Imperialismens Tidsålder (ca 1870-1914)</h2>
+
+            <div class="subsection theme-red">
+                <h3><span class="box-icon">🌍</span> Vad är Imperialism?</h3>
+                <p><strong>Imperialism</strong> är när en starkare nation utökar sin makt och kontroll över andra, svagare territorier. Detta skedde i en intensiv våg, kallad <strong>"den nya imperialismen"</strong>, under slutet av 1800-talet. Ordet kommer från latinets <strong>imperium</strong> (herravälde).</p>
+                <div class="definition">
+                    <h4><span class="box-icon">📖</span> Definition</h4>
+                    <p>Att utöva makt och herravälde (imperium) över andra områden, antingen genom direkt territoriell erövring (kolonier) eller genom politisk/ekonomisk kontroll (t.ex. protektorat, inflytandesfärer).</p>
+                </div>
+                <p>Till skillnad från tidigare kolonialism (fokus på handelsposter, Amerika), innebar den nya imperialismen ofta formell annektering och administration av stora landområden, särskilt i Afrika och Asien. Detta möjliggjordes av det industriella och teknologiska försprånget.</p>
+                <div class="info-box">
+                    <h4><span class="box-icon">🔧</span> Förutsättningar</h4>
+                    <ul class="styled-list check-list-alt">
+                        <li><strong>Industriella revolutionen:</strong> Teknologiskt övertag (vapen som Maximkulsprutan, transport som ångfartyg, kommunikation som telegrafen).</li>
+                        <li><strong>Medicin:</strong> Kinin, till exempel, gjorde det möjligt för européer att överleva i tropiska klimat ("vita mannens grav").</li>
+                        <li><strong>Infrastruktur:</strong> Suezkanalen (1869) förkortade resvägen till Asien dramatiskt. Järnvägar byggdes in i kolonierna.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="subsection theme-orange">
+                <h3><span class="box-icon">🌍🏃</span> Kapplöpningen om Afrika</h3>
+                <p>Den mest dramatiska erövringen. Från ca 10% europeisk kontroll 1880 till ca 90% 1914. Endast Etiopien (Abessinien) och Liberia förblev självständiga.</p>
+                <div class="info-box box-with-bg-icon" data-bg-icon="🇩🇪">
+                    <h4><span class="box-icon">🤝</span> Berlinkonferensen (1884-85)</h4>
+                    <p>Sammankallad av Bismarck. Europeiska makter (ingen afrikansk representation) delade upp Afrika mellan sig för att undvika inbördes krig. Krävde <strong>"effektiv ockupation"</strong> för att göra anspråk på ett område, vilket påskyndade erövringen och ignorerade existerande afrikanska riken och gränser.</p>
+                </div>
+                <h4>Största Kolonialmakterna i Afrika:</h4>
+                <dl class="definition-list-alt">
+                    <dt>
+                        <span class="list-icon">🇬🇧</span> <strong>Storbritannien:</strong>
+                    </dt>
+                    <dd>
+                        Kontrollerade områden från Egypten (Suezkanalen) till Sydafrika. Drömde om en sammanhängande linje "från Kap till Kairo" (Kap-Kairolinjen). Exempel: Sudan, Kenya, Nigeria, Guldkusten. Utkämpade Boerkriget (1899-1902) mot holländskättade boer i Sydafrika för kontroll över guld- och diamantfyndigheter.
+                    </dd>
+                    <dt>
+                        <span class="list-icon">🇫🇷</span> <strong>Frankrike:</strong>
+                    </dt>
+                    <dd>
+                        Stora delar av Väst- och Centralafrika (Franska Västafrika, Franska Ekvatorialafrika), samt Algeriet (erövrat tidigare), Tunisien och Madagaskar.
+                    </dd>
+                    <dt>
+                        <span class="list-icon">🇧🇪</span> <strong>Belgien:</strong>
+                    </dt>
+                    <dd>
+                        <strong>Kongofristaten</strong> var kung Leopold II:s personliga egendom (1885-1908). Ökänd för brutal gummiutvinning ("Gummiterrorn") med tvångsarbete och stympning (avhuggna händer). Miljontals dog.
+                    </dd>
+                    <dt>
+                        <span class="list-icon">🇩🇪</span> <strong>Tyskland:</strong>
+                    </dt>
+                    <dd>
+                        Senkomling, skaffade kolonier som Tyska Sydvästafrika (Namibia, där Hererofolket utsattes för ett folkmord 1904), Tyska Östafrika (Tanzania), Kamerun, Togo.
+                    </dd>
+                     <dt>
+                        <span class="list-icon">🇮🇹</span> <strong>Italien:</strong>
+                     </dt>
+                     <dd>
+                        Libyen, Eritrea, Italienska Somaliland. Försökte erövra Etiopien men besegrades vid Adwa 1896 – en stor prestigeförlust.
+                     </dd>
+                     <dt>
+                        <span class="list-icon">🇵🇹</span> <strong>Portugal:</strong>
+                     </dt>
+                     <dd>
+                        Behöll och utökade gamla kolonier som Angola och Moçambique.
+                     </dd>
+                </dl>
+                 <div class="warning-box">
+                    <h4><span class="box-icon">⚠️</span> Konsekvenser i Afrika</h4>
+                     <p>Gränser drogs godtyckligt, splittrade folkgrupper eller tvingade samman rivaler. Traditionella styren krossades. Afrikanskt motstånd (t.ex. Zulu vid Isandlwana 1879, Mahdi i Sudan) slogs ner. <strong>Fashodakrisen</strong> (1898) mellan Storbritannien och Frankrike i Sudan visade på risken för krig mellan stormakterna.</p>
+                </div>
+            </div>
+
+            <div class="subsection theme-lblue">
+                <h3><span class="box-icon">🌏</span> Imperialism i Asien</h3>
+                <p>Även Asiens gamla civilisationer kom under europeiskt (och japanskt) inflytande, men ofta på andra sätt än i Afrika.</p>
+                 <h4>Indien: Kronjuvelen ("The Jewel in the Crown")</h4>
+                 <div class="info-box box-with-bg-icon" data-bg-icon="🇬🇧">
+                     <p>Styrdes länge av Brittiska <strong>Ostindiska Kompaniet</strong>. Efter det stora <strong>Sepoyupproret 1857</strong>, utlöst bl.a. av patroner smorda med djurfett (orent för hinduer och muslimer), tog brittiska staten direkt kontroll -> <strong>Brittiska Raj</strong> (1858). Drottning Victoria blev kejsarinna av Indien.</p>
+                     <p><strong>Effekter:</strong> Modernisering (järnväg, telegraf) men också ekonomisk exploatering (indisk textilindustri slogs ut), rasism och växande indisk nationalism (Indian National Congress bildades 1885).</p>
+                 </div>
+
+                <h4>Kina: Sfärer av Inflytande & Ojämlika Fördrag</h4>
+                 <div class="info-box box-with-bg-icon" data-bg-icon="🇨🇳">
+                     <p>Kina besegrades i <strong>Opiumkrigen</strong> (1839-42, 1856-60) av Storbritannien (senare även Frankrike) pga Kinas försök att stoppa den brittiska opiumhandeln. Kina tvingades öppna hamnar ("fördragshamnar"), avstå Hongkong och acceptera "ojämlika fördrag" med låga tullar och extraterritoriella rättigheter för utlänningar.</p>
+                     <p>Istället för full kolonisering delades Kina upp i <strong>sfärer av inflytande</strong> där olika makter (Storbritannien, Frankrike, Tyskland, Ryssland, Japan) hade ekonomiska privilegier. USA förespråkade <strong>"Öppna dörrens politik"</strong> (1899) – lika handelsrättigheter för alla, för att hindra fullständig uppdelning.</p>
+                     <p><strong>Boxarupproret (1900)</strong> var ett misslyckat folkligt uppror mot utländskt inflytande, som slogs ner av en internationell styrka. Kina förblev formellt självständigt men djupt försvagat.</p>
+                 </div>
+
+                 <h4>Japan: Från Isolerat till Imperialist</h4>
+                 <div class="info-box box-with-bg-icon" data-bg-icon="🇯🇵">
+                     <p>Tvingades öppna sig för väst genom amerikansk <strong>kanonbåtsdiplomati</strong> (Commodore Perry 1853). Som svar genomfördes <strong>Meijirestaurationen (1868)</strong>: <strong>Shogunens</strong> makt bröts, kejsaren återinsattes och Japan inledde en blixtsnabb modernisering för att "bli starkt som väst" och undvika Kinas öde.</p>
+                     <p>Japan blev självt en imperialistisk makt:</p>
+                     <ul>
+                         <li>Seger i <strong>Kinesisk-japanska kriget (1894-95)</strong> -> Kontroll över Taiwan, inflytande i Korea.</li>
+                         <li>Seger i <strong>Rysk-japanska kriget (1904-05)</strong> -> Chockerande seger för en asiatisk makt över en europeisk. Säkrad kontroll över Korea (annekterat 1910), inflytande i Manchuriet.</li>
+                     </ul>
+                 </div>
+                 <p>Andra områden: Franska Indokina (Vietnam, Laos, Kambodja), Nederländska Ostindien (Indonesien). Siam (Thailand) förblev självständigt som buffertstat.</p>
+            </div>
+
+            <div class="subsection theme-cyan">
+                 <h3><span class="box-icon">🇺🇸</span> USA & Amerika</h3>
+                 <p>Latinamerika var mestadels politiskt självständigt men ekonomiskt beroende (informell imperialism). USA växte fram som regional stormakt.</p>
+                <dl class="definition-list-alt">
+                    <dt>
+                        <span class="list-icon">📜</span> <strong>Monroedoktrinen (1823):</strong>
+                    </dt>
+                    <dd>
+                        USA varnar Europa för nykolonisering eller inblandning i Amerika.
+                    </dd>
+                    <dt>
+                        <span class="list-icon">👮</span> <strong>Roosevelt Corollary (1904):</strong>
+                    </dt>
+                    <dd>
+                        Tillägg till Monroedoktrinen. USA hävdar rätt att ingripa i Latinamerika vid "kroniskt misskötsel" ("internationell polis").
+                    </dd>
+                     <dt>
+                        <span class="list-icon">⚔️</span> <strong>Spansk-amerikanska kriget (1898):</strong>
+                     </dt>
+                     <dd>
+                        USA besegrar Spanien och tar Puerto Rico, Guam, Filippinerna. Kuba blir ett amerikanskt protektorat. Hawaii annekteras samma år. USA blir en kolonialmakt.
+                     </dd>
+                     <dt>
+                        <span class="list-icon">🍌</span> <strong>"Bananrepubliker":</strong>
+                     </dt>
+                     <dd>
+                        USA ingriper ofta militärt och politiskt i Centralamerika och Karibien för att skydda amerikanska ekonomiska intressen (t.ex. United Fruit Company).
+                     </dd>
+                </dl>
+            </div>
+
+             <div class="subsection theme-purple">
+                <h3><span class="box-icon">❓</span> Varför Imperialism? Drivkrafter</h3>
+                 <p>En kombination av faktorer:</p>
+                 <div class="flex-container icon-card-deck theme-risk animated-children-stagger">
+                     <div class="card">
+                         <h4><span class="box-icon">💰</span> Ekonomi</h4>
+                         <p>Behov av råvaror (gummi, olja, koppar, bomull), nya marknader för industrivaror, investeringsmöjligheter för kapital.</p>
+                     </div>
+                     <div class="card">
+                         <h4><span class="box-icon">🏳️</span> Politik & Strategi</h4>
+                         <p>Nationalistisk prestige (status att ha imperium), stormaktsrivalitet (hindra andra från att ta områden), säkra strategiska punkter (marinbaser, handelsvägar som Suez & Panama).</p>
+                     </div>
+                      <div class="card">
+                         <h4><span class="box-icon">🧬</span> Ideologi</h4>
+                         <p><strong>Socialdarwinism:</strong> Felaktig tillämpning av Darwins idéer; tron att starka nationer/"raser" naturligt dominerar svagare i en <strong>"kamp om tillvaron"</strong>.</p>
+                         <p><strong>Civiliseringsmission / "Den vite mannens börda":</strong> Idén (uttryckt av t.ex. Rudyard Kipling) att européer hade en plikt att sprida sin civilisation, kultur och religion, även om det var en "börda". Ofta en ursäkt för exploatering.</p>
+                     </div>
+                       <div class="card">
+                         <h4><span class="box-icon">✝️</span> Religion & Äventyr</h4>
+                         <p>Kristna missionärer ville sprida sin tro. Utforskare (Livingstone, Stanley), äventyrare och militärer sökte ära och upplevelser.</p>
+                     </div>
+                 </div>
+            </div>
+
+             <div class="subsection theme-yellow">
+                 <h3><span class="box-icon">📉</span> Konsekvenser av Imperialismen</h3>
+                <p>Imperialismen fick djupa och långvariga följder globalt:</p>
+                 <ul class="styled-list cross-list-alt">
+                     <li><strong>Global Ekonomi & Ojämlikhet:</strong> Världen bands samman ekonomiskt, men med ojämlika relationer. Kolonier blev råvaruproducenter beroende av världsmarknaden. Bidrog till rikedom i väst och underutveckling i många kolonier.</li>
+                     <li><strong>Politiska Spänningar & Krig:</strong> Rivalitet om kolonier bidrog till spänningar mellan stormakterna -> Första världskriget.</li>
+                     <li><strong>Nya Gränser & Konflikter:</strong> Koloniala gränser drogs godtyckligt -> framtida etniska konflikter och instabilitet i postkoloniala stater.</li>
+                     <li><strong>Sociala Förändringar & Rasism:</strong> Befolkningsförändringar (sjukdomar, våld, migration av arbetskraft t.ex. indier och kineser). Rasism och diskriminering institutionaliserades.</li>
+                     <li><strong>Kulturell Påverkan:</strong> Spridning av europeiska språk, utbildningssystem, religion. Men också förstörelse eller marginalisering av lokala kulturer och ekonomier.</li>
+                     <li><strong>Infrastruktur för Exploatering:</strong> Järnvägar, hamnar byggdes, men främst för att frakta ut råvaror, inte för intern utveckling i kolonierna.</li>
+                    <li><strong>Framväxt av Anti-kolonial Nationalism:</strong> Paradoxalt nog ledde det koloniala förtrycket och den västerländska utbildningen till att nya nationella identiteter och självständighetsrörelser växte fram hos de koloniserade folken.</li>
+                    <li><strong>Arvet av Underutveckling:</strong> Många problem i postkoloniala länder ("Tredje världen") har rötter i imperialismens strukturer (ekonomiskt beroende, svaga institutioner, etniska spänningar).</li>
+                 </ul>
+             </div>
+
+             <!-- Section Quiz for Imperialism -->
+             <div class="section-quiz">
+                 <h3>Testa dina kunskaper om Imperialism!</h3>
+                 <p>Svara på några snabba frågor om avsnittet du just läst.</p>
+                 <div id="imperialism-questions" class="quiz-container">
+                     <!-- Quiz questions for this section will be loaded here by JS -->
+                 </div>
+             </div>
+
+            <button onclick="document.querySelector('[data-section=\'wwi\']').click()">Nästa Avsnitt: Första Världskriget</button>
+        </section>
+
+        <!-- Första Världskriget -->
+        <section id="wwi" class="section animated">
+            <h2>Första Världskriget (1914-1918)</h2>
+
+            <div class="subsection theme-red">
+                <h3><span class="box-icon">💥</span> Krigsutbrottet Sommaren 1914</h3>
+                <p>Europa hade haft en <strong>"lång fred"</strong> men under ytan fanns djupa spänningar: nationalism, imperialism, militarism och komplexa allianssystem.</p>
+                 <div class="info-box narrative-intro"> <!-- Added a specific class for potential extra styling -->
+                    <h4><span class="box-icon">📜</span> Vägen till Krig: En Kontinent på Branten</h4>
+                    <p>Sommaren 1914 var Europa en krutdurk redo att explodera. Årtionden av nationalistisk yra, imperialistisk kapplöpning och en febrig militär upprustning hade skapat ett komplext nät av spända relationer. Två stora militärallianser stod mot varandra: <strong>Trippelalliansen</strong> (Tyskland, Österrike-Ungern, Italien) och <strong>Trippelententen</strong> (Frankrike, Ryssland, Storbritannien). Tänkta att bevara freden genom maktbalans, riskerade de nu att förvandla en lokal konflikt till en global katastrof.</p>
+                    <p>Gnistan kom den 28 juni i Sarajevo. När den unge serbnationalisten Gavrilo Princip mördade Österrike-Ungerns tronföljare, <strong>ärkehertig Franz Ferdinand</strong>, sattes en ostoppbar kedjereaktion igång. Med Tysklands "blankocheck" i ryggen, ställde Österrike-Ungern ett ultimatum till Serbien, designat för att avslås. När Serbien vägrade gå med på allt, rasade domino-brickorna. Mobilisering följde på mobilisering, krigsförklaring på krigsförklaring. Den "Svarta veckan" drog in stormakterna, en efter en, i det som skulle bli det Stora Kriget.</p>
+                </div>
+
+                <h4>Dominoeffekten ("Svarta veckan")</h4>
+                <div class="timeline">
+                    <svg class="timeline-dots-svg"></svg>
+                    <div class="timeline-event left">
+                        <div class="timeline-content">
+                            <span class="timeline-date">28 Juli</span>
+                            <h4>Krigsförklaring</h4>
+                            <p>Österrike-Ungern förklarar krig mot Serbien.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-event right">
+                        <div class="timeline-content">
+                            <span class="timeline-date">~30 Juli</span>
+                            <h4>Rysk Mobilisering</h4>
+                            <p>Ryssland mobiliserar för att stödja Serbien.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-event left">
+                        <div class="timeline-content">
+                            <span class="timeline-date">1 Aug</span>
+                            <h4>Tyskland agerar</h4>
+                            <p>Tyskland förklarar krig mot Ryssland.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-event right">
+                        <div class="timeline-content">
+                            <span class="timeline-date">3 Aug</span>
+                            <h4>Anfall västerut</h4>
+                            <p>Tyskland förklarar krig mot Frankrike och aktiverar Schlieffenplanen.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-event left">
+                        <div class="timeline-content">
+                            <span class="timeline-date">4 Aug</span>
+                            <h4>Storbritannien dras in</h4>
+                            <p>Tyskland invaderar Belgien, Storbritannien förklarar krig mot Tyskland.</p>
+                        </div>
+                    </div>
+                </div>
+                 
+                 <!-- REMOVED Horizontal Timeline -->
+
+                 <p>Kriget som förväntades vara "över till jul" ("hemma innan löven faller") blev snabbt ett <strong>världskrig</strong>.</p>
+             </div>
+
+            <div class="subsection theme-lblue">
+                <h3><span class="box-icon">⛏️</span> Skyttegravskriget på Västfronten</h3>
+                <p>Schlieffenplanen misslyckades; den tyska framryckningen stoppades vid Marne (sept 1914). Kriget på <strong>västfronten</strong> stelnade till ett statiskt, brutalt <strong>skyttegravskrig</strong> i nästan fyra år, från Nordsjön till Schweiz.</p>
+                <div class="info-box comparison-box">
+                    <h4>Livet i <strong>Skyttegraven</strong></h4>
+                    <div class="comparison-grid">
+                        <div class="comparison-item">
+                            <h4>Verklighet <span class="icon">😟</span></h4>
+                             <p>Lera, stank, råttor, löss, ständig dödsfara från prickskyttar och artillerield.</p>
+                            <p>Enorma förluster vid meningslösa offensiver (t.ex. Somme 1916: 60 000 brittiska förluster första dagen).</p>
+                            <p>Psykisk påfrestning: <strong>Granatchock</strong> (Shell shock / PTSD).</p>
+                        </div>
+                        <div class="comparison-item">
+                            <h4>"<strong>Ingenmansland</strong>" <span class="icon">💀</span></h4>
+                            <p>Området mellan de fientliga skyttegravarna.</p>
+                            <p>Ett sönderskjutet landskap av lervälling, taggtråd och lik.</p>
+                        </div>
+                    </div>
+                     <div class="definition">
+                         <h4><span class="box-icon">🕊️</span> Julvapenstilleståndet 1914</h4>
+                         <p>En kort, spontan vapenvila julen 1914 där tyska och brittiska/franska soldater på vissa frontavsnitt möttes, bytte gåvor och spelade fotboll i ingenmansland. Ett unikt ögonblick av mänsklighet mitt i kriget, som snabbt förbjöds av generalerna.</p>
+                     </div>
+                </div>
+            </div>
+
+            <div class="subsection theme-yellow">
+                <h3><span class="box-icon">⚙️</span> Ny Teknik & Modern Krigföring</h3>
+                <p>Första världskriget var <strong>"det första moderna kriget"</strong> där ny industriell teknik spelade en avgörande, och ofta fasansfull, roll.</p>
+                <dl class="definition-list-alt">
+                    <dt>
+                        <span class="list-icon">💥</span> <strong>Kulsprutor:</strong>
+                    </dt>
+                    <dd>
+                        Gjorde frontalanfall närmast självmordiska, tvingade ner arméerna i skyttegravar. Maximkulsprutan dominerade försvaret.
+                    </dd>
+                    <dt>
+                        <span class="list-icon">💣</span> <strong>Artilleri:</strong>
+                    </dt>
+                    <dd>
+                        Kraftigare kanoner med längre räckvidd. Orsakade enorm förödelse ("jordbävning av stål") och majoriteten av dödsfallen.
+                    </dd>
+                    <dt>
+                        <span class="list-icon">🚜</span> <strong>Stridsvagnar (Tanks):</strong>
+                    </dt>
+                    <dd>
+                        Introducerades av britterna 1916 (Somme). Tidiga modeller var opålitliga men kunde korsa skyttegravar och taggtråd. Bidrog till att bryta stalmatet sent i kriget.
+                    </dd>
+                    <dt>
+                        <span class="list-icon">✈️</span> <strong>Flygplan:</strong>
+                    </dt>
+                    <dd>
+                        Utvecklades snabbt från spaning till beväpnade stridsplan. Luftstrider ("dogfights") och <strong>flygaräss</strong> som Röde Baronen blev en ny del av kriget. Bombning av städer inleddes i liten skala.
+                    </dd>
+                    <dt>
+                        <span class="list-icon">☠️</span> <strong>Giftgas (Krigsgas):</strong>
+                    </dt>
+                    <dd>
+                        Först klor (Tyskland, Ypres 1915), sedan fosgen och <strong>senapsgas</strong>. Orsakade fruktansvärt lidande (kvävning, blindhet, brännskador) och krävde <strong>gasmasker</strong>. <strong>Kemisk krigföring</strong> blev en ny fasa.
+                    </dd>
+                    <dt>
+                        <span class="list-icon">🚢</span> <strong>Ubåtar (U-båtar):</strong>
+                    </dt>
+                    <dd>
+                        Tyska ubåtar sänkte handelsfartyg i Atlanten för att strypa Storbritanniens försörjning. Det <strong>oinskränkta ubåtskriget</strong> 1917 bidrog starkt till USA:s inträde.
+                    </dd>
+                </dl>
+                 <div class="warning-box">
+                     <h4><span class="box-icon">⚠️</span> Taktik vs Teknik</h4>
+                     <p>Generalerna höll ofta fast vid föråldrad taktik (massanfall) mot modern teknologi, vilket ledde till enorma, meningslösa förluster ("1800-talstaktik mot 1900-talets vapen").</p>
+                 </div>
+            </div>
+
+             <div class="subsection theme-green">
+                <h3><span class="box-icon">🌏</span> Kriget Utvidgas & Vändpunkter</h3>
+                 <p>Kriget blev ett <strong>världskrig</strong> som involverade imperiernas kolonier och nya fronter:</p>
+                 <ul class="styled-list check-list-alt">
+                     <li><strong>Osmanska riket:</strong> Anslöt sig till Centralmakterna (Tyskland, Österrike-Ungern) 1914 -> strider i Mellanöstern (Gallipoli, Mesopotamien, Palestina - "Lawrence of Arabia"). Armeniska folkmordet genomfördes av osmanska regimen.</li>
+                    <li><strong>Kolonierna:</strong> Trupper från kolonier (Indien, Algeriet, Senegal etc.) stred i Europa. Strider om tyska kolonier i Afrika och Stilla havet.</li>
+                 </ul>
+                 <h4>Avgörande År 1917:</h4>
+                 <div class="flex-two-column">
+                    <div class="column">
+                        <h5>Ryska Revolutionen</h5>
+                         <p>Krigströtthet, enorma förluster och inre oro ledde till tsarens (Nikolaj II) fall (feb/mars 1917). <strong>Bolsjevikerna</strong> tog makten (okt/nov 1917) och slöt en separatfred med Tyskland i <strong>Brest-Litovsk</strong> (mars 1918) -> Ryssland lämnar kriget, Tyskland kan flytta trupper västerut.</p>
+                    </div>
+                    <div class="column">
+                        <h5>USA Går Med i Kriget</h5>
+                         <p>Anledningar: Oinskränkt ubåtskrig (sänkningen av Lusitania 1915, återupptaget 1917), Zimmermann-telegrammet (tyskt försök att få Mexiko att anfalla USA). President Wilson ville "göra världen säker för demokrati".</p>
+                         <p>Färska amerikanska trupper ("doughboys") under General Pershing började anlända i stor skala 1918 och blev avgörande.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection theme-blue">
+                <h3><span class="box-icon">🏁</span> Krigsslutet & Vapenstilleståndet</h3>
+                 <p><strong>Våroffensiven 1918:</strong> Tysklands sista stora försök (Ludendorff-offensiven) att vinna innan USA:s styrka blev för stor. Inledande framgångar med ny taktik (sturmtruppen), men offensiven körde fast pga utmattning och brist på resurser.</p>
+                 <p><strong>Hundradagarsoffensiven (Aug-Nov 1918):</strong> Allierad motoffensiv under Foch, med massivt artilleri, stridsvagnar och amerikanskt stöd, bröt igenom de tyska linjerna.</p>
+                 <p><strong>Centralmakterna</strong> Kollapsar: Bulgarien (sept), Osmanska riket (okt), Österrike-Ungern (okt/nov) kapitulerar eller faller samman i revolution.</p>
+                 <p><strong>Tyskland:</strong> Intern oro (Kiel-myteriet nov), svält pga blockad, militärt nederlag -> <strong>Kejsar Wilhelm II</strong> abdikerar.</p>
+                 <div class="info-box box-with-bg-icon" data-bg-icon="🕰️">
+                     <h4><strong>Vapenstilleståndet</strong></h4>
+                     <p>Trädde i kraft den <strong>11 november 1918, kl. 11.00</strong> ("elfte timmen på elfte dagen i elfte månaden"). Kriget var över.</p>
+                 </div>
+            </div>
+
+            <div class="subsection theme-red">
+                 <h3><span class="box-icon">📜</span> Versaillesfreden & Konsekvenser</h3>
+                 <p>Segrarmakterna ("De Fyra Stora": USA: Wilson, Storbritannien: Lloyd George, Frankrike: Clemenceau, Italien: Orlando) möttes i Paris 1919 för att diktera fredsvillkoren. Förlorarna fick inte delta.</p>
+                 <h4><strong>Versaillesfreden</strong> (Juni 1919):</h4>
+                 <div class="warning-box">
+                    <h4><span class="box-icon">🇩🇪</span> Hårda Villkor för Tyskland ("Diktat")</h4>
+                     <ul class="styled-list cross-list-alt">
+                         <li><strong>Skuldparagrafen (Artikel 231):</strong> Fick ensam skulden för kriget ("krigsskulden").</li>
+                         <li><strong>Skadestånd:</strong> Enorma summor (fastställdes senare till 132 miljarder guldmark) som förlamade ekonomin.</li>
+                         <li><strong>Territorieförluster:</strong> <strong>Alsace-Lorraine</strong> till Frankrike, områden till <strong>Polen</strong> ("polska korridoren"), Belgien, Danmark. Alla kolonier förlorades.</li>
+                         <li><strong>Militära Begränsningar:</strong> Armé max 100 000 man, ingen allmän värnplikt, inga stridsvagnar/<strong>flygplan</strong>/ubåtar. <strong>Rhenlandet</strong> demilitariserat.</li>
+                     </ul>
+                     <p>Många tyskar såg det som en orättvis och förödmjukande <strong>"skändlig fred"</strong> och "diktat". Dolkstötslegenden spreds (att armén inte besegrats utan förråtts av politiker). Ekonomen <strong>John Maynard Keynes</strong> varnade i "The Economic Consequences of the Peace" för att de hårda villkoren skulle leda till ekonomisk kollaps och framtida revanschism.</p>
+                 </div>
+                <h4>Europas Karta Ritas Om:</h4>
+                 <p>Baserat (delvis) på Wilsons idé om <strong>nationernas självbestämmanderätt</strong>:</p>
+                 <ul class="styled-list check-list-alt green-checks">
+                     <li><strong>Österrike-Ungern</strong> upplöstes -> Österrike, Ungern, <strong>Tjeckoslovakien</strong>, <strong>Jugoslavien</strong> ("Sydslavernas rike").</li>
+                     <li>Nya stater från Ryssland -> Finland, <strong>Estland</strong>, <strong>Lettland</strong>, <strong>Litauen</strong>.</li>
+                     <li><strong>Polen</strong> återuppstod som självständig stat.</li>
+                     <li>Osmanska rikets arabiska områden blev mandat under Storbritannien/Frankrike (Syrien, Libanon, Palestina, Irak, Transjordanien).</li>
+                 </ul>
+                <h4>Enorma Mänskliga Kostnader:</h4>
+                 <ul class="icon-list-alt">
+                     <li><span class="list-icon">💔</span> Ca 10 miljoner döda soldater, 20 miljoner sårade ("förlorad generation").</li>
+                    <li><span class="list-icon">👥</span> Miljontals civila döda (krig, svält, sjukdom).</li>
+                    <li><span class="list-icon">🤧</span> <strong>Spanska sjukan (1918-19):</strong> Influensapandemi som dödade uppskattningsvis 50 miljoner globalt, mer än kriget.</li>
+                 </ul>
+                <h4>Sociala och Tekniska Följder:</h4>
+                 <ul class="icon-list-alt">
+                     <li><span class="list-icon">🏭</span> Accelererad <strong>industrialisering</strong>, massproduktion.</li>
+                    <li><span class="list-icon">👩‍💼</span> Kvinnor i arbetslivet -> stärkt kamp för rösträtt (infördes i många länder efter kriget, t.ex. Sverige 1919/21).</li>
+                    <li><span class="list-icon">🚗✈️</span> Teknisk utveckling inom fordon (BMW, Mercedes rötter i krigsindustrin), flyg, kommunikation, medicin.</li>
+                    <li><span class="list-icon">📉</span> Ekonomisk turbulens (inflation, skulder) -> Bidrog till Stora depressionen.</li>
+                    <li><span class="list-icon">🌱</span> Förutsättningar för extremism (fascism, nazism) i besvikna och krisdrabbade länder (Italien, Tyskland). "Fröna till WWII såddes i Versailles."</li>
+                    <li><span class="list-icon">🌐</span> <strong>Nationernas Förbund (NF)</strong> skapades (Wilsons idé) för att bevara freden, men svagt (USA gick ej med, saknade maktmedel).</li>
+                 </ul>
+                 <div class="definition">
+                    <h4><span class="box-icon">❗</span> Slutsats</h4>
+                    <p>Första världskriget krossade gamla imperier, ritade om kartan och visade den brutala verkligheten av modernt <strong>industrikrig</strong>. Dess arv ("människosläktets katastrof") formade hela 1900-talet och dess konsekvenser märks än idag.</p>
+                 </div>
+            </div>
+
+            <!-- Section Quiz for WWI -->
+            <div class="section-quiz">
+                <h3>Testa dina kunskaper om Första Världskriget!</h3>
+                <p>Svara på några snabba frågor om avsnittet du just läst.</p>
+                <div id="wwi-questions" class="quiz-container">
+                    <!-- Quiz questions for this section will be loaded here by JS -->
+                </div>
+            </div>
+
+            <button onclick="document.querySelector('[data-section=\'quiz\']').click()">Till Slutquizet!</button>
+        </section>
+
+        <!-- Quiz -->
+        <section id="quiz" class="section animated">
+            <h2>Slutquiz: Testa dina kunskaper!</h2>
+
+             <!-- Quiz Start Screen -->
+            <div id="quiz-start">
+                <h3>Är du redo att testa dina kunskaper från hela guiden?</h3>
+                <p>Slutquizet innehåller 15 slumpmässiga frågor från alla avsnitt.</p>
+                <p id="best-time-display">Ditt snabbaste resultat: Inte satt än</p>
+                 <!-- Difficulty Selector -->
+                <div class="difficulty-switch-wrapper">
+                    <div class="difficulty-switch">
+                        <label for="difficulty-normal">Svårighetsgrad:</label>
+                        <div class="switch-container">
+                            <input type="radio" id="difficulty-normal" name="difficulty" value="normal" checked>
+                            <label for="difficulty-normal" class="switch-label switch-label-left">Normal 🙂</label>
+
+                            <input type="radio" id="difficulty-crazy" name="difficulty" value="crazy">
+                            <label for="difficulty-crazy" class="switch-label switch-label-right">Crazy Bananas! 🤪🍌</label>
+
+                            <span class="switch-selection"></span>
+                        </div>
+                    </div>
+                 </div>
+                 <!-- End Difficulty Selector -->
+                <button id="start-quiz-btn">Starta Slutquiz</button>
+            </div>
+
+            <!-- Quiz Progress Display -->
+            <div id="quiz-progress" style="display: none;">
+                <div class="timer" id="quiz-timer">0:00</div>
+                <div class="progress-container">
+                    <div class="progress-bar" id="quiz-progress-bar"></div>
+                </div>
+                <div class="progress-text" id="quiz-progress-text">0 av 15 besvarade</div>
+            </div>
+
+             <!-- Floating Status moved outside -->
+            <div id="quiz-status-floating" style="display: none;">
+                <div class="timer" id="floating-timer">0:00</div>
+                <div class="mini-progress">
+                    <div class="mini-progress-bar" id="floating-progress-bar"></div>
+                </div>
+                <div class="status-text" id="floating-status">0/15</div>
+            </div>
+
+            <!-- Quiz Questions Container -->
+            <div id="quiz-questions" style="display: none;">
+                <!-- Frågorna renderas här av JS -->
+            </div>
+
+            <!-- Quiz Results Container -->
+            <div id="quiz-result" style="display: none;">
+                <!-- Resultaten renderas här av JS -->
+            </div>
+
+        </section>
+
+    </div> <!--!container -->
+
+    <script src="historyquiz.js"></script>
+    <script src="studyguide-core.js"></script>
+    <script src="interactive-quiz.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            initStudyGuide({
+                guideId: 'history1', // Unikt ID för denna guide
+                requiredSections: ['intro', 'nationalism', 'imperialism', 'wwi', 'quiz'],
+                sectionQuestions: true // Aktivera sektionsquiz
+            });
+        });
+    </script>
+
+</body>
+</html> 

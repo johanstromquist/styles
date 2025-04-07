@@ -10,8 +10,19 @@ let quizTimerInterval = null;
 let quizQuestions = [];
 let quizAnswers = {};
 let quizConfig = {
-    questionsCount: 15
+    questionsCount: 15,
+    guideId: 'default' // Add default guideId
 };
+
+/**
+ * Genererar nyckel för localStorage baserat på guideId.
+ * @param {string} baseKey - Grundnyckeln (t.ex. 'bestTime').
+ * @returns {string} - Den guide-specifika nyckeln.
+ */
+function getQuizStorageKey(baseKey) {
+    const guideId = quizConfig.guideId || 'default'; // Use guideId from config
+    return `${guideId}_${baseKey}`;
+}
 
 /**
  * Startar quizet med given konfiguration
@@ -30,6 +41,12 @@ function initializeQuiz(config = {}) {
         onComplete: null,
         ...config
     };
+    
+    // Kontrollera att guideId finns
+    if (!quizConfig.guideId) {
+        console.error("Fatal: guideId missing in quiz configuration!");
+        quizConfig.guideId = 'default'; // Fallback
+    }
     
     // Dölj startsida och visa quiz
     const startElement = document.getElementById('quiz-start');
@@ -130,27 +147,33 @@ function endQuiz(showResults = false) {
         let isNewBestScoreRecord = false;
 
         // Overall Best Time
-        const currentBestTime = localStorage.getItem('bestTime');
+        const storageBestTimeKey = getQuizStorageKey('bestTime');
+        const currentBestTime = localStorage.getItem(storageBestTimeKey);
         if (!currentBestTime || timeElapsed < parseInt(currentBestTime)) {
             if (answeredQuestions === totalQuestions) { // Only count completed quizzes for best time
-                localStorage.setItem('bestTime', timeElapsed);
+                localStorage.setItem(storageBestTimeKey, timeElapsed);
                 isNewOverallBestTime = true;
                 // Update display immediately if possible (function might be in other file)
-                if (typeof window.updateBestTimeDisplay === 'function') {
-                    window.updateBestTimeDisplay(); 
+                if (typeof window.updateProgressDisplay === 'function') {
+                    window.updateProgressDisplay(); // Trigger update in core
                 }
             }
         }
 
         // Best Score Record (Highest correct, tie-break with time)
-        const currentBestScoreRecord = JSON.parse(localStorage.getItem('bestScoreRecord') || 'null');
+        const storageBestScoreKey = getQuizStorageKey('bestScoreRecord');
+        const currentBestScoreRecord = JSON.parse(localStorage.getItem(storageBestScoreKey) || 'null');
         if (!currentBestScoreRecord || 
             correctAnswers > currentBestScoreRecord.correct || 
             (correctAnswers === currentBestScoreRecord.correct && timeElapsed < currentBestScoreRecord.time))
         {
              if (answeredQuestions === totalQuestions) { // Only count completed quizzes
-                localStorage.setItem('bestScoreRecord', JSON.stringify({ correct: correctAnswers, time: timeElapsed }));
+                localStorage.setItem(storageBestScoreKey, JSON.stringify({ correct: correctAnswers, time: timeElapsed }));
                 isNewBestScoreRecord = true;
+                // Update display immediately if possible
+                if (typeof window.updateProgressDisplay === 'function') {
+                    window.updateProgressDisplay(); // Trigger update in core
+                }
             }
         }
         // --- End Check for New Records ---
@@ -207,17 +230,30 @@ function renderQuizQuestions() {
  * @param {boolean} isCorrect - Om valet är korrekt
  */
 function selectQuizAnswer(questionIndex, optionIndex, isCorrect) {
+    console.log(`selectQuizAnswer called - Q:${questionIndex}, Option:${optionIndex}`); // Log entry
+    
     quizAnswers[questionIndex] = {
         selected: optionIndex,
         correct: isCorrect
     };
     
-    // Update the selected option's appearance
+    // 1. Find all options for the current question
     const options = document.querySelectorAll(`.option[data-question="${questionIndex}"]`);
+    console.log(`Found ${options.length} options for Q:${questionIndex}`); // Log found options
+    
+    // 2. Remove 'selected' from all of them
     options.forEach(option => {
         option.classList.remove('selected');
     });
-    options[optionIndex].classList.add('selected');
+
+    // 3. Add 'selected' to the clicked option
+    if (options[optionIndex]) { // Check if the target element exists
+        console.log('Target option element:', options[optionIndex]); // Log target element
+        options[optionIndex].classList.add('selected'); 
+        console.log('Classes after adding selected:', options[optionIndex].classList); // Log classes after adding
+    } else {
+        console.error(`Error: Could not find option element at index ${optionIndex} for question ${questionIndex}`); // Log error if target not found
+    }
     
     updateQuizProgress();
 }
