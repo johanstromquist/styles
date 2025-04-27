@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalla kriget – Interaktiv Studiehandledning</title>
+    <link rel="stylesheet" href="../../studyguide.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Kalla kriget</h1>
+            <p>En interaktiv studiehandledning om konflikten mellan öst och väst 1945–1991</p>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#" class="active" data-section="intro">Introduktion</a></li>
+                <li><a href="#" data-section="ironcurtain">Järnridån & Första konflikterna</a></li>
+                <li><a href="#" data-section="berlinairlift">Berlinblockaden & Luftbron</a></li>
+                <li><a href="#" data-section="korea">Koreakriget</a></li>
+                <li><a href="#" data-section="cuba">Kubakrisen</a></li>
+                <li><a href="#" data-section="vietnam">Vietnamkriget</a></li>
+                <li><a href="#" data-section="space">Rymdkapplöpningen</a></li>
+                <li><a href="#" data-section="thaw">Avspänning & 1980-talets upptining</a></li>
+                <li><a href="#" data-section="berlinwall">Berlins mur & Kalla krigets slut</a></li>
+                <li><a href="#" data-section="timeline">Tidslinje</a></li>
+                <li><a href="#" data-section="quiz">Quiz</a></li>
+            </ul>
+        </nav>
+        <!-- Introduktion -->
+        <section id="intro" class="section active animated">
+            <h2>Välkommen till din interaktiva studiehandledning om Kalla kriget!</h2>
+            <p>Denna guide hjälper dig att förstå de viktigaste händelserna, aktörerna och begreppen under Kalla kriget (1945–1991). Navigera mellan avsnitten för att läsa, reflektera och testa dina kunskaper.</p>
+            <div class="info-box">
+                <h3>📝 Så använder du studiehandledningen</h3>
+                <ul>
+                    <li>Varje avsnitt innehåller sammanfattning, nyckelbegrepp och övningsfrågor.</li>
+                    <li>Avsluta med quizet för att testa dina kunskaper och låsa upp prestationer!</li>
+                </ul>
+            </div>
+            <div class="flex-container">
+                <div class="card">
+                    <h3>🏆 Prestationer att låsa upp</h3>
+                    <p>Lås upp prestationer genom att utforska alla avsnitt och klara quizet.</p>
+                </div>
+                <div class="card">
+                    <h3>📊 Spåra dina framsteg</h3>
+                    <div class="best-score-display">
+                        <p><span class="icon">✔️</span> Rätt svar: <strong id="best-score-correct">--</strong></p>
+                        <p><span class="icon">⏱️</span> Tid: <strong id="best-score-time">--:--</strong></p>
+                        <p><span class="icon">⭐</span> Poäng: <strong id="best-score-points">----</strong></p>
+                    </div>
+                </div>
+            </div>
+            <button onclick="document.querySelector('[data-section=\'ironcurtain\']').click()">Börja studera nu!</button>
+            <div id="achievements-list" class="achievements"></div>
+        </section>
+        <!-- Järnridån & Första konflikterna -->
+        <section id="ironcurtain" class="section animated">
+            <h2>Järnridån & Första konflikterna</h2>
+            <div class="subsection theme-blue">
+                <h3><span class="box-icon">🧊</span> Vad var Järnridån?</h3>
+                <div class="definition">
+                    <p>När rökridåerna från andra världskriget skingrades 1945 låg Europa i ruiner. Det tidigare allierade samarbetet mellan väst och Sovjet började snabbt vittra sönder, och kontinenten delades i två läger: väst (demokrati, återuppbyggt med amerikanskt stöd) och öst (sovjetkontrollerade kommunistiska regimer). Järnridån blev symbolen för denna splittring – en mäktig metafor för den politiska, ideologiska och till slut fysiska barriär som skulle dela Europa i fyra decennier.</p>
+                </div>
+                <div class="info-box quote-box">
+                    <h4><span class="box-icon">💬</span> Churchills tal 1946</h4>
+                    <blockquote>
+                        "Från Stettin vid Östersjön till Trieste vid Adriatiska havet har en järnridå sänkts tvärs över kontinenten."
+                    </blockquote>
+                    <p>— Winston Churchill, 5 mars 1946, Fulton, Missouri</p>
+                    <p>I ett berömt tal vid Westminster College varnade Churchill, med USA:s president Truman vid sin sida, för Sovjets expansion. Stalin svarade med att kalla uttalandet för "krigshetsande", men begreppet "järnridån" blev bestående – en träffande beskrivning av den nya verkligheten.</p>
+                </div>
+            </div>
+            <div class="subsection theme-lblue">
+                <h3><span class="box-icon">⚔️</span> Första konflikterna & reaktioner</h3>
+                <div class="info-box">
+                    <p>Sovjetunionen, under Stalins brutala ledning, installerade kommunistiska lydregimer i Östeuropa och slog hårt ner på motstånd. Befolkningen levde under ständig övervakning, och yttrandefrihet blev ett minne blott. Churchill varnade västvärlden för Sovjets expansion, och snart följde USA:s svar:</p>
+                </div>
+                <div class="flex-container icon-card-deck theme-blue">
+                    <div class="card">
+                        <h4><span class="box-icon">📝</span> Trumandoktrinen (1947)</h4>
+                        <p>President Harry Truman deklarerade att USA skulle "stödja fria folk som motsätter sig försök till underkuvande". Detta blev startskottet för en aktiv politik för att <strong>hindra kommunismens spridning</strong> (containment).</p>
+                    </div>
+                    <div class="card">
+                        <h4><span class="box-icon">💵</span> Marshallplanen (1947)</h4>
+                        <p>USA pumpade in miljarder dollar för att återuppbygga Västeuropa. Planen var både humanitär och strategisk – ekonomisk stabilitet skulle förhindra att desperata nationer föll för kommunismens löften. Sovjet såg detta som ett försök att underminera deras inflytande.</p>
+                    </div>
+                </div>
+                <div class="info-box">
+                    <h4><span class="box-icon">🌍</span> Världen delas</h4>
+                    <p>Dessa första konfrontationer ledde till att den tidigare alliansen splittrades. Inom kort bildades två militära block – NATO i väst (1949) och senare Warszawapakten i öst (1955). Den amerikanska diplomaten George Kennan myntade termen "containment" – inneslutning – för att beskriva USA:s strategi att "dämma upp" kommunismen. Världen hade nu officiellt delats i två läger, och det kalla kriget hade börjat på allvar.</p>
+                </div>
+            </div>
+            <div class="subsection theme-green">
+                <h3><span class="box-icon">🗝️</span> Nyckelbegrepp</h3>
+                <ul class="icon-list-alt cols-2">
+                    <li><span class="list-icon">🧊</span> <strong>Järnridån:</strong> Metafor för den politiska och ideologiska gränsen mellan öst och väst i Europa.</li>
+                    <li><span class="list-icon">📝</span> <strong>Trumandoktrinen:</strong> USA:s löfte att stötta länder mot kommunistisk aggression.</li>
+                    <li><span class="list-icon">💵</span> <strong>Marshallplanen:</strong> Omfattande ekonomiskt stöd från USA till Europas återuppbyggnad.</li>
+                    <li><span class="list-icon">🛡️</span> <strong>Containment:</strong> USA:s strategi för att begränsa och stoppa kommunismens spridning.</li>
+                    <li><span class="list-icon">🌐</span> <strong>Bipolär värld:</strong> Världen delad mellan två supermakter och deras respektive allierade.</li>
+                    <li><span class="list-icon">🏙️</span> <strong>Satellitstat:</strong> Land som formellt är självständigt men kontrolleras av en annan stat.</li>
+                </ul>
+            </div>
+            <h3>Övningsfrågor</h3>
+            <ul class="styled-list check-list-alt">
+                <li>Vad menas med begreppet "Järnridån" och varför blev det en så kraftfull metafor?</li>
+                <li>Varför blev Marshallplanen och Trumandoktrinen viktiga i början av Kalla kriget?</li>
+                <li>Hur förändrades relationen mellan USA och Sovjetunionen efter andra världskriget?</li>
+                <li>Hur påverkade "containment"-strategin USA:s utrikespolitik under Kalla krigets början?</li>
+            </ul>
+            <div id="ironcurtain-questions" class="quiz-container"></div>
+            <button onclick="document.querySelector('[data-section=\'berlinairlift\']').click()">Nästa avsnitt</button>
+        </section>
+        <!-- Berlinblockaden & Luftbron -->
+        <section id="berlinairlift" class="section animated">
+            <h2>Berlinblockaden & Luftbron</h2>
+            <div class="subsection theme-blue">
+                <h3><span class="box-icon">✈️</span> En stad under belägring</h3>
+                <div class="definition">
+                    <p>I juni 1948 tog Kalla kriget ett dramatiskt steg. Det besegrade Tyskland hade delats mellan segrarmakterna, och djupt inne i den sovjetiska zonen låg Berlin, även den delad i fyra sektorer. Stalin, besluten att driva ut västmakterna ur Berlin, beordrade plötsligt att alla vägar, järnvägar och vattenvägar till Västberlin skulle stängas. Över två miljoner män, kvinnor och barn blev isolerade, med sviktande förråd av mat och bränsle. Sovjets budskap var tydligt: överge Västberlin eller se dess invånare svälta.</p>
+                </div>
+                <div class="info-box box-with-bg-icon" data-bg-icon="🔥">
+                    <h4>Berlin i kris</h4>
+                    <p>När blockaden började hade Västberlin endast:</p>
+                    <ul>
+                        <li>36 dagars mjölförråd</li>
+                        <li>45 dagars matfett</li>
+                        <li>Kol för endast 45 dagar under den kommande kalla vintern</li>
+                    </ul>
+                    <p>Många förutspådde att staden skulle kapitulera inom veckor. Västerländska ledare stod inför ett svårt val: ge upp Berlin, tvinga sig igenom blockaden med militära medel (risken för krig), eller hitta en annan lösning.</p>
+                </div>
+            </div>
+            <div class="subsection theme-lblue">
+                <h3><span class="box-icon">🚚</span> Operation Vittles: En luftbro utan motstycke</h3>
+                <div class="info-box">
+                    <p>Västmakterna valde en modig och kreativ lösning: försörja hela staden via luften. "Operation Vittles" (Amerika) och "Operation Plainfare" (Storbritannien) blev snabbt en av historiens mest imponerande logistiska operationer:</p>
+                    <ul>
+                        <li>Flygplan landade dag och natt med <strong>endast 3 minuters mellanrum</strong></li>
+                        <li>I alla väderförhållanden flögs leveranser in till Tempelhof, Gatow och Tegel</li>
+                        <li>På dagar med optimala förhållanden levererades över <strong>13 000 ton förnödenheter</strong></li>
+                        <li>Allt från kol och mjöl till medicin och bränsle transporterades via luften</li>
+                    </ul>
+                    <p>Berlins invånare, som upplevt krigets fasor, kämpade tillsammans – alla hjälpte till vid flygplatserna, där lastbilar ofta stod redo innan planen hade landat. För att värma sina hem fick de ofta endast 50 gram kol per dag. Berlinborna levde med knappa ransoner, men med orubblig beslutsamhet.</p>
+                </div>
+            </div>
+            <div class="subsection theme-purple">
+                <h3><span class="box-icon">🍬</span> "Rosinbombaren" – Hopp från himlen</h3>
+                <div class="info-box quote-box">
+                    <h4><span class="box-icon">💬</span> Barnens ord</h4>
+                    <blockquote>
+                        "Vi kan stå ut med att ha ont i magen, men om vi förlorar vår frihet får vi kanske aldrig tillbaka den."
+                    </blockquote>
+                    <p>— En ung berlinare till löjtnant Halvorsen, 1948</p>
+                </div>
+                <div class="flex-two-column">
+                    <div class="column">
+                        <p>Mitt i krisen blev den amerikanske piloten Gail Halvorsen ett ljus i mörkret. När han såg tyska barn samlade bakom ett stängsel vid flygfältet, gav han dem sina enda två tuggummin. Rörd av hur de delade även den minsta bit, lovade han att nästa dag släppa godis från sitt plan. "Hur ska vi känna igen ditt plan?" frågade barnen. "Jag kommer att vingla med vingarna," svarade han.</p>
+                        <p>Halvorsen höll sitt löfte. Han och hans besättning tillverkade små fallskärmar av näsdukar och snören, och fäste choklad och tuggummi vid dem. När hans C-54:a närmade sig Berlin, vickade han på vingarna ("Uncle Wiggly Wings") och släppte godiset. Snart blev "Operation Little Vittles" en symbol för vänskap mitt i den politiska stormen. Till januari 1949 hade 250 000 små fallskärmar med godis dalat ner över Berlins barn – ett enkelt men kraftfullt tecken på medmänsklighet.</p>
+                    </div>
+                    <div class="column">
+                        <div class="illustration">
+                            <img src="https://history.army.mil/images/artphoto/pripos/A-Day/candy-bomber.jpg" alt="Barn i Berlin ser upp mot himlen efter godispaket från 'Rosinbombaren'" style="max-width: 100%; height: auto; border-radius: 5px;">
+                            <p class="caption" style="text-align: center; font-size: 0.9em; margin-top: 5px;">Gail "Rosinbombaren" Halvorsen med några av barnen som väntade på godisleveranser från luften.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="subsection theme-green">
+                <h3><span class="box-icon">🗝️</span> Nyckelbegrepp</h3>
+                <ul class="icon-list-alt cols-2">
+                    <li><span class="list-icon">🚧</span> <strong>Blockad:</strong> Avspärrning av vägar, järnvägar och vattenvägar till Västberlin (juni 1948–maj 1949).</li>
+                    <li><span class="list-icon">✈️</span> <strong>Luftbro:</strong> Massiv flygtransportoperation som försörjde 2,5 miljoner människor via luften.</li>
+                    <li><span class="list-icon">🍬</span> <strong>Rosinbombaren:</strong> Piloten Gail Halvorsen som släppte godis till barnen i Berlin.</li>
+                    <li><span class="list-icon">🇺🇸</span> <strong>Operation Vittles:</strong> Amerikanska kodbeteckningen för luftbron.</li>
+                    <li><span class="list-icon">🇬🇧</span> <strong>Operation Plainfare:</strong> Brittiska kodbeteckningen för luftbron.</li>
+                    <li><span class="list-icon">📆</span> <strong>15 månader:</strong> Luftbrons varaktighet, tills Sovjet gav upp i maj 1949.</li>
+                </ul>
+            </div>
+            <div class="info-box">
+                <h4><span class="box-icon">⭐</span> Resultat & långsiktig betydelse</h4>
+                <p>Den 12 maj 1949, efter 15 månaders blockad, gav Stalin upp. Blockaden hade misslyckats, och västländernas beslutsamhet hade segrat. Luftbron hade fraktat över 2,3 miljoner ton förnödenheter under 278 000 flygningar – ett tekniskt mirakel och en diplomatisk triumf. Västberlin förblev fritt.</p>
+                <p>Dock visade krisen hur allvarlig Kalla krigets uppdelning hade blivit. Bara några månader efter blockaden, i augusti 1949, testade Sovjetunionen sin första atombomb. USA:s kärnvapenmonopol var brutet, och en ny era av rädsla och upprustning började – en era där människor världen över byggde skyddsrum och barn övade att "ducka och ta skydd" under sina skolbänkar vid atombombsövningar.</p>
+            </div>
+            <h3>Övningsfrågor</h3>
+            <ul class="styled-list check-list-alt">
+                <li>Varför genomfördes Berlinluftbron och hur gick den till?</li>
+                <li>Vilken betydelse fick "Rosinbombaren" för Berlinborna?</li>
+                <li>Hur påverkade blockaden och luftbron relationen mellan öst och väst?</li>
+                <li>Varför anses luftbron vara en tidig Kalla kriget-seger för västmakterna?</li>
+            </ul>
+            <div id="berlinairlift-questions" class="quiz-container"></div>
+            <button onclick="document.querySelector('[data-section=\'korea\']').click()">Nästa avsnitt</button>
+        </section>
+        <!-- Koreakriget -->
+        <section id="korea" class="section animated">
+            <h2>Koreakriget</h2>
+            <div class="subsection theme-blue">
+                <h3><span class="box-icon">🇰🇷</span> Från kall konflikt till blodig strid</h3>
+                <div class="definition">
+                    <p>Den 25 juni 1950, i gryningen, blev Kalla kriget plötsligt hett. Nordkoreanska styrkor – beväpnade med sovjetiska stridsvagnar och med Sovjets stöd – korsade den 38:e breddgraden och invaderade Sydkorea. Denna invasion chockade världen: omkring 75 000 nordkoreanska soldater vällde in i Sydkorea med målet att återförena halvön under kommunistiskt styre.</p>
+                    <p>Korea, som hade delats vid den 38:e breddgraden efter andra världskriget, blev nu den första stora slagfältet i Kalla kriget. I norr fanns det kommunistiska Nordkorea, stött av Sovjetunionen och senare Kina. I söder fanns det USA-stödda Sydkorea. Detta var inte längre ett politiskt kallt krig – det var ett verkligt krig med verkliga vapen och verkliga förluster.</p>
+                </div>
+            </div>
+            <div class="subsection theme-lyellow">
+                <h3><span class="box-icon">⚔️</span> Ett krig med dramatiska vändningar</h3>
+                <div class="flex-two-column">
+                    <div class="column">
+                        <div class="info-box">
+                            <h4><span class="box-icon">🏙️</span> Hastiga framryckningar och reträtter</h4>
+                            <p>Kriget pendlade dramatiskt fram och tillbaka:</p>
+                            <ol>
+                                <li><strong>Nordkoreansk offensiv (1950)</strong>: Nordkoreanska styrkor avancerade snabbt söderut och erövrade Sydkoreas huvudstad Seoul.</li>
+                                <li><strong>FN-intervention</strong>: President Truman såg invasionen som Moskvas test av västvärldens beslutsamhet. USA ledde snabbt en FN-koalition till Sydkoreas försvar.</li>
+                                <li><strong>Incheon-landstigningen (sep 1950)</strong>: General Douglas MacArthur genomförde en djärv amfibieattack bakom fiendelinjen, som vände krigets förlopp.</li>
+                                <li><strong>FN-styrkor nära kinesiska gränsen</strong>: Efter denna framgång drev FN-styrkor nordkoreanerna tillbaka över 38:e breddgraden.</li>
+                                <li><strong>Kinesisk intervention (nov 1950)</strong>: När FN-styrkor närmade sig den kinesiska gränsen gick hundratusentals kinesiska "frivilliga" in i kriget och tvingade FN-styrkorna söderut igen.</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="illustration">
+                            <svg width="300" height="350" viewBox="0 0 300 350">
+                                <rect x="0" y="0" width="300" height="350" fill="#f8f9fa" rx="5" ry="5" />
+                                <text x="150" y="25" text-anchor="middle" font-weight="bold" fill="#333">Koreakrigets skiftande frontlinjer</text>
+                                <!-- Map outline -->
+                                <path d="M100,50 L200,50 L220,100 L220,250 L180,300 L120,300 L80,250 L80,100 Z" fill="#e3f2fd" stroke="#666" stroke-width="2" />
+                                <!-- 38th Parallel -->
+                                <line x1="80" y1="175" x2="220" y2="175" stroke="#333" stroke-width="2" stroke-dasharray="5,5" />
+                                <text x="240" y="175" font-size="12" fill="#333">38:e breddgraden</text>
+                                <!-- Arrows showing movement -->
+                                <path d="M150,60 L150,150" stroke="#f44336" stroke-width="3" marker-end="url(#arrowRed)" />
+                                <path d="M150,290 L150,200" stroke="#2196f3" stroke-width="3" marker-end="url(#arrowBlue)" />
+                                <path d="M150,80 L150,250" stroke="#4caf50" stroke-width="3" marker-end="url(#arrowGreen)" />
+                                <!-- Markers for cities -->
+                                <circle cx="150" y="130" r="5" fill="#333" />
+                                <text x="165" y="130" font-size="10" fill="#333">Seoul</text>
+                                <circle cx="150" y="60" r="5" fill="#333" />
+                                <text x="165" y="60" font-size="10" fill="#333">Pyongyang</text>
+                                <!-- Legend -->
+                                <rect x="80" y="320" width="15" height="3" fill="#f44336" />
+                                <text x="100" y="323" font-size="10" fill="#333">Nordkoreansk framryckning</text>
+                                <rect x="80" y="335" width="15" height="3" fill="#2196f3" />
+                                <text x="100" y="338" font-size="10" fill="#333">FN motoffensiv</text>
+                                <!-- SVG markers for arrows -->
+                                <defs>
+                                    <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                                        <path d="M0,0 L0,6 L9,3 z" fill="#f44336" />
+                                    </marker>
+                                    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                                        <path d="M0,0 L0,6 L9,3 z" fill="#2196f3" />
+                                    </marker>
+                                    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                                        <path d="M0,0 L0,6 L9,3 z" fill="#4caf50" />
+                                    </marker>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-box">
+                    <h4><span class="box-icon">❄️</span> Chosin-reservoaren: Helvetet frös till is</h4>
+                    <p>Vintern 1950 utkämpades ett av krigets mest brutala slag vid Chosin-reservoaren. I temperaturer som sjönk till -35°C kämpade amerikanska marinsoldater omringade av kinesiska styrkor. Vapen frös fast, ammunition fungerade inte, och köldskador skördade lika många offer som fiendekulor. En marinkårssoldat skrev: "Jag önskar att jag kunde beskriva denna kyla... den genomborrar, bränner, skär, gör ont, dödar."</p>
+                </div>
+            </div>
+            <div class="subsection theme-lblue">
+                <h3><span class="box-icon">⚖️</span> Resultat & mänskliga kostnader</h3>
+                <div class="info-box box-with-bg-icon" data-bg-icon="🏙️">
+                    <h3>Städer i ruiner, liv i spillror</h3>
+                    <p>Under tre långa år drog sig kriget fram och tillbaka över den koreanska halvön. Städer som Seoul erövrades, förlorades och återerövrades – och bytte händer totalt fyra gånger. Byar brändes till grunden, och familjer slogs sönder när frontlinjerna rörde sig fram och tillbaka över deras hem. De mänskliga förlusterna var förödande:</p>
+                    <ul>
+                        <li>Totalt <strong>ca 5 miljoner dödsoffer</strong>, varav majoriteten civila koreaner</li>
+                        <li>Över <strong>36 000 amerikanska soldater</strong> dödades</li>
+                        <li>Uppskattningsvis <strong>600 000 kinesiska soldater</strong> dog</li>
+                        <li>Miljontals koreaner blev flyktingar i sitt eget land</li>
+                    </ul>
+                    <p>Till slut slöts vapenvila 1953 – men inget fredsavtal. Korea förblev delat nästan exakt där kriget hade börjat, vid den 38:e breddgraden, nu en tungt bevakad gräns känd som <strong>DMZ</strong> (demilitariserad zon).</p>
+                </div>
+                <div class="info-box quote-box">
+                    <h4><span class="box-icon">💬</span> "Det glömda kriget"</h4>
+                    <p>Koreakriget har ibland kallats "det glömda kriget" eftersom det fick mindre uppmärksamhet än andra konflikter, trots att det var en av de blodigaste striderna efter andra världskriget. För många amerikanska soldater – unga män som just hade upplevt segern i andra världskriget – var det chockerande att finna sig själva skickade till ännu ett fjärran slagfält, denna gång i ett land som få kunde peka ut på en karta.</p>
+                </div>
+            </div>
+            <div class="subsection theme-green">
+                <h3><span class="box-icon">🗝️</span> Nyckelbegrepp</h3>
+                <ul class="icon-list-alt cols-2">
+                    <li><span class="list-icon">🗺️</span> <strong>38:e breddgraden:</strong> Demarkationslinjen mellan Nord- och Sydkorea.</li>
+                    <li><span class="list-icon">⚓</span> <strong>Inchon:</strong> Plats för MacArthurs djärva landstigning som vände kriget.</li>
+                    <li><span class="list-icon">🛡️</span> <strong>DMZ:</strong> Demilitariserad zon, den tungt bevakade gränsen mellan länderna.</li>
+                    <li><span class="list-icon">✍️</span> <strong>Vapenvila:</strong> Undertecknad 1953, men inget fredsavtal har slutits.</li>
+                    <li><span class="list-icon">🇺🇳</span> <strong>FN-koalition:</strong> 16 länder bidrog med trupper under FN:s befäl.</li>
+                    <li><span class="list-icon">❄️</span> <strong>Chosin-reservoaren:</strong> Plats för ett av krigets mest brutala slag.</li>
+                </ul>
+            </div>
+            <div class="warning-box">
+                <h4><span class="box-icon">⚠️</span> Lärdomar från Korea</h4>
+                <p>Koreakriget skärpte Kalla krigets uppdelning ytterligare. Både väst och det kommunistiska blocket såg Korea som bevis för att den andra sidan var villig att använda militär makt för att utöka sitt inflytande. Risken för ett fullskaligt tredje världskrig mellan supermakterna hade aldrig känts närmare. Kriget påskyndade militariseringen av Kalla kriget och ökade rädslan för att lokala konflikter kunde eskalera till global katastrof.</p>
+            </div>
+            <h3>Övningsfrågor</h3>
+            <ul class="styled-list check-list-alt">
+                <li>Vilka länder var inblandade i Koreakriget och vad blev resultatet?</li>
+                <li>Varför kallas Koreakriget ibland "det glömda kriget"?</li>
+                <li>Hur påverkade Kinas intervention krigets förlopp?</li>
+                <li>Varför ledde inte Koreakriget till en formell fred, utan bara till vapenvila?</li>
+            </ul>
+            <div id="korea-questions" class="quiz-container"></div>
+            <button onclick="document.querySelector('[data-section=\'cuba\']').click()">Nästa avsnitt</button>
+        </section>
+        <!-- Kubakrisen -->
+        <section id="cuba" class="section animated">
+            <h2>Kubakrisen</h2>
+            <div class="subsection theme-red">
+                <h3><span class="box-icon">⚠️</span> Världen på randen till kärnvapenkrig</h3>
+                <div class="definition">
+                    <p>Oktober 1962 – världen höll andan i tretton dagar. Amerikanska spaningsflygplan upptäckte sovjetiska kärnvapenramper under uppbyggnad på Kuba, bara 140 km från USA:s kust. Plötsligt stod världen närmare ett kärnvapenkrig än någonsin tidigare eller senare. President Kennedy ställdes inför ett omöjligt val: tillåta sovjetiska kärnvapen så nära USA, genomföra en invasion av Kuba, eller inleda en blockad som kunde leda till direkt konfrontation.</p>
+                    <p>Den 22 oktober tillkännagav Kennedy krisen för den amerikanska allmänheten och förklarade en "karantän" (en blockad) runt Kuba för att förhindra ytterligare leveranser av sovjetisk utrustning. Samtidigt försatte USA sina kärnvapenstyrkor i DEFCON 2 – ett steg från fullt krig. Sovjetiska fartyg närmade sig blockaden och spänningen nådde sin höjdpunkt.</p>
+                </div>
+            </div>
+            <div class="subsection theme-lyellow">
+                <h3><span class="box-icon">🔍</span> Tretton dagar av skräck</h3>
+                <div class="flex-two-column">
+                    <div class="column">
+                        <div class="info-box">
+                            <h4><span class="box-icon">📊</span> Krisens upptrappning</h4>
+                            <ol>
+                                <li><strong>14 oktober 1962</strong>: U-2 spaningsplan fotograferar sovjetiska missilbaser under konstruktion på Kuba.</li>
+                                <li><strong>16 oktober</strong>: Kennedy informeras och samlar ExComm (verkställande kommittén).</li>
+                                <li><strong>22 oktober</strong>: Kennedy avslöjar krisen för världen i ett TV-tal och tillkännager blockaden.</li>
+                                <li><strong>24 oktober</strong>: Sovjetiska fartyg närmar sig blockadlinjen men vänder i sista stund.</li>
+                                <li><strong>26-27 oktober</strong>: De mest kritiska dagarna, då ett sovjetiskt missil skjuter ner ett amerikanskt U-2 plan över Kuba.</li>
+                                <li><strong>28 oktober</strong>: Khrushchev går med på att avlägsna missilerna i utbyte mot amerikanska löften.</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="illustration">
+                            <svg width="300" height="250" viewBox="0 0 300 250">
+                                <rect x="0" y="0" width="300" height="250" fill="#f8f9fa" rx="5" ry="5" />
+                                <text x="150" y="25" text-anchor="middle" font-weight="bold" fill="#333">Kubakrisen: Räckvidd för sovjetiska missiler</text>
+                                <!-- Map outline simplified for North America -->
+                                <path d="M50,60 L120,80 L150,120 L140,150 L80,180 L40,140 Z" fill="#e3f2fd" stroke="#666" stroke-width="1" />
+                                <!-- Florida and Cuba -->
+                                <path d="M130,170 L140,190 L120,200" fill="#e3f2fd" stroke="#666" stroke-width="1" />
+                                <path d="M120,205 L135,208 L125,215" fill="#e3f2fd" stroke="#666" stroke-width="1" />
+                                <!-- Cities -->
+                                <circle cx="75" cy="120" r="3" fill="#333" />
+                                <text x="85" y="120" font-size="8" fill="#333">Washington</text>
+                                <circle cx="125" cy="210" r="3" fill="#f44336" />
+                                <text x="135" y="210" font-size="8" fill="#333">Kuba</text>
+                                <!-- Missile range circles -->
+                                <circle cx="125" cy="210" r="40" fill="none" stroke="#f44336" stroke-width="1" stroke-dasharray="2,2" />
+                                <circle cx="125" cy="210" r="75" fill="none" stroke="#f44336" stroke-width="1" stroke-dasharray="2,2" />
+                                <circle cx="125" cy="210" r="110" fill="none" stroke="#f44336" stroke-width="1" stroke-dasharray="2,2" />
+                                <!-- Legend -->
+                                <rect x="180" y="80" width="100" height="60" fill="rgba(255,255,255,0.8)" rx="3" ry="3" stroke="#ddd" />
+                                <text x="190" y="95" font-size="8" fill="#333" font-weight="bold">Missilräckvidd</text>
+                                <circle cx="195" cy="110" r="3" fill="none" stroke="#f44336" stroke-width="1" />
+                                <text x="205" y="113" font-size="8" fill="#333">1000 km - MRBM</text>
+                                <circle cx="195" cy="125" r="3" fill="none" stroke="#f44336" stroke-width="1" />
+                                <text x="205" y="128" font-size="8" fill="#333">2000 km - IRBM</text>
+                                <line x1="190" y1="140" x2="270" y2="140" stroke="#f44336" stroke-width="1" stroke-dasharray="2,2" />
+                                <text x="205" y="145" font-size="8" fill="#333">Räckvidd</text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="quote-box danger-box">
+                    <h4><span class="box-icon">💭</span> Ögonvittne till historien</h4>
+                    <p>"För första gången fanns en verklig möjlighet att världen skulle förstöras på några timmar... Vi var längre från solen, närmare undergången, än någonsin tidigare." — Robert Kennedy, broder till presidenten och medlem i ExComm</p>
+                </div>
+            </div>
+            <div class="subsection theme-dred">
+                <h3><span class="box-icon">📞</span> Den hemliga diplomatins kraft</h3>
+                <div class="info-box">
+                    <h4><span class="box-icon">🌍</span> Osynliga förhandlingar</h4>
+                    <p>Medan världen såg en kraftmätning mellan supermakter pågick intensiva hemliga förhandlingar. Två hemliga spår löpte parallellt:</p>
+                    <ul>
+                        <li><strong>De officiella breven</strong>: Kennedy och Khrushchev utbytte formella brev, men det var en långsam process under en kris där varje minut räknades.</li>
+                        <li><strong>Backchannel-diplomati</strong>: Robert Kennedy mötte i hemlighet den sovjetiska ambassadören Dobrynin. I dessa möten nåddes den verkliga överenskommelsen.</li>
+                    </ul>
+                    <p>Slutuppgörelsen innehöll element som hölls hemliga för allmänheten i årtionden:</p>
+                    <ol>
+                        <li>Sovjet skulle avlägsna sina missiler från Kuba</li>
+                        <li>USA lovade offentligt att aldrig invadera Kuba</li>
+                        <li>USA lovade <em>hemligt</em> att avlägsna sina Jupiter-missiler från Turkiet (detta avslöjades inte förrän långt senare)</li>
+                    </ol>
+                    <p>I sina memoarer skrev Robert Kennedy: "President Kennedy hade bestämt att om kriget kom skulle det komma på grund av en handling från vår sida... vi skulle inte dras in i kriget av misstag eller missförstånd."</p>
+                </div>
+            </div>
+            <div class="subsection theme-lblue">
+                <h3><span class="box-icon">⚖️</span> Resultat & konsekvenser</h3>
+                <div class="info-box box-with-bg-icon" data-bg-icon="☮️">
+                    <h4>Förändrade spelregler</h4>
+                    <p>Kubakrisen omformade Kalla kriget på flera avgörande sätt:</p>
+                    <ul>
+                        <li><strong>Heta linjen</strong>: En direkt telexförbindelse upprättades mellan Moskva och Washington för att undvika framtida missförstånd.</li>
+                        <li><strong>Test Ban Treaty</strong>: 1963 undertecknade USA och Sovjet ett avtal som förbjöd kärnvapentester i atmosfären.</li>
+                        <li><strong>Ökad försiktighet</strong>: Båda supermakterna insåg hur nära de kommit en katastrof och blev mer försiktiga i sin konfrontation.</li>
+                        <li><strong>Khrushchevs fall</strong>: Hans hantering av krisen bidrog till hans avsättning 1964.</li>
+                    </ul>
+                </div>
+                <div class="warning-box">
+                    <h4><span class="box-icon">⚠️</span> Hur nära var vi verkligen?</h4>
+                    <p>Historiker har senare upptäckt flera incidenter under krisen som kunde ha utlöst ett fullskaligt kärnvapenkrig:</p>
+                    <ul>
+                        <li>Besättningen på en sovjetisk ubåt, B-59, övervägde att avfyra en kärnvapentorped när amerikanska fartyg försökte tvinga upp den till ytan. Det krävdes tre officerares godkännande – två godkände, men den tredje, Vasili Arkhipov, vägrade och förhindrade därmed potentiellt en katastrof.</li>
+                        <li>Ett U-2 spaningsplan från USA flög av misstag in i sovjetiskt luftrum under krisen, vilket provocerade fram sovjetiska jaktplan. Lyckligtvis kunde planet återvända utan incident.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="subsection theme-green">
+                <h3><span class="box-icon">🗝️</span> Nyckelbegrepp</h3>
+                <ul class="icon-list-alt cols-2">
+                    <li><span class="list-icon">🚢</span> <strong>Karantän/Blockad:</strong> USAs "defensiva" åtgärd mot sovjetiska fartyg.</li>
+                    <li><span class="list-icon">🔍</span> <strong>U-2:</strong> Amerikanskt höghöjdsspaningsplan som upptäckte missilerna.</li>
+                    <li><span class="list-icon">📞</span> <strong>Heta linjen:</strong> Direkt kommunikationskanal mellan supermakterna.</li>
+                    <li><span class="list-icon">👨‍⚖️</span> <strong>ExComm:</strong> Verkställande kommittén som rådgav Kennedy.</li>
+                    <li><span class="list-icon">🚀</span> <strong>MRBM/IRBM:</strong> Medium/Intermediate Range Ballistic Missiles.</li>
+                    <li><span class="list-icon">⏱️</span> <strong>DEFCON:</strong> Defense Readiness Condition, USAs beredskapsnivå.</li>
+                </ul>
+            </div>
+            <h3>Övningsfrågor</h3>
+            <ul class="styled-list check-list-alt">
+                <li>Vad var Kubakrisen och varför var den så farlig?</li>
+                <li>Vilka var de viktigaste delarna i kompromissen som avslutade krisen?</li>
+                <li>Vilka långsiktiga följder fick Kubakrisen för Kalla kriget?</li>
+                <li>Vilken roll spelade hemlig diplomati i lösningen av krisen?</li>
+            </ul>
+            <div id="cuba-questions" class="quiz-container"></div>
+            <button onclick="document.querySelector('[data-section=\'vietnam\']').click()">Nästa avsnitt</button>
+        </section>
+        <!-- Vietnamkriget -->
+        <section id="vietnam" class="section animated">
+            <h2>Vietnamkriget</h2>
+            <div class="subsection theme-blue">
+                <h3><span class="box-icon">🌴</span> Kriget i Vietnam</h3>
+                <div class="definition">
+                    <p>Vietnamkriget (1955–1975) var en av Kalla krigets mest brutala och omstridda konflikter. USA gick in för att stoppa kommunismens spridning, men mötte en osynlig fiende i Viet Congs gerillakrigföring. Kriget utkämpades i djungler, byar och städer – med bakhåll, minor och en befolkning som ofta hamnade mitt i striderna. Trots enorma resurser och över en halv miljon amerikanska soldater nåddes aldrig seger. 1968 års Tet-offensiv visade att motståndet var starkt och kriget blev alltmer impopulärt hemma i USA.</p>
+                </div>
+                <div class="info-box">
+                    <h4><span class="box-icon">📜</span> Från kolonialism till krig</h4>
+                    <p>För att förstå Vietnamkriget måste man gå tillbaka till Frankrikes kolonialvälde i Indokina. Efter andra världskriget kämpade vietnamesiska självständighetsrörelsen Viet Minh under Ho Chi Minh mot det franska kolonialväldet. Frankrike besegrades slutligen vid Dien Bien Phu 1954, vilket ledde till Genèveavtalet som delade Vietnam vid den 17:e breddgraden:</p>
+                    <ul>
+                        <li><strong>Nordvietnam</strong>: Kommunistiskt, lett av Ho Chi Minh med stöd från Kina och Sovjetunionen</li>
+                        <li><strong>Sydvietnam</strong>: Antikommunistiskt, först under kejsare Bao Dai, sedan Ngo Dinh Diem, med stöd från USA</li>
+                    </ul>
+                    <p>Avtalet förespråkade val 1956 för att återförena landet, men Sydvietnam och USA vägrade hålla dessa, då man befarade att Ho Chi Minh skulle vinna. Istället etablerades en permanent delning som ökade spänningarna.</p>
+                </div>
+            </div>
+            <div class="subsection theme-lblue">
+                <h3><span class="box-icon">⚔️</span> Krigets eskalering</h3>
+                <div class="flex-two-column">
+                    <div class="column">
+                        <div class="info-box">
+                            <h4><span class="box-icon">📊</span> Från rådgivare till invasionsstyrka</h4>
+                            <p>USA:s inblandning eskalerade gradvis:</p>
+                            <ul>
+                                <li><strong>1950-talet</strong>: Under Eisenhower skickades några hundra militära rådgivare för att stödja Sydvietnams regim.</li>
+                                <li><strong>1961-1963</strong>: Kennedy ökade antalet amerikanska "rådgivare" till 16,000.</li>
+                                <li><strong>1964</strong>: Tonkinbuktsincidenten – en omdiskuterad sammandrabbning till sjöss – gav president Johnson anledning att utöka kriget. Kongressen godkände Tonkinresolutionen som gav presidenten obegränsad makt att använda militära styrkor.</li>
+                                <li><strong>1965-1968</strong>: Fullskalig amerikansk militär intervention med markstyrkor under Johnson. Vid höjdpunkten fanns över 500,000 amerikanska soldater i Vietnam.</li>
+                                <li><strong>1969-1973</strong>: Under Nixon började "vietnamisering" – gradvisa trupptillbakadraganden medan sydvietnamesiska styrkor skulle ta över.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="info-box danger-box">
+                            <h4><span class="box-icon">🔥</span> Ett annat slags krig</h4>
+                            <p>För amerikanska soldater, vana vid konventionell krigföring, var Vietnam en mardröm:</p>
+                            <ul>
+                                <li>Osynliga fiender som kunde försvinna i tunnlar och djungler</li>
+                                <li>Fällor och minor som dödade och lemlästade</li>
+                                <li>Svårigheter att skilja vän från fiende bland civilbefolkningen</li>
+                                <li>Terrängen själv – djungel, hetta, leeches, giftiga ormar</li>
+                                <li>Frustrationen över att aldrig se tydliga framsteg</li>
+                            </ul>
+                            <p>En amerikansk veteran beskrev det: "Vi erövrade samma kulle flera gånger. Vi tog den, drog oss tillbaka, och fienden återvände. Sedan tog vi den igen, med nya förluster varje gång."</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-box box-with-bg-icon" data-bg-icon="🗺️">
+                    <h4>Från norr till söder - Ho Chi Minh-leden</h4>
+                    <p>Nordvietnam och Viet Cong (den sydvietnamesiska gerillan) försörjdes via den legendariska Ho Chi Minh-leden – ett nätverk av stigar och vägar genom djungeln i Laos och Kambodja. USA försökte förstöra leden med bombningar, avlövningsmedel som <strong>Agent Orange</strong>, och med specialförband, men utan framgång. Tusentals nordvietnamesiska soldater och försörjningskonvojer rörde sig längs leden, ofta nattetid eller under tjockt lövverk som skyddade mot luftangrepp.</p>
+                    <p>Till slut bombbade USA också Kambodja och Laos för att stoppa leden, vilket bidrog till politisk instabilitet och lidande i dessa länder. Trots den intensiva bombningen fortsatte försörjningslederna att fungera – ett bevis på nordvietnamesernas beslutsamhet och kreativitet.</p>
+                </div>
+            </div>
+            <div class="subsection theme-purple">
+                <h3><span class="box-icon">📺</span> Det första TV-kriget</h3>
+                <div class="flex-two-column">
+                    <div class="column">
+                        <div class="info-box quote-box">
+                            <h4><span class="box-icon">💬</span> Maktens ord</h4>
+                            <blockquote>
+                                "Om vi förlorar Indokina, kommer vi förlora Asien."
+                            </blockquote>
+                            <p>— Eisenhower, 1954, om domino-teorin</p>
+                            <blockquote>
+                                "Jag tänker inte bli den första amerikanska presidenten som förlorar ett krig."
+                            </blockquote>
+                            <p>— Nixon, 1969</p>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="info-box">
+                            <h4><span class="box-icon">📡</span> Vietnam i vardagsrummet</h4>
+                            <p>Vietnam blev det första kriget som kom direkt in i människors vardagsrum via TV. Till skillnad från tidigare krig, där regeringen strikt kontrollerade informationen, hade journalister i Vietnam betydande frihet att rapportera. De visuella bilderna av krigets brutalitet skapade en växande antikrigsrörelse.</p>
+                            <p>Särskilt efter Tet-offensiven 1968 började trovärdighetsklyftan ("credibility gap") växa mellan regeringens optimistiska rapporter och verkligheten som visades på TV. Bilder som den av generalen Nguyen Ngoc Loan som avrättar en Viet Cong-fånge på öppen gata, och barn som flyr från napalmbombningar, blev ikoniska och formade den amerikanska opinionen.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="subsection theme-lyellow">
+                <h3><span class="box-icon">☮️</span> Motståndet i USA</h3>
+                <div class="info-box">
+                    <h4><span class="box-icon">✊</span> "Hey, hey, LBJ, how many kids did you kill today?"</h4>
+                    <p>Kriget delade det amerikanska samhället som inget annat sedan inbördeskriget. Antikrigsrörelsen växte från små demonstrationer till massprotester med hundratusentals deltagare.</p>
+                    <p>Särskilt efter att inkallelsen ("draft") utökades blev motståndet starkt på college-campusar. Tragiskt nog ledde detta till dödsfall vid Kent State University 1970, där Nationalgardet öppnade eld mot fredliga demonstranter och dödade fyra studenter.</p>
+                    <p>Kriget och motståndet mot det speglade och förstärkte det sena 1960-talets kulturella omvälvningar. Musiker som Bob Dylan, Joan Baez och John Lennon bidrog med fredsanthem som ekade över demonstrationerna. Den växande folkliga oppositionen bidrog slutligen till att politikerna tvingades söka en väg ut ur konflikten.</p>
+                </div>
+                <div class="info-box">
+                    <h4><span class="box-icon">🧨</span> Tet-offensiven – vändpunkten</h4>
+                    <p>Den 30 januari 1968, under det vietnamesiska nyåret (Tet), när vapenvila hade utlysts, genomförde Viet Cong och nordvietnamesiska trupper överraskande anfall mot mer än 100 städer och baser över hela Sydvietnam. De nådde till och med den amerikanska ambassaden i Saigon och det kejserliga citadellet i Hue.</p>
+                    <p>Militärt slogs offensiven tillbaka med stora förluster för angriparna. Men psykologiskt och politiskt blev den en vändpunkt. Amerikanska regeringen hade länge hävdat att kriget var på väg att vinnas, men Tet visade att fienden fortfarande var kapabel till storskaliga operationer. TV-bilder av strider i Saigon, som tidigare beskrivits som säkert, chockade den amerikanska allmänheten.</p>
+                    <p>Efter Tet förlorade president Johnson folkets förtroende. Den respekterade nyhetsankaret Walter Cronkite, "den mest betrodde mannen i Amerika", deklarerade att kriget troligen skulle sluta i dödläge. Johnson ska då ha sagt: "Om jag förlorat Cronkite, har jag förlorat medelamerika."</p>
+                </div>
+            </div>
+            <div class="subsection theme-lblue">
+                <h3><span class="box-icon">🔥</span> Protester och konsekvenser</h3>
+                <div class="info-box">
+                    <p>Vietnamkriget splittrade det amerikanska samhället. TV-bilder av brinnande byar och döda soldater väckte protester och ilska. Studenter demonstrerade, och slagord som "Hey, hey, LBJ, how many kids did you kill today?" hördes över hela landet. Kriget ledde till över 3 miljoner döda, varav de flesta vietnameser, och lämnade djupa sår i både Vietnam och USA. 1973 drog sig USA ur, och 1975 föll Saigon – Vietnam blev enat under kommunistiskt styre.</p>
+                </div>
+                <div class="info-box box-with-bg-icon" data-bg-icon="☮️">
+                    <h4>Slutet: Fred med äran i behåll?</h4>
+                    <p>Nixon hade lovat "fred med äran i behåll" och en "hedersam utväg". Efter långa förhandlingar i Paris nåddes slutligen ett fredsavtal i januari 1973. USA:s markstyrkor drogs tillbaka, men bombningar fortsatte.</p>
+                    <p>När Kongressen 1973 antog "War Powers Resolution" begränsades presidentens makt att föra krig utan kongressens godkännande – en direkt konsekvens av erfarenheterna från Vietnam.</p>
+                    <p>Trots amerikanskt stöd kollapsade Sydvietnam gradvis. Den 30 april 1975 föll Saigon till nordvietnamesiska styrkor. Ikoniska bilder av den sista helikoptern som lyfter från amerikanska ambassadens tak med desperata människor som försöker få plats symboliserar slutet på USA:s nästan 20-åriga inblandning i Vietnam. Landet återförenades under kommunistiskt styre och döptes om till Socialistiska republiken Vietnam.</p>
+                </div>
+                <div class="warning-box">
+                    <h4><span class="box-icon">⚠️</span> Arvet efter Vietnam</h4>
+                    <p>Vietnamkrigets konsekvenser var enorma:</p>
+                    <ul>
+                        <li><strong>För Vietnam</strong>: 3-4 miljoner döda, miljoner skadade, förstörd infrastruktur, miljöförstöring genom Agent Orange som fortfarande orsakar missbildningar, och miljontals oexploderade bomber och minor.</li>
+                        <li><strong>För USA</strong>: Över 58,000 soldater döda, 300,000 sårade. Minskat förtroende för regeringen, det så kallade "Vietnam-syndromet" – en ovilja att engagera sig i utländska konflikter – som påverkade amerikansk utrikespolitik i årtionden.</li>
+                        <li><strong>För regionen</strong>: Kambodjas röda khmer och efterföljande folkmord, flyktingkriser med "båtflyktingar", och långvarig instabilitet.</li>
+                    </ul>
+                    <p>För många veteraner fortsatte kriget långt efter hemkomsten – med posttraumatiskt stressyndrom, hälsoproblem från Agent Orange, och ett samhälle som ofta inte visade uppskattning för deras uppoffringar.</p>
+                </div>
+            </div>
+            <div class="subsection theme-green">
+                <h3><span class="box-icon">🗝️</span> Nyckelbegrepp</h3>
+                <ul class="icon-list-alt cols-2">
+                    <li><span class="list-icon">🌴</span> <strong>Viet Cong:</strong> Kommunistisk gerilla i Sydvietnam.</li>
+                    <li><span class="list-icon">🧨</span> <strong>Tet-offensiven:</strong> Stort överraskningsanfall 1968.</li>
+                    <li><span class="list-icon">✈️</span> <strong>Napalm:</strong> Brandvapen som användes i kriget.</li>
+                    <li><span class="list-icon">🕊️</span> <strong>Parisavtalet:</strong> Fredsavtal 1973 som avslutade USA:s inblandning.</li>
+                    <li><span class="list-icon">🌿</span> <strong>Agent Orange:</strong> Avlövningsmedel som orsakade omfattande miljö- och hälsoskador.</li>
+                    <li><span class="list-icon">🔄</span> <strong>Dominoteorin:</strong> Idén att om ett land föll till kommunismen skulle grannländerna följa efter.</li>
+                    <li><span class="list-icon">🛣️</span> <strong>Ho Chi Minh-leden:</strong> Försörjningsväg genom Laos och Kambodja.</li>
+                    <li><span class="list-icon">📋</span> <strong>Tonkinresolutionen:</strong> Gav presidenten befogenhet att utöka kriget utan formell krigsförklaring.</li>
+                </ul>
+            </div>
+            <h3>Övningsfrågor</h3>
+            <ul class="styled-list check-list-alt">
+                <li>Hur påverkade Vietnamkriget både Vietnam och USA?</li>
+                <li>Vad var Tet-offensiven och varför blev den så viktig?</li>
+                <li>Varför väckte Vietnamkriget så starka protester i USA?</li>
+                <li>Vilken roll spelade media i att forma den amerikanska opinionen om kriget?</li>
+                <li>Hur förändrades den amerikanska strategin under krigets gång?</li>
+                <li>Vilka långsiktiga konsekvenser fick kriget för amerikansk utrikespolitik?</li>
+                <li>Vad var dominoteorin och hur påverkade den USA:s beslut att ingripa i Vietnam?</li>
+                <li>Hur skulle du beskriva skillnaden mellan de amerikanska och vietnamesiska krigföringsstrategierna?</li>
+            </ul>
+            <div id="vietnam-questions" class="quiz-container"></div>
+            <button onclick="document.querySelector('[data-section=\'space\']').click()">Nästa avsnitt</button>
+        </section>
+        <!-- Rymdkapplöpningen -->
+        <section id="space" class="section animated">
+            <h2>Rymdkapplöpningen</h2>
+            <div class="subsection theme-blue">
+                <h3><span class="box-icon">🌕</span> En kosmisk tävling mellan supermakter</h3>
+                <div class="definition">
+                    <p>Rymdkapplöpningen var en hisnande tävling mellan USA och Sovjetunionen om att visa teknologisk och ideologisk överlägsenhet. Allt började 1957 när Sovjet skickade upp <strong>Sputnik</strong> – världens första satellit. Chocken i väst blev startskottet för en rad otroliga prestationer: första människan i rymden (<strong>Gagarin</strong>, 1961), första kvinnan (<strong>Tereshkova</strong>, 1963), första rymdpromenaden (<strong>Leonov</strong>, 1965) och till slut – 1969 – de första stegen på månen (<strong>Apollo 11</strong>).</p>
+                </div>
+                <div class="info-box">
+                    <h4><span class="box-icon">🚀</span> Raketernas och rymdens pionjärer</h4>
+                    <p>Utan två nyckelgestalter – en på varje sida – hade rymdkapplöpningen kanske inte varit möjlig:</p>
+                    <div class="flex-two-column">
+                        <div class="column">
+                            <p><strong>Sergei Korolev (1907-1966)</strong> - Den hemlige chefsdesignern för Sovjets rymdprogram. På grund av Kalla krigets sekretess var hans identitet hemlig fram till hans död. Korolev, som överlevt Stalins arbetsläger, ledde utvecklingen av R-7-raketen som skickade upp Sputnik och senare Vostok-kapslarna som förde sovjetiska kosmonauter till rymden.</p>
+                        </div>
+                        <div class="column">
+                            <p><strong>Wernher von Braun (1912-1977)</strong> - Tysk raketingenjör som konstruerade V-2-raketen för Nazityskland innan han överlämnades till amerikanerna i "Operation Paperclip". I USA blev han arkitekten bakom Saturn V-raketen som tog människor till månen. Hans kontroversiella förflutna – inklusive användningen av tvångsarbetare i Tyskland – visar den moraliska komplexiteten i rymdkapplöpningen.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="subsection theme-lblue">
+                <h3><span class="box-icon">🔭</span> Från Sputnikchocken till månlandningen</h3>
+                <div class="info-box">
+                    <h4><span class="box-icon">💡</span> Sputnikchocken</h4>
+                    <p>Den 4 oktober 1957 förändrades världen. En liten metallsfär med fyra antenner – inte större än en basketboll – sändes upp i omloppsbana runt jorden. Sputniks signaler (en enkel "bip-bip-bip") som hördes över hela världen blev en chock för västvärlden, särskilt USA. Plötsligt hade Sovjetunionen, som många i väst såg som teknologiskt underlägsna, demonstrerat sin förmåga att skicka objekt över USA:s luftrum. Om de kunde skicka en satellit in i omloppsbana, kunde de också skicka kärnvapenmissiler mot amerikanska städer.</p>
+                    <p>President Eisenhower försökte tona ned betydelsen, men amerikanska medier och allmänheten reagerade med panik. Kongressen antog snabbt National Defense Education Act för att förbättra utbildningen i naturvetenskap, matematik och främmande språk. NASA grundades 1958 som direkt svar på Sputnik, och "rymdgapet" blev ett hett ämne i 1960 års presidentval.</p>
+                </div>
+                <div class="info-box">
+                    <h4><span class="box-icon">👨‍🚀</span> Rymdkapplöpningens viktigaste milstolpar</h4>
+                    <div class="timeline" style="margin-left: 0;">
+                        <div class="timeline-event left">
+                            <div class="timeline-content">
+                                <span class="timeline-date">4 oktober 1957</span>
+                                <h4>Sputnik 1</h4>
+                                <p>Sovjet: Första artificiella satelliten i omloppsbana runt jorden.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-event right">
+                            <div class="timeline-content">
+                                <span class="timeline-date">3 november 1957</span>
+                                <h4>Sputnik 2</h4>
+                                <p>Sovjet: Första levande varelsen i omloppsbana - hunden Laika (som tyvärr dog i rymden).</p>
+                            </div>
+                        </div>
+                        <div class="timeline-event left">
+                            <div class="timeline-content">
+                                <span class="timeline-date">31 januari 1958</span>
+                                <h4>Explorer 1</h4>
+                                <p>USA: Första amerikanska satelliten, upptäckte Van Allen-strålningsbältet.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-event right">
+                            <div class="timeline-content">
+                                <span class="timeline-date">12 april 1961</span>
+                                <h4>Vostok 1</h4>
+                                <p>Sovjet: Jurij Gagarin blir första människan i rymden.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-event left">
+                            <div class="timeline-content">
+                                <span class="timeline-date">5 maj 1961</span>
+                                <h4>Freedom 7</h4>
+                                <p>USA: Alan Shepard blir första amerikan i rymden (suborbitalt).</p>
+                            </div>
+                        </div>
+                        <div class="timeline-event right">
+                            <div class="timeline-content">
+                                <span class="timeline-date">25 maj 1961</span>
+                                <h4>Månmålet deklareras</h4>
+                                <p>USA: President Kennedy lovar att landsätta en människa på månen före 1970.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-event left">
+                            <div class="timeline-content">
+                                <span class="timeline-date">16 juni 1963</span>
+                                <h4>Vostok 6</h4>
+                                <p>Sovjet: Valentina Teresjkova blir första kvinnan i rymden.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-event right">
+                            <div class="timeline-content">
+                                <span class="timeline-date">18 mars 1965</span>
+                                <h4>Voschod 2</h4>
+                                <p>Sovjet: Alexej Leonov genomför första rymdpromenaden.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-event left">
+                            <div class="timeline-content">
+                                <span class="timeline-date">21 december 1968</span>
+                                <h4>Apollo 8</h4>
+                                <p>USA: Första bemannade farkosten att nå och kretsa runt månen.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-event right">
+                            <div class="timeline-content">
+                                <span class="timeline-date">20 juli 1969</span>
+                                <h4>Apollo 11</h4>
+                                <p>USA: Neil Armstrong och Buzz Aldrin blir de första människorna på månen.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-event left">
+                            <div class="timeline-content">
+                                <span class="timeline-date">17 juli 1975</span>
+                                <h4>Apollo-Sojuz</h4>
+                                <p>USA/Sovjet: Första internationella rymddockningen, symboliserar avspänning.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-box">
+                    <h4><span class="box-icon">🌍</span> Ett steg för mänskligheten</h4>
+                    <p>Den 20 juli 1969 såg över en halv miljard människor Neil Armstrong ta de första stegen på månen: "Ett litet steg för en människa, ett jättekliv för mänskligheten." Händelsen blev en symbol för vad mänskligheten kan åstadkomma när vi samarbetar och drömmer stort.</p>
+                    <p>Apolloprogrammet var en massiv satsning som involverade över 400,000 människor och kostade omkring 25 miljarder dollar i dåtidens valuta (motsvarande cirka 150 miljarder dollar idag). Tekniska utmaningar som datorer, miniatyrisering, nya material och livsuppehållande system krävde innovationer som senare skulle revolutionera vardagslivet på jorden.</p>
+                    <p>Efter Apollo 11 genomfördes ytterligare fem framgångsrika månlandningar (Apollo 12, 14, 15, 16 och 17), samt den "framgångsrika misslyckandet" Apollo 13, där besättningen räddades efter en explosion ombord. Den sista månexpeditionen, Apollo 17, lämnade månen i december 1972. Ingen människa har besökt månen sedan dess.</p>
+                </div>
+                <div class="info-box">
+                    <h4><span class="box-icon">🤝</span> Från rivalitet till samarbete</h4>
+                    <p>Efter månladdningen svalnade tävlingen, och 1975 möttes amerikanska och sovjetiska rymdfarkoster i rymden (<strong>Apollo–Soyuz</strong>) – ett historiskt handslag som visade att rivalitet kunde ersättas av samarbete.</p>
+                    <p>Denna symboliska dockning mellan Apollo och Sojuz markerade början på en ny era av internationellt rymdsamarbete. De kalla krigets rivaler arbetade tillsammans i rymden, vilket skapade en grund för framtida projekt som rymdstationen Mir och senare den Internationella rymdstationen (ISS). Ironiskt nog innebar slutet på rymdkapplöpningen också slutet på den gyllene eran av bemannad rymdfart bortom jordens omloppsbana. Istället för dramatiska utforskningar fokuserade både USA och Sovjet på långvariga rymdstationer i omloppsbana.</p>
+                </div>
+            </div>
+            <div class="subsection theme-lyellow">
+                <h3><span class="box-icon">🛰️</span> Rymdkapplöpningens arvegods</h3>
+                <div class="flex-container icon-card-deck theme-blue">
+                    <div class="card">
+                        <h4><span class="box-icon">🔬</span> Teknologiska framsteg</h4>
+                        <p>Datoriseringen påskyndades enormt under rymdkapplöpningen. Apollo-datorerna var revolutionerande på sin tid och banbrytare för miniatyrisering. Vardagsteknologier som värmereflekterande mylarfiltar, vattenreningssystem, CAT-scanners, trådlösa verktyg och många medicintekniker har sitt ursprung i rymdprogrammet. Begreppet "spin-off-teknik" användes för att beskriva hur rymdinnovationer omsattes i konsumentprodukter.</p>
+                    </div>
+                    <div class="card">
+                        <h4><span class="box-icon">🔭</span> Vetenskapliga upptäckter</h4>
+                        <p>Månstenarna som Apollo-astronauterna tog med hem är fortfarande föremål för vetenskapliga studier och har förändrat vår förståelse av solsystemets bildande. Satelliterna som utvecklades under rymdkapplöpningen revolutionerade vår förståelse av jordens klimat, ozonlagret, väderförutsägelser och kommunikation – allt detta blev möjligt tack vare den intensiva utvecklingen under Kalla krigets rymdkapplöpning.</p>
+                    </div>
+                </div>
+                <div class="quote-box">
+                    <h4><span class="box-icon">💬</span> Rymdkapplöpningens inflytande</h4>
+                    <blockquote>
+                        "Vi väljer att åka till månen inom detta årtionde och göra de andra sakerna, inte för att de är lätta, utan för att de är svåra."
+                    </blockquote>
+                    <p>— John F. Kennedy, Rice University, 12 september 1962</p>
+                    <p>Kennedys ord inspirerade en hel generation av ingenjörer, astronomer och vetenskapsmän. De reflekterade en tid då stora utmaningar ansågs värdefulla just för att de pressade mänskligheten att utvecklas.</p>
+                </div>
+            </div>
+            <div class="warning-box">
+                <h4><span class="box-icon">⚠️</span> Den mörka sidan av rymdkapplöpningen</h4>
+                <p>Bakom de inspirerande prestationerna fanns också en mörkare verklighet. Rymdprogrammen var tätt kopplade till militären, och många tekniker utvecklades parallellt för både rymdfart och kärnvapenbestyckade missiler. Båda supermakterna experimenterade med militära rymdprogram och antisatellitsystem.</p>
+                <p>Den mänskliga kostnaden var också hög. Tre Apollo-astronauter dog i en brand under markträning 1967. Sovjetunionen förlorade kosmonauter i olyckor, mest känt Vladimir Komarov i Sojuz 1 1967. Dessutom hemlighöll Sovjet misslyckade uppskjutningar och fatala olyckor tills glasnost tillät mer öppenhet på 1980-talet.</p>
+            </div>
+            <div class="subsection theme-green">
+                <h3><span class="box-icon">🗝️</span> Nyckelbegrepp</h3>
+                <ul class="icon-list-alt cols-2">
+                    <li><span class="list-icon">🛰️</span> <strong>Sputnik:</strong> Första satelliten i omloppsbana (1957).</li>
+                    <li><span class="list-icon">👨‍🚀</span> <strong>Gagarin:</strong> Första människan i rymden (1961).</li>
+                    <li><span class="list-icon">🌑</span> <strong>Apollo 11:</strong> Första månlandningen (1969).</li>
+                    <li><span class="list-icon">🤝</span> <strong>Apollo–Soyuz:</strong> Första internationella rymdsamarbetet (1975).</li>
+                    <li><span class="list-icon">👩‍🚀</span> <strong>Teresjkova:</strong> Första kvinnan i rymden (1963).</li>
+                    <li><span class="list-icon">💫</span> <strong>Leonov:</strong> Första rymdpromenaden (1965).</li>
+                    <li><span class="list-icon">🚀</span> <strong>Saturn V:</strong> Kraftfulla raketen som tog astronauter till månen.</li>
+                    <li><span class="list-icon">⚡</span> <strong>NASA:</strong> USA:s rymdmyndighet, grundad 1958 som svar på Sputnik.</li>
+                </ul>
+            </div>
+            <h3>Övningsfrågor</h3>
+            <ul class="styled-list check-list-alt">
+                <li>Varför blev rymdkapplöpningen så viktig under Kalla kriget?</li>
+                <li>Vilka milstolpar var mest avgörande?</li>
+                <li>Hur förändrades relationen mellan supermakterna efter månladdningen?</li>
+                <li>Hur påverkade rymdkapplöpningen människors syn på framtiden?</li>
+                <li>Vilka teknologier från rymdkapplöpningen använder vi i vardagen idag?</li>
+                <li>Hur påverkade Sputnik det amerikanska samhället och utbildningssystemet?</li>
+                <li>Varför investerade båda supermakterna så enorma resurser i rymdprogram?</li>
+                <li>Varför valde USA månen som sitt främsta mål i rymdkapplöpningen?</li>
+            </ul>
+            <div id="space-questions" class="quiz-container"></div>
+            <button onclick="document.querySelector('[data-section=\'thaw\']').click()">Nästa avsnitt</button>
+        </section>
+        <!-- Avspänning & 1980-talets upptining -->
+        <section id="thaw" class="section animated">
+            <h2>Avspänning & 1980-talets upptining</h2>
+            <div class="subsection theme-blue">
+                <h3><span class="box-icon">🤝</span> Från "Evil Empire" till samarbete</h3>
+                <div class="definition">
+                    <p>Efter år av upprustning och hårda ord (Reagan kallade Sovjet för "ondskans imperium") började 1980-talet med nya spänningar. Men när Michail Gorbatjov tog makten i Sovjetunionen 1985 förändrades allt. Han införde <strong>glasnost</strong> (öppenhet) och <strong>perestrojka</strong> (omstrukturering), och mötte USA:s president Reagan vid flera toppmöten. Tillsammans skrev de under <strong>INF-avtalet</strong> som minskade kärnvapenhotet och inledde en ny era av samarbete.</p>
+                </div>
+                <div class="info-box">
+                    <h4><span class="box-icon">🧊</span> Den andra kalla perioden (1979-1985)</h4>
+                    <p>Efter en period av avspänning ("détente") under 1970-talet försämrades relationen mellan öst och väst drastiskt i slutet av årtiondet:</p>
+                    <ul>
+                        <li><strong>Sovjets invasion av Afghanistan (1979)</strong> väckte starka reaktioner i väst. USA bojkottade OS i Moskva 1980 och började stödja de afghanska mujahedin-rebellerna.</li>
+                        <li><strong>Reagans upprustning</strong> innebar enorma satsningar på militären och det kontroversiella "Star Wars"-projektet (SDI) – ett rymdbaerats missilförsvar som Sovjet såg som ett direkt hot.</li>
+                        <li><strong>Nedskjutningen av ett koreanskt passagerarplan (KAL 007)</strong> 1983, där 269 civila omkom när planet felaktigt flög in i sovjetiskt luftrum, ledde till ytterligare spänningar.</li>
+                        <li><strong>NATO-övningen Able Archer 83</strong> var så realistisk att den sovjetiska ledningen fruktade att den var en täckmantel för en verklig attack. Världen stod återigen nära katastrofen.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="subsection theme-lblue">
+                <h3><span class="box-icon">👨‍💼</span> Gorbatjov – mannen som förändrade historien</h3>
+                <div class="info-box">
+                    <h4><span class="box-icon">💡</span> En ny generation tar över</h4>
+                    <p>Efter tre äldre sovjetiska ledares död på kort tid (Brezjnev, Andropov, Tjernenko) valdes den relativt unge (54 år) Michail Gorbatjov till generalsekreterare 1985. Som den första ledaren född efter revolutionen representerade han en ny generation – utbildad, pragmatisk och medveten om Sovjetunionens djupa problem:</p>
+                    <ul>
+                        <li>En <strong>stagnerad ekonomi</strong> som inte kunde möta befolkningens behov</li>
+                        <li><strong>Teknologisk eftersläpning</strong> jämfört med väst</li>
+                        <li>En <strong>ohållbar militär börda</strong> – Sovjet lade upp till 25% av BNP på militären</li>
+                        <li>Svårigheter att tävla med USA:s <strong>SDI-program</strong> ("Star Wars")</li>
+                    </ul>
+                    <p>Gorbatjov insåg att systemet behövde reformeras för att överleva. Hans mål var inte att avskaffa kommunismen, utan att modernisera den genom:</p>
+                </div>
+                <div class="flex-container icon-card-deck theme-blue">
+                    <div class="card">
+                        <h4><span class="box-icon">🔄</span> Perestrojka (omstrukturering)</h4>
+                        <p>Ekonomiska reformer som införde vissa marknadsmekanismer, tillät kooperativ och små privata företag, och minskade centralplaneringen. Målet var att göra ekonomin mer effektiv, men reformerna var ofta halvhjärtade och skapade kaos under övergångsperioden.</p>
+                    </div>
+                    <div class="card">
+                        <h4><span class="box-icon">🗣️</span> Glasnost (öppenhet)</h4>
+                        <p>Ökad yttrandefrihet, pressfrihet och öppenhet. Censuren minskade drastiskt, och för första gången kunde sovjetiska medborgare kritisera regeringen öppet. Historiska trauman som Stalins utrensningar och Katynmassakern började diskuteras offentligt. Detta släppte lös krafter som Gorbatjov inte kunde kontrollera.</p>
+                    </div>
+                </div>
+                <div class="quote-box">
+                    <h4><span class="box-icon">💬</span> Glasnost i praktiken</h4>
+                    <blockquote>
+                        "Vi kan inte gå framåt med händerna för ögonen eller fingrarna i öronen. Vi behöver fullständig och sanningsenlig information om alla sidor av vårt liv."
+                    </blockquote>
+                    <p>— Michail Gorbatjov, 1986</p>
+                </div>
+            </div>
+            <div class="subsection theme-lblue">
+                <h3><span class="box-icon">🌍</span> Folkrörelser och frihet</h3>
+                <div class="info-box">
+                    <h4><span class="box-icon">✊</span> Människor förändrar historien</h4>
+                    <p>Gorbatjovs "nya tänkande" inspirerade folkrörelser i Östeuropa. <strong>Solidaritet</strong> i Polen, protester i Ungern och Tjeckoslovakien, och till slut massdemonstrationer i Östtyskland ledde till att järnridån började falla. Supermakterna valde dialog istället för konfrontation. Den så kallade <strong>Sinatra-doktrinen</strong> innebar att Sovjet lät länderna i öst gå sin egen väg.</p>
+                </div>
+                <div class="info-box">
+                    <h4><span class="box-icon">🤝</span> Från Genève till Reykjavik</h4>
+                    <p>En serie historiska toppmöten mellan Reagan och Gorbatjov förändrade stormaktsrelationen:</p>
+                    <ul>
+                        <li><strong>Genève (1985)</strong>: Det första mötet. Reagan beskrev senare: "Jag kom dit med uppfattningen att jag hade att göra med en hårdhudad bolsjevik, men jag lämnade mötet med känslan av att jag kunde jobba med honom."</li>
+                        <li><strong>Reykjavik (1986)</strong>: Det mest dramatiska mötet, där de två ledarna kom nära en överenskommelse om att avskaffa alla kärnvapen – en överenskommelse som kollapsade i sista stund på grund av oenighet om SDI-programmet. Ändå lade mötet grunden för framtida avtal.</li>
+                        <li><strong>Washington (1987)</strong>: Undertecknandet av INF-avtalet, det första avtalet som faktiskt eliminerade en hel kategori av kärnvapen.</li>
+                        <li><strong>Moskva (1988)</strong>: Reagan, som tidigare kallat Sovjet "ondskans imperium", svarade nu "nej" på frågan om han fortfarande såg det så.</li>
+                    </ul>
+                </div>
+                <div class="info-box">
+                    <h4><span class="box-icon">📜</span> INF-avtalet</h4>
+                    <p>1987 undertecknade Reagan och Gorbatjov <strong>INF-avtalet</strong> (Intermediate-Range Nuclear Forces Treaty), som förbjöd en hel kategori kärnvapenrobotar och innebar inspektioner på plats – ett historiskt steg mot nedrustning. Avtalet eliminerade över 2,600 missiler med räckvidd mellan 500 och 5,500 km – de vapen som utgjorde det direkta hotet mot Europa. Principen "lita men verifiera" (doveryai, no proveryai på ryska) blev central – den tillåt inspektörer från båda sidor att verifiera nedrustningen.</p>
+                </div>
+            </div>
+            <div class="subsection theme-lyellow">
+                <h3><span class="box-icon">🚪</span> När den östeuropeiska dominoteorin blev verklighet</h3>
+                <div class="flex-two-column">
+                    <div class="column">
+                        <div class="info-box">
+                            <h4><span class="box-icon">🇵🇱</span> Polen visar vägen</h4>
+                            <p>Den oberoende fackföreningsrörelsen <strong>Solidarność</strong> (Solidaritet), ledd av varvsarbetaren Lech Wałęsa, tvingade fram förhandlingar med regimen. 1989 hölls delvis fria val där Solidaritet vann en förkrossande seger. Polen fick sin första icke-kommunistiska regering sedan 1940-talet.</p>
+                            <h4><span class="box-icon">🇭🇺</span> "Järnridåns" första hål</h4>
+                            <p>I maj 1989 började Ungern montera ned sin gränsstängsel mot Österrike. I augusti arrangerade ungerska och österrikiska aktivister en "Pan-europeisk picknick" vid gränsen. Gränsvakterna såg åt ett annat håll när hundratals östtyskar flydde till väst – den första massflykten sedan Berlinmurens byggande.</p>
+                            <h4><span class="box-icon">🇨🇿</span> Sammetsrevolutionen</h4>
+                            <p>I Tjeckoslovakien ledde studentdemonstrationer till en praktiskt taget oblodig revolution. Dramatikern Václav Havel, som suttit i fängelse för sin dissidentaktivitet, blev president.</p>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="illustration">
+                            <svg width="300" height="350" viewBox="0 0 300 350">
+                                <rect x="0" y="0" width="300" height="350" fill="#f8f9fa" rx="5" ry="5" />
+                                <text x="150" y="25" text-anchor="middle" font-weight="bold" fill="#333">Järnridåns upplösning 1989</text>
+                                <!-- Map outline -->
+                                <path d="M120,50 L250,75 L270,140 L250,200 L200,220 L150,200 L100,210 L60,180 L50,130 L80,80 Z" fill="#e3f2fd" stroke="#666" stroke-width="2" />
+                                <!-- Iron Curtain -->
+                                <path d="M130,60 L150,100 L145,140 L130,170 L110,190" stroke="#f44336" stroke-width="3" stroke-dasharray="6,3" />
+                                <!-- Countries -->
+                                <text x="100" y="100" font-size="10" fill="#333">Västtyskland</text>
+                                <text x="170" y="100" font-size="10" fill="#333">Östtyskland</text>
+                                <text x="200" y="140" font-size="10" fill="#333">Polen</text>
+                                <text x="170" y="170" font-size="10" fill="#333">Tjeckoslovakien</text>
+                                <text x="110" y="160" font-size="10" fill="#333">Österrike</text>
+                                <text x="170" y="200" font-size="10" fill="#333">Ungern</text>
+                                <!-- Timeline key events -->
+                                <rect x="70" y="240" width="160" height="100" fill="white" stroke="#ddd" rx="5" ry="5" />
+                                <text x="150" y="260" text-anchor="middle" font-size="12" fill="#333" font-weight="bold">1989: Mirakelåret</text>
+                                <text x="80" y="280" font-size="10" fill="#333">• Februari: Rundabordssamtal i Polen</text>
+                                <text x="80" y="295" font-size="10" fill="#333">• Maj: Ungern öppnar gränsen</text>
+                                <text x="80" y="310" font-size="10" fill="#333">• Oktober: Massdemonstrationer i DDR</text>
+                                <text x="80" y="325" font-size="10" fill="#333">• 9 november: Berlinmuren faller</text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-box box-with-bg-icon" data-bg-icon="🎶">
+                    <h4>Sinatra-doktrinen: "My Way"</h4>
+                    <p>I stark kontrast till Brezjnevdoktrinen, som rättfärdigade sovjetiskt militärt ingripande för att bevara kommunistregimer (som i Ungern 1956 och Tjeckoslovakien 1968), lanserade Gorbatjovs utrikespolitiske talesperson Genadij Gerasimov 1989 vad som kom att kallas "Sinatra-doktrinen" – efter Frank Sinatras låt "My Way". Han förklarade att Sovjetunionen nu skulle låta Östeuropas länder "gå sin egen väg".</p>
+                    <p>Denna dramatiska förändring gjorde den tidigare otänkbara demokratiseringen av Östeuropa möjlig. När protesterna växte i DDR, Tjeckoslovakien och andra länder höll Sovjetunionen sitt löfte och lät förändringen ske – utan att skicka in tanks som tidigare.</p>
+                </div>
+            </div>
+            <div class="subsection theme-green">
+                <h3><span class="box-icon">🗝️</span> Nyckelbegrepp</h3>
+                <ul class="icon-list-alt cols-2">
+                    <li><span class="list-icon">🕊️</span> <strong>Avspänning (Détente):</strong> Minskad spänning mellan öst och väst.</li>
+                    <li><span class="list-icon">🔄</span> <strong>Perestrojka:</strong> Ekonomiska och politiska reformer i Sovjet.</li>
+                    <li><span class="list-icon">🗣️</span> <strong>Glasnost:</strong> Öppenhet och yttrandefrihet.</li>
+                    <li><span class="list-icon">📜</span> <strong>INF-avtalet:</strong> Avtal om att skrota medeldistansrobotar.</li>
+                    <li><span class="list-icon">🎶</span> <strong>Sinatra-doktrinen:</strong> Sovjet tillåter östländerna att "göra det på sitt sätt".</li>
+                    <li><span class="list-icon">✊</span> <strong>Solidaritet:</strong> Fackföreningsrörelse som ledde till förändring i Polen.</li>
+                    <li><span class="list-icon">🎭</span> <strong>Sammetsrevolutionen:</strong> Den fredliga maktövergången i Tjeckoslovakien.</li>
+                    <li><span class="list-icon">🚀</span> <strong>SDI ("Star Wars"):</strong> USAs rymdbaserade missilförsvarsprogram.</li>
+                </ul>
+            </div>
+            <div class="warning-box">
+                <h4><span class="box-icon">⚠️</span> Oavsiktliga konsekvenser</h4>
+                <p>Gorbatjovs reformer fick oväntade och oönskade effekter. Glasnost släppte lös nationalistiska krafter i Sovjetrepublikerna, medan den ekonomiska omstruktureringen skapade kaos och brist när centralplaneringen försvagades utan att ersättas av fungerande marknadsmekanismer. Gorbatjov blev alltmer pressad mellan konservativa krafter som ville stoppa reformerna och radikala krafter som tyckte de gick för långsamt. Hans försök att rädda det sovjetiska systemet ledde ironiskt nog till dess upplösning.</p>
+            </div>
+            <h3>Övningsfrågor</h3>
+            <ul class="styled-list check-list-alt">
+                <li>Vilken roll spelade Gorbatjov för att avsluta Kalla kriget?</li>
+                <li>Hur påverkade folkrörelserna i Östeuropa utvecklingen?</li>
+                <li>Vad innebar INF-avtalet?</li>
+                <li>Varför blev 1980-talet en vändpunkt i Kalla kriget?</li>
+                <li>Hur skilde sig "Sinatra-doktrinen" från tidigare sovjetisk politik mot Östeuropa?</li>
+                <li>Vilka faktorer tvingade fram reformer i Sovjetunionen under 1980-talet?</li>
+                <li>Varför lyckades inte Gorbatjovs reformer rädda det sovjetiska systemet?</li>
+                <li>Hur förändrades relationen mellan Reagan och Gorbatjov över tid?</li>
+            </ul>
+            <div id="thaw-questions" class="quiz-container"></div>
+            <button onclick="document.querySelector('[data-section=\'berlinwall\']').click()">Nästa avsnitt</button>
+        </section>
+        <!-- Berlins mur & Kalla krigets slut -->
+        <section id="berlinwall" class="section animated">
+            <h2>Berlins mur & Kalla krigets slut</h2>
+            <div class="subsection theme-blue">
+                <h3><span class="box-icon">🧱</span> Murens fall – en natt som förändrade världen</h3>
+                <div class="definition">
+                    <p>Berlinmuren, som restes 1961, blev den starkaste symbolen för Kalla kriget. Den delade inte bara en stad, utan hela Europa – och familjer, vänner och drömmar. I november 1989, efter massiva protester och Gorbatjovs signaler om icke-inblandning, öppnades gränserna av misstag. Människor från öst och väst firade tillsammans, och muren föll – utan våld. Händelsen blev startskottet för Östeuropas demokratisering och Sovjetunionens upplösning 1991.</p>
+                </div>
+            </div>
+            <div class="subsection theme-lblue">
+                <h3><span class="box-icon">🏗️</span> Från taggtrådsstängsel till betongmur</h3>
+                <div class="info-box">
+                    <h4><span class="box-icon">⏳</span> Murens tillkomst: En stad delad</h4>
+                    <p>Natten till den 13 augusti 1961 vaknade berlinarna till en chockerande syn: Östtyska soldater hade börjat rulla ut taggtråd längs gränsen mellan öst och väst. De kommande dagarna började arbetare under beväpnad uppsikt bygga en massiv mur, och familjer som råkat befinna sig på fel sida när gränsen stängdes fick inte återvända hem. Denna "skammens mur" ("Schandmauer") skulle under 28 år dela staden:</p>
+                    <ul>
+                        <li>Muren sträckte sig <strong>155 km</strong> runt Västberlin</li>
+                        <li>Den bestod av <strong>betongplattor, 3,6 meter höga</strong>, med ett krön av betong och taggtråd</li>
+                        <li>Längs muren fanns <strong>302 vakttorn</strong> och tusentals beväpnade vakter</li>
+                        <li>Mellan murarna låg den ökända <strong>"dödsremsan"</strong> ("Todesstreifen") – ett ingenmansland med minor, vakthundar och dolda självskjutande vapen</li>
+                        <li>Minst <strong>140 människor dödades</strong> när de försökte fly över muren</li>
+                    </ul>
+                    <p>Officiellt beskrev den östtyska regimen muren som ett "antifascistiskt skyddshinder", men verkligheten var tydlig: dess syfte var att hindra medborgare i öst från att fly till väst. Före murens uppförande hade över 3,5 miljoner östtyskar flytt – en exodus som hotade DDR:s existens. Efter murens uppförande minskade flykterna drastiskt.</p>
+                </div>
+                <div class="flex-container icon-card-deck theme-lyellow">
+                    <div class="card">
+                        <h4><span class="box-icon">✉️</span> Brev över muren</h4>
+                        <p>Familjer som skildes åt av muren kommunicerade ofta genom vinkande över muren, brev som kontrollerades av Stasi, eller korta möten i Östberlin för de västtyskar som tilläts besöka. En far noterade i sin dagbok: "Igår såg jag min dotter i Västberlin. Hon stod på en ställning och jag vinkade från mitt fönster. Vi kunde inte tala, bara vinka, men jag såg att hon mår bra."</p>
+                    </div>
+                    <div class="card">
+                        <h4><span class="box-icon">🚧</span> Konst på betong</h4>
+                        <p>Murens västra sida blev en enorm kanvas för konstnärer och graffitimålare, fylld med färgrika bilder och slogans. Den östra sidan förblev orörd - helt vit. Denna kontrast blev en kraftfull representation av skillnaden mellan öst och väst: färg och frihet på ena sidan, strikt kontroll på den andra.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="subsection theme-purple">
+                <h3><span class="box-icon">🗣️</span> "Jag är en berlinare" - Murens symbolik</h3>
+                <div class="flex-two-column">
+                    <div class="column">
+                        <div class="info-box quote-box">
+                            <h4><span class="box-icon">💬</span> Kennedy vid muren</h4>
+                            <blockquote>
+                                "Alla fria människor, var de än lever, är medborgare i Berlin, och därför, som fri människa, är jag stolt över orden: 'Ich bin ein Berliner.'"
+                            </blockquote>
+                            <p>— John F. Kennedy, Berlin, 26 juni 1963</p>
+                            <p>Kennedy talade framför en enorm folkmassa i Västberlin. Hans tal blev ett av kalla krigets mest ikoniska ögonblick – ett kraftfullt löfte om att USA aldrig skulle överge staden. När han sedan tittade över muren mot vakttornen i öst, mumlade han: "Vi har många problem, men de har värre problem där."</p>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="info-box quote-box">
+                            <h4><span class="box-icon">💬</span> Reagan vid Brandenburger Tor</h4>
+                            <blockquote>
+                                "Herr Gorbatjov, riv denna mur!"
+                            </blockquote>
+                            <p>— Ronald Reagan, Berlin, 12 juni 1987</p>
+                            <p>24 år efter Kennedys tal stod Reagan vid samma mur och uttalade de ord som skulle bli profetiska. Även om få trodde det var möjligt när orden yttrades, skulle muren falla bara två år senare. Enligt uppgift var meningen inte med i det ursprungliga talet, men Reagan insisterade på att lägga till den.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="subsection theme-lblue">
+                <h3><span class="box-icon">🎉</span> Frihetens natt och mirakelåret 1989</h3>
+                <div class="info-box">
+                    <h4><span class="box-icon">📰</span> En presskonferens som förändrade allt</h4>
+                    <p>Den 9 november 1989 höll den östtyske politikern Günter Schabowski en förvirrad presskonferens. På frågan när de nya resebestämmelserna skulle gälla svarade han: "Så vitt jag vet... omedelbart." Nyheten spreds blixtsnabbt genom västerländska TV-kanaler som var tillgängliga i många östtyska hem. Tusentals människor samlades vid gränsövergångarna, särskilt vid Bornholmer Straße. Gränsvakterna, förvirrade och utan instruktioner från överordnade, valde till slut att öppna portarna hellre än att riskera våld. Folk strömmade över, kramades, dansades och började hacka sönder muren. Det var en natt av glädje, hopp och befrielse – och slutet på en epok.</p>
+                </div>
+                <div class="info-box">
+                    <h4><span class="box-icon">🔍</span> Schabowskis misstag</h4>
+                    <p>Bakgrunden till den historiska presskonferensen var att DDR:s ledning, pressad av massdemonstrationer och flyktingvågen via Ungern, hade arbetat på nya reseregler som skulle lätta på trycket. Men planen var att reglerna skulle träda i kraft nästa dag, med restriktioner och krav på visum. Schabowski hade inte varit med på mötet där beslutet togs och hade bara fått ett papper i handen strax före presskonferensen. Hans spontana svar "omedelbart" var egentligen fel – men det var detta misstag som öppnade portarna och förvandlade historien.</p>
+                </div>
+                <div class="info-box">
+                    <h4><span class="box-icon">🎊</span> Ögonvittnen till historien</h4>
+                    <p>När nyheten spreds, förvandlades Berlin till en enda stor fest:</p>
+                    <ul>
+                        <li>"Den natten sov ingen i Berlin. Vi dansade på muren, delade champagne med främlingar och grät av glädje. Människor knackade loss bitar av muren som souvenirer. På gatorna klingade glasen, och bilar tutade i eufori." — Maria Schmidt, Västberlin</li>
+                        <li>"Vi gick över gränsen vid midnatt, bara för att se hur det var, och för att bevisa för oss själva att det faktiskt var sant. Vi återvände till Östberlin men kom tillbaka nästa dag. Vi kunde bara inte tro att vi nu var fria att resa." — Thomas Weber, Östberlin</li>
+                    </ul>
+                </div>
+                <div class="info-box">
+                    <h4><span class="box-icon">🌍</span> Dominoeffekten i Östeuropa</h4>
+                    <p>Murens fall blev en signal till hela Östeuropa. 1989 hade redan sett förändringar i Polen och Ungern, men nu accelererade processen:</p>
+                    <ul>
+                        <li><strong>17 november 1989</strong>: Studentprotester i Prag leder till Sammetsrevolutionen</li>
+                        <li><strong>December 1989</strong>: Revolutionen i Rumänien störtar och avrättar diktatorn Ceaușescu</li>
+                        <li><strong>3 oktober 1990</strong>: Tyskland återförenas – officiellt "Tag der Deutschen Einheit"</li>
+                        <li><strong>1991</strong>: Sovjetunionen upplöses och Kalla kriget är över</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="subsection theme-dred">
+                <h3><span class="box-icon">⚖️</span> Sorteringen efter Kalla krigets slut</h3>
+                <div class="info-box box-with-bg-icon" data-bg-icon="🌍">
+                    <h4>Efter imperiet</h4>
+                    <p>Kalla krigets slut ledde till enorma förändringar:</p>
+                    <ul>
+                        <li><strong>Ideologins slut?</strong> Francis Fukuyama skrev om "historiens slut" – tanken att den liberala demokratin nu stod utan utmanare. Denna förutsägelse skulle visa sig vara förhastad.</li>
+                        <li><strong>En ny värld</strong>: USA var nu ensam supermakt, men nya utmaningar skulle snart uppstå.</li>
+                        <li><strong>Brutal övergång</strong>: För många i Östeuropa och forna Sovjetunionen ledde övergången till marknadsekonomi till kaos, fattigdom och en traumatisk omställning.</li>
+                        <li><strong>Konflikter</strong>: Jugoslaviens våldsamma upplösning visade att etniska och nationalistiska spänningar, som undertryckts under kalla kriget, nu kunde blossa upp i nya konflikter.</li>
+                    </ul>
+                </div>
+                <div class="warning-box">
+                    <h4><span class="box-icon">⚠️</span> Det försummade fredsslutet</h4>
+                    <p>Till skillnad från de flesta krig i historien följdes inte Kalla kriget av fredskonferenser och formella avtal som omstrukturerade europeisk säkerhet. Avsaknaden av en tydlig "fredsprocess" lämnade frågor olösta, särskilt gällande Rysslands förhållande till det nya NATO och EU. Vissa historiker menar att denna avsaknad bidrog till de spänningar som återuppstod decennier senare.</p>
+                </div>
+            </div>
+            <div class="subsection theme-green">
+                <h3><span class="box-icon">🗝️</span> Nyckelbegrepp</h3>
+                <ul class="icon-list-alt cols-2">
+                    <li><span class="list-icon">🧱</span> <strong>Berlinmuren:</strong> Symbol för delningen av Europa (1961–1989).</li>
+                    <li><span class="list-icon">✊</span> <strong>Montagsdemonstrationer:</strong> Fredliga protester i Leipzig som bidrog till DDR:s fall.</li>
+                    <li><span class="list-icon">🕊️</span> <strong>Annus mirabilis:</strong> "Mirakelåret" 1989 då Östeuropa demokratiserades.</li>
+                    <li><span class="list-icon">🏳️</span> <strong>Sovjetunionens upplösning:</strong> 1991 splittrades supermakten i 15 stater.</li>
+                    <li><span class="list-icon">🤝</span> <strong>Tysklands återförening:</strong> Formellt fullbordad 3 oktober 1990.</li>
+                    <li><span class="list-icon">📹</span> <strong>Die Wende:</strong> "Vändpunkten" - östtyskarnas term för den fredliga revolutionen.</li>
+                    <li><span class="list-icon">📺</span> <strong>Glasnost i praktiken:</strong> Öppenhet som tillät att information spreds fritt.</li>
+                    <li><span class="list-icon">🚔</span> <strong>Stasi:</strong> Östtysklands fruktade säkerhetspolis som övervakade befolkningen.</li>
+                </ul>
+            </div>
+            <div class="quote-box theme-blue">
+                <h4><span class="box-icon">💭</span> Ett arv att minnas</h4>
+                <p>"Historian har lärt oss att murar kan falla. Inget är omöjligt om vi är fast beslutna, förenade och solidariska." — Angela Merkel, 2019, vid 30-årsjubileet av murens fall</p>
+            </div>
+            <h3>Övningsfrågor</h3>
+            <ul class="styled-list check-list-alt">
+                <li>Hur gick det till när Berlinmuren föll?</li>
+                <li>Varför byggdes Berlinmuren från början, och hur påverkade den människors liv?</li>
+                <li>Varför blev murens fall en så stark symbol för Kalla krigets slut?</li>
+                <li>Vilka följder fick Sovjetunionens upplösning för Europa?</li>
+                <li>Hur förändrades människors liv efter 1989?</li>
+                <li>Vilka faktorer bidrog till att regimerna i Östeuropa föll utan omfattande våld?</li>
+                <li>Vad betyder "Die Wende" och hur upplevdes denna period av vanliga människor?</li>
+                <li>Vilka utmaningar uppstod efter Kalla krigets slut?</li>
+            </ul>
+            <div id="berlinwall-questions" class="quiz-container"></div>
+            <button onclick="document.querySelector('[data-section=\'timeline\']').click()">Nästa avsnitt</button>
+        </section>
+        <!-- Tidslinje -->
+        <section id="timeline" class="section animated">
+            <h2>Tidslinje: Viktiga händelser under Kalla kriget</h2>
+            <div class="timeline">
+                <div class="timeline-event left">
+                    <div class="timeline-content">
+                        <span class="timeline-date">1945</span>
+                        <h4>Andra världskriget slutar</h4>
+                        <p>USA och Sovjet blir supermakter, början på Kalla kriget.</p>
+                    </div>
+                </div>
+                <div class="timeline-event right">
+                    <div class="timeline-content">
+                        <span class="timeline-date">1946</span>
+                        <h4>Churchills "Järnridån"-tal</h4>
+                        <p>Varnar för Sovjets dominans i Östeuropa.</p>
+                    </div>
+                </div>
+                <div class="timeline-event left">
+                    <div class="timeline-content">
+                        <span class="timeline-date">1947</span>
+                        <h4>Trumandoktrinen & Marshallplanen</h4>
+                        <p>USA lovar att stoppa kommunismens spridning och återuppbygga Europa.</p>
+                    </div>
+                </div>
+                <div class="timeline-event right">
+                    <div class="timeline-content">
+                        <span class="timeline-date">1948–49</span>
+                        <h4>Berlinblockaden & Luftbron</h4>
+                        <p>Sovjet blockerar Västberlin, väst svarar med luftbro.</p>
+                    </div>
+                </div>
+                <div class="timeline-event left">
+                    <div class="timeline-content">
+                        <span class="timeline-date">1949</span>
+                        <h4>NATO bildas & Sovjet testar atombomb</h4>
+                        <p>Väst bildar militärallians, Sovjet får kärnvapen.</p>
+                    </div>
+                </div>
+                <div class="timeline-event right">
+                    <div class="timeline-content">
+                        <span class="timeline-date">1950–53</span>
+                        <h4>Koreakriget</h4>
+                        <p>Nordkorea invaderar Syd, kriget slutar oavgjort vid 38:e breddgraden.</p>
+                    </div>
+                </div>
+                <div class="timeline-event left">
+                    <div class="timeline-content">
+                        <span class="timeline-date">1955</span>
+                        <h4>Warszawapakten bildas</h4>
+                        <p>Sovjet och östländerna bildar egen militärallians.</p>
+                    </div>
+                </div>
+                <div class="timeline-event right">
+                    <div class="timeline-content">
+                        <span class="timeline-date">1957</span>
+                        <h4>Sputnik & rymdkapplöpningen</h4>
+                        <p>Sovjet skickar upp första satelliten, rymdkapplöpningen startar.</p>
+                    </div>
+                </div>
+                <div class="timeline-event left">
+                    <div class="timeline-content">
+                        <span class="timeline-date">1961</span>
+                        <h4>Berlinmuren byggs</h4>
+                        <p>Östtyskland stänger gränsen mot väst.</p>
+                    </div>
+                </div>
+                <div class="timeline-event right">
+                    <div class="timeline-content">
+                        <span class="timeline-date">1962</span>
+                        <h4>Kubakrisen</h4>
+                        <p>Världen nära kärnvapenkrig, krisen löses genom förhandling.</p>
+                    </div>
+                </div>
+                <div class="timeline-event left">
+                    <div class="timeline-content">
+                        <span class="timeline-date">1965–73</span>
+                        <h4>Vietnamkriget</h4>
+                        <p>USA försöker stoppa kommunismen i Sydostasien, kriget blir långvarigt och blodigt.</p>
+                    </div>
+                </div>
+                <div class="timeline-event right">
+                    <div class="timeline-content">
+                        <span class="timeline-date">1969</span>
+                        <h4>Apollo 11 landar på månen</h4>
+                        <p>USA vinner rymdkapplöpningen.</p>
+                    </div>
+                </div>
+                <div class="timeline-event left">
+                    <div class="timeline-content">
+                        <span class="timeline-date">1979</span>
+                        <h4>Sovjet invaderar Afghanistan</h4>
+                        <p>Kriget blir Sovjets "Vietnam" och bidrar till imperiets kollaps.</p>
+                    </div>
+                </div>
+                <div class="timeline-event right">
+                    <div class="timeline-content">
+                        <span class="timeline-date">1985</span>
+                        <h4>Gorbatjov tar makten</h4>
+                        <p>Startar reformer och avspänning.</p>
+                    </div>
+                </div>
+                <div class="timeline-event left">
+                    <div class="timeline-content">
+                        <span class="timeline-date">1987</span>
+                        <h4>Reagans "Tear Down This Wall"-tal</h4>
+                        <p>Uppmanar till murens rivning i Berlin.</p>
+                    </div>
+                </div>
+                <div class="timeline-event right">
+                    <div class="timeline-content">
+                        <span class="timeline-date">1989</span>
+                        <h4>Berlinmurens fall</h4>
+                        <p>Östtyskland öppnar gränsen, muren rivs och Östeuropa demokratiseras.</p>
+                    </div>
+                </div>
+                <div class="timeline-event left">
+                    <div class="timeline-content">
+                        <span class="timeline-date">1991</span>
+                        <h4>Sovjetunionen upplöses</h4>
+                        <p>Kalla kriget tar slut.</p>
+                    </div>
+                </div>
+            </div>
+            <div id="timeline-questions" class="quiz-container"></div>
+            <button onclick="document.querySelector('[data-section=\'quiz\']').click()">Till quizet</button>
+        </section>
+        <!-- Quiz -->
+        <section id="quiz" class="section animated">
+            <h2>Quiz: Testa dina kunskaper om Kalla kriget</h2>
+            <div id="quiz-app"></div>
+        </section>
+    </div>
+    <script src="../../studyguide-core.js"></script>
+    <script src="../../interactive-quiz.js"></script>
+    <script src="coldwarquiz.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            initStudyGuide({
+                guideId: 'coldwar',
+                requiredSections: [
+                    'ironcurtain', 'berlinairlift', 'korea', 'cuba', 'vietnam',
+                    'space', 'thaw', 'berlinwall', 'timeline'
+                ],
+                sectionQuestions: true
+            });
+        });
+    </script>
+</body>
+</html> 
+
+
+
+
+
+

@@ -1,6 +1,6 @@
 Ok, I would like you to help me make a studyguide - in *Swedish*. 
 
-To do this, start by checking the "subject" folder of the project for the material that the guide should cover. Then follow the instructions in @STYLEGUIDE.md. Use the same folder as for the other guides - they can be found in the studyguides folder in the root of the project. Generally follow the structure of @healthguide.html (/studyguides/health1/@healthguide.html) to the extent that is helpful to the new guide. Create a new folder for the guide and generate a new HTML file for the guide, as well as a guide specific database of at least 30 questions (similar to @healthquiz.js ) in the created folder.
+To do this, start by checking the "subject" folder of the project for the material that the guide should cover. If the material is in PDF-format, run the python script @pdf_to_md.py, to convert the PDF to markdown. Then follow the instructions in @STYLEGUIDE.md. Use the same folder as for the other guides - they can be found in the studyguides folder in the root of the project. Generally follow the structure of @healthguide.html (/studyguides/health1/@healthguide.html) to the extent that is helpful to the new guide. Create a new folder for the guide and generate a new HTML file for the guide, as well as a guide specific database of at least 30 questions (similar to @healthquiz.js ) in the created folder.
 
 Ensure that you add the guide to @index.html in the same way that the other guides have been added to the index.
 
