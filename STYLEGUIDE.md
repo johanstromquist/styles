@@ -460,3 +460,42 @@ Used for displaying a list of terms and their corresponding descriptions, simila
 *   `.animated-children-stagger`: Added to a container (`.flex-container`, etc.) to make its direct children fade in sequentially using `animation-delay`.
 
 This guide provides the building blocks. Combine these components within subsections to structure the study guide content effectively.
+
+### 18. Portrait Modal with Biography (`.portrait-modal`)
+
+A reusable, interactive modal for displaying a large portrait image alongside a detailed, dynamic biography and a link to a relevant external resource (e.g., Wikipedia). Used for key figures in study guides.
+
+*   **Trigger:** Any `<img class="portrait-img" data-person="[key]">` element. Clicking opens the modal.
+*   **Modal Structure:**
+    *   `<div id="portrait-modal" class="portrait-modal">`
+        *   `<button class="portrait-modal-close">` (close button)
+        *   `<div class="portrait-modal-content">` (flex row)
+            *   `<div class="portrait-modal-bio" id="portrait-modal-bio">` (left column, biography)
+            *   `<img id="portrait-modal-img" class="portrait-modal-img">` (right column, large image)
+*   **Dynamic Content:**
+    *   The modal is populated via JavaScript using a mapping from `data-person` keys to biography text and external links.
+    *   The biography can be multi-paragraph and should go beyond the overview in the main guide.
+    *   A link to the person's Wikipedia page (or other resource) is included at the bottom of the bio.
+*   **Styling:**
+    *   `.portrait-modal-content` uses flexbox for a two-column layout (bio left, image right), responsive for mobile.
+    *   `.portrait-modal-bio` for the biography and link.
+    *   `.portrait-modal-img` for the blown-up portrait.
+    *   `.portrait-modal-wikilink` for the external link.
+
+```html
+<!-- Example trigger in guide content -->
+<img src="[portrait-url]" alt="[Name]" class="portrait-img" data-person="[key]" onclick="openPortraitModal(this)">
+
+<!-- Modal structure at end of <body> -->
+<div id="portrait-modal" class="portrait-modal" onclick="closePortraitModal(event)">
+  <button class="portrait-modal-close" onclick="closePortraitModal(event)">&times;</button>
+  <div class="portrait-modal-content">
+    <div class="portrait-modal-bio" id="portrait-modal-bio">
+      <!-- Biography and link injected by JS -->
+    </div>
+    <img id="portrait-modal-img" class="portrait-modal-img" src="" alt="Porträtt">
+  </div>
+</div>
+```
+
+*The modal is initialized and populated by JavaScript. See the ideologies guide for a full implementation example.*
