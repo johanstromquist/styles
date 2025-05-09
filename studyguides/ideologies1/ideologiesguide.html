@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ideologier - Interaktiv Studiehandledning</title>
+    <link rel="stylesheet" href="../../studyguide.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Ideologier</h1>
+            <p>En interaktiv studiehandledning om politiska idéer och system</p>
+        </header>
+        
+        <nav>
+            <ul>
+                <li><a href="#" class="active" data-section="intro">Introduktion</a></li>
+                <li><a href="#" data-section="identitet">Identitet & Termer</a></li>
+                <li><a href="#" data-section="liberalism">Liberalism</a></li>
+                <li><a href="#" data-section="konservatism">Konservatism</a></li>
+                <li><a href="#" data-section="socialism">Socialism</a></li>
+                <li><a href="#" data-section="fascism">Fascism & Nazism</a></li>
+                <li><a href="#" data-section="feminism">Feminism</a></li>
+                <li><a href="#" data-section="ekologism">Ekologism</a></li>
+                <li><a href="#" data-section="nationalism">Nationalism</a></li>
+                <li><a href="#" data-section="quiz">Quiz</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Introduktion -->
+        <section id="intro" class="section active animated">
+            <h2>Välkommen till din interaktiva studiehandledning om Ideologier!</h2>
+            <p>Denna guide hjälper dig att förstå grundläggande begrepp inom identitet och de centrala politiska ideologierna. Guiden är uppdelad i flera delar som täcker olika aspekter och ideologier.</p>
+            
+            <div class="info-box">
+                <h3>📝 Så använder du studiehandledningen</h3>
+                <p>Navigera mellan olika avsnitt genom menyn ovan. Varje avsnitt innehåller:</p>
+                <ul>
+                    <li>Viktiga begrepp och definitioner</li>
+                    <li>Förklaringar av ideologiernas uppkomst, grundidéer och syn på staten</li>
+                    <li>Övningsfrågor i slutet av varje relevant avsnitt</li>
+                </ul>
+                <p>När du känner dig redo, testa dina kunskaper med det interaktiva quizet!</p>
+            </div>
+            
+            <div class="flex-container">
+                <div class="card">
+                    <h3>🏆 Prestationer att låsa upp</h3>
+                    <p>När du använder studiehandledningen kan du låsa upp olika prestationer genom att utforska innehållet och testa dina kunskaper i quizet. Se listan nedan för att se vilka prestationer som finns och hur du låser upp dem!</p>
+                </div>
+                <div class="card">
+                    <h3>📊 Spåra dina framsteg</h3>
+                    <p>Dina resultat och prestationer sparas automatiskt så att du kan se din utveckling över tid. Försök att förbättra dina tider och resultat för varje försök!</p>
+                    <h4>🏆 Bästa Quiz-resultat:</h4>
+                    <div class="best-score-display">
+                        <p><span class="icon">✔️</span> Rätt svar: <strong id="best-score-correct">--</strong></p>
+                        <p><span class="icon">⏱️</span> Tid: <strong id="best-score-time">--:--</strong></p>
+                        <p><span class="icon">⭐</span> Poäng: <strong id="best-score-points">----</strong></p>
+                    </div>
+                </div>
+            </div>
+            
+            <button onclick="document.querySelector('[data-section=\'identitet\']').click()">Börja studera nu!</button>
+            
+            <div id="achievements-list" class="achievements">
+                <!-- Achievements will be loaded here by studyguide-core.js -->
+            </div>
+        </section>
+        
+        <!-- Identitet & Grundläggande Termer -->
+        <section id="identitet" class="section animated">
+            <h2>Identitet & Grundläggande Termer</h2>
+            <div class="subsection theme-lblue">
+                <h3><span class="box-icon">👤</span> Vad är Identitet?</h3>
+                <div class="definition">
+                    <p>Identitet handlar om den bild vi har av oss själva – hur vi ser på våra tillhörigheter och de kategorier i vilka vi placerar både oss själva och andra. Identitet formas i mötet med omvärlden.</p>
+                </div>
+                <p>Centrala begrepp för att förstå identitet:</p>
+                <ul class="icon-list-alt">
+                    <li><span class="list-icon">🏷️</span> <strong>Kategorier:</strong> Socialt konstruerade grupper där människor sammanförs för att de antas ha något gemensamt.</li>
+                    <li><span class="list-icon">📜</span> <strong>Normer:</strong> Oskrivna regler för hur vi förväntas bete oss och uttrycka oss. Skapar hierarkier.</li>
+                    <li><span class="list-icon">🎭</span> <strong>Stereotyper:</strong> Förenklade föreställningar om hur en hel grupp brukar vara och agera.</li>
+                </ul>
+            </div>
+
+            <div class="subsection theme-blue">
+                <h3><span class="box-icon">🌍</span> Nationalitet</h3>
+                <p>Nationalitet skapar en känsla av samhörighet med en viss nation, både juridiskt (medborgarskap) och kulturellt (föreställningar om vad som är typiskt för nationen).</p>
+                <ul class="styled-list">
+                    <li><strong>Juridiskt:</strong> Medborgarskap via härstamningsprincipen (blodsband) eller territorialprincipen (födelseort).</li>
+                    <li><strong>Kulturellt:</strong> Föreställningar om vad som är typiskt (t.ex. svenskt, tyskt).</li>
+                </ul>
+            </div>
+
+            <div class="subsection theme-green">
+                <h3><span class="box-icon">🤝</span> Etnicitet</h3>
+                <p>Etnicitet knyter an till gemensam härkomst och kultur – språk, religion, matkultur etc. En etnisk identitet växer fram i mötet med andra etniciteter. Flera etniciteter kan samexistera inom samma nation (mångkulturellt samhälle).</p>
+                <div class="info-box">
+                    <h4><span class="box-icon">📊</span> Etnicitet på arbetsmarknaden</h4>
+                    <p>Under 2019 var sysselsättningsgraden 61,6 % för utrikes födda, mot 70,3 % för inrikes födda i Sverige. Etnisk diskriminering är fortfarande utbredd.</p>
+                </div>
+                <p><strong>Segregation:</strong> Ekonomiska och sociala faktorer driver invandrare att bosätta sig i särskilda områden, vilket förstärker skillnader.</p>
+            </div>
+            
+            <div class="subsection theme-yellow">
+                <h3><span class="box-icon">📈</span> Klass</h3>
+                <p>Begreppet klass har rötter i Marx' fokus på ägande, Webers idé om delade "livschanser" och Bourdieus teori om kulturellt kapital. Vi talar idag ofta om socioekonomiska grupper (under-, medel-, överklass) och klassmarkörer.</p>
+                <p>Trots teoretiskt lika möjligheter i utbildningssystemet, följer många barn sina föräldrars spår. Lägre utbildning korrelerar ofta med sämre hälsa.</p>
+            </div>
+
+            <div class="subsection theme-purple">
+                <h3><span class="box-icon">♀️♂️</span> Kön och Genus</h3>
+                <p><strong>Kön:</strong> Biologiska skillnader.</p>
+                <p><strong>Genus:</strong> Sociala och kulturella skillnader mellan män och kvinnor.</p>
+                <p><strong>Jämställdhet:</strong> Kvinnor och män ska ha samma rättigheter, skyldigheter och möjligheter. Statistik visar fortfarande på skillnader i betyg, högre studier, professurer och lön. Kvinnor har ofta huvudansvaret för hem och barn ("kvinnofälla").</p>
+            </div>
+            
+            <div class="subsection theme-red">
+                <h3><span class="box-icon">⚖️</span> Diskrimineringslagstiftning</h3>
+                <div class="definition">
+                     <p>Sedan år 2009 gäller Diskrimineringslagen i Sverige, som ska motverka orättvisor baserat på kön, könsöverskridande identitet eller uttryck, etnisk tillhörighet, religion eller annan trosuppfattning, funktionsnedsättning, sexuell läggning och ålder.</p>
+                </div>
+                <p>Exempel på diskriminering: Arbetsgivare nekar intervju p.g.a. utländskt namn, restaurang nekar inträde till person med funktionsnedsättning, bank nekar lån p.g.a. ålder.</p>
+            </div>
+            <h4>Övningsfrågor: Identitet</h4>
+            <ul class="styled-list check-list-alt">
+                <li>Vad innebär begreppet identitet och hur formas den?</li>
+                <li>Förklara skillnaden mellan härstamningsprincipen och territorialprincipen när det gäller nationalitet.</li>
+                <li>Ge exempel på hur etnicitet kan påverka en individs livschanser. Vad är segregation?</li>
+                <li>Hur relaterar begreppen klass, kulturellt kapital och socioekonomisk grupp till varandra?</li>
+                <li>Vad är skillnaden mellan kön och genus? Ge exempel på ojämställdhet i Sverige.</li>
+                <li>Vilka grunder skyddas av Diskrimineringslagen?</li>
+            </ul>
+            <button onclick="document.querySelector('[data-section=\'liberalism\']').click()">Nästa Avsnitt: Liberalism</button>
+        </section>
+
+        <!-- Liberalism -->
+        <section id="liberalism" class="section animated">
+            <h2>Liberalism</h2>
+            <div class="subsection theme-lblue">
+                <h3><span class="box-icon">💡</span> Uppkomst och Grundare</h3>
+                <p>Under 1700-talet växte liberalismen fram som en reaktion på de odemokratiska och ojämlika strukturerna i förrevolutionens Europa. Inspirerad av upplysningsfilosoferna.</p>
+                <div class="info-box box-with-bg-icon" data-bg-icon="👤">
+                    <h3>Adam Smith (1723–1790)</h3>
+                    <p>Skotsk ekonom och filosof, ofta sedd som en central figur. Symboliserar tron på att det fria utbytet gynnar både individ och samhälle.</p>
+                </div>
+            </div>
+            <div class="subsection theme-blue">
+                <h3><span class="box-icon">📜</span> Huvudidéer</h3>
+                <ul class="icon-list-alt">
+                    <li><span class="list-icon">🕊️</span> <strong>Individens frihet:</strong> Rätt till frihet och egenansvar.</li>
+                    <li><span class="list-icon">⚖️</span> <strong>Rättigheter:</strong> Staten ska skydda individens rättigheter, främst rätten att äga och handla fritt.</li>
+                    <li><span class="list-icon">📈</span> <strong>Frihandel & Marknadsekonomi:</strong> Utan onödiga statliga ingrepp.</li>
+                </ul>
+            </div>
+            <div class="subsection theme-green">
+                <h3><span class="box-icon">🏛️</span> Statens Roll</h3>
+                <p>Staten sågs som ett skydd för individens rättigheter, men dess uppgifter skulle förbli begränsade. Den ska främst garantera äganderätt och fri handel.</p>
+            </div>
+             <h4>Övningsfrågor: Liberalism</h4>
+            <ul class="styled-list check-list-alt">
+                <li>När och varför uppstod liberalismen?</li>
+                <li>Vem var Adam Smith och vilken roll spelade han?</li>
+                <li>Vilka är liberalismens centrala huvudidéer?</li>
+                <li>Hur ser liberalismen på statens roll i samhället?</li>
+                <li>Vilka svenska riksdagspartier har starkast koppling till liberalismen? (Diskutera)</li>
+            </ul>
+            <button onclick="document.querySelector('[data-section=\'konservatism\']').click()">Nästa Avsnitt: Konservatism</button>
+        </section>
+
+        <!-- Konservatism -->
+        <section id="konservatism" class="section animated">
+            <h2>Konservatism</h2>
+            <div class="subsection theme-lblue">
+                <h3><span class="box-icon">⏳</span> Uppkomst och Grundare</h3>
+                <p>Föddes som ett svar på den franska revolutionens kaos under sena 1700-talet.</p>
+                 <div class="info-box box-with-bg-icon" data-bg-icon="👤">
+                    <h3>Edmund Burke (1729–1797)</h3>
+                    <p>Filosof som framhöll värdet av tradition, kontinuitet och gradvisa reformer med förnuft.</p>
+                </div>
+            </div>
+            <div class="subsection theme-blue">
+                <h3><span class="box-icon">📜</span> Huvudidéer</h3>
+                <ul class="icon-list-alt">
+                    <li><span class="list-icon">🏰</span> <strong>Tradition & Kontinuitet:</strong> Bevara det som fungerar och förändra långsamt.</li>
+                    <li><span class="list-icon">👨‍👩‍👧‍👦</span> <strong>Organiskt samhälle:</strong> Familj, lokalsamhälle och sedvänjor är grundbultar.</li>
+                    <li><span class="list-icon">🌍</span> <strong>Gradvisa reformer:</strong> Förändringar ska ske med förnuft och hänsyn till historien.</li>
+                </ul>
+            </div>
+            <div class="subsection theme-green">
+                <h3><span class="box-icon">🏛️</span> Statens Roll</h3>
+                <p>Staten hålls medvetet liten. Dess roll är att bevara ordning och låta naturliga samhällsstrukturer verka som socialt skyddsnät.</p>
+            </div>
+            <h4>Övningsfrågor: Konservatism</h4>
+            <ul class="styled-list check-list-alt">
+                <li>Hur och varför uppstod konservatismen?</li>
+                <li>Vem var Edmund Burke och vad betonade han?</li>
+                <li>Vilka är konservatismens centrala huvudidéer?</li>
+                <li>Hur ser konservatismen på statens roll?</li>
+                <li>Vilka svenska riksdagspartier har starkast koppling till konservatismen? (Diskutera)</li>
+            </ul>
+            <button onclick="document.querySelector('[data-section=\'socialism\']').click()">Nästa Avsnitt: Socialism</button>
+        </section>
+
+        <!-- Socialism -->
+        <section id="socialism" class="section animated">
+            <h2>Socialism</h2>
+            <div class="subsection theme-lblue">
+                <h3><span class="box-icon">🛠️</span> Uppkomst och Grundare</h3>
+                <p>Industrialiseringens enorma klyftor under 1800-talet gav upphov till socialismen.</p>
+                 <div class="info-box box-with-bg-icon" data-bg-icon="👤">
+                    <h3>Karl Marx (1818–1883)</h3>
+                    <p>Såg hur fabriksarbetare utnyttjades och krävde att arbetarna skulle få rätten till frukten av sitt eget slit.</p>
+                </div>
+            </div>
+            <div class="subsection theme-blue">
+                <h3><span class="box-icon">📜</span> Huvudidéer</h3>
+                <ul class="icon-list-alt">
+                    <li><span class="list-icon">✊</span> <strong>Jämlikhet:</strong> Minska klyftor och utjämna levnadsstandard.</li>
+                    <li><span class="list-icon">🤝</span> <strong>Kollektivism:</strong> Gemensamt ägande och ansvar. Arbetarnas rätt till produktionsmedlen.</li>
+                    <li><span class="list-icon">💰</span> <strong>Ekonomisk rättvisa:</strong> Staten ska säkerställa grundläggande livsvillkor för alla.</li>
+                </ul>
+                <p>Under 1900-talet splittrades rörelsen i mer reforminriktad socialdemokrati och mer radikal kommunism.</p>
+            </div>
+            <div class="subsection theme-green">
+                <h3><span class="box-icon">🏛️</span> Statens Roll</h3>
+                <p>Staten betraktades som det verktyg som kunde utjämna levnadsstandard och säkerställa grundläggande livsvillkor för alla.</p>
+            </div>
+             <h4>Övningsfrågor: Socialism</h4>
+            <ul class="styled-list check-list-alt">
+                <li>Vad ledde till socialismens uppkomst?</li>
+                <li>Vilken roll spelade Karl Marx?</li>
+                <li>Beskriv socialismens huvudidéer. Vad är skillnaden mellan socialdemokrati och kommunism?</li>
+                <li>Vilken syn har socialismen på statens roll?</li>
+                <li>Vilka svenska riksdagspartier har starkast koppling till socialismen? (Diskutera)</li>
+            </ul>
+            <button onclick="document.querySelector('[data-section=\'fascism\']').click()">Nästa Avsnitt: Fascism & Nazism</button>
+        </section>
+
+        <!-- Fascism och Nazism -->
+        <section id="fascism" class="section animated">
+            <h2>Fascism och Nazism</h2>
+            <div class="subsection theme-lblue">
+                <h3><span class="box-icon">⚔️</span> Uppkomst och Kännetecken</h3>
+                <p>Under mellankrigstiden tog fascism och nazism form som auktoritära ideologier som förnekade alla människors lika värde.</p>
+            </div>
+            <div class="subsection theme-blue">
+                <h3><span class="box-icon">📜</span> Huvudidéer - Fascism</h3>
+                <p>Exemplifierad av Mussolinis Italien.</p>
+                <ul class="icon-list-alt">
+                    <li><span class="list-icon">🏛️</span> <strong>Statlig övermakt:</strong> Staten är allt, individen är underordnad.</li>
+                    <li><span class="list-icon">💪</span> <strong>Våld som medel:</strong> Används för att "rensa bort" svaga individer och stater.</li>
+                    <li><span class="list-icon">🎖️</span> <strong>Ledarkult:</strong> Stark, auktoritär ledare.</li>
+                     <li><span class="list-icon">🚫</span> <strong>Antidemokratisk:</strong> Förkastar demokratiska principer.</li>
+                </ul>
+            </div>
+            <div class="subsection theme-red">
+                <h3><span class="box-icon">📜</span> Huvudidéer - Nazism (Nationalsocialism)</h3>
+                <p>Exemplifierad av Hitlers Tyskland. Byggde vidare på fascismen med rasbiologiska teorier.</p>
+                <ul class="icon-list-alt">
+                    <li><span class="list-icon">🧬</span> <strong>Rasbiologi:</strong> Tron på en "ren ras" och andra rasers underlägsenhet.</li>
+                    <li><span class="list-icon">🌍</span> <strong>Expansionism:</strong> Strävan efter "Lebensraum" (livsrum).</li>
+                    <li><span class="list-icon">🚫</span> <strong>Antisemitism:</strong> Starkt hat och förföljelse av judar.</li>
+                </ul>
+            </div>
+            <div class="subsection theme-yellow">
+                <h3><span class="box-icon">🏛️</span> Statens Roll</h3>
+                <p>Totalitär stat som kontrollerar alla aspekter av samhället och individens liv. Målet är att stärka nationen/rasen, ofta genom våld och förtryck.</p>
+            </div>
+            <h4>Övningsfrågor: Fascism & Nazism</h4>
+            <ul class="styled-list check-list-alt">
+                <li>När och i vilket sammanhang växte fascism och nazism fram?</li>
+                <li>Vilka är de centrala idéerna inom fascismen? Ge exempel.</li>
+                <li>Vad skiljer nazismen från fascismen? Vilka specifika idéer är centrala för nazismen?</li>
+                <li>Hur ser dessa ideologier på statens roll och individens rättigheter?</li>
+            </ul>
+            <button onclick="document.querySelector('[data-section=\'feminism\']').click()">Nästa Avsnitt: Feminism</button>
+        </section>
+
+        <!-- Feminism -->
+        <section id="feminism" class="section animated">
+            <h2>Feminism</h2>
+            <div class="subsection theme-lblue">
+                <h3><span class="box-icon">♀️</span> Uppkomst och "Vågor"</h3>
+                <p>Feminismen strävar efter att avskaffa könsbaserade begränsningar så att alla människor kan utvecklas fritt.</p>
+                <ul class="styled-list">
+                    <li><strong>Första vågen (ca sekelskiftet 1900):</strong> Kamp för kvinnlig rösträtt.</li>
+                    <li><strong>Andra vågen (1960-talet):</strong> Breda sociala frågor, lika lön, aborträtt.</li>
+                    <li><strong>Tredje vågen (från 1990-talet):</strong> Intersektionella perspektiv, mångfald, ifrågasättande av normer.</li>
+                </ul>
+            </div>
+            <div class="subsection theme-blue">
+                <h3><span class="box-icon">📜</span> Huvudidéer</h3>
+                <ul class="icon-list-alt">
+                    <li><span class="list-icon">⚖️</span> <strong>Jämställdhet:</strong> Lika rättigheter, skyldigheter och möjligheter oavsett kön.</li>
+                    <li><span class="list-icon">✊</span> <strong>Maktanalys:</strong> Uppmärksamma och förändra maktstrukturer som missgynnar kvinnor.</li>
+                    <li><span class="list-icon">🌍</span> <strong>Mångfald:</strong> Erkänna och inkludera olika kvinnors erfarenheter (intersektionalitet).</li>
+                </ul>
+            </div>
+            <div class="subsection theme-green">
+                <h3><span class="box-icon">🏛️</span> Statens Roll</h3>
+                <p>Staten ses som ett viktigt verktyg för att genomdriva jämställdhetsreformer, lagstifta mot diskriminering och säkerställa lika möjligheter inom utbildning, arbetsliv och samhället i stort.</p>
+            </div>
+             <h4>Övningsfrågor: Feminism</h4>
+            <ul class="styled-list check-list-alt">
+                <li>Vad är feminismens övergripande mål?</li>
+                <li>Beskriv de tre "vågorna" av feminism och vad de fokuserade på.</li>
+                <li>Vilka är några av feminismens huvudidéer idag? Vad innebär intersektionalitet?</li>
+                <li>Hur ser feminismen på statens roll i att uppnå jämställdhet?</li>
+            </ul>
+            <button onclick="document.querySelector('[data-section=\'ekologism\']').click()">Nästa Avsnitt: Ekologism</button>
+        </section>
+
+        <!-- Ekologism -->
+        <section id="ekologism" class="section animated">
+            <h2>Ekologism</h2>
+            <div class="subsection theme-lblue">
+                <h3><span class="box-icon">🌳</span> Uppkomst</h3>
+                <p>Utvecklades från 1960- och 1970-talens miljörörelser.</p>
+            </div>
+            <div class="subsection theme-blue">
+                <h3><span class="box-icon">📜</span> Huvudidéer</h3>
+                <ul class="icon-list-alt">
+                    <li><span class="list-icon">🌍</span> <strong>Systemperspektiv:</strong> Samhället är en integrerad del av jordens ekosystem.</li>
+                    <li><span class="list-icon">📉</span> <strong>Kritik mot tillväxt:</strong> Ifrågasätter ekonomisk tillväxt som yttersta mål.</li>
+                    <li><span class="list-icon">🤝</span> <strong>Decentralisering:</strong> Förespråkar decentraliserade beslutsprocesser nära medborgarna för att minimera mänsklig belastning på naturen.</li>
+                    <li><span class="list-icon">♻️</span> <strong>Hållbarhet:</strong> Leva inom planetens gränser.</li>
+                </ul>
+            </div>
+            <div class="subsection theme-green">
+                <h3><span class="box-icon">🏛️</span> Statens Roll</h3>
+                <p>Staten bör aktivt arbeta för att skydda miljön, reglera utsläpp, främja hållbar konsumtion och produktion, samt investera i förnybar energi och ekologiska lösningar. Kan innebära både begränsningar och incitament.</p>
+            </div>
+            <h4>Övningsfrågor: Ekologism</h4>
+            <ul class="styled-list check-list-alt">
+                <li>När och varför växte ekologismen fram som ideologi?</li>
+                <li>Vilka är ekologismens centrala idéer?</li>
+                <li>Hur ser ekologismen på ekonomisk tillväxt?</li>
+                <li>Vilken roll anser ekologismen att staten bör ha för att skydda miljön?</li>
+                <li>Vilka svenska riksdagspartier har starkast koppling till ekologismen? (Diskutera)</li>
+            </ul>
+            <button onclick="document.querySelector('[data-section=\'nationalism\']').click()">Nästa Avsnitt: Nationalism</button>
+        </section>
+
+        <!-- Nationalism -->
+        <section id="nationalism" class="section animated">
+            <h2>Nationalism</h2>
+            <div class="subsection theme-lblue">
+                <h3><span class="box-icon">🚩</span> Uppkomst</h3>
+                <p>Föddes under 1800-talets nationalstatsbygge, med idén att språk, kultur och religion förenar befolkningar till egna stater.</p>
+            </div>
+            <div class="subsection theme-blue">
+                <h3><span class="box-icon">📜</span> Huvudidéer</h3>
+                <ul class="icon-list-alt">
+                    <li><span class="list-icon">🌍</span> <strong>Nationen i centrum:</strong> Fokus på nationens intressen, kultur och suveränitet.</li>
+                    <li><span class="list-icon">🤝</span> <strong>Gemenskap:</strong> Idén om en gemensam identitet baserad på språk, kultur, historia etc.</li>
+                    <li><span class="list-icon">Varierande former:</span> Kan vara allt från militant och chauvinistisk till demokratisk och inriktad på självbestämmande.</li>
+                </ul>
+            </div>
+            <div class="subsection theme-green">
+                <h3><span class="box-icon">🏛️</span> Statens Roll</h3>
+                <p>Statens främsta uppgift är att skydda och främja nationens intressen, bevara dess kultur och särart. Kan innebära stark gränskontroll, protektionistisk handelspolitik och en försiktig hållning till internationellt samarbete som kan hota nationell suveränitet.</p>
+            </div>
+            <h4>Övningsfrågor: Nationalism</h4>
+            <ul class="styled-list check-list-alt">
+                <li>Hur och när uppstod nationalismen?</li>
+                <li>Vilka är nationalismens grundläggande idéer?</li>
+                <li>På vilka olika sätt kan nationalism yttra sig?</li>
+                <li>Hur ser nationalismen på statens roll?</li>
+                <li>Vilka svenska riksdagspartier har starkast koppling till nationalismen? (Diskutera)</li>
+            </ul>
+            <button onclick="document.querySelector('[data-section=\'quiz\']').click()">Gå till Quiz</button>
+        </section>
+
+        <!-- Quiz Sektion -->
+        <section id="quiz" class="section animated">
+            <h2>Interaktivt Quiz: Ideologier</h2>
+            <p>Testa dina kunskaper om de olika ideologierna och grundläggande begrepp!</p>
+            
+            <div class="quiz-container">
+                <div class="quiz-header">
+                    <h3 id="question-text">Fråga laddas...</h3>
+                </div>
+                <div id="options-container" class="options-grid">
+                    <!-- Alternativ laddas här -->
+                </div>
+                <button id="next-question" style="display: none;">Nästa fråga</button>
+                <div id="feedback" class="feedback-message" style="display: none;"></div>
+            </div>
+
+            <div class="quiz-results" style="display: none;">
+                <h3>Quiz Resultat</h3>
+                <p>Du fick <span id="score-correct"></span> av <span id="score-total"></span> rätt!</p>
+                <p>Din tid: <span id="quiz-time"></span></p>
+                <p>Poäng: <span id="quiz-points"></span></p>
+                <button id="restart-quiz">Försök igen</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="../../studyguide-core.js"></script>
+    <script src="ideologiesquiz.js"></script> <!-- Specifik quizdatabas för denna guide -->
+    <script src="../../interactive-quiz.js"></script>
+
+</body>
+</html> 
