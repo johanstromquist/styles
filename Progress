@@ -3,3 +3,5 @@ Fri May  9 11:12:55 CEST 2025: Created a new study guide for Ideologies. This in
 - Generating studyguides/ideologies1/ideologiesguide.html with content from subject/Ideologier.txt, structured according to STYLEGUIDE.md and healthguide.html.
 - Generating studyguides/ideologies1/ideologiesquiz.js with 33 questions based on the source text.
 - Updating index.html to include a link to the new Ideologies guide with ID ideologies1 under the Samhällskunskap section. 
+
+2025-05-09 11:30:33  Lade till en quizfråga om 'Samhälleliga tillämpningar' för varje ideologiavsnitt i ideologiesquiz.js. 

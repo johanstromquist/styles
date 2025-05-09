@@ -126,6 +126,16 @@ window.questionsDB = {
                 "Staten ska aktivt forma medborgarnas moral"
             ],
             correctIndex: 1
+        },
+        {
+            question: "Vilket av följande kännetecknar liberalismens samhälleliga tillämpningar?",
+            options: [
+                "Staten styr och finansierar all utbildning och vård utan privata alternativ",
+                "Fokus på valfrihet, konkurrens och individens frihet inom utbildning, vård och företagande",
+                "Skolan ska endast bevara traditionella värden och moral",
+                "Företagande är starkt reglerat och styrt av staten"
+            ],
+            correctIndex: 1
         }
     ],
     konservatism: [
@@ -168,6 +178,16 @@ window.questionsDB = {
                 "Staten har ingen roll alls"
             ],
             correctIndex: 1
+        },
+        {
+            question: "Hur ser konservatismen på samhälleliga tillämpningar inom utbildning, vård och entreprenörskap?",
+            options: [
+                "Fokus på traditionella värden, familjens och civilsamhällets ansvar, och långsam förändring",
+                "Total valfrihet och konkurrens utan hänsyn till traditioner",
+                "Staten ska äga och styra all verksamhet",
+                "Endast privata aktörer ska tillåtas inom vård och utbildning"
+            ],
+            correctIndex: 0
         }
     ],
     socialism: [
@@ -220,6 +240,16 @@ window.questionsDB = {
                 "Fascism och nazism"
             ],
             correctIndex: 2
+        },
+        {
+            question: "Vad utmärker socialismens samhälleliga tillämpningar enligt texten?",
+            options: [
+                "Likvärdig skola och vård för alla, offentlig finansiering och reglerat företagande",
+                "Fullständig privatisering av utbildning och vård",
+                "Staten har ingen roll i välfärden",
+                "Endast traditionella värden ska bevaras"
+            ],
+            correctIndex: 0
         }
     ],
     fascism: [
@@ -262,6 +292,16 @@ window.questionsDB = {
                 "Staten ska främst fokusera på internationell handel"
             ],
             correctIndex: 1
+        },
+        {
+            question: "Hur används samhälleliga tillämpningar inom fascism och nazism?",
+            options: [
+                "Skolan och vården används för att forma lojala medborgare och stärka nationen, ofta genom kontroll och propaganda",
+                "Total valfrihet och konkurrens inom utbildning och vård",
+                "Fokus på jämlikhet och solidaritet",
+                "Staten har ingen inblandning i utbildning eller vård"
+            ],
+            correctIndex: 0
         }
     ],
     feminism: [
@@ -294,6 +334,16 @@ window.questionsDB = {
                 "En återgång till andra vågens fokusområden"
             ],
             correctIndex: 1
+        },
+        {
+            question: "Vad är centralt för feminismens samhälleliga tillämpningar?",
+            options: [
+                "Jämställdhet i skola och vård, genuspedagogik och stöd till kvinnligt företagande",
+                "Staten ska inte arbeta för jämställdhet",
+                "Endast män ska ha rätt till företagande",
+                "Fokus på traditionella könsroller"
+            ],
+            correctIndex: 0
         }
     ],
     ekologism: [
@@ -326,6 +376,16 @@ window.questionsDB = {
                 "Den har ingen specifik åsikt om ekonomisk tillväxt"
             ],
             correctIndex: 1
+        },
+        {
+            question: "Hur ser ekologismen på samhälleliga tillämpningar?",
+            options: [
+                "Miljö- och hållbarhetsfrågor integreras i utbildning, vård och företagande med fokus på hållbarhet och innovation",
+                "Staten ska inte reglera miljöfrågor alls",
+                "Endast ekonomisk tillväxt är viktig",
+                "Företagande ska vara helt oreglerat"
+            ],
+            correctIndex: 0
         }
     ],
     nationalism: [
@@ -358,6 +418,16 @@ window.questionsDB = {
                 "Att omfördela resurser till andra, mindre utvecklade nationer"
             ],
             correctIndex: 1
+        },
+        {
+            question: "Vad kännetecknar nationalismens samhälleliga tillämpningar?",
+            options: [
+                "Skolan stärker nationell identitet, vård prioriterar egna medborgare och företagande skyddas för nationens skull",
+                "Total globalisering och fri rörlighet för alla",
+                "Staten har ingen roll i att skydda nationens intressen",
+                "Fokus på individuell frihet utan hänsyn till nationen"
+            ],
+            correctIndex: 0
         }
     ]
 }; 
