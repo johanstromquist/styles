@@ -10,7 +10,7 @@
     <div class="container">
         <header>
             <button class="audio-play-btn" id="audio-play-btn" aria-label="Spela upp podcast" title="Spela upp podcast">
-                <span class="audio-icon">🔊</span>
+                <span class="audio-icon">▶️</span>
             </button>
             <div class="header-flex">
                 <h1>Ideologier</h1>
@@ -504,7 +504,7 @@
       let isPlaying = false;
 
       function updateAudioIcon() {
-        icon.textContent = isPlaying ? '⏸️' : '🔊';
+        icon.textContent = isPlaying ? '⏸️' : '▶️';
       }
 
       audioBtn.addEventListener('click', function() {
