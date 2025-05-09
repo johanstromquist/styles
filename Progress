@@ -11,4 +11,5 @@ Fri May  9 11:12:55 CEST 2025: Created a new study guide for Ideologies. This in
 2025-05-09 12:14:27  Flyttade alla porträttbilder till höger och lade till modal-funktion för att visa dem i större format i ideologiesguide.html och studyguide.css.
 2025-05-09 12:28:05  Lade till tvåspaltig modal för porträtt med dynamisk biografi och Wikipedia-länk i ideologiesguide.html samt uppdaterade CSS för layout.
 2025-05-09 12:30:27  Utökade alla modalbiografier för nyckelpersoner i ideologiesguide.html med mer djupgående, flerstyckesinnehåll.
-2025-05-09 12:34:10  Dokumenterade Portrait Modal with Biography som återanvändbar struktur i STYLEGUIDE.md. 
+2025-05-09 12:34:10  Dokumenterade Portrait Modal with Biography som återanvändbar struktur i STYLEGUIDE.md.
+2025-05-09 12:35:57  Dokumenterade Portrait Box som återanvändbar struktur i STYLEGUIDE.md, inklusive koppling till Portrait Modal. 
