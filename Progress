@@ -15,4 +15,5 @@ Fri May  9 11:12:55 CEST 2025: Created a new study guide for Ideologies. This in
 2025-05-09 12:37:39  Dokumenterade Portrait Box som återanvändbar struktur i STYLEGUIDE.md, länkad till Portrait Modal.
 2025-05-09 12:43:04  Skapade och dokumenterade återanvändbar Topic Expansion Modal (utan bild) och applicerade den på Liberalism i ideologiesguide.html.
 2025-05-09 12:57:57  Fixade placeringen av alla topic expansion-knappar så att de ligger inuti den gula boxen för varje ideologi, i linje med Liberalism.
-2025-05-09 13:46:59  Added reusable audio play button component to ideologies guide header (HTML, CSS, JS). Documented the component in STYLEGUIDE.md for future use. Button toggles play/pause, updates icon, and is accessible. Ensured best practices and requirement alignment. 
+2025-05-09 13:46:59  Added reusable audio play button component to ideologies guide header (HTML, CSS, JS). Documented the component in STYLEGUIDE.md for future use. Button toggles play/pause, updates icon, and is accessible. Ensured best practices and requirement alignment.
+2025-05-09 13:49:10  Moved the audio play button to the left of the header title in ideologiesguide.html as requested for improved layout. 
