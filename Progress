@@ -8,4 +8,5 @@ Fri May  9 11:12:55 CEST 2025: Created a new study guide for Ideologies. This in
 2025-05-09 12:03:15  Bytte ut no-name emoji mot hotlänkade Wikipedia-porträtt för varje ideologis nyckelperson i ideologiesguide.html.
 2025-05-09 12:07:31  Korrigerade Wikimedia Commons-bildadresser och tog bort emoji-porträtt för nyckelpersoner i ideologiesguide.html.
 2025-05-09 12:11:15  Uppdaterade alla nyckelpersonporträtt till nya Wikimedia-länkar och lade till Adolf Hitler i Nazism-avsnittet i ideologiesguide.html.
-2025-05-09 12:14:27  Flyttade alla porträttbilder till höger och lade till modal-funktion för att visa dem i större format i ideologiesguide.html och studyguide.css. 
+2025-05-09 12:14:27  Flyttade alla porträttbilder till höger och lade till modal-funktion för att visa dem i större format i ideologiesguide.html och studyguide.css.
+2025-05-09 12:28:05  Lade till tvåspaltig modal för porträtt med dynamisk biografi och Wikipedia-länk i ideologiesguide.html samt uppdaterade CSS för layout. 

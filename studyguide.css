@@ -120,6 +120,7 @@ p {
     padding: 15px;
     margin-bottom: 15px;
     border: 1px solid #bbdefb;
+    overflow: auto; /* clearfix for floated children */
 }
 
 .warning-box {
@@ -1955,18 +1956,31 @@ tr:nth-child(even) {
   margin-bottom: 15px; /* Add space after each description */
 }
 
-.portrait-img {
+.portrait-figure {
     float: right;
     margin: 0 0 10px 20px;
+    max-width: 140px;
+    text-align: center;
+}
+.portrait-img {
+    display: block;
+    margin: 0 auto;
     max-width: 120px;
     height: auto;
     cursor: pointer;
     border-radius: 6px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     transition: box-shadow 0.2s;
+    float: none;
 }
 .portrait-img:hover {
     box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+}
+.portrait-figure figcaption {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 4px;
+    text-align: center;
 }
 .portrait-modal {
     display: none;
@@ -2005,4 +2019,71 @@ tr:nth-child(even) {
 }
 .portrait-modal-close:hover {
     color: #ff5252;
+}
+.portrait-modal-content {
+    display: flex;
+    flex-direction: row;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    max-width: 900px;
+    width: 90vw;
+    max-height: 90vh;
+    overflow: hidden;
+}
+.portrait-modal-bio {
+    flex: 1 1 300px;
+    padding: 32px 24px 24px 32px;
+    min-width: 220px;
+    max-width: 350px;
+    color: #222;
+    background: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.portrait-modal-bio h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: var(--primary);
+    font-size: 1.3em;
+}
+.portrait-modal-bio p {
+    font-size: 1em;
+    margin-bottom: 18px;
+}
+.portrait-modal-wikilink {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--primary);
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 1em;
+    transition: color 0.2s;
+}
+.portrait-modal-wikilink:hover {
+    color: var(--accent);
+}
+.portrait-modal-img {
+    flex: 1 1 400px;
+    max-width: 400px;
+    max-height: 90vh;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 0 10px 10px 0;
+    display: block;
+}
+@media (max-width: 700px) {
+    .portrait-modal-content {
+        flex-direction: column;
+        max-width: 98vw;
+    }
+    .portrait-modal-bio {
+        padding: 18px 12px 12px 12px;
+        max-width: 100%;
+    }
+    .portrait-modal-img {
+        max-width: 100vw;
+        border-radius: 0 0 10px 10px;
+    }
 }
