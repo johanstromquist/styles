@@ -97,40 +97,6 @@ Used for definitions, general info, or warnings. They have distinct background c
 </div>
 ```
 
-### 1.1 Portrait Box (`.info-box.box-with-bg-icon` + `.portrait-figure`)
-
-A reusable box for profiling individuals (founders, key figures, or any person of interest) in a visually distinct way. The box includes a floated portrait, a caption, a heading, and a short summary. Clicking the portrait opens the Portrait Modal with Biography for deeper exploration.
-
-*   **Classes:** `info-box box-with-bg-icon` (for the box), `portrait-figure` (for the image/caption block)
-*   **Attributes:** `data-bg-icon="👤"` or other relevant emoji for the background icon
-*   **Structure:**
-    *   `<div class="info-box box-with-bg-icon" data-bg-icon="[emoji]">`
-        *   `<figure class="portrait-figure">`
-            *   `<img src="[portrait-url]" alt="[Name]" class="portrait-img" data-person="[key]" onclick="openPortraitModal(this)">`
-            *   `<figcaption>[Name]</figcaption>`
-        *   `</figure>`
-        *   `<h3>[Name] ([years])</h3>`
-        *   `<p>[Condensed summary or intro]</p>`
-    *   `</div>`
-*   **Usage:**
-    *   Use for any individual you want to highlight, not just founders.
-    *   The `data-person` attribute on the image must match a key in the modal's biography mapping.
-    *   The portrait is floated right, with the text flowing around it.
-    *   Clicking the portrait opens the Portrait Modal for a deeper biography and external link.
-
-```html
-<div class="info-box box-with-bg-icon" data-bg-icon="👤">
-  <figure class="portrait-figure">
-    <img src="[portrait-url]" alt="[Name]" class="portrait-img" data-person="[key]" onclick="openPortraitModal(this)">
-    <figcaption>[Name]</figcaption>
-  </figure>
-  <h3>[Name] ([years])</h3>
-  <p>[Condensed summary or intro]</p>
-</div>
-```
-
-*See the ideologies guide for a full implementation example and how this links to the Portrait Modal with Biography.*
-
 ### 2. Box with Background Icon (`.box-with-bg-icon`)
 
 Enhances a Basic Box by adding a large, subtle background icon (via `::before`). **Do not** use `.box-icon` in the heading of these.
@@ -353,4 +319,217 @@ Various elements used within the `#quiz` section, mostly managed by `interactive
 *   **Progress Display:** `#quiz-progress` container (shown during quiz). Includes `.timer` (`#quiz-timer`) and `.progress-container` with `.progress-bar` (`#quiz-progress-bar`). Also `#quiz-progress-text`.
 *   **Floating Status:** `#quiz-status-floating` (fixed position overlay shown during quiz). Includes `.timer` (`#floating-timer`), `.mini-progress` with `.mini-progress-bar` (`#floating-progress-bar`), and `.status-text` (`#floating-status`).
 *   **Questions:** `#quiz-questions` container. Each question is in a `.question` div, containing `.options` div with multiple clickable `.option` divs. Option states: default, `:hover`, `.selected`, `.correct` (shown on results), `.wrong` (shown on results).
-*   **Results:** `#quiz-result` container. Includes score (`.quiz-score`), action buttons (`#show-answers-btn`, `#restart-quiz-btn`). Can have `.max-score-celebration`
+*   **Results:** `#quiz-result` container. Includes score (`.quiz-score`), action buttons (`#show-answers-btn`, `#restart-quiz-btn`). Can have `.max-score-celebration` class added.
+*   **Answer Feedback:** `#quiz-answers` container (dynamically created when showing answers).
+
+*(HTML largely generated/managed by `interactive-quiz.js`)*
+
+### 14. Best Score Display (Intro)
+
+Located on the Intro page to show the user's best recorded score.
+
+*   **Container:** `.best-score-display`
+*   **Elements:** Contains paragraphs with icons and `<strong>` tags with specific IDs: `#best-score-correct`, `#best-score-time`, `#best-score-points`.
+
+```html
+<div class="best-score-display">
+    <p><span class="icon">✔️</span> Rätt svar: <strong id="best-score-correct">--</strong></p>
+    <p><span class="icon">⏱️</span> Tid: <strong id="best-score-time">--:--</strong></p>
+    <p><span class="icon">⭐</span> Poäng: <strong id="best-score-points">----</strong></p>
+</div>
+```
+*(Populated by JavaScript: `updateProgressDisplay` in `studyguide-core.js`)*
+
+### 15. Vertical Timeline (`.timeline`)
+
+Used to display chronological sequences of events.
+
+*   **Container:** `<div class="timeline">`
+*   **Event Wrapper:** `<div class="timeline-event [left/right]">` - Use `left` for the first event, `right` for the second, alternating down the timeline. Holds the content and the connector bubble/arrow.
+*   **Event Content:** `<div class="timeline-content">` - Contains the actual event information.
+    *   **Date/Year:** `<span class="timeline-date">[Date/Year]</span>` (Optional, styled distinctly)
+    *   **Title:** `<h4>[Event Title]</h4>`
+    *   **Description:** `<p>[Event Description]</p>`
+*   **Styling:** Features a central vertical line, alternating content boxes with connecting arrows and circles. Includes fade-in animation for events. Responsive design collapses to single-sided on smaller screens.
+
+```html
+<div class="timeline">
+    <div class="timeline-event left">
+        <div class="timeline-content">
+            <span class="timeline-date">[Year/Date 1]</span>
+            <h4>[Event Title 1]</h4>
+            <p>[Description of event 1...]</p>
+        </div>
+    </div>
+    <div class="timeline-event right">
+        <div class="timeline-content">
+            <span class="timeline-date">[Year/Date 2]</span>
+            <h4>[Event Title 2]</h4>
+            <p>[Description of event 2...]</p>
+        </div>
+    </div>
+    <div class="timeline-event left">
+        <div class="timeline-content">
+            <span class="timeline-date">[Year/Date 3]</span>
+            <h4>[Event Title 3]</h4>
+            <p>[Description of event 3...]</p>
+        </div>
+    </div>
+    <!-- Add more events, alternating left/right -->
+</div>
+```
+
+### 16. Horizontal Timeline (`.timeline-horizontal`)
+
+An alternative timeline layout displaying events horizontally, useful for sequences where vertical space is limited.
+
+*   **Container:** `<div class="timeline-horizontal">` - Uses flexbox and allows horizontal scrolling if content overflows.
+*   **Event Wrapper:** `<div class="timeline-horizontal-event">` - Represents a single point/event on the timeline.
+*   **Event Content:** `<div class="timeline-horizontal-content">` - The box containing the event details.
+    *   **Date/Year:** `<span class="timeline-horizontal-date">[Date/Year]</span>`
+    *   **Title:** `<h4>[Event Title]</h4>`
+    *   **Description:** `<p>[Event Description]</p>`
+*   **Styling:** Features top and bottom border lines acting as the main axis. Each event has a circular marker positioned below the bottom line. Connecting lines are drawn between markers (via `::before` on the event wrapper). Includes fade-in animation.
+
+```html
+<div class="timeline-horizontal">
+    <div class="timeline-horizontal-event">
+        <div class="timeline-horizontal-content">
+            <span class="timeline-horizontal-date">[Date 1]</span>
+            <h4>[Event 1]</h4>
+            <p>[Desc 1]</p>
+        </div>
+    </div>
+    <div class="timeline-horizontal-event">
+        <div class="timeline-horizontal-content">
+            <span class="timeline-horizontal-date">[Date 2]</span>
+            <h4>[Event 2]</h4>
+            <p>[Desc 2]</p>
+        </div>
+    </div>
+    <div class="timeline-horizontal-event">
+        <div class="timeline-horizontal-content">
+            <span class="timeline-horizontal-date">[Date 3]</span>
+            <h4>[Event 3]</h4>
+            <p>[Desc 3]</p>
+        </div>
+    </div>
+    <!-- Add more events -->
+</div>
+```
+
+### 17. Definition List with Icons (`.definition-list-alt`)
+
+Used for displaying a list of terms and their corresponding descriptions, similar to a glossary or definition section, but enhanced with leading icons for each term.
+
+*   **Container:** `<dl class="definition-list-alt">`
+*   **Term:** `<dt>`
+    *   Contains the `<span class="list-icon">[emoji]</span>` followed by the term, often in `<strong>`.
+*   **Description:** `<dd>`
+    *   Contains the description text corresponding to the preceding term.
+*   **Styling:** Typically renders the `<dd>` indented below the `<dt>` by default browser styles. Custom CSS could be added later to adjust spacing or layout (e.g., using grid or flex for a more table-like appearance if needed, although `<dl>` is semantically correct for definitions).
+
+```html
+<dl class="definition-list-alt">
+    <dt>
+        <span class="list-icon">[emoji1]</span> <strong>[Term 1]:</strong>
+    </dt>
+    <dd>
+        [Description for Term 1...]
+    </dd>
+    <dt>
+        <span class="list-icon">[emoji2]</span> <strong>[Term 2]:</strong>
+    </dt>
+    <dd>
+        [Description for Term 2...]
+    </dd>
+    <!-- Add more dt/dd pairs -->
+</dl>
+```
+
+## Other Styled Elements
+
+*   **Blockquotes (`<blockquote>`):** Used within `.quote-box` (which is just an `.info-box`). Styled with left border, italic font.
+*   **Horizontal Rule (`<hr>`):** `.popup-divider` class used in achievement popup for a styled separator.
+*   **Emphasis (`<em>`, `<strong>`):** Standard browser rendering (italic, bold).
+*   **Small Text (`<small>`):** Standard browser rendering (smaller font size).
+
+## Utility Classes
+
+*   `.animated`: Added to `<section>` for fade-in animation.
+*   `.animated-children-stagger`: Added to a container (`.flex-container`, etc.) to make its direct children fade in sequentially using `animation-delay`.
+
+This guide provides the building blocks. Combine these components within subsections to structure the study guide content effectively.
+
+### 18. Portrait Modal with Biography (`.portrait-modal`)
+
+A reusable, interactive modal for displaying a large portrait image alongside a detailed, dynamic biography and a link to a relevant external resource (e.g., Wikipedia). Used for key figures in study guides.
+
+*   **Trigger:** Any `<img class="portrait-img" data-person="[key]">` element. Clicking opens the modal.
+*   **Modal Structure:**
+    *   `<div id="portrait-modal" class="portrait-modal">`
+        *   `<button class="portrait-modal-close">` (close button)
+        *   `<div class="portrait-modal-content">` (flex row)
+            *   `<div class="portrait-modal-bio" id="portrait-modal-bio">` (left column, biography)
+            *   `<img id="portrait-modal-img" class="portrait-modal-img">` (right column, large image)
+*   **Dynamic Content:**
+    *   The modal is populated via JavaScript using a mapping from `data-person` keys to biography text and external links.
+    *   The biography can be multi-paragraph and should go beyond the overview in the main guide.
+    *   A link to the person's Wikipedia page (or other resource) is included at the bottom of the bio.
+*   **Styling:**
+    *   `.portrait-modal-content` uses flexbox for a two-column layout (bio left, image right), responsive for mobile.
+    *   `.portrait-modal-bio` for the biography and link.
+    *   `.portrait-modal-img` for the blown-up portrait.
+    *   `.portrait-modal-wikilink` for the external link.
+
+```html
+<!-- Example trigger in guide content -->
+<img src="[portrait-url]" alt="[Name]" class="portrait-img" data-person="[key]" onclick="openPortraitModal(this)">
+
+<!-- Modal structure at end of <body> -->
+<div id="portrait-modal" class="portrait-modal" onclick="closePortraitModal(event)">
+  <button class="portrait-modal-close" onclick="closePortraitModal(event)">&times;</button>
+  <div class="portrait-modal-content">
+    <div class="portrait-modal-bio" id="portrait-modal-bio">
+      <!-- Biography and link injected by JS -->
+    </div>
+    <img id="portrait-modal-img" class="portrait-modal-img" src="" alt="Porträtt">
+  </div>
+</div>
+```
+
+*The modal is initialized and populated by JavaScript. See the ideologies guide for a full implementation example.*
+
+### 19. Portrait Box (`.info-box.box-with-bg-icon` + `.portrait-figure`)
+
+A reusable component for profiling individuals (e.g., founders, key figures, or any person of interest) within a study guide section. The Portrait Box presents a small portrait, name, and a concise summary, and can be linked to the Portrait Modal for expanded information.
+
+*   **Structure:**
+    *   `<div class="info-box box-with-bg-icon">` (optionally with `data-bg-icon`)
+        *   `<figure class="portrait-figure">`
+            *   `<img src="[portrait-url]" alt="[Name]" class="portrait-img" data-person="[key]" onclick="openPortraitModal(this)">`
+            *   `<figcaption>[Name]</figcaption>`
+        *   `</figure>`
+        *   `<h3>[Name (years)]</h3>`
+        *   `<p>[Condensed summary of the person and their contribution]</p>`
+    *   The `.portrait-img` should have a `data-person` attribute matching the key used in the Portrait Modal's JS mapping.
+*   **Usage:**
+    *   Place the Portrait Box at the top of a subsection or wherever a person is to be profiled.
+    *   Clicking the portrait image opens the Portrait Modal for a deeper biography and external links.
+*   **Styling:**
+    *   `.info-box` and `.box-with-bg-icon` provide the colored box and optional background icon.
+    *   `.portrait-figure` floats the image right and centers the caption below the image.
+    *   `.portrait-img` is styled for consistent sizing and clickability.
+
+```html
+<div class="info-box box-with-bg-icon">
+  <figure class="portrait-figure">
+    <img src="[portrait-url]" alt="[Name]" class="portrait-img" data-person="[key]" onclick="openPortraitModal(this)">
+    <figcaption>[Name]</figcaption>
+  </figure>
+  <h3>[Name (years)]</h3>
+  <p>[Condensed summary of the person and their contribution]</p>
+</div>
+```
+
+*The Portrait Box is designed to work seamlessly with the Portrait Modal. See the ideologies guide for a full implementation example.*
