@@ -569,3 +569,36 @@ A reusable modal component for expanding on complex topics or providing in-depth
 ```
 
 *The modal is initialized and populated by JavaScript. See the ideologies guide for a full implementation example.*
+
+### 21. Audio Play Button (`.audio-play-btn`)
+
+A reusable, accessible component for playing audio files (e.g., podcasts or guide-related audio) in study guides. Typically placed in the header, but can be used anywhere.
+
+*   **Structure:**
+    *   `<button class="audio-play-btn" id="audio-play-btn" aria-label="Spela upp podcast" title="Spela upp podcast">`
+        *   `<span class="audio-icon">🔊</span>` (icon updates to ⏸️ when playing)
+    *   `<audio id="guide-audio" src="[audio-file.wav]" preload="none"></audio>`
+*   **Usage:**
+    *   Place the button and audio element together, usually in a flex container with the guide title.
+    *   The button toggles play/pause and updates the icon accordingly.
+    *   Only one audio should play at a time per guide.
+*   **Accessibility:**
+    *   Use `aria-label` and `title` for screen readers.
+    *   Button is keyboard accessible and visually distinct.
+    *   Icon updates for play (🔊) and pause (⏸️) states.
+*   **Styling:**
+    *   `.audio-play-btn` is circular, colored, and sized for easy clicking/tapping.
+    *   `.audio-icon` is large and clear.
+    *   `.header-flex` (or similar) aligns the button with the title.
+
+```html
+<div class="header-flex">
+  <h1>Guide Title</h1>
+  <button class="audio-play-btn" id="audio-play-btn" aria-label="Spela upp podcast" title="Spela upp podcast">
+    <span class="audio-icon">🔊</span>
+  </button>
+  <audio id="guide-audio" src="[audio-file.wav]" preload="none"></audio>
+</div>
+```
+
+*The play/pause logic is handled by a small JavaScript snippet that toggles playback and updates the icon. See the ideologies guide for a full implementation example.*

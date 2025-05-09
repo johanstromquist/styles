@@ -9,7 +9,13 @@
 <body>
     <div class="container">
         <header>
-            <h1>Ideologier</h1>
+            <div class="header-flex">
+                <h1>Ideologier</h1>
+                <button class="audio-play-btn" id="audio-play-btn" aria-label="Spela upp podcast" title="Spela upp podcast">
+                    <span class="audio-icon">🔊</span>
+                </button>
+                <audio id="guide-audio" src="Individ, Identitet, och Ideologier.wav" preload="none"></audio>
+            </div>
             <p>En interaktiv studiehandledning om politiska idéer och system</p>
         </header>
         
@@ -489,6 +495,41 @@
           'identitet', 'liberalism', 'konservatism', 'socialism', 'fascism', 'feminism', 'ekologism', 'nationalism'
         ],
         sectionQuestions: true
+      });
+
+      // Audio play button logic
+      const audioBtn = document.getElementById('audio-play-btn');
+      const audio = document.getElementById('guide-audio');
+      const icon = audioBtn.querySelector('.audio-icon');
+      let isPlaying = false;
+
+      function updateAudioIcon() {
+        icon.textContent = isPlaying ? '⏸️' : '🔊';
+      }
+
+      audioBtn.addEventListener('click', function() {
+        if (audio.paused) {
+          audio.play();
+        } else {
+          audio.pause();
+        }
+      });
+
+      audio.addEventListener('play', function() {
+        isPlaying = true;
+        updateAudioIcon();
+      });
+      audio.addEventListener('pause', function() {
+        isPlaying = false;
+        updateAudioIcon();
+      });
+      audio.addEventListener('ended', function() {
+        isPlaying = false;
+        updateAudioIcon();
+      });
+      // Accessibility: Pause audio if user navigates away
+      window.addEventListener('beforeunload', function() {
+        if (!audio.paused) audio.pause();
       });
     </script>
 
