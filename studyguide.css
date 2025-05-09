@@ -1954,3 +1954,55 @@ tr:nth-child(even) {
 .definition-list-alt dd {
   margin-bottom: 15px; /* Add space after each description */
 }
+
+.portrait-img {
+    float: right;
+    margin: 0 0 10px 20px;
+    max-width: 120px;
+    height: auto;
+    cursor: pointer;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: box-shadow 0.2s;
+}
+.portrait-img:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+}
+.portrait-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.2s;
+}
+.portrait-modal.active {
+    display: flex;
+}
+.portrait-modal-img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    background: #fff;
+}
+.portrait-modal-close {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 2.5rem;
+    color: #fff;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10000;
+    transition: color 0.2s;
+}
+.portrait-modal-close:hover {
+    color: #ff5252;
+}
