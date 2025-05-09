@@ -533,3 +533,39 @@ A reusable component for profiling individuals (e.g., founders, key figures, or 
 ```
 
 *The Portrait Box is designed to work seamlessly with the Portrait Modal. See the ideologies guide for a full implementation example.*
+
+### 20. Topic Expansion Modal (`.topic-expansion-modal`)
+
+A reusable modal component for expanding on complex topics or providing in-depth explanations, without an image. Can be triggered from any section (e.g., to describe what society looks like under a specific ideology).
+
+*   **Trigger:** A button or link (e.g., `.topic-expansion-btn`) in the relevant section. Clicking opens the modal.
+*   **Modal Structure:**
+    *   `<div id="topic-expansion-modal" class="topic-expansion-modal">`
+        *   `<button class="topic-expansion-modal-close">` (close button)
+        *   `<div class="topic-expansion-modal-content">`
+            *   `<h2 id="topic-expansion-modal-title"></h2>` (title)
+            *   `<div id="topic-expansion-modal-body"></div>` (rich content)
+*   **Dynamic Content:**
+    *   The modal is populated via JavaScript using a mapping from keys to title and body HTML.
+    *   The body can be multi-paragraph and richly formatted.
+*   **Styling:**
+    *   `.topic-expansion-modal` for the overlay.
+    *   `.topic-expansion-modal-content` for the modal box.
+    *   `.topic-expansion-modal-close` for the close button.
+    *   `.topic-expansion-btn` for the trigger button.
+
+```html
+<!-- Example trigger in guide content -->
+<button class="topic-expansion-btn" onclick="openTopicExpansionModal('liberalism')">Läs mer om samhälle under liberalism</button>
+
+<!-- Modal structure at end of <body> -->
+<div id="topic-expansion-modal" class="topic-expansion-modal" onclick="closeTopicExpansionModal(event)">
+  <button class="topic-expansion-modal-close" onclick="closeTopicExpansionModal(event)">&times;</button>
+  <div class="topic-expansion-modal-content">
+    <h2 id="topic-expansion-modal-title"></h2>
+    <div id="topic-expansion-modal-body"></div>
+  </div>
+</div>
+```
+
+*The modal is initialized and populated by JavaScript. See the ideologies guide for a full implementation example.*

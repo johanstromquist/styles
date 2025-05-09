@@ -163,6 +163,7 @@
                     <li><span class="list-icon">💼</span> <strong>Entreprenörskap:</strong> Låga skatter, få regleringar, lätt att starta företag. Innovation och initiativkraft uppmuntras.</li>
                 </ul>
                 <p><strong>Drivkraft:</strong> Individens frihet, ansvar och marknadens effektivitet.</p>
+                <button class="topic-expansion-btn" onclick="openTopicExpansionModal('liberalism')">Läs mer om samhälle under liberalism</button>
             </div>
              <h4>Övningsfrågor: Liberalism</h4>
             <div id="liberalism-questions" class="quiz-container"></div>
@@ -584,6 +585,46 @@
     function closePortraitModal(event) {
       if (event.target.classList.contains('portrait-modal') || event.target.classList.contains('portrait-modal-close')) {
         document.getElementById('portrait-modal').classList.remove('active');
+      }
+    }
+    </script>
+
+    <!-- Topic Expansion Modal (no image) -->
+    <div id="topic-expansion-modal" class="topic-expansion-modal" onclick="closeTopicExpansionModal(event)">
+      <button class="topic-expansion-modal-close" onclick="closeTopicExpansionModal(event)">&times;</button>
+      <div class="topic-expansion-modal-content">
+        <h2 id="topic-expansion-modal-title"></h2>
+        <div id="topic-expansion-modal-body"></div>
+      </div>
+    </div>
+    <script>
+    const topicExpansionContent = {
+      liberalism: {
+        title: 'Samhälle under liberalism',
+        body: `<p>I ett liberalt samhälle står individens frihet och rättigheter i centrum. Staten har en begränsad men tydligt definierad roll: att skydda medborgarnas grundläggande fri- och rättigheter, såsom yttrandefrihet, äganderätt och rättssäkerhet.</p>
+        <p><strong>Maktdelning och institutioner:</strong> Liberala samhällen kännetecknas av maktdelning mellan lagstiftande, verkställande och dömande makt. Oberoende domstolar och fria val är grundläggande. Parlamentet stiftar lagar, regeringen verkställer dem och domstolarna tolkar dem. Detta motverkar maktmissbruk och skyddar minoriteter.</p>
+        <p><strong>Civil service och offentlig sektor:</strong> Den offentliga sektorn är ofta slimmad och fokuserar på kärnuppgifter: rättsväsende, försvar, grundutbildning och viss social trygghet. Myndigheter är politiskt oberoende och styrs av lagar snarare än av tillfälliga majoriteter.</p>
+        <p><strong>Ekonomi och företagande:</strong> Marknadsekonomin dominerar. Företag och individer har stor frihet att starta och driva verksamheter. Staten sätter spelregler men ingriper sällan direkt i ekonomin. Konkurrens och innovation ses som motorer för välstånd.</p>
+        <p><strong>Medborgarskap och civilsamhälle:</strong> Medborgarna har rätt att organisera sig, uttrycka åsikter och påverka politiken. Civilsamhället – föreningar, medier, organisationer – är starkt och fungerar som en motvikt till staten.</p>
+        <p><strong>Hallmark:</strong> Ett liberalt samhälle präglas av pluralism, tolerans och respekt för olikheter. Staten är "nattväktare" snarare än "välfärdsstat" och individens frihet är alltid utgångspunkten för politiska beslut.</p>`
+      }
+    };
+    function openTopicExpansionModal(key) {
+      var modal = document.getElementById('topic-expansion-modal');
+      var title = document.getElementById('topic-expansion-modal-title');
+      var body = document.getElementById('topic-expansion-modal-body');
+      if (topicExpansionContent[key]) {
+        title.textContent = topicExpansionContent[key].title;
+        body.innerHTML = topicExpansionContent[key].body;
+      } else {
+        title.textContent = 'Mer information';
+        body.innerHTML = '<p>Ingen utökad information tillgänglig.</p>';
+      }
+      modal.classList.add('active');
+    }
+    function closeTopicExpansionModal(event) {
+      if (event.target.classList.contains('topic-expansion-modal') || event.target.classList.contains('topic-expansion-modal-close')) {
+        document.getElementById('topic-expansion-modal').classList.remove('active');
       }
     }
     </script>
