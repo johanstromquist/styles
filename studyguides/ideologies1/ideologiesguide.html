@@ -205,6 +205,7 @@
                     <li><span class="list-icon">💼</span> <strong>Entreprenörskap:</strong> Företagande uppmuntras om det stärker samhällets stabilitet och traditioner. Förändring sker långsamt.</li>
                 </ul>
                 <p><strong>Drivkraft:</strong> Stabilitet, kontinuitet och bevarande av samhällsordning.</p>
+                <button class="topic-expansion-btn" onclick="openTopicExpansionModal('konservatism')">Läs mer om samhälle under konservatism</button>
             </div>
             <h4>Övningsfrågor: Konservatism</h4>
             <div id="konservatism-questions" class="quiz-container"></div>
@@ -246,9 +247,10 @@
                     <li><span class="list-icon">🏥</span> <strong>Vård:</strong> Offentlig, skattefinansierad vård. Alla har rätt till samma vård oavsett inkomst.</li>
                     <li><span class="list-icon">💼</span> <strong>Entreprenörskap:</strong> Företagande tillåts men regleras för att undvika orättvisor. Kooperativ och statliga företag är vanliga.</li>
                 </ul>
-                <p><strong>Drivkraft:</strong> Jämlikhet, solidaritet och kollektivt ansvar.</p>
+                <p><strong>Drivkraft:</strong> Jämställdhet, solidaritet och kollektivt ansvar.</p>
+                <button class="topic-expansion-btn" onclick="openTopicExpansionModal('socialism')">Läs mer om samhälle under socialism</button>
             </div>
-             <h4>Övningsfrågor: Socialism</h4>
+            <h4>Övningsfrågor: Socialism</h4>
             <div id="socialism-questions" class="quiz-container"></div>
             <button onclick="document.querySelector('[data-section=\'fascism\']').click()">Nästa Avsnitt: Fascism & Nazism</button>
         </section>
@@ -307,6 +309,7 @@
                     <li><span class="list-icon">💼</span> <strong>Entreprenörskap:</strong> Företagande kontrolleras av staten, ofta med fokus på nationens eller ledarens mål.</li>
                 </ul>
                 <p><strong>Drivkraft:</strong> Nationell styrka, lydnad och kontroll.</p>
+                <button class="topic-expansion-btn" onclick="openTopicExpansionModal('fascism')">Läs mer om samhälle under fascism</button>
             </div>
             <h4>Övningsfrågor: Fascism & Nazism</h4>
             <div id="fascism-questions" class="quiz-container"></div>
@@ -353,8 +356,9 @@
                     <li><span class="list-icon">💼</span> <strong>Entreprenörskap:</strong> Stöd till kvinnligt företagande, lagar mot diskriminering på arbetsmarknaden.</li>
                 </ul>
                 <p><strong>Drivkraft:</strong> Jämställdhet, inkludering och rättvisa.</p>
+                <button class="topic-expansion-btn" onclick="openTopicExpansionModal('feminism')">Läs mer om samhälle under feminism</button>
             </div>
-             <h4>Övningsfrågor: Feminism</h4>
+            <h4>Övningsfrågor: Feminism</h4>
             <div id="feminism-questions" class="quiz-container"></div>
             <button onclick="document.querySelector('[data-section=\'ekologism\']').click()">Nästa Avsnitt: Ekologism</button>
         </section>
@@ -395,6 +399,7 @@
                     <li><span class="list-icon">💼</span> <strong>Entreprenörskap:</strong> Grön innovation, stöd till miljövänliga företag och kooperativ. Cirkulär ekonomi.</li>
                 </ul>
                 <p><strong>Drivkraft:</strong> Hållbarhet, långsiktighet och ekologiskt ansvar.</p>
+                <button class="topic-expansion-btn" onclick="openTopicExpansionModal('ekologism')">Läs mer om samhälle under ekologism</button>
             </div>
             <h4>Övningsfrågor: Ekologism</h4>
             <div id="ekologism-questions" class="quiz-container"></div>
@@ -428,6 +433,7 @@
                     <li><span class="list-icon">💼</span> <strong>Entreprenörskap:</strong> Företagande ses som viktigt för nationens styrka, ibland skyddas inhemska företag mot utländsk konkurrens.</li>
                 </ul>
                 <p><strong>Drivkraft:</strong> Nationell gemenskap, suveränitet och lojalitet.</p>
+                <button class="topic-expansion-btn" onclick="openTopicExpansionModal('nationalism')">Läs mer om samhälle under nationalism</button>
             </div>
             <div class="info-box box-with-bg-icon">
                 <figure class="portrait-figure">
@@ -606,7 +612,61 @@
         <p><strong>Civil service och offentlig sektor:</strong> Den offentliga sektorn är ofta slimmad och fokuserar på kärnuppgifter: rättsväsende, försvar, grundutbildning och viss social trygghet. Myndigheter är politiskt oberoende och styrs av lagar snarare än av tillfälliga majoriteter.</p>
         <p><strong>Ekonomi och företagande:</strong> Marknadsekonomin dominerar. Företag och individer har stor frihet att starta och driva verksamheter. Staten sätter spelregler men ingriper sällan direkt i ekonomin. Konkurrens och innovation ses som motorer för välstånd.</p>
         <p><strong>Medborgarskap och civilsamhälle:</strong> Medborgarna har rätt att organisera sig, uttrycka åsikter och påverka politiken. Civilsamhället – föreningar, medier, organisationer – är starkt och fungerar som en motvikt till staten.</p>
-        <p><strong>Hallmark:</strong> Ett liberalt samhälle präglas av pluralism, tolerans och respekt för olikheter. Staten är "nattväktare" snarare än "välfärdsstat" och individens frihet är alltid utgångspunkten för politiska beslut.</p>`
+        <p><strong>Kännetecken:</strong> Ett liberalt samhälle präglas av pluralism, tolerans och respekt för olikheter. Staten är "nattväktare" snarare än "välfärdsstat" och individens frihet är alltid utgångspunkten för politiska beslut.</p>`
+      },
+      konservatism: {
+        title: 'Samhälle under konservatism',
+        body: `<p>I ett konservativt samhälle värderas tradition, stabilitet och kontinuitet högt. Samhällets institutioner bygger på historiska erfarenheter och förändring sker långsamt och med försiktighet.</p>
+        <p><strong>Maktdelning och institutioner:</strong> Konservativa samhällen har ofta starka band till monarkin, kyrkan eller andra historiska institutioner. Lagstiftande och verkställande makt är tydligt åtskilda, men förändringar i maktbalansen sker gradvis. Familjen och lokalsamhället ses som grundbultar.</p>
+        <p><strong>Civil service och offentlig sektor:</strong> Staten är liten och kompletterar snarare än ersätter familjens och civilsamhällets roll. Offentliga tjänster är begränsade och lokala lösningar prioriteras. Myndigheter styrs av tradition och sedvänja.</p>
+        <p><strong>Ekonomi och företagande:</strong> Företagande uppmuntras om det stärker samhällets stabilitet och traditioner. Marknadsekonomi accepteras, men regleringar kan införas för att skydda nationella intressen och bevara social ordning.</p>
+        <p><strong>Medborgarskap och civilsamhälle:</strong> Medborgarna förväntas bidra till samhällets stabilitet genom att följa traditioner och normer. Civilsamhället är starkt och fungerar som ett socialt skyddsnät.</p>
+        <p><strong>Kännetecken:</strong> Ett konservativt samhälle präglas av respekt för det förflutna, långsam förändring och starka sociala band.</p>`
+      },
+      socialism: {
+        title: 'Samhälle under socialism',
+        body: `<p>I ett socialistiskt samhälle är jämlikhet, solidaritet och kollektivt ansvar centrala värden. Staten har en aktiv roll i att omfördela resurser och säkerställa grundläggande välfärd för alla.</p>
+        <p><strong>Maktdelning och institutioner:</strong> Staten har ofta en dominerande roll och kontrollerar viktiga samhällsfunktioner. Parlamentet och regeringen har stor makt, men det finns också inslag av direktdemokrati och arbetarråd i vissa varianter.</p>
+        <p><strong>Civil service och offentlig sektor:</strong> Den offentliga sektorn är omfattande och ansvarar för utbildning, vård, omsorg och andra välfärdstjänster. Myndigheter arbetar för att utjämna skillnader och säkerställa lika möjligheter.</p>
+        <p><strong>Ekonomi och företagande:</strong> Produktionsmedlen ägs gemensamt eller av staten. Företagande tillåts men regleras hårt för att undvika orättvisor. Kooperativ och statliga företag är vanliga.</p>
+        <p><strong>Medborgarskap och civilsamhälle:</strong> Medborgarna deltar aktivt i samhällslivet genom fackföreningar, kooperativ och politiska organisationer. Civilsamhället är ofta organiserat kring kollektiva mål.</p>
+        <p><strong>Kännetecken:</strong> Ett socialistiskt samhälle präglas av jämlikhet, solidaritet och en stark offentlig sektor.</p>`
+      },
+      fascism: {
+        title: 'Samhälle under fascism',
+        body: `<p>I ett fascistiskt samhälle är staten och ledaren allsmäktiga. Individens intressen underordnas nationens och lydnad mot staten är centralt.</p>
+        <p><strong>Maktdelning och institutioner:</strong> Makten är starkt centraliserad till en ledare eller ett parti. Parlament och domstolar har liten eller ingen självständighet. Propaganda och censur är vanliga verktyg för att kontrollera befolkningen.</p>
+        <p><strong>Civil service och offentlig sektor:</strong> Offentliga institutioner används för att genomdriva statens vilja. Skola, media och civilsamhälle kontrolleras av staten och används för att forma lojala medborgare.</p>
+        <p><strong>Ekonomi och företagande:</strong> Företagande tillåts men kontrolleras av staten. Ekonomin styrs mot nationella mål och företag måste följa statens direktiv.</p>
+        <p><strong>Medborgarskap och civilsamhälle:</strong> Medborgarna förväntas vara lojala mot staten och ledaren. Oliktänkande förföljs och civilsamhället är svagt eller helt kontrollerat av staten.</p>
+        <p><strong>Kännetecken:</strong> Ett fascistiskt samhälle präglas av auktoritär kontroll, nationalism och förtryck av oliktänkande.</p>`
+      },
+      feminism: {
+        title: 'Samhälle under feminism',
+        body: `<p>I ett feministiskt samhälle är jämställdhet, inkludering och rättvisa centrala värden. Staten och samhället arbetar aktivt för att motverka diskriminering och skapa lika möjligheter för alla kön.</p>
+        <p><strong>Maktdelning och institutioner:</strong> Institutioner granskas och reformeras för att säkerställa jämställdhet. Lagstiftning mot diskriminering och för lika rättigheter är central. Representation av kvinnor och minoriteter i maktpositioner prioriteras.</p>
+        <p><strong>Civil service och offentlig sektor:</strong> Offentliga tjänster utformas för att vara tillgängliga och rättvisa för alla. Särskilda satsningar görs på kvinnors hälsa, utbildning och arbetsliv.</p>
+        <p><strong>Ekonomi och företagande:</strong> Arbetsmarknaden regleras för att motverka löneskillnader och diskriminering. Stöd ges till kvinnligt företagande och föräldraledighet delas lika.</p>
+        <p><strong>Medborgarskap och civilsamhälle:</strong> Medborgarna uppmuntras att engagera sig i jämställdhetsarbete och ifrågasätta normer. Civilsamhället är aktivt i frågor om rättvisa och inkludering.</p>
+        <p><strong>Kännetecken:</strong> Ett feministiskt samhälle präglas av jämställdhet, mångfald och aktivt arbete mot diskriminering.</p>`
+      },
+      ekologism: {
+        title: 'Samhälle under ekologism',
+        body: `<p>I ett ekologistiskt samhälle är hållbarhet, långsiktighet och ekologiskt ansvar vägledande principer. Samhället organiseras för att minimera miljöpåverkan och leva inom planetens gränser.</p>
+        <p><strong>Maktdelning och institutioner:</strong> Beslutsfattande decentraliseras och sker nära medborgarna. Miljöfrågor integreras i alla politiska beslut och institutioner har ansvar för ekologisk hållbarhet.</p>
+        <p><strong>Civil service och offentlig sektor:</strong> Offentliga tjänster utformas för att vara miljövänliga och hållbara. Investeringar görs i förnybar energi, kollektivtrafik och cirkulär ekonomi.</p>
+        <p><strong>Ekonomi och företagande:</strong> Ekonomin styrs mot hållbarhet snarare än tillväxt. Företag och innovationer som bidrar till ekologisk balans uppmuntras och stöds.</p>
+        <p><strong>Medborgarskap och civilsamhälle:</strong> Medborgarna engagerar sig i miljöfrågor och hållbar livsstil. Civilsamhället driver på för förändring och ansvarstagande.</p>
+        <p><strong>Kännetecken:</strong> Ett ekologistiskt samhälle präglas av respekt för naturen, långsiktigt tänkande och decentraliserat beslutsfattande.</p>`
+      },
+      nationalism: {
+        title: 'Samhälle under nationalism',
+        body: `<p>I ett nationalistiskt samhälle står nationens intressen, kultur och suveränitet i centrum. Staten arbetar för att skydda och främja den nationella identiteten.</p>
+        <p><strong>Maktdelning och institutioner:</strong> Staten har ofta stark kontroll över gränser, utbildning och kultur. Institutioner används för att stärka nationell samhörighet och lojalitet.</p>
+        <p><strong>Civil service och offentlig sektor:</strong> Offentliga tjänster prioriterar egna medborgares behov. Vård, utbildning och sociala tjänster används för att stärka nationen.</p>
+        <p><strong>Ekonomi och företagande:</strong> Företagande ses som viktigt för nationens styrka. Inhemska företag skyddas mot utländsk konkurrens och handelspolitiken är ofta protektionistisk.</p>
+        <p><strong>Medborgarskap och civilsamhälle:</strong> Medborgarna förväntas vara lojala mot nationen och bidra till dess styrka. Civilsamhället organiseras kring nationella värden och traditioner.</p>
+        <p><strong>Kännetecken:</strong> Ett nationalistiskt samhälle präglas av stark nationell identitet, lojalitet och ibland restriktiv hållning till omvärlden.</p>`
       }
     };
     function openTopicExpansionModal(key) {
