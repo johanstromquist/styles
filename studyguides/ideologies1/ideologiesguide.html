@@ -461,25 +461,49 @@
         <section id="quiz" class="section animated">
             <h2>Interaktivt Quiz: Ideologier</h2>
             <p>Testa dina kunskaper om de olika ideologierna och grundläggande begrepp!</p>
-            
-            <div class="quiz-container">
-                <div class="quiz-header">
-                    <h3 id="question-text">Fråga laddas...</h3>
+
+            <div id="quiz-start">
+                <div class="info-box">
+                    <h3>Dags att testa dina kunskaper!</h3>
+                    <p>Detta quiz innehåller slumpmässigt utvalda frågor från alla avsnitt i studiehandledningen. Försök att svara så snabbt och korrekt som möjligt för att få högsta poäng!</p>
+                    <ul>
+                        <li>Du får poäng för varje rätt svar</li>
+                        <li>Ju snabbare du slutför quizet, desto fler bonuspoäng får du</li>
+                        <li>Kan du slå ditt eget rekord?</li>
+                    </ul>
                 </div>
-                <div id="options-container" class="options-grid">
-                    <!-- Alternativ laddas här -->
+                <div class="achievement-tier">
+                    <div class="tier tier-1">Nivå 1: Slutför på under 3 minuter</div>
+                    <div class="tier tier-2">Nivå 2: Slutför på under 2 minuter</div>
+                    <div class="tier tier-3">Nivå 3: Slutför på under 1 minut</div>
                 </div>
-                <button id="next-question" style="display: none;">Nästa fråga</button>
-                <div id="feedback" class="feedback-message" style="display: none;"></div>
+                <div id="best-time-display" class="time-record">Ditt snabbaste resultat: Inte satt än</div>
+                <div class="difficulty-switch-wrapper">
+                    <div class="difficulty-switch">
+                        <label for="difficulty-normal">Svårighetsgrad:</label>
+                        <div class="switch-container">
+                            <input type="radio" id="difficulty-normal" name="difficulty" value="normal" checked>
+                            <label for="difficulty-normal" class="switch-label switch-label-left">Normal 🙂</label>
+                            <input type="radio" id="difficulty-crazy" name="difficulty" value="crazy">
+                            <label for="difficulty-crazy" class="switch-label switch-label-right">Crazy Bananas! 🤪🍌</label>
+                            <span class="switch-selection"></span>
+                        </div>
+                    </div>
+                </div>
+                <button id="start-quiz-btn">Starta Quiz</button>
             </div>
 
-            <div class="quiz-results" style="display: none;">
-                <h3>Quiz Resultat</h3>
-                <p>Du fick <span id="score-correct"></span> av <span id="score-total"></span> rätt!</p>
-                <p>Din tid: <span id="quiz-time"></span></p>
-                <p>Poäng: <span id="quiz-points"></span></p>
-                <button id="restart-quiz">Försök igen</button>
+            <div id="quiz-progress" style="display: none;">
+                <div class="timer" id="quiz-timer">0:00</div>
+                <div class="progress-container">
+                    <div class="progress-bar" id="quiz-progress-bar"></div>
+                </div>
+                <p id="quiz-progress-text">0 av 0 besvarade</p>
             </div>
+
+            <div id="quiz-questions" style="display: none;"></div>
+
+            <div id="quiz-result" style="display: none;"></div>
         </section>
     </div>
 

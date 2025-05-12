@@ -19,4 +19,5 @@ Fri May  9 11:12:55 CEST 2025: Created a new study guide for Ideologies. This in
 2025-05-09 13:49:10  Moved the audio play button to the left of the header title in ideologiesguide.html as requested for improved layout.
 2025-05-09 13:53:32  Moved the audio play button outside the header-flex and left-aligned it in the header, so the title remains centered and the button is visually separated. Updated CSS for layout and responsiveness.
 2025-05-09 13:55:42  Updated audio play button to use a white background with primary border, and changed the icon to a play (▶️) and pause (⏸️) symbol for better media control clarity in ideologiesguide.html and studyguide.css.
-2025-05-09 14:23:31  Added favicon support to index.html using both rel="icon" and rel="shortcut icon" for maximum browser compatibility. 
+2025-05-09 14:23:31  Added favicon support to index.html using both rel="icon" and rel="shortcut icon" for maximum browser compatibility.
+2025-05-12 18:44:00  Fixed ideologies guide quiz section: added full-featured quiz start screen, difficulty switch, and correct structure to match healthguide.html. Quiz now loads and works as intended. 
