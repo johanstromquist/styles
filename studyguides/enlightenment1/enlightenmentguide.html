@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upplysningen - Interaktiv Studiehandledning</title>
+    <link rel="stylesheet" href="../../studyguide.css">
+    <style>
+        /* Immersive styling additions */
+        .narrative-section {
+            font-size: 1.1em;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .narrative-section p {
+            margin-bottom: 1.5em;
+            text-align: left;
+        }
+        .literary-excerpt {
+            background: linear-gradient(135deg, #f8f4e8 0%, #f0ebe0 100%);
+            border-left: 4px solid var(--primary);
+            padding: 25px 30px;
+            margin: 30px 0;
+            font-style: italic;
+            position: relative;
+        }
+        .literary-excerpt::before {
+            content: '"';
+            font-size: 4em;
+            color: var(--primary);
+            opacity: 0.3;
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            font-family: Georgia, serif;
+        }
+        .literary-excerpt .source {
+            font-style: normal;
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 15px;
+            text-align: right;
+        }
+        .inline-portrait {
+            float: right;
+            margin: 0 0 20px 30px;
+            max-width: 200px;
+            text-align: center;
+        }
+        .inline-portrait img {
+            width: 180px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .inline-portrait img:hover {
+            transform: scale(1.05);
+        }
+        .inline-portrait figcaption {
+            font-size: 0.9em;
+            color: #555;
+            margin-top: 8px;
+        }
+        .era-intro {
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .era-intro h2 {
+            color: white;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        .era-intro p {
+            font-size: 1.2em;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .dramatic-moment {
+            background: #fff8e7;
+            border: 2px solid #d4a84b;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+        .dramatic-moment h4 {
+            color: #8b6914;
+            margin-bottom: 15px;
+        }
+        .concept-highlight {
+            background: #e8f4f8;
+            padding: 20px 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid var(--primary);
+        }
+        .concept-highlight strong {
+            color: var(--primary);
+        }
+        .thinker-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        .thinker-card {
+            text-align: center;
+            flex: 0 0 150px;
+        }
+        .thinker-card img {
+            width: 120px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .thinker-card img:hover {
+            transform: scale(1.08);
+        }
+        .thinker-card p {
+            font-size: 0.9em;
+            margin-top: 8px;
+            font-weight: 500;
+        }
+        .chapter-transition {
+            text-align: center;
+            padding: 40px 20px;
+            margin: 40px 0;
+            border-top: 2px solid #e0e0e0;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        .chapter-transition p {
+            font-size: 1.1em;
+            color: #555;
+            font-style: italic;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        @media (max-width: 768px) {
+            .inline-portrait {
+                float: none;
+                margin: 20px auto;
+            }
+            .narrative-section {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Upplysningen</h1>
+            <p>Förnuftets tidsålder: En resa genom 1700-talets idévärld</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#" class="active" data-section="intro">Start</a></li>
+                <li><a href="#" data-section="vaggan">Vaggan</a></li>
+                <li><a href="#" data-section="frankrike">Frankrike</a></li>
+                <li><a href="#" data-section="romanen">Romanen</a></li>
+                <li><a href="#" data-section="voltaire">Voltaire</a></li>
+                <li><a href="#" data-section="sverige">Sverige</a></li>
+                <li><a href="#" data-section="arvet">Arvet</a></li>
+                <li><a href="#" data-section="quiz">Quiz</a></li>
+            </ul>
+        </nav>
+
+        <!-- INTRO -->
+        <section id="intro" class="section active animated">
+            <div class="era-intro">
+                <h2>Välkommen till Upplysningen</h2>
+                <p>En tid då nya idéer utmanade gamla föreställningar om religion, kunskap och makt. Följ med på en resa genom 1700-talets idévärld – från Londons kaffehus till Voltaires fängelsecell, från Linnés botaniska resor till Bellmans Stockholmskrogar.</p>
+            </div>
+
+            <div class="narrative-section">
+                <p>Upplysningen var en intellektuell revolution. Under nästan ett århundrade – från slutet av 1600-talet genom hela 1700-talet – ifrågasatte filosofer, vetenskapsmän och författare allt som tidigare tagits för givet. Varför skulle kungar styra enväldigt? Varför skulle kyrkan ha makt över människors tankar? Kunde inte förnuftet och vetenskapen visa oss en bättre väg?</p>
+
+                <p>Det började i England, där parlamentet tagit makten från kungen. Det spreds till Frankrike, där filosoferna kritiserade kyrkan och adelns privilegier. Det nådde Sverige, där Linné systematiserade naturen och Bellman sjöng om livet på Stockholms gator. Och det lever kvar idag – i våra demokratier, våra mänskliga rättigheter, vår tilltro till vetenskap och förnuft.</p>
+
+                <div class="info-box">
+                    <h3>Så använder du guiden</h3>
+                    <p>Den här studiehandledningen berättar upplysningens historia genom de människor som formade den. Du kommer att möta filosofer som riskerade fängelse för sina idéer, författare som kritiserade makten genom satir, och vetenskapsmän som visade att världen kunde förklaras utan mirakel.</p>
+                    <p>Klicka på porträtten för att läsa mer om varje person. Avsluta med quizet för att testa dina kunskaper!</p>
+                </div>
+            </div>
+
+            <div class="flex-container">
+                <div class="card">
+                    <h3>🏆 Dina framsteg</h3>
+                    <div class="best-score-display">
+                        <p><span class="icon">✔️</span> Rätt svar: <strong id="best-score-correct">--</strong></p>
+                        <p><span class="icon">⏱️</span> Tid: <strong id="best-score-time">--:--</strong></p>
+                        <p><span class="icon">⭐</span> Poäng: <strong id="best-score-points">----</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="document.querySelector('[data-section=\'vaggan\']').click()">Börja resan</button>
+
+            <div id="achievements-list" class="achievements"></div>
+        </section>
+
+        <!-- UPPLYSNINGENS VAGGA -->
+        <section id="vaggan" class="section animated">
+            <h2>Upplysningens Vagga: England</h2>
+
+            <div class="narrative-section">
+                <figure class="inline-portrait">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/JohnLocke.png" alt="John Locke" class="portrait-img" data-person="john-locke" onclick="openPortraitModal(this)">
+                    <figcaption>John Locke (1632–1704)</figcaption>
+                </figure>
+
+                <p>År 1688 hände något avgörande i England. I vad som kallas "den ärorika revolutionen" avsattes kung Jakob II, och parlamentet fick makten att bestämma vem som skulle regera. Det var inte längre Gud som utsåg kungar – det var folket, genom sina representanter.</p>
+
+                <p>Denne samhällsförändring vilade på tankarna hos en filosof vid namn <strong>John Locke</strong>. Locke hade en radikal idé: alla människor föds med <em>naturliga rättigheter</em> som ingen – inte ens kungen – har rätt att kränka. Rätten till liv. Rätten till frihet. Rätten till egendom.</p>
+
+                <div class="concept-highlight">
+                    <p><strong>Tabula rasa</strong> – det oskrivna bladet. Enligt Locke föds vi alla som tomma ark. Det är genom våra erfarenheter och vår uppfostran vi blir de vi är. Detta kallas <strong>empirism</strong>: kunskap kommer från sinnesintryck, inte från medfödda idéer eller gudomlig uppenbarelse.</p>
+                </div>
+
+                <p>Om människor formas av sina erfarenheter, betyder det att samhället kan förbättras. Med rätt uppfostran och utbildning kan vem som helst utvecklas. Detta var en djupt optimistisk tanke – och den skulle komma att prägla hela upplysningen.</p>
+
+                <figure class="inline-portrait" style="float: left; margin: 0 30px 20px 0;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/GodfreyKneller-IsaacNewton-1689.jpg" alt="Isaac Newton" class="portrait-img" data-person="isaac-newton" onclick="openPortraitModal(this)">
+                    <figcaption>Isaac Newton (1642–1727)</figcaption>
+                </figure>
+
+                <p>Men det var inte bara politiken som förändrades. Vetenskapen hade gjort en upptäckt som skakade om hela världsbilden.</p>
+
+                <p><strong>Isaac Newton</strong> visade att universum styrs av matematiska lagar. Hans gravitationslag förklarade i ett slag varför planeter håller sig i sina banor, varför äpplen faller till marken, varför tidvattnet stiger och sjunker. Skapelsen var <em>lagbunden</em>. Den kunde undersökas, mätas, vägas och förklaras – utan att man behövde hänvisa till mirakel.</p>
+
+                <p>Newton var själv djupt troende och menade att naturens ordning vittnade om Guds storhet. Men hans upptäckter drog upp en gräns mellan vetenskap och tro som i många stycken gäller än idag. Om universum följer naturlagar, vad blir då kvar för religionen att förklara?</p>
+
+                <div class="literary-excerpt">
+                    "Jag vet inte hur jag ter mig för världen, men för mig själv förefaller jag bara ha varit som en pojke som leker på stranden och då och då roar sig med att hitta en slätare sten eller ett vackrare snäckskal än vanligt, medan det stora sanningens ocean låg outforskat framför mig."
+                    <div class="source">— Isaac Newton</div>
+                </div>
+
+                <p style="clear: both;">Dessa två män – Locke med sina politiska idéer, Newton med sin vetenskap – lade grunden för upplysningen. Deras tankar spreds över hela Europa, och snart skulle de slå rot i Frankrikes intellektuella jordmån.</p>
+            </div>
+
+            <div class="section-quiz">
+                <h4>Reflektera</h4>
+                <div id="vaggan-questions" class="quiz-container"></div>
+            </div>
+
+            <button onclick="document.querySelector('[data-section=\'frankrike\']').click()">Till Frankrike</button>
+        </section>
+
+        <!-- FRANKRIKE -->
+        <section id="frankrike" class="section animated">
+            <h2>Frankrike: Idéernas Slagfält</h2>
+
+            <div class="narrative-section">
+                <p>Om England var upplysningens vagga, så blev Frankrike dess slagfält. Här låg all makt i kungens händer. Den katolska kyrkan dominerade det intellektuella livet. Censuren var sträng. Att kritisera religionen eller monarkin kunde leda till fängelse – eller värre.</p>
+
+                <p>Och ändå: det var just här som upplysningens idéer brann som starkast.</p>
+
+                <p>De franska "philosophes" – filosoferna – inspirerades av utvecklingen i England. De läste Locke och beundrade det engelska parlamentariska systemet. Men medan engelsmännen hade sin "ärorika revolution" bakom sig, hade fransmännen sin framför sig. Deras kritik av maktmissbruk, orättvisor och religiös intolerans var farlig – och nödvändig.</p>
+
+                <div class="dramatic-moment">
+                    <h4>Caféernas Värld</h4>
+                    <p>På Parisisk caféer som Café Procope samlades filosofer, författare och konstnärer. Tidningar och pamfletter cirkulerade. Nya idéer diskuterades öppet – åtminstone tills polisen kom. Läskunnigheten ökade, inte minst bland den växande borgarklassen. En ny offentlighet växte fram, utanför kyrkans och hovets kontroll.</p>
+                </div>
+
+                <h3>Jean-Jacques Rousseau: Naturens Apostel</h3>
+
+                <figure class="inline-portrait">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Jean-Jacques_Rousseau_%28painted_portrait%29.jpg/440px-Jean-Jacques_Rousseau_%28painted_portrait%29.jpg" alt="Jean-Jacques Rousseau" class="portrait-img" data-person="rousseau" onclick="openPortraitModal(this)">
+                    <figcaption>Jean-Jacques Rousseau (1712–1778)</figcaption>
+                </figure>
+
+                <p><strong>Jean-Jacques Rousseau</strong> var en av upplysningens mest originella – och motsägelsefulla – tänkare. Till skillnad från de flesta andra menade han att konst och vetenskap skapat mer skada än nytta. Bara naturen var ren och ofördärvad. Civilisationen hade korrumperat människan.</p>
+
+                <p>Men hans mest revolutionerande idé handlade om barn. Rousseau "upptäckte barndomen" – han hävdade att barn inte är ofullkomliga vuxna, utan har sitt eget sätt att uppleva världen. I romanen <em>Émile</em> (1762) beskriver han hur ett barn ska uppfostras: genom erfarenhet och kontakt med naturen, inte genom böcker och auktoriteter. Barn ska få vara barn.</p>
+
+                <div class="concept-highlight">
+                    <p><strong>"Tillbaka till naturen"</strong> blev slagordet för Rousseaus filosofi. Det naturliga var gott – det var samhällets konventioner som förstörde människan.</p>
+                </div>
+
+                <p style="clear: both;">Men det fanns en mörk ironi i Rousseaus liv. Han som skrev om uppfostran överlämnade alla sina fem barn till barnhem. Och hans frihetslöften gällde egentligen bara pojkar. I <em>Émile</em> framställs den ideala kvinnan, Sophie, som någon vars viktigaste uppgift är att behaga mannen.</p>
+
+                <p>Det var denna motsägelse som fick en engelsk författare att gripa pennan. <strong>Upplysningen var i första hand en rörelse för män.</strong> Trots alla fina ord om frihet och rättigheter förändrades inte kvinnornas villkor nämnvärt.</p>
+
+                <figure class="inline-portrait">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/Mary_Wollstonecraft_by_John_Opie_%28c._1797%29.jpg" alt="Mary Wollstonecraft" class="portrait-img" data-person="wollstonecraft" onclick="openPortraitModal(this)">
+                    <figcaption>Mary Wollstonecraft (1759–1797)</figcaption>
+                </figure>
+
+                <p><strong>Mary Wollstonecraft</strong> skrev 1792 ett av världslitteraturens första feministiska verk: <em>Till försvar för kvinnans rättigheter</em>. Hon vände upplysningens argument mot upplysningen själv: om alla människor föds som oskrivna blad, om alla kan utvecklas genom utbildning – varför ska då kvinnor hållas tillbaka?</p>
+
+                <div class="literary-excerpt">
+                    "Låt inte männen av stolthet över sin makt använda samma argument som tyranniska kungar och korrumperade ministrar har gjort och felaktigt påstå att kvinnan måste förtryckas därför att det alltid har varit så."
+                    <div class="source">— Mary Wollstonecraft, <em>Till försvar för kvinnans rättigheter</em>, 1792</div>
+                </div>
+
+                <p style="clear: both;">Wollstonecraft dog ung, bara 38 år gammal, i barnsängsfeber. Men hennes dotter, Mary Shelley, skulle gå i moderns fotspår – och skriva en av litteraturhistoriens mest berömda romaner: <em>Frankenstein</em>.</p>
+
+                <h3>Encyklopedin: Kunskapens Tempel</h3>
+
+                <p>Mitt i denna intellektuella jäsning beslöt två filosofer – <strong>Denis Diderot</strong> och <strong>Jean le Rond d'Alembert</strong> – att samla all mänsklig kunskap i ett enda verk. Resultatet blev <em>Encyklopedin</em>: 35 volymer med artiklar om allt från filosofi till hantverk, illustrerade med vackra bilder.</p>
+
+                <p>Det var mer än ett uppslagsverk. Det var en manifestation av upplysningens tro på mänskligt förnuft och kreativitet. Och det var farligt. Kyrkan och kungamakten försökte stoppa utgivningen. Diderot fängslades. Vissa volymer gavs ut i hemlighet.</p>
+
+                <p>Men de kunde inte stoppa idéerna. Encyklopedin spreds över hela Europa och blev en symbol för upplysningens projekt: att ersätta vidskepelse med vetenskap, godtycke med förnuft.</p>
+            </div>
+
+            <div class="section-quiz">
+                <h4>Reflektera</h4>
+                <div id="frankrike-questions" class="quiz-container"></div>
+            </div>
+
+            <button onclick="document.querySelector('[data-section=\'romanen\']').click()">Till Litteraturen</button>
+        </section>
+
+        <!-- ROMANEN -->
+        <section id="romanen" class="section animated">
+            <h2>Romanen som Vapen</h2>
+
+            <div class="narrative-section">
+                <p>För upplysningens författare blev romanen ett sätt att kritisera och ifrågasätta. Genom fiktiva berättelser kunde man angripa kyrkan och makten utan att öppet utmana dem. Satir blev ett vapen – och några av 1700-talets skarpaste pennor visste precis hur man använde det.</p>
+
+                <h3>Robinson Crusoe: Förnuftets Triumf</h3>
+
+                <p>År 1719 gav <strong>Daniel Defoe</strong> ut en roman som skulle bli en av de mest lästa böckerna i historien, näst efter Bibeln. Den handlade om en skeppsbruten engelsman på en öde ö – och om hur han, med hjälp av sitt förnuft, lyckas överleva i 28 år.</p>
+
+                <p>Robinson Crusoe är 19 år när han ger sig till sjöss. Han hamnar i turkisk fångenskap, blir slav, flyr, köper slavar i Afrika, blir skeppsbruten. Ensam på sin ö måste han lära sig allt från början: hur man gör verktyg, hur man odlar, hur man bygger ett hem. Förutom det han lyckats rädda från det sjunkna skeppet – vapen, kläder, en säck med spannmål – har han bara sitt förnuft att förlita sig på.</p>
+
+                <div class="literary-excerpt">
+                    "Jag tog lera och med tid och tålamod lärde jag mig göra ett slags parasoll, vilket jag mycket behövde mot den starka solhettan. Och så gick jag framåt, och inte på min mest bekymrade och nöjde mig med mitt lilla förråd av att skämma. [...] Jag hade på senare tid alltmer märkt att det var jag hade lyckats mer och mer."
+                    <div class="source">— Daniel Defoe, <em>Robinson Crusoe</em>, 1719</div>
+                </div>
+
+                <p>Robinson är den typiska <em>upplysningsmannen</em>: optimistisk, praktisk, förnuftig. Han löser problem genom observation och erfarenhet – inte genom bön eller tradition. Romanen blev ett bevis på vad en människa kan åstadkomma med sitt förstånd.</p>
+
+                <h3>Jonathan Swift: Satirens Mästare</h3>
+
+                <p>I Dublin, på Irland, finns en katedral med en marmorbyst av en man vars gravsten säger att han "inte längre kan kränkas av människors grymma indignation". Orden är <strong>Jonathan Swifts</strong> egna – och de säger mycket om hans liv och verk.</p>
+
+                <p>Swift var en av upplysningstidens stora satiriker. Hans mest kända roman, <em>Gullivers resor</em> (1726), liknar till ytan Robinson Crusoe – en reseskildring om en skeppsbruten man. Men medan Defoes roman firar förnuftet, använder Swift sina fantastiska äventyr för att driva med det engelska samhället.</p>
+
+                <p>Gulliver besöker lilliputiernas rike, där 15 centimeter höga människor krigar om... vilken ände av ägget man ska knäcka först. "Tjockändarna" och "Tunnändarna" har stridit i generationer, förlorat tusentals liv, och grannlandet Blefuscu har gett asyl åt flyktingar från den förföljda sidan. Satiren är glasklar: Swift driver med de religiösa konflikter som slitit sönder Europa – och visar hur absurda de framstår när man ser dem utifrån.</p>
+
+                <p>I jättarnas land framstår Gullivers hemlands politik som löjlig. Och bland de förnuftiga hästarna lever han i harmoni – till skillnad från de vilda, människolika "yahoos" som representerar mänsklighetens lägsta instinkter.</p>
+
+                <p>Swift engagerade sig också för Irlands fattiga. I den satiriska essän <em>Ett anspråkslöst förslag</em> (1729) föreslår han – med dödligt allvar – att man borde äta de fattigas barn. Pointen var brutal: om ni inte bryr er om de fattiga, varför inte behandla dem som boskap?</p>
+
+                <h3>Brevromanen: Pamela</h3>
+
+                <p><strong>Samuel Richardson</strong> arbetade som boktryckare när han fick i uppdrag att skriva en handbok i konsten att skriva brev. Under arbetet fick han en idé: varför inte praktisera sitt kunnande i en roman som <em>bestod</em> av brev?</p>
+
+                <p>Resultatet blev <em>Pamela</em> (1740), berättelsen om en 15-årig tjänsteflicka som skriver till sina föräldrar om livet i hushållet där hon arbetar. Husets son försöker förföra henne – och brevväxlingen avslöjar hennes tankar och känslor, hennes rädsla och hennes hopp.</p>
+
+                <div class="literary-excerpt">
+                    "Kära Pamela! Jag kan inte annat än upprepa mina varningar med avseende på unge herrns vänlighet [...] Bered dig på det värsta, kära barn. Föresätt dig att hellre mista livet än dygden. [...] Akta skönhet kommer sig allenast av dygd och ärbarhet. Kom ihåg det Pamela."
+                    <div class="source">— Pamelas far, i Samuel Richardson, <em>Pamela</em>, 1740</div>
+                </div>
+
+                <p>Brevromanen var en revolution. För första gången fick läsaren tillgång till en karaktärs innersta tankar – inte genom en allvetande berättare, utan genom hennes egna ord. Det var ett steg mot den psykologiska realism som skulle blomstra under 1800-talet.</p>
+            </div>
+
+            <div class="chapter-transition">
+                <p>Men den författare som kom att personifiera upplysningen mer än någon annan var en fransman med vass penna och ännu vassare tunga...</p>
+            </div>
+
+            <button onclick="document.querySelector('[data-section=\'voltaire\']').click()">Möt Voltaire</button>
+        </section>
+
+        <!-- VOLTAIRE -->
+        <section id="voltaire" class="section animated">
+            <h2>Voltaire: Förnuftets Krigare</h2>
+
+            <div class="narrative-section">
+                <figure class="inline-portrait">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/D%27apr%C3%A8s_Maurice_Quentin_de_La_Tour%2C_Portrait_de_Voltaire%2C_d%C3%A9tail_du_visage_%28ch%C3%A2teau_de_Ferney%29.jpg/800px-D%27apr%C3%A8s_Maurice_Quentin_de_La_Tour%2C_Portrait_de_Voltaire%2C_d%C3%A9tail_du_visage_%28ch%C3%A2teau_de_Ferney%29.jpg" alt="Voltaire" class="portrait-img" data-person="voltaire" onclick="openPortraitModal(this)">
+                    <figcaption>Voltaire (1694–1778)</figcaption>
+                </figure>
+
+                <p>Han hette egentligen François-Marie Arouet. Men världen känner honom som <strong>Voltaire</strong> – och han var en av de mest kontroversiella och inflytelserika tänkarna i historien.</p>
+
+                <p>Voltaire var under praktiskt taget hela sitt liv förföljd av myndigheterna. Han satt i Bastiljen – Frankrikes ökända fängelse – flera gånger. Han tvingades i exil. Hans böcker brändes. Men med sin vassa penna fortsatte han att kritisera religiös intolerans, kyrkans makt och adelns privilegier.</p>
+
+                <p>Under några år i England lärde han känna Lockes filosofi och Newtons vetenskap. Han beundrade det engelska systemet med begränsad kungamakt. Tillbaka i Frankrike gav han ut <em>Filosofiska brev</em> – till ytan en reseskildring från England, men egentligen en förklädd attack mot förhållandena i Frankrike. Boken förbjöds. Voltaire fick fly.</p>
+
+                <h3>Candide: Satir mot Optimismen</h3>
+
+                <p>Den 1 november 1755 drabbades Lissabon av en fruktansvärd jordbävning. Tiotusentals människor dog – många i kyrkor där de firade Allhelgonadagen. Hela Europa chockades. Hur kunde Gud tillåta något sådant?</p>
+
+                <p>Den tyske filosofen Leibniz hade hävdat att vi lever i "den bästa av alla tänkbara världar" – att Gud, som är allsmäktig och god, måste ha sina skäl även för det som verkar ont. Voltaire hade alltid tyckt att denna optimism var naiv. Efter Lissabon blev den outhärdlig.</p>
+
+                <p>Hans svar blev romanen <em>Candide</em> (1759). Huvudpersonen, den naive Candide, har lärt sig av sin lärare Pangloss att allt är till det bästa. Men sedan kastas han ut i en värld av jordbävningar, krig, tortyr och förföljelse – och Pangloss fortsätter envist att upprepa sin optimistiska filosofi.</p>
+
+                <div class="literary-excerpt">
+                    "Efter jordbävningen, som hade ödelagt tre fjärdedelar av Lissabon, hade landets visa män inte kunnat finna ett säkrare sätt att förhindra ett totalt förstörande än att ge pöbeln ett vackert autodafé. Man beslöt nämligen vid universitetet i Coimbra, att ett skådespel vid vilket man i sakta mak bränner några människor är ett ofelbart sätt att hejda jordens rörelser."
+                    <div class="source">— Voltaire, <em>Candide</em>, 1759</div>
+                </div>
+
+                <p>Satiren är svidande. Kyrkan svarar på naturkatastrofer med att bränna kättare. "Vis" teologi blir absurd i mötet med verklighetens lidande. Och Candide, mitt i kaoset, tänker: "Om detta är den bästa av alla möjliga världar, hur ska då inte de andra vara?"</p>
+
+                <h3>Aktivisten</h3>
+
+                <p>Under sina sista decennier blev Voltaire alltmer av en aktivist. Han köpte ett slott vid Ferney, nära gränsen till Schweiz (för att snabbt kunna fly om det behövdes), och därifrån bedrev han kampanjer för rättvisa.</p>
+
+                <div class="dramatic-moment">
+                    <h4>Fallet Jean Calas</h4>
+                    <p>År 1762 avrättades den protestantiske köpmannen Jean Calas i Toulouse. Han hade anklagats för att ha mördat sin son – påstått för att hindra honom från att konvertera till katolicismen. Bevis saknades. Domen var ett utslag av religiöst hat.</p>
+                    <p>Voltaire tog upp fallet. Han skrev <em>Traktat om toleransen</em>. Han mobiliserade den europeiska opinionen. Och 1765 – tre år efter avrättningen – förklarades hela familjen Calas oskyldig.</p>
+                </div>
+
+                <p>Det var en triumf för förnuftet. Och Voltaire hade ett slagord för kampen:</p>
+
+                <div class="concept-highlight">
+                    <p><strong>"Écrasez l'Infâme!"</strong> – "Krossa den skändliga!" Med "den skändliga" menade han religiös fanatism, vidskepelse och dogmatism. Det blev upplysningens stridsrop.</p>
+                </div>
+
+                <div class="literary-excerpt">
+                    "Låt oss alltså alla avlägga vidskepelsen och befria oss från tigerns raseri, och den är långt mer ingrodd. Ja, tigern söndersliter endast för att få äta, men vi har tillintetgjort varandra för några tankar."
+                    <div class="source">— Voltaire, <em>Traktat om tolerans</em>, 1763</div>
+                </div>
+
+                <h3>Vad trodde Voltaire på?</h3>
+
+                <p>Voltaire var inte ateist. Han menade att det fanns ett högre väsen som skapat världsalltet – men att detta väsen inte längre ingrep i världen. Man kunde inte nå Gud genom bön eller klosterliv. Denna uppfattning kallas <strong>deism</strong>.</p>
+
+                <p>Det han kämpade mot var inte tron i sig, utan religionens <em>förtryck</em>: inkvisitionen, häxprocesserna, förföljelsen av oliktänkande. Han ville ha ett samhälle där människor fritt kunde tänka, skriva och tro – eller inte tro – som de ville.</p>
+            </div>
+
+            <div class="section-quiz">
+                <h4>Reflektera</h4>
+                <div id="voltaire-questions" class="quiz-container"></div>
+            </div>
+
+            <button onclick="document.querySelector('[data-section=\'sverige\']').click()">Till Sverige</button>
+        </section>
+
+        <!-- SVERIGE -->
+        <section id="sverige" class="section animated">
+            <h2>Upplysningen i Sverige</h2>
+
+            <div class="narrative-section">
+                <p>Upplysningens idéer nådde också Sverige – men här fick de en alldeles egen karaktär. Å ena sidan fanns vetenskapens stora framsteg, med Linné som lysande stjärna. Å andra sidan fanns en hovkultur inspirerad av Frankrike, där Gustav III drömde om att göra Stockholm till nordens Paris.</p>
+
+                <h3>Carl von Linné: Naturens Kartläggare</h3>
+
+                <figure class="inline-portrait">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/68/Carl_von_Linn%C3%A9.jpg" alt="Carl von Linné" class="portrait-img" data-person="linne" onclick="openPortraitModal(this)">
+                    <figcaption>Carl von Linné (1707–1778)</figcaption>
+                </figure>
+
+                <p><strong>Carl von Linné</strong> från Småland blev en av sin tids mest berömda vetenskapsmän – inte bara i Sverige, utan i hela Europa. Hans livsverk var att <em>systematisera naturen</em>: att ge varje växt och djur ett namn och en plats i skapelsens ordning.</p>
+
+                <p>Det binära namngivningssystem han skapade – där varje art får ett latinskt namn i två delar, som <em>Homo sapiens</em> – används fortfarande över hela världen. Linné var en outtröttlig resenär som dokumenterade allt han såg: landskapet, växterna, djuren, människornas sätt att leva och arbeta.</p>
+
+                <p>Men Linné var inte ensam. <strong>Maria Sibylla Merian</strong>, en tysk-holländsk forskare, hade redan på 1600-talet gjort banbrytande studier av insekter och växter i Sydamerika. Hennes arbete – som visade hur växter och djur lever i ömsesidigt beroende av varandra – förebådade Linnés ekologiska tänkande.</p>
+
+                <h3>Gustav III:s Hov</h3>
+
+                <p>Frankrike var förebilden för <strong>Gustav III</strong>, som redan som tonåring lärt sig älska de stora franska dramatikerna. Som kung gjorde han Stockholm till ett kulturellt centrum: han grundade Svenska Akademien, byggde Kungliga Operan, och hans hov präglades av ständiga föreställningar och fester.</p>
+
+                <p>Men det var inte bara hovets kultur som blomstrade. Ute i staden, på krogar och kajer, sjöng en annan röst om ett annat Stockholm.</p>
+
+                <h3>Carl Michael Bellman: Stockholms Skald</h3>
+
+                <figure class="inline-portrait" style="float: left; margin: 0 30px 20px 0;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Carl_Michael_Bellman%2C_portrayed_by_Per_Krafft_1779.jpg/500px-Carl_Michael_Bellman%2C_portrayed_by_Per_Krafft_1779.jpg" alt="Carl Michael Bellman" class="portrait-img" data-person="bellman" onclick="openPortraitModal(this)">
+                    <figcaption>Carl Michael Bellman (1740–1795)</figcaption>
+                </figure>
+
+                <p><strong>Carl Michael Bellman</strong> föddes på Södermalm i en familj som drabbades av ekonomiska svårigheter. Men han hade en gåva som ingen kunde ta ifrån honom: förmågan att fånga livet i ord och musik.</p>
+
+                <p>I sina visor och epistlar skapade Bellman ett helt galleri av karaktärer: urmakaren Fredman som mest är törstig, den vackra Ulla Winblad, violinisten Fader Movitz. De befolkar Stockholms krogar och gator, dricker, älskar, musicerar – och mitt i glädjen skymtar alltid döden.</p>
+
+                <p>Ordet "epistel" tog han från Nya testamentet – Bellmans epistlar är alltså parodier på Paulus brev, fast istället för att sprida kristendomen sprider de kärleken till vinguden Bacchus.</p>
+
+                <p>En av de mest gripande epistlarna är nummer 23, där Fredman vaknar i rännstenen efter en natt på krogen. Han beklagar att han någonsin blivit född – men sedan öppnas krogdörren, morgonsolen stiger, och allt vänds till livsglädje igen:</p>
+
+                <div class="literary-excerpt">
+                    "Ett troget hjärta platt jag föraktar;<br>
+                    tvi både för och mor!<br>
+                    Här ligger jag i rännsten och betraktar<br>
+                    mina gamla skor.<br>
+                    Tvi tocka hasor!<br>
+                    Rocken i trasor!<br>
+                    Skjortan svart som sot!<br>
+                    [...]<br>
+                    Men krogdörrn öppnas, luckorna skruvas;<br>
+                    ingen i staden klädd.<br>
+                    Stjärnan av morgonrodnan liksom kuvas<br>
+                    ned i molnens bädd:<br>
+                    solstrålar strimma,<br>
+                    kyrktornen glimma,<br>
+                    luften blir så ljum."
+                    <div class="source">— Carl Michael Bellman, <em>Epistel 23</em>, 1790</div>
+                </div>
+
+                <p style="clear: both;">Bellmans visor pendlar mellan glädje och vemod, livsberusning och dödsångest. De fångar ögonblicket – musiken, rörelserna, naturen, samtalen – allt på en gång. Det är konst som lever, ännu efter 250 år.</p>
+
+                <h3>Anna Maria Lenngren: Den Dolda Satirikern</h3>
+
+                <figure class="inline-portrait">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Anna_Maria_Lenngren_%28from_Svenska_Familj-Journalen%29.png/500px-Anna_Maria_Lenngren_%28from_Svenska_Familj-Journalen%29.png" alt="Anna Maria Lenngren" class="portrait-img" data-person="lenngren" onclick="openPortraitModal(this)">
+                    <figcaption>Anna Maria Lenngren (1754–1817)</figcaption>
+                </figure>
+
+                <p><strong>Anna Maria Lenngren</strong> var gift med utgivaren av tidningen Stockholms Posten – och i den tidningen publicerade hon dikter. Men hon skrev under pseudonym. Som kvinna ansågs det inte passande att öppet vara kvick och satirisk.</p>
+
+                <p>I dikten "Pojkarne" skildrar hon barn som tänkande, kännande individer – inspirerad av Rousseau. Men till skillnad från Rousseau, som mest talade om pojkar, räcker Lenngren ut handen till flickorna också.</p>
+
+                <p>Hennes mest omdiskuterade dikt, "Några ord till min k. dotter", ger ironiska råd till en fiktiv dotter. I dikten avråder hon flickor från att läsa tidningar och intressera sig för politik:</p>
+
+                <div class="literary-excerpt">
+                    "Med läsning ödslej tiden bort,<br>
+                    vårt kön så föga det behöver.<br>
+                    Och skall du läsa, gör det kort<br>
+                    att såsen ej må fräsa över.<br>
+                    [...]<br>
+                    Försiktigt även undanvik<br>
+                    all brydsam forskning i gazetten.<br>
+                    Vårt hushåll är vår republik,<br>
+                    vår politik är toaletten."
+                    <div class="source">— Anna Maria Lenngren, <em>Några ord till min k. dotter</em>, 1798</div>
+                </div>
+
+                <p>Men här finns en skarp ironi: Lenngren själv var yrkeskvinna och hade arbetat på en tidning hela sitt vuxna liv. Dikten kan läsas både som bitter satir över kvinnors begränsade möjligheter – och som ett realistiskt konstaterande av hur saker faktiskt var. Kanske är det båda.</p>
+            </div>
+
+            <div class="section-quiz">
+                <h4>Reflektera</h4>
+                <div id="sverige-questions" class="quiz-container"></div>
+            </div>
+
+            <button onclick="document.querySelector('[data-section=\'arvet\']').click()">Till Arvet</button>
+        </section>
+
+        <!-- ARVET -->
+        <section id="arvet" class="section animated">
+            <h2>Upplysningens Arv</h2>
+
+            <div class="narrative-section">
+                <p>Upplysningen slutade inte med 1700-talet. Dess idéer lever vidare – i våra lagar, våra institutioner, vårt sätt att tänka om världen.</p>
+
+                <h3>Franska Revolutionen</h3>
+
+                <p>År 1789 exploderade Frankrike. Folket stormade Bastiljen. Kungen avsattes. "Frihet, jämlikhet, broderskap" blev slagordet för en ny tid.</p>
+
+                <p>Revolutionärerna var upplysningens barn. Deras <em>Deklaration om mänskliga och medborgerliga rättigheter</em> byggde direkt på Lockes idéer om naturliga rättigheter. Men revolutionen visade också upplysningens gränser: i terror och blod föll många av dess ideal. Och kvinnorna, som kämpat sida vid sida med männen, fick inte de rättigheter de hade hoppats på.</p>
+
+                <h3>Vad lever kvar?</h3>
+
+                <p>Titta runt dig. Upplysningens arv finns överallt:</p>
+
+                <ul class="styled-list check-list-alt green-checks">
+                    <li><strong>Mänskliga rättigheter:</strong> FN:s deklaration från 1948 bygger på samma grund som Locke lade på 1600-talet.</li>
+                    <li><strong>Demokrati:</strong> Idén att makten ska komma från folket, inte från Gud eller födsel.</li>
+                    <li><strong>Yttrandefrihet:</strong> Rätten att tänka, skriva och säga vad man vill – det Voltaire kämpade för hela sitt liv.</li>
+                    <li><strong>Vetenskap:</strong> Tilltron till att världen kan förstås genom observation och förnuft.</li>
+                    <li><strong>Utbildning:</strong> Tron på att alla människor kan utvecklas – att vi föds som oskrivna blad.</li>
+                </ul>
+
+                <h3>Kritiken</h3>
+
+                <p>Men upplysningen hade också sina skuggsidor – skuggor som vi fortfarande brottas med:</p>
+
+                <ul class="styled-list cross-list-alt">
+                    <li><strong>Exkludering:</strong> Frihetslöftena gällde i praktiken vita, välbeställda män. Kvinnor, slavar och koloniserade folk lämnades utanför.</li>
+                    <li><strong>Eurocentrism:</strong> Upplysningstänkarna såg ofta europeisk civilisation som överlägsen alla andra.</li>
+                    <li><strong>Kolonialism:</strong> Upplysningens idéer om "civilisation" och "framsteg" användes för att rättfärdiga kolonialt förtryck.</li>
+                    <li><strong>Övertro på förnuftet:</strong> Ibland förde rationalismen till förakt för känslor, traditioner och allt som inte kunde mätas och vägas.</li>
+                </ul>
+
+                <div class="concept-highlight">
+                    <p>Kanske är upplysningens viktigaste arv inte en uppsättning svar, utan en uppsättning <em>frågor</em>: Vad är rättvisa? Vem ska ha makt – och varför? Hur kan vi veta vad som är sant? Varje generation måste besvara dessa frågor på nytt.</p>
+                </div>
+
+                <h3>Teodicéproblemet – Då och Nu</h3>
+
+                <p>En fråga som plågade upplysningstänkarna plågar oss fortfarande: Om det finns en god och allsmäktig Gud, varför tillåter han ondska och lidande?</p>
+
+                <p>Leibniz sa att vi lever i den bästa av alla tänkbara världar. Voltaire drev med honom i <em>Candide</em>. Men frågan har inget enkelt svar. Efter Auschwitz, efter Hiroshima, efter varje naturkatastrof och varje krig – vad ska vi tro?</p>
+
+                <p>Kanske är det just detta som gör upplysningen relevant: inte att den gav oss alla svaren, utan att den lärde oss att ställa frågorna.</p>
+            </div>
+
+            <div class="chapter-transition">
+                <p>Nu är det din tur. Vad har du lärt dig om upplysningen? Testa dina kunskaper i quizet!</p>
+            </div>
+
+            <button onclick="document.querySelector('[data-section=\'quiz\']').click()">Till Quizet</button>
+        </section>
+
+        <!-- QUIZ -->
+        <section id="quiz" class="section animated">
+            <h2>Quiz: Upplysningen</h2>
+
+            <div id="quiz-start">
+                <div class="info-box">
+                    <h3>Dags att testa dina kunskaper!</h3>
+                    <p>Du har rest genom upplysningens idévärld – från Lockes naturliga rättigheter till Voltaires kamp för tolerans, från Robinson Crusoes ö till Bellmans Stockholmskrogar. Nu får du se hur mycket du minns!</p>
+                </div>
+                <div id="best-time-display" class="time-record">Ditt snabbaste resultat: Inte satt än</div>
+                <div class="difficulty-switch-wrapper">
+                    <div class="difficulty-switch">
+                        <label for="difficulty-normal">Svårighetsgrad:</label>
+                        <div class="switch-container">
+                            <input type="radio" id="difficulty-normal" name="difficulty" value="normal" checked>
+                            <label for="difficulty-normal" class="switch-label switch-label-left">Normal</label>
+                            <input type="radio" id="difficulty-crazy" name="difficulty" value="crazy">
+                            <label for="difficulty-crazy" class="switch-label switch-label-right">Crazy Bananas!</label>
+                            <span class="switch-selection"></span>
+                        </div>
+                    </div>
+                </div>
+                <button id="start-quiz-btn">Starta Quiz</button>
+            </div>
+
+            <div id="quiz-progress" style="display: none;">
+                <div class="timer" id="quiz-timer">0:00</div>
+                <div class="progress-container">
+                    <div class="progress-bar" id="quiz-progress-bar"></div>
+                </div>
+                <p id="quiz-progress-text">0 av 0 besvarade</p>
+            </div>
+
+            <div id="quiz-questions" style="display: none;"></div>
+            <div id="quiz-result" style="display: none;"></div>
+        </section>
+
+    </div>
+
+    <script src="../../studyguide-core.js"></script>
+    <script src="enlightenmentquiz.js"></script>
+    <script src="../../interactive-quiz.js"></script>
+
+    <script>
+        initStudyGuide({
+            guideId: 'enlightenment1',
+            requiredSections: ['vaggan', 'frankrike', 'romanen', 'voltaire', 'sverige', 'arvet'],
+            sectionQuestions: true
+        });
+    </script>
+
+    <!-- Portrait Modal -->
+    <div id="portrait-modal" class="portrait-modal" onclick="closePortraitModal(event)">
+        <button class="portrait-modal-close" onclick="closePortraitModal(event)">&times;</button>
+        <div class="portrait-modal-content">
+            <div class="portrait-modal-bio" id="portrait-modal-bio"></div>
+            <img id="portrait-modal-img" class="portrait-modal-img" src="" alt="Porträtt">
+        </div>
+    </div>
+
+    <script>
+    const portraitBios = {
+        'john-locke': {
+            name: 'John Locke',
+            years: '1632–1704',
+            bio: `Engelsk filosof, empirismens och liberalismens fader. Locke föddes i Somerset och studerade vid Oxford, där han blev intresserad av medicin och naturvetenskap.<br><br>
+            Hans "An Essay Concerning Human Understanding" (1689) framlade idén om <strong>tabula rasa</strong> – att vi föds som tomma ark och formas av våra erfarenheter. I "Two Treatises of Government" utvecklade han teorin om <strong>naturliga rättigheter</strong> (liv, frihet, egendom) och maktdelning.<br><br>
+            Lockes idéer påverkade direkt den amerikanska självständighetsförklaringen och den franska revolutionen. Hans optimistiska syn på människans möjligheter blev central för hela upplysningen.`,
+            wiki: 'https://sv.wikipedia.org/wiki/John_Locke'
+        },
+        'isaac-newton': {
+            name: 'Isaac Newton',
+            years: '1642–1727',
+            bio: `Engelsk fysiker och matematiker som revolutionerade vetenskapen. I "Principia Mathematica" (1687) formulerade han <strong>gravitationslagen</strong> som förklarade planeternas rörelser och äpplens fall med samma fysiska lag.<br><br>
+            Newton visade att universum är lagbundet och kan undersökas, mätas och förklaras matematiskt. Han var djupt troende och såg naturens ordning som vittnesbörd om Guds storhet – men hans arbete drog upp en gräns mellan vetenskap och religion som gäller än.<br><br>
+            Han utvecklade också infinitesimalkalkylen (parallellt med Leibniz) och gjorde banbrytande arbeten inom optik.`,
+            wiki: 'https://sv.wikipedia.org/wiki/Isaac_Newton'
+        },
+        'voltaire': {
+            name: 'Voltaire',
+            years: '1694–1778',
+            bio: `François-Marie Arouet – Voltaire – var upplysningens mest kontroversiella och inflytelserika röst. Han satt i Bastiljen flera gånger, levde i exil, och fick sina böcker brända. Men han fortsatte outtröttligt att kritisera religiös intolerans och maktmissbruk.<br><br>
+            Efter år i England beundrade han Lockes filosofi och det parlamentariska systemet. Hans satiriska roman <strong>Candide</strong> (1759) driver med filosofisk optimism efter jordbävningen i Lissabon.<br><br>
+            Som aktivist kämpade han för orättvist dömda, som Jean Calas. Hans slagord <strong>"Écrasez l'Infâme"</strong> (Krossa den skändliga) riktades mot religiös fanatism och vidskepelse.`,
+            wiki: 'https://sv.wikipedia.org/wiki/Voltaire'
+        },
+        'rousseau': {
+            name: 'Jean-Jacques Rousseau',
+            years: '1712–1778',
+            bio: `Schweizisk-fransk filosof som hade enormt inflytande på både upplysningen och romantiken. Till skillnad från andra upplysningstänkare menade Rousseau att civilisationen hade korrumperat människan – bara naturen var ren och ofördärvad.<br><br>
+            Hans roman <strong>Émile</strong> (1762) revolutionerade synen på barnuppfostran: barn ska formas genom erfarenhet och kontakt med naturen, inte genom böcker. Han "upptäckte barndomen" som en egen livsfas.<br><br>
+            En mörk ironi: Rousseau överlämnade alla sina fem barn till barnhem. Och hans frihetslöften gällde främst pojkar – kvinnans roll var att behaga mannen, något Mary Wollstonecraft skarpt kritiserade.`,
+            wiki: 'https://sv.wikipedia.org/wiki/Jean-Jacques_Rousseau'
+        },
+        'wollstonecraft': {
+            name: 'Mary Wollstonecraft',
+            years: '1759–1797',
+            bio: `Engelsk författare och feminismens pionjär. Med "Till försvar för kvinnans rättigheter" (1792) skrev hon ett av historiens första systematiska försvar för kvinnors lika värde och möjligheter.<br><br>
+            Wollstonecraft vände upplysningens argument mot sig själv: om alla föds som oskrivna blad, om alla kan utvecklas genom utbildning – varför ska då kvinnor hållas tillbaka? Hon kritiserade skarpt Rousseaus syn på kvinnor.<br><br>
+            Hon dog i barnsängsfeber, bara 38 år gammal. Hennes dotter Mary Shelley skrev senare <em>Frankenstein</em>.`,
+            wiki: 'https://sv.wikipedia.org/wiki/Mary_Wollstonecraft'
+        },
+        'linne': {
+            name: 'Carl von Linné',
+            years: '1707–1778',
+            bio: `Svensk botaniker som systematiserade växt- och djurriket. Hans binära namngivningssystem (t.ex. <em>Homo sapiens</em>) används fortfarande över hela världen.<br><br>
+            Linné var en outtröttlig resenär som dokumenterade Sveriges natur i detaljrika dagböcker. Hans lärjungar, "Linnés apostlar", reste till alla världsdelar för att samla in växter och djur.<br><br>
+            Han adlades 1761 och blev en av sin tids mest berömda vetenskapsmän – ett bevis på att även det lilla Sverige kunde bidra till upplysningens stora projekt.`,
+            wiki: 'https://sv.wikipedia.org/wiki/Carl_von_Linn%C3%A9'
+        },
+        'bellman': {
+            name: 'Carl Michael Bellman',
+            years: '1740–1795',
+            bio: `Svensk diktare och kompositör, "Sveriges nationalskald". Född på Södermalm i Stockholm skapade han visor och epistlar kring karaktärer som Fredman, Ulla Winblad och Fader Movitz.<br><br>
+            Hans "Fredmans epistlar" (1790) är parodier på Paulus brev – men istället för kristendom sprider de kärleken till vinguden Bacchus. Visorna pendlar mellan glädje och vemod, livsberusning och dödsångest.<br><br>
+            Gustav III utnämnde honom till hovseketerare, men Bellman dog fattig och skuldsatt. Hans konst lever dock vidare som en central del av svensk kultur.`,
+            wiki: 'https://sv.wikipedia.org/wiki/Carl_Michael_Bellman'
+        },
+        'lenngren': {
+            name: 'Anna Maria Lenngren',
+            years: '1754–1817',
+            bio: `Svensk poet och satiriker, en av 1700-talets främsta svenska författare. Gift med utgivaren av Stockholms Posten skrev hon under pseudonym – som kvinna ansågs det opassande att vara öppet kvick och satirisk.<br><br>
+            I "Pojkarne" skildrar hon barn som kännande individer, inspirerad av Rousseau men med sympati för flickorna. Hennes "Några ord till min k. dotter" kan läsas både som ironi och som realistisk beskrivning av kvinnors begränsade liv.<br><br>
+            Hennes "Skaldeförsök" gavs ut först efter hennes död.`,
+            wiki: 'https://sv.wikipedia.org/wiki/Anna_Maria_Lenngren'
+        }
+    };
+
+    function openPortraitModal(img) {
+        const modal = document.getElementById('portrait-modal');
+        const modalImg = document.getElementById('portrait-modal-img');
+        const bioDiv = document.getElementById('portrait-modal-bio');
+        const personKey = img.getAttribute('data-person');
+
+        modalImg.src = img.src;
+        modalImg.alt = img.alt;
+
+        if (portraitBios[personKey]) {
+            const p = portraitBios[personKey];
+            bioDiv.innerHTML = `<h3>${p.name} <span style='font-weight:normal;color:#888;font-size:0.9em;'>${p.years}</span></h3><p>${p.bio}</p><a class='portrait-modal-wikilink' href='${p.wiki}' target='_blank' rel='noopener'>Läs mer på Wikipedia →</a>`;
+        } else {
+            bioDiv.innerHTML = '<p>Ingen biografi tillgänglig.</p>';
+        }
+        modal.classList.add('active');
+    }
+
+    function closePortraitModal(event) {
+        if (event.target.classList.contains('portrait-modal') || event.target.classList.contains('portrait-modal-close')) {
+            document.getElementById('portrait-modal').classList.remove('active');
+        }
+    }
+    </script>
+
+</body>
+</html>
