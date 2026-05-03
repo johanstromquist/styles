@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tredje latinprovet - Interaktiv studiehandledning</title>
+    <link rel="stylesheet" href="../../studyguide.css">
+    <style>
+        :root {
+            --latin-ink: #1f2937;
+            --latin-cream: #fffaf0;
+            --latin-mint: #e6f4ef;
+            --latin-blue: #e8f1fb;
+            --latin-rose: #fff1f2;
+            --latin-amber: #fff7df;
+            --latin-border: #d7dee8;
+        }
+
+        .latin-dashboard {
+            display: grid;
+            grid-template-columns: minmax(0, 1.4fr) minmax(260px, 0.8fr);
+            gap: 20px;
+            align-items: start;
+        }
+
+        .source-snapshot {
+            margin: 0;
+            border: 1px solid var(--latin-border);
+            border-radius: 8px;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .source-snapshot img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            object-position: top center;
+            display: block;
+        }
+
+        .source-snapshot figcaption {
+            padding: 10px 12px;
+            font-size: 0.9em;
+            color: #4b5563;
+            background: #f8fafc;
+        }
+
+        .exam-map {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 12px;
+            margin: 18px 0;
+        }
+
+        .map-item,
+        .latin-card,
+        .line-card,
+        .drill-card {
+            border: 1px solid var(--latin-border);
+            border-radius: 8px;
+            padding: 16px;
+            background: #fff;
+        }
+
+        button.map-item {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            font: inherit;
+            color: inherit;
+            text-align: left;
+            cursor: pointer;
+            transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+        }
+
+        .map-item h3 {
+            width: 100%;
+        }
+
+        .map-item p {
+            margin-bottom: 0;
+        }
+
+        button.map-item:hover,
+        button.map-item:focus-visible {
+            border-color: var(--primary);
+            box-shadow: 0 8px 22px rgba(37, 99, 235, 0.14);
+            transform: translateY(-1px);
+            outline: none;
+        }
+
+        .map-item strong,
+        .latin-card strong,
+        .line-card strong {
+            color: var(--dark);
+        }
+
+        .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 10px 0 14px;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            border-radius: 999px;
+            padding: 4px 10px;
+            font-size: 0.78em;
+            font-weight: 700;
+            letter-spacing: 0;
+            border: 1px solid transparent;
+        }
+
+        .tag.production {
+            color: #7f1d1d;
+            background: #fee2e2;
+            border-color: #fecaca;
+        }
+
+        .tag.recognition {
+            color: #075985;
+            background: #e0f2fe;
+            border-color: #bae6fd;
+        }
+
+        .tag.support {
+            color: #365314;
+            background: #ecfccb;
+            border-color: #d9f99d;
+        }
+
+        .study-band {
+            border-left: 5px solid var(--primary);
+            padding: 18px 20px;
+            margin: 18px 0;
+            background: var(--latin-blue);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .study-band.production {
+            border-left-color: #dc2626;
+            background: var(--latin-rose);
+        }
+
+        .study-band.recognition {
+            border-left-color: #0ea5e9;
+            background: var(--latin-blue);
+        }
+
+        .study-band.support {
+            border-left-color: #65a30d;
+            background: var(--latin-mint);
+        }
+
+        .phrase-grid,
+        .text-grid,
+        .reference-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 14px;
+            margin: 18px 0;
+        }
+
+        .phrase {
+            border-bottom: 1px solid #edf2f7;
+            padding: 10px 0;
+        }
+
+        .phrase:last-child {
+            border-bottom: 0;
+        }
+
+        .latin {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.08em;
+            color: #111827;
+        }
+
+        .translation {
+            color: #4b5563;
+            margin-top: 4px;
+        }
+
+        .parallel-lines {
+            display: grid;
+            gap: 10px;
+        }
+
+        .parallel-line {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+            gap: 12px;
+            padding: 12px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            background: #fff;
+        }
+
+        .line-note {
+            font-size: 0.94em;
+            color: #4b5563;
+            margin-top: 8px;
+        }
+
+        .answer-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 0.95em;
+        }
+
+        .answer-table th,
+        .answer-table td {
+            border: 1px solid var(--latin-border);
+            padding: 9px 10px;
+            vertical-align: top;
+            text-align: left;
+        }
+
+        .answer-table th {
+            background: #f8fafc;
+            color: var(--dark);
+        }
+
+        .answer-table code {
+            white-space: nowrap;
+        }
+
+        .flashcard-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 12px;
+            margin: 16px 0;
+        }
+
+        details.self-check {
+            border: 1px solid var(--latin-border);
+            border-radius: 8px;
+            padding: 12px 14px;
+            background: #fff;
+        }
+
+        details.self-check summary {
+            cursor: pointer;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        details.self-check p {
+            margin-top: 10px;
+        }
+
+        .compact-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 14px 0;
+            font-size: 0.92em;
+        }
+
+        .compact-table th,
+        .compact-table td {
+            border: 1px solid #e5e7eb;
+            padding: 7px 8px;
+            text-align: left;
+        }
+
+        .compact-table th {
+            background: #f8fafc;
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        .mini-pro {
+            display: grid;
+            gap: 14px;
+            margin: 18px 0;
+        }
+
+        .mini-pro-item {
+            border: 1px solid var(--latin-border);
+            border-radius: 8px;
+            padding: 16px;
+            background: #fff;
+        }
+
+        .mini-pro-item h4 {
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .mini-fields {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .mini-field label,
+        .mini-field-label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+
+        .mini-field input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1em;
+        }
+
+        .mini-field input.correct {
+            border-color: var(--correct);
+            background: #ecfdf5;
+        }
+
+        .mini-field input.wrong {
+            border-color: var(--wrong);
+            background: #fff1f2;
+        }
+
+        .mini-choice-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 8px;
+        }
+
+        .mini-choice {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-height: 42px;
+            padding: 9px 11px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            background: #fff;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .mini-choice input {
+            width: auto;
+            padding: 0;
+            margin: 0;
+            accent-color: var(--primary);
+        }
+
+        .mini-choice.correct {
+            border-color: var(--correct);
+            background: #ecfdf5;
+        }
+
+        .mini-choice.wrong {
+            border-color: var(--wrong);
+            background: #fff1f2;
+        }
+
+        .mini-feedback {
+            margin-top: 6px;
+            font-size: 0.9em;
+            min-height: 1.2em;
+        }
+
+        .mini-feedback.correct {
+            color: var(--correct);
+        }
+
+        .mini-feedback.wrong {
+            color: var(--wrong);
+        }
+
+        .mini-pro-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            margin-top: 18px;
+        }
+
+        .mini-pro-score {
+            font-weight: 800;
+            color: var(--dark);
+        }
+
+        .quiz-container {
+            margin-top: 20px;
+        }
+
+        .section h2 {
+            margin-bottom: 10px;
+        }
+
+        .section h3 {
+            margin-top: 18px;
+        }
+
+        @media (max-width: 820px) {
+            .latin-dashboard,
+            .parallel-line {
+                grid-template-columns: 1fr;
+            }
+
+            .source-snapshot img {
+                height: 220px;
+            }
+
+            .answer-table {
+                font-size: 0.86em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Tredje latinprovet</h1>
+            <p>Hercules, sentenser, pronomen, perfekt och passiv igenkänning</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#" class="active" data-section="intro">Start</a></li>
+                <li><a href="#" data-section="sentenser">Sentenser</a></li>
+                <li><a href="#" data-section="hercules">Hercules</a></li>
+                <li><a href="#" data-section="herculesgrammatik">Textgrammatik</a></li>
+                <li><a href="#" data-section="pronomen">Pronomen</a></li>
+                <li><a href="#" data-section="tempus">Tempus</a></li>
+                <li><a href="#" data-section="deklinationer">Deklinationer</a></li>
+                <li><a href="#" data-section="stod">Stöd</a></li>
+                <li><a href="#" data-section="prov">Provträning</a></li>
+                <li><a href="#" data-section="quiz">Quiz</a></li>
+            </ul>
+        </nav>
+
+        <section id="intro" class="section active animated">
+            <div class="latin-dashboard">
+                <div>
+                    <h2>Provkartan</h2>
+                    <p>Guiden följer provbladet: sentenser, Hercules-texten, relativa och interrogativa pronomen, perfekt, pluskvamperfekt samt 4:e och 5:e deklinationen som passiv kunskap.</p>
+                    <div class="tag-row">
+                        <span class="tag production">PRODUKTION</span>
+                        <span class="tag recognition">IGENKÄNNING</span>
+                        <span class="tag support">STÖD</span>
+                    </div>
+
+                    <div class="exam-map">
+                        <button type="button" class="map-item" onclick="document.querySelector('[data-section=\'sentenser\']').click()">
+                            <span class="tag production">PRODUKTION</span>
+                            <h3>Sentenser</h3>
+                            <p>Öva fraserna åt båda håll: förstå betydelsen och kunna skriva latinet själv.</p>
+                        </button>
+                        <button type="button" class="map-item" onclick="document.querySelector('[data-section=\'hercules\']').click()">
+                            <span class="tag production">PRODUKTION</span>
+                            <h3>Hercules</h3>
+                            <p>Följ stordåden med latin och svensk parallell så berättelsen sitter.</p>
+                        </button>
+                        <button type="button" class="map-item" onclick="document.querySelector('[data-section=\'herculesgrammatik\']').click()">
+                            <span class="tag production">PRODUKTION</span>
+                            <h3>Textgrammatik</h3>
+                            <p>Plocka ut verb, kasus och nyckelformer direkt ur Hercules-texten.</p>
+                        </button>
+                        <button type="button" class="map-item" onclick="document.querySelector('[data-section=\'pronomen\']').click()">
+                            <span class="tag production">PRODUKTION</span>
+                            <h3>Pronomen</h3>
+                            <p>Träna relativ- och interrogativpronomen med form, kasus och motivering.</p>
+                        </button>
+                        <button type="button" class="map-item" onclick="document.querySelector('[data-section=\'tempus\']').click()">
+                            <span class="tag production">PRODUKTION</span>
+                            <h3>Tempus</h3>
+                            <p>Skilj på perfekt och pluskvamperfekt och översätt formerna säkert.</p>
+                        </button>
+                        <button type="button" class="map-item" onclick="document.querySelector('[data-section=\'deklinationer\']').click()">
+                            <span class="tag recognition">IGENKÄNNING</span>
+                            <h3>Deklinationer</h3>
+                            <p>Känn igen 4:e och 5:e deklinationens former när de dyker upp.</p>
+                        </button>
+                        <button type="button" class="map-item" onclick="document.querySelector('[data-section=\'stod\']').click()">
+                            <span class="tag support">STÖD</span>
+                            <h3>Stöd</h3>
+                            <p>Slå upp kasus, prepositioner och pronomenformer när en motivering fastnar.</p>
+                        </button>
+                        <button type="button" class="map-item" onclick="document.querySelector('[data-section=\'prov\']').click()">
+                            <span class="tag production">PRODUKTION</span>
+                            <h3>Provträning</h3>
+                            <p>Skriv svar i ett rättat mini-prov som liknar hur frågorna behöver lösas.</p>
+                        </button>
+                        <button type="button" class="map-item" onclick="document.querySelector('[data-section=\'quiz\']').click()">
+                            <span class="tag recognition">IGENKÄNNING</span>
+                            <h3>Quiz</h3>
+                            <p>Blanda hela materialet i ett tidsatt slutquiz, med normal nivå eller Crazy Bananas.</p>
+                        </button>
+                    </div>
+                </div>
+
+                <figure class="source-snapshot">
+                    <img src="provbladet.jpg" alt="Foto av provbladet för tredje latinprovet">
+                    <figcaption>Provbladet är guidens prioriteringslista.</figcaption>
+                </figure>
+            </div>
+
+            <div class="flex-container">
+                <div class="card">
+                    <h3>Dina framsteg</h3>
+                    <div class="best-score-display">
+                        <p><span class="icon">OK</span> Rätt svar: <strong id="best-score-correct">--</strong></p>
+                        <p><span class="icon">Tid</span> Tid: <strong id="best-score-time">--:--</strong></p>
+                        <p><span class="icon">Poäng</span> Poäng: <strong id="best-score-points">----</strong></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Snabb självskattning</h3>
+                    <ul>
+                        <li>Kan jag skriva sentenserna från svensk ledtråd?</li>
+                        <li>Kan jag fylla i `qui, quae, quod` och motivera kasus?</li>
+                        <li>Kan jag se skillnad på perfekt och pluskvamperfekt?</li>
+                        <li>Kan jag känna igen 4:e/5:e deklinationen?</li>
+                    </ul>
+                </div>
+            </div>
+
+            <button onclick="document.querySelector('[data-section=\'sentenser\']').click()">Börja med sentenser</button>
+            <div id="achievements-list" class="achievements"></div>
+        </section>
+
+        <section id="sentenser" class="section animated">
+            <h2>Sentenser: från förståelse till produktion</h2>
+            <div class="study-band production">
+                <span class="tag production">PRODUKTION</span>
+                <p>Den svåra riktningen är svenska till latin. Läs först betydelsen, täck över latinet, skriv frasen, och kontrollera sedan.</p>
+            </div>
+
+            <div class="phrase-grid">
+                <div class="latin-card">
+                    <h3>Hela listan</h3>
+                    <div class="phrase"><div class="latin">Dixi</div><div class="translation">Jag har talat.</div></div>
+                    <div class="phrase"><div class="latin">Pinxit</div><div class="translation">Han/hon har målat.</div></div>
+                    <div class="phrase"><div class="latin">Vixit, dum vixit, laetus</div><div class="translation">Han levde glad så länge han levde.</div></div>
+                    <div class="phrase"><div class="latin">Ad rem!</div><div class="translation">Till saken!</div></div>
+                    <div class="phrase"><div class="latin">Audi!</div><div class="translation">Hör!</div></div>
+                    <div class="phrase"><div class="latin">Festina lente!</div><div class="translation">Skynda långsamt!</div></div>
+                    <div class="phrase"><div class="latin">Carpe diem!</div><div class="translation">Fånga dagen!</div></div>
+                    <div class="phrase"><div class="latin">Ora et labora!</div><div class="translation">Be och arbeta!</div></div>
+                    <div class="phrase"><div class="latin">Si vis pacem, para bellum!</div><div class="translation">Om du vill ha fred, bered dig på krig!</div></div>
+                    <div class="phrase"><div class="latin">Si vis amari, ama!</div><div class="translation">Om du vill älskas, älska!</div></div>
+                </div>
+                <div class="latin-card">
+                    <h3>Fortsättning</h3>
+                    <div class="phrase"><div class="latin">Divide et impera!</div><div class="translation">Söndra och härska!</div></div>
+                    <div class="phrase"><div class="latin">Dies diem docet</div><div class="translation">Dag lär dag.</div></div>
+                    <div class="phrase"><div class="latin">Nulla dies sine linea</div><div class="translation">Ingen dag utan en rad.</div></div>
+                    <div class="phrase"><div class="latin">Dies irae</div><div class="translation">Vredens dag.</div></div>
+                    <div class="phrase"><div class="latin">Vade mecum!</div><div class="translation">Gå med mig!</div></div>
+                    <div class="phrase"><div class="latin">Hinc illae lacrimae</div><div class="translation">Därav dessa tårar.</div></div>
+                    <div class="phrase"><div class="latin">Latet anguis in herba</div><div class="translation">Det ligger en orm dold i gräset.</div></div>
+                    <div class="phrase"><div class="latin">Fiat lux!</div><div class="translation">Varde ljus!</div></div>
+                    <div class="phrase"><div class="latin">Cura posterior</div><div class="translation">Senare bekymmer.</div></div>
+                </div>
+            </div>
+
+            <h3>Svenska till latin</h3>
+            <div class="flashcard-list">
+                <details class="self-check"><summary>Fånga dagen!</summary><p class="latin">Carpe diem!</p></details>
+                <details class="self-check"><summary>Skynda långsamt!</summary><p class="latin">Festina lente!</p></details>
+                <details class="self-check"><summary>Om du vill ha fred, bered dig på krig!</summary><p class="latin">Si vis pacem, para bellum!</p></details>
+                <details class="self-check"><summary>Söndra och härska!</summary><p class="latin">Divide et impera!</p></details>
+                <details class="self-check"><summary>Ingen dag utan en rad.</summary><p class="latin">Nulla dies sine linea.</p></details>
+                <details class="self-check"><summary>Därav dessa tårar.</summary><p class="latin">Hinc illae lacrimae.</p></details>
+            </div>
+
+            <div id="sentenser-questions" class="quiz-container"></div>
+            <button onclick="document.querySelector('[data-section=\'hercules\']').click()">Till Hercules</button>
+        </section>
+
+        <section id="hercules" class="section animated">
+            <h2>Hercules: texten rad för rad</h2>
+            <div class="study-band production">
+                <span class="tag production">PRODUKTION</span>
+                <p>Textdelen blir lättare om du kan återberätta varje stordåd på svenska och sedan översätta de centrala latinska raderna.</p>
+            </div>
+
+            <div class="text-grid">
+                <div class="latin-card">
+                    <h3>Leo Nemaeus</h3>
+                    <p class="latin">Prope oppidum Nemeam erat leo saevus...</p>
+                    <p>Vid Nemea fanns ett vilt lejon som hade skrämt området i många år. Pilar kunde inte döda det, så Hercules slog det med sin klubba och ströp det med händerna. Sedan bar han lejonhuden som mantel.</p>
+                    <p class="line-note">Nyckelord: `leo`, `sagittis`, `pellis`, `clava`, `manibus`.</p>
+                </div>
+                <div class="latin-card">
+                    <h3>Hydra Lernaea</h3>
+                    <p class="latin">Hydra Lernaea erat monstrum horribile...</p>
+                    <p>Hydran hade nio huvuden och bodde i ett träsk. När Hercules högg av ett huvud växte två nya ut. Iolaus brände såren med en fackla så att nya huvuden inte kunde växa.</p>
+                    <p class="line-note">Nyckelord: `capita`, `palude`, `Iolao`, `facem`, `vulnera`.</p>
+                </div>
+                <div class="latin-card">
+                    <h3>Stabulum Augeae</h3>
+                    <p class="latin">Augeas, rex Elidis, magnum stabulum habebat...</p>
+                    <p>Augeas hade ett enormt stall med mer än tusen djur. Ingen hade rengjort det på trettio år. Hercules ledde två floder genom stallet och tvättade bort all smuts på en dag.</p>
+                    <p class="line-note">Nyckelord: `stabulum`, `boves`, `flumina`, `aquam`, `uno die`.</p>
+                </div>
+                <div class="latin-card">
+                    <h3>Aves Stymphalides</h3>
+                    <p class="latin">Non procul ab oppido Stymphalo erat lacus...</p>
+                    <p>Vid Stymphalos fanns en sjö med farliga fåglar. De hade bronsnäbbar och järnfjädrar. Hercules skrämde dem med skallror och dödade dem med pilar.</p>
+                    <p class="line-note">Nyckelord: `lacus`, `aves`, `rostra`, `pennas`, `sagittis`.</p>
+                </div>
+            </div>
+
+            <h3>Personer och platser</h3>
+            <div class="reference-grid">
+                <div class="drill-card"><strong>Nemea</strong><p>Platsen för lejonet.</p></div>
+                <div class="drill-card"><strong>Lerna</strong><p>Platsen för hydran.</p></div>
+                <div class="drill-card"><strong>Iolaus</strong><p>Hercules följeslagare vid hydran.</p></div>
+                <div class="drill-card"><strong>Augeas</strong><p>Kung i Elis med det smutsiga stallet.</p></div>
+                <div class="drill-card"><strong>Stymphalus</strong><p>Platsen med de farliga fåglarna.</p></div>
+                <div class="drill-card"><strong>Hephaestus</strong><p>Guden som gjort skallrorna av koppar.</p></div>
+            </div>
+
+            <div id="hercules-questions" class="quiz-container"></div>
+            <button onclick="document.querySelector('[data-section=\'herculesgrammatik\']').click()">Till textgrammatiken</button>
+        </section>
+
+        <section id="herculesgrammatik" class="section animated">
+            <h2>Hercules: grammatikdrill på samma rader</h2>
+            <div class="study-band production">
+                <span class="tag production">PRODUKTION</span>
+                <span class="tag recognition">IGENKÄNNING</span>
+                <p>Arbeta med exakt samma rader som i textdelen: hitta verbets tempus, pronomenets funktion och kasusets roll i meningen.</p>
+            </div>
+
+            <div class="parallel-lines">
+                <div class="parallel-line">
+                    <div><p class="latin">leo saevus, qui multos annos incolis terrae terrorem iniecerat</p></div>
+                    <div><p>`qui` syftar på `leo`: maskulinum singular nominativ. `iniecerat` är pluskvamperfekt: hade injagat.</p></div>
+                </div>
+                <div class="parallel-line">
+                    <div><p class="latin">sagittis magicis, quas Apollo deus ei dederat</p></div>
+                    <div><p>`quas` syftar på `sagittis`: femininum plural ackusativ i bisatsen. `dederat` är pluskvamperfekt.</p></div>
+                </div>
+                <div class="parallel-line">
+                    <div><p class="latin">Hydra Lernaea erat monstrum horribile, quod novem capita habebat</p></div>
+                    <div><p>`quod` syftar på `monstrum`: neutrum singular nominativ. `habebat` är imperfekt.</p></div>
+                </div>
+                <div class="parallel-line">
+                    <div><p class="latin">lacus, in quo aves horribiles habitabant</p></div>
+                    <div><p>`in quo` är ablativ efter `in` när betydelsen är befintlighet: i vilken.</p></div>
+                </div>
+            </div>
+
+            <h3>Verb grupperade efter tempus</h3>
+            <div class="reference-grid">
+                <div class="drill-card">
+                    <h4>Imperfekt</h4>
+                    <p class="latin">erat, habebat, habitabat, gerebat, edebant</p>
+                    <p>Bakgrund, vana eller pågående handling: var, hade, bodde, bar, åt.</p>
+                </div>
+                <div class="drill-card">
+                    <h4>Perfekt</h4>
+                    <p class="latin">percussit, strangulavit, abscidit, ussit, superavit, purgavit</p>
+                    <p>Avslutade händelser: slog, ströp, högg av, brände, besegrade, rengjorde.</p>
+                </div>
+                <div class="drill-card">
+                    <h4>Pluskvamperfekt</h4>
+                    <p class="latin">iniecerat, temptaverant, dederat, purgaverat</p>
+                    <p>Något som redan hade hänt: hade injagat, hade försökt, hade gett, hade rengjort.</p>
+                </div>
+            </div>
+
+            <div id="herculesgrammatik-questions" class="quiz-container"></div>
+            <button onclick="document.querySelector('[data-section=\'pronomen\']').click()">Till pronomenövningarna</button>
+        </section>
+
+        <section id="pronomen" class="section animated">
+            <h2>Pronomen: form och kasus</h2>
+            <div class="study-band production">
+                <span class="tag production">PRODUKTION</span>
+                <p>Välj först rätt pronomenform. Motivera sedan med huvudordets genus och numerus samt pronomenets funktion i bisatsen.</p>
+            </div>
+
+            <h3>Regeln</h3>
+            <p>Huvudordet bestämmer genus och numerus. Relativpronomenets funktion i bisatsen bestämmer kasus.</p>
+
+            <table class="compact-table">
+                <thead><tr><th></th><th>Mask.</th><th>Fem.</th><th>Neutr.</th></tr></thead>
+                <tbody>
+                    <tr><th>Nom. sg.</th><td>qui</td><td>quae</td><td>quod</td></tr>
+                    <tr><th>Gen. sg.</th><td>cuius</td><td>cuius</td><td>cuius</td></tr>
+                    <tr><th>Dat. sg.</th><td>cui</td><td>cui</td><td>cui</td></tr>
+                    <tr><th>Ack. sg.</th><td>quem</td><td>quam</td><td>quod</td></tr>
+                    <tr><th>Abl. sg.</th><td>quo</td><td>qua</td><td>quo</td></tr>
+                    <tr><th>Nom. pl.</th><td>qui</td><td>quae</td><td>quae</td></tr>
+                    <tr><th>Gen. pl.</th><td>quorum</td><td>quarum</td><td>quorum</td></tr>
+                    <tr><th>Dat. pl.</th><td>quibus</td><td>quibus</td><td>quibus</td></tr>
+                    <tr><th>Ack. pl.</th><td>quos</td><td>quas</td><td>quae</td></tr>
+                    <tr><th>Abl. pl.</th><td>quibus</td><td>quibus</td><td>quibus</td></tr>
+                </tbody>
+            </table>
+
+            <h3>18 relativpronomen: svar och motivering</h3>
+            <table class="answer-table">
+                <thead><tr><th>#</th><th>Mening med svar</th><th>Varför?</th></tr></thead>
+                <tbody>
+                    <tr><td>1</td><td>Liber, <code>quem</code> in manu habes</td><td>`liber`: mask. sg.; direkt objekt i bisatsen.</td></tr>
+                    <tr><td>2</td><td>Templa, <code>quae</code> ibi sunt</td><td>`templa`: neutr. pl.; subjekt.</td></tr>
+                    <tr><td>3</td><td>Urbs, in <code>qua</code> sumus</td><td>`urbs`: fem. sg.; ablativ efter `in` vid befintlighet.</td></tr>
+                    <tr><td>4</td><td>Mulieres, <code>quae</code> hic sunt</td><td>`mulieres`: fem. pl.; subjekt.</td></tr>
+                    <tr><td>5</td><td>Libri, <code>quos</code> legimus</td><td>`libri`: mask. pl.; direkt objekt.</td></tr>
+                    <tr><td>6</td><td>Vir, <code>cui</code> librum do</td><td>`vir`: mask. sg.; indirekt objekt.</td></tr>
+                    <tr><td>7</td><td>Servus, <code>qui</code> in agro laborat</td><td>`servus`: mask. sg.; subjekt.</td></tr>
+                    <tr><td>8</td><td>Pueri, <code>quibus</code> libros damus</td><td>`pueri`: mask. pl.; dativ plural.</td></tr>
+                    <tr><td>9</td><td>Magistri, <code>qui</code> ibi sunt</td><td>`magistri`: mask. pl.; subjekt.</td></tr>
+                    <tr><td>10</td><td>Terrae, in <code>quibus</code> sunt</td><td>`terrae`: fem. pl.; ablativ plural efter `in`.</td></tr>
+                    <tr><td>11</td><td>Puellae, <code>quas</code> amamus</td><td>`puellae`: fem. pl.; direkt objekt.</td></tr>
+                    <tr><td>12</td><td>Navis, <code>quam</code> aedificamus</td><td>`navis`: fem. sg.; direkt objekt.</td></tr>
+                    <tr><td>13</td><td>Templum, <code>quod</code> hic est</td><td>`templum`: neutr. sg.; subjekt.</td></tr>
+                    <tr><td>14</td><td>Fora, <code>quae</code> videmus</td><td>`fora`: neutr. pl.; direkt objekt.</td></tr>
+                    <tr><td>15</td><td>Via, <code>quae</code> valde longa est</td><td>`via`: fem. sg.; subjekt.</td></tr>
+                    <tr><td>16</td><td>Vinum, <code>quod</code> potamus</td><td>`vinum`: neutr. sg.; direkt objekt.</td></tr>
+                    <tr><td>17</td><td>Puellae, <code>quarum</code> mater</td><td>`puellae`: fem. pl.; genitiv: vilkas.</td></tr>
+                    <tr><td>18</td><td>Puer, <code>cuius</code> pater</td><td>`puer`: mask. sg.; genitiv: vars.</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Interrogativa pronomen</h3>
+            <table class="answer-table">
+                <thead><tr><th>#</th><th>Fråga</th><th>Översättning och kasus</th></tr></thead>
+                <tbody>
+                    <tr><td>1</td><td>Quis est ille vir?</td><td>Vem är den där mannen? `quis`: nominativ, subjekt.</td></tr>
+                    <tr><td>2</td><td>Quos pueros amant puellae?</td><td>Vilka pojkar älskar flickorna? `quos`: ack. mask. pl., objekt.</td></tr>
+                    <tr><td>3</td><td>Qui vir est pater tuus?</td><td>Vilken man är din far? `qui`: nom. mask. sg.</td></tr>
+                    <tr><td>4</td><td>Quas puellas amant pueri?</td><td>Vilka flickor älskar pojkarna? `quas`: ack. fem. pl.</td></tr>
+                    <tr><td>5</td><td>Quae sunt illae mulieres?</td><td>Vilka är de där kvinnorna? `quae`: nom. fem. pl.</td></tr>
+                    <tr><td>6</td><td>Quam puellam amas?</td><td>Vilken flicka älskar du? `quam`: ack. fem. sg.</td></tr>
+                    <tr><td>7</td><td>Qui sunt illi viri?</td><td>Vilka är de där männen? `qui`: nom. mask. pl.</td></tr>
+                    <tr><td>8</td><td>Quem vides?</td><td>Vem ser du? `quem`: ackusativ, objekt.</td></tr>
+                    <tr><td>9</td><td>Quae mulier est mater tua?</td><td>Vilken kvinna är din mor? `quae`: nom. fem. sg.</td></tr>
+                    <tr><td>10</td><td>Quod forum est Forum Romanum?</td><td>Vilket forum är Forum Romanum? `quod`: nom. neutr. sg.</td></tr>
+                    <tr><td>11</td><td>Cui donum das?</td><td>Åt vem ger du gåvan? `cui`: dativ, indirekt objekt.</td></tr>
+                    <tr><td>12</td><td>Quibus donum datis?</td><td>Åt vilka ger ni gåvan? `quibus`: dativ plural.</td></tr>
+                </tbody>
+            </table>
+
+            <div id="pronomen-questions" class="quiz-container"></div>
+            <button onclick="document.querySelector('[data-section=\'tempus\']').click()">Till tempus</button>
+        </section>
+
+        <section id="tempus" class="section animated">
+            <h2>Perfekt och pluskvamperfekt</h2>
+            <div class="study-band production">
+                <span class="tag production">PRODUKTION</span>
+                <p>Perfekt säger att något hände eller har hänt. Pluskvamperfekt säger att något hade hänt.</p>
+            </div>
+
+            <div class="reference-grid">
+                <div class="drill-card">
+                    <h3>Perfekt aktivum</h3>
+                    <p><strong>Mönster:</strong> perfektstam + personändelse.</p>
+                    <p class="latin">vocāv-i, vocāv-istī, vocāv-it, vocāv-imus, vocāv-istis, vocāv-ērunt</p>
+                    <p>Översättning: har kallat eller kallade.</p>
+                </div>
+                <div class="drill-card">
+                    <h3>Pluskvamperfekt aktivum</h3>
+                    <p><strong>Mönster:</strong> perfektstam + <code>-era-</code> + personändelse.</p>
+                    <p class="latin">vocāv-eram, vocāv-erat, vocāv-erant</p>
+                    <p>Översättning: hade kallat.</p>
+                </div>
+                <div class="drill-card">
+                    <h3>Passivum</h3>
+                    <span class="tag recognition">IGENKÄNNING</span>
+                    <p>Perfekt particip + form av `esse`: <span class="latin">vocātus est</span> = han blev/har blivit kallad.</p>
+                </div>
+            </div>
+
+            <h3>Perfektstammar</h3>
+            <table class="compact-table">
+                <thead><tr><th>Märke</th><th>Vanligast i</th><th>Exempel</th></tr></thead>
+                <tbody>
+                    <tr><td><code>-v-</code></td><td>1:a och 4:e konj.</td><td><span class="latin">vocāv-i, audīv-i</span></td></tr>
+                    <tr><td><code>-u-</code></td><td>2:a konj.</td><td><span class="latin">monu-i</span></td></tr>
+                    <tr><td><code>-s-</code></td><td>3:e konj.</td><td><span class="latin">rex-i</span> från reg-s-i</td></tr>
+                    <tr><td>inget märke</td><td>3:e konj.</td><td>vanligt i flera oregelbundna stammar</td></tr>
+                </tbody>
+            </table>
+
+            <div class="flashcard-list">
+                <details class="self-check"><summary>Översätt: <span class="latin">vocāvit</span></summary><p>Han/hon kallade eller har kallat.</p></details>
+                <details class="self-check"><summary>Översätt: <span class="latin">monuērunt</span></summary><p>De förmanade eller har förmanat.</p></details>
+                <details class="self-check"><summary>Översätt: <span class="latin">rexerat</span></summary><p>Han/hon hade styrt.</p></details>
+                <details class="self-check"><summary>Översätt: <span class="latin">audīverant</span></summary><p>De hade hört.</p></details>
+            </div>
+
+            <div id="tempus-questions" class="quiz-container"></div>
+            <button onclick="document.querySelector('[data-section=\'deklinationer\']').click()">Till deklinationer</button>
+        </section>
+
+        <section id="deklinationer" class="section animated">
+            <h2>4:e och 5:e deklinationen: passiv kunskap</h2>
+            <div class="study-band recognition">
+                <span class="tag recognition">IGENKÄNNING</span>
+                <p>Provbladet säger passiv kunskap. Målet är att känna igen formerna och inte blanda ihop dem med 2:a eller 3:e deklinationen.</p>
+            </div>
+
+            <div class="reference-grid">
+                <div class="drill-card">
+                    <h3>4:e deklinationen</h3>
+                    <p>Ofta maskulina på <code>-us</code>: <span class="latin">fructus</span>. Neutrala på <code>-u</code>: <span class="latin">cornu</span>.</p>
+                    <p>Typiska signaler: <span class="latin">fructūs, fructuum, fructibus, cornua</span>.</p>
+                    <p>Kom ihåg feminina undantag: <span class="latin">domus, manus</span>.</p>
+                </div>
+                <div class="drill-card">
+                    <h3>5:e deklinationen</h3>
+                    <p>Få substantiv. Exempel: <span class="latin">res</span> sak, <span class="latin">dies</span> dag.</p>
+                    <p>Typiska signaler: <span class="latin">rei, rem, re, rerum, rebus</span>.</p>
+                    <p><span class="latin">dies</span> är maskulinum, men femininum i betydelsen utsatt dag/förfallodag.</p>
+                </div>
+            </div>
+
+            <div class="flashcard-list">
+                <details class="self-check"><summary>Vilken deklination: <span class="latin">fructibus</span>?</summary><p>4:e deklinationen, dativ/ablativ plural.</p></details>
+                <details class="self-check"><summary>Vilken deklination: <span class="latin">rebus</span>?</summary><p>5:e deklinationen, dativ/ablativ plural.</p></details>
+                <details class="self-check"><summary>Vilken deklination: <span class="latin">cornua</span>?</summary><p>4:e deklinationen neutrum plural, nom./ack.</p></details>
+            </div>
+
+            <div id="deklinationer-questions" class="quiz-container"></div>
+            <button onclick="document.querySelector('[data-section=\'stod\']').click()">Till stöd</button>
+        </section>
+
+        <section id="stod" class="section animated">
+            <h2>Stöd: kasus, prepositioner och pronomenreferens</h2>
+            <div class="study-band support">
+                <span class="tag support">STÖD</span>
+                <p>Det här är inte huvudspåret, men det hjälper dig att motivera pronomenformer och översätta Hercules-rader.</p>
+            </div>
+
+            <div class="reference-grid">
+                <div class="drill-card">
+                    <h3>Satsdelar</h3>
+                    <p><strong>Subjekt:</strong> gör eller är något.</p>
+                    <p><strong>Direkt objekt:</strong> det som påverkas av verbet.</p>
+                    <p><strong>Indirekt objekt:</strong> den som får något eller berörs.</p>
+                    <p><strong>Adverbial:</strong> tid, plats, sätt, medel.</p>
+                </div>
+                <div class="drill-card">
+                    <h3>Prepositioner i materialet</h3>
+                    <p><code>ad</code> + ack: till</p>
+                    <p><code>prope</code> + ack: nära</p>
+                    <p><code>cum</code> + abl: med</p>
+                    <p><code>ex/e</code> + abl: ur, från</p>
+                    <p><code>in</code> + ack/abl: riktning eller befintlighet</p>
+                </div>
+                <div class="drill-card">
+                    <h3>Demonstrativa stödformer</h3>
+                    <p><span class="latin">is, ea, id</span> = den, denna, han, hon, det.</p>
+                    <p><span class="latin">eum, eam, id</span> används när formen är direkt objekt.</p>
+                    <p><span class="latin">ei</span> = åt honom/henne/det.</p>
+                    <p><span class="latin">ille, illa, illud</span> = den där.</p>
+                </div>
+            </div>
+
+            <div id="stod-questions" class="quiz-container"></div>
+            <button onclick="document.querySelector('[data-section=\'prov\']').click()">Till provträning</button>
+        </section>
+
+        <section id="prov" class="section animated">
+            <h2>Provträning</h2>
+            <div class="study-band production">
+                <span class="tag production">PRODUKTION</span>
+                <span class="tag recognition">IGENKÄNNING</span>
+                <p>Det här speglar provbladet: sentenser, Hercules, pronomen, tempus och passiv igenkänning av 4:e/5:e deklinationen.</p>
+            </div>
+
+            <h3>Interaktivt mini-prov</h3>
+            <p>Skriv korta svar. Accenter, skiljetecken och stora/små bokstäver spelar ingen roll; innehållet gör det. Frågor med flera delar rättas som separata delpoäng.</p>
+
+            <div id="mini-pro" class="mini-pro">
+                <div class="mini-pro-item">
+                    <h4>1. Skriv latin: "Om du vill ha fred, bered dig på krig."</h4>
+                    <div class="mini-fields">
+                        <div class="mini-field">
+                            <label for="mini-1">Latinsk sentens</label>
+                            <input id="mini-1" data-answers="si vis pacem para bellum" autocomplete="off">
+                            <div class="mini-feedback" data-feedback-for="mini-1"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mini-pro-item">
+                    <h4>2. Översätt: <span class="latin">Hinc illae lacrimae.</span></h4>
+                    <div class="mini-fields">
+                        <div class="mini-field">
+                            <label for="mini-2">Svensk betydelse</label>
+                            <input id="mini-2" data-answers="darav dessa tarar|darav de har tararna" autocomplete="off">
+                            <div class="mini-feedback" data-feedback-for="mini-2"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mini-pro-item">
+                    <h4>3. Fyll i och motivera: <span class="latin">Liber, ____ in manu habes.</span></h4>
+                    <div class="mini-fields">
+                        <div class="mini-field">
+                            <label for="mini-3a">Form</label>
+                            <input id="mini-3a" data-answers="quem" autocomplete="off">
+                            <div class="mini-feedback" data-feedback-for="mini-3a"></div>
+                        </div>
+                        <div class="mini-field">
+                            <label for="mini-3b">Kasus/funktion</label>
+                            <input id="mini-3b" data-contains="ackusativ,objekt|ack,objekt" autocomplete="off" placeholder="t.ex. ackusativ objekt">
+                            <div class="mini-feedback" data-feedback-for="mini-3b"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mini-pro-item">
+                    <h4>4. Fyll i och motivera: <span class="latin">Puellae, ____ mater.</span></h4>
+                    <div class="mini-fields">
+                        <div class="mini-field">
+                            <label for="mini-4a">Form</label>
+                            <input id="mini-4a" data-answers="quarum" autocomplete="off">
+                            <div class="mini-feedback" data-feedback-for="mini-4a"></div>
+                        </div>
+                        <div class="mini-field">
+                            <label for="mini-4b">Kasus/betydelse</label>
+                            <input id="mini-4b" data-contains="genitiv,vilkas|gen,vilkas" autocomplete="off" placeholder="t.ex. genitiv vilkas">
+                            <div class="mini-feedback" data-feedback-for="mini-4b"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mini-pro-item">
+                    <h4>5. Översätt i två korta delar: <span class="latin">Hydrae appropinquabant et Hercules capita monstri abscidit.</span></h4>
+                    <div class="mini-fields">
+                        <div class="mini-field">
+                            <label for="mini-5a">Hydrae appropinquabant</label>
+                            <input id="mini-5a" data-answers="hydrorna narmade sig|hydrorna kom nara" autocomplete="off">
+                            <div class="mini-feedback" data-feedback-for="mini-5a"></div>
+                        </div>
+                        <div class="mini-field">
+                            <label for="mini-5b">Hercules capita monstri abscidit</label>
+                            <input id="mini-5b" data-answers="hercules hogg av monstrets huvuden|hercules skar av monstrets huvuden" autocomplete="off">
+                            <div class="mini-feedback" data-feedback-for="mini-5b"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mini-pro-item">
+                    <h4>6. Vilket tempus är <span class="latin">purgaverat</span>, och hur översätts formen?</h4>
+                    <div class="mini-fields">
+                        <div class="mini-field">
+                            <label for="mini-6a">Tempus</label>
+                            <input id="mini-6a" data-answers="pluskvamperfekt" autocomplete="off">
+                            <div class="mini-feedback" data-feedback-for="mini-6a"></div>
+                        </div>
+                        <div class="mini-field">
+                            <label for="mini-6b">Översättning</label>
+                            <input id="mini-6b" data-answers="hade rengjort|hade renat" autocomplete="off">
+                            <div class="mini-feedback" data-feedback-for="mini-6b"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mini-pro-item">
+                    <h4>7. Känn igen: vilken deklination och form är <span class="latin">rebus</span>?</h4>
+                    <div class="mini-fields">
+                        <div class="mini-field">
+                            <div class="mini-field-label" id="mini-7a-label">Deklination</div>
+                            <div class="mini-choice-list" role="radiogroup" aria-labelledby="mini-7a-label" data-mini-choice="mini-7a" data-answer="5e">
+                                <label class="mini-choice"><input type="radio" name="mini-7a" value="4e">4:e deklinationen</label>
+                                <label class="mini-choice"><input type="radio" name="mini-7a" value="5e">5:e deklinationen</label>
+                                <label class="mini-choice"><input type="radio" name="mini-7a" value="3e">3:e deklinationen</label>
+                                <label class="mini-choice"><input type="radio" name="mini-7a" value="2a">2:a deklinationen</label>
+                            </div>
+                            <div class="mini-feedback" data-feedback-for="mini-7a"></div>
+                        </div>
+                        <div class="mini-field">
+                            <div class="mini-field-label" id="mini-7b-label">Kasus/numerus</div>
+                            <div class="mini-choice-list" role="radiogroup" aria-labelledby="mini-7b-label" data-mini-choice="mini-7b" data-answer="dativ eller ablativ plural">
+                                <label class="mini-choice"><input type="radio" name="mini-7b" value="nominativ singular">nominativ singular</label>
+                                <label class="mini-choice"><input type="radio" name="mini-7b" value="ackusativ singular">ackusativ singular</label>
+                                <label class="mini-choice"><input type="radio" name="mini-7b" value="dativ eller ablativ plural">dativ eller ablativ plural</label>
+                                <label class="mini-choice"><input type="radio" name="mini-7b" value="genitiv plural">genitiv plural</label>
+                            </div>
+                            <div class="mini-feedback" data-feedback-for="mini-7b"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mini-pro-item">
+                    <h4>8. Fyll i: <span class="latin">Templum, ____ hic est.</span></h4>
+                    <div class="mini-fields">
+                        <div class="mini-field">
+                            <label for="mini-8">Form</label>
+                            <input id="mini-8" data-answers="quod" autocomplete="off">
+                            <div class="mini-feedback" data-feedback-for="mini-8"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mini-pro-item">
+                    <h4>9. Fyll i: <span class="latin">Fora, ____ videmus.</span></h4>
+                    <div class="mini-fields">
+                        <div class="mini-field">
+                            <label for="mini-9">Form</label>
+                            <input id="mini-9" data-answers="quae" autocomplete="off">
+                            <div class="mini-feedback" data-feedback-for="mini-9"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mini-pro-item">
+                    <h4>10. Vilket tempus är <span class="latin">temptaverant</span>?</h4>
+                    <div class="mini-fields">
+                        <div class="mini-field">
+                            <label for="mini-10">Tempus</label>
+                            <input id="mini-10" data-answers="pluskvamperfekt" autocomplete="off">
+                            <div class="mini-feedback" data-feedback-for="mini-10"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mini-pro-item">
+                    <h4>11. Skriv latin: "Be och arbeta!"</h4>
+                    <div class="mini-fields">
+                        <div class="mini-field">
+                            <label for="mini-11">Latinsk sentens</label>
+                            <input id="mini-11" data-answers="ora et labora" autocomplete="off">
+                            <div class="mini-feedback" data-feedback-for="mini-11"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mini-pro-item">
+                    <h4>12. Översätt: <span class="latin">Aqua omnem sordem abluit.</span></h4>
+                    <div class="mini-fields">
+                        <div class="mini-field">
+                            <label for="mini-12">Svensk betydelse</label>
+                            <input id="mini-12" data-answers="vattnet tvattade bort all smuts|vattnet skoljde bort all smuts" autocomplete="off">
+                            <div class="mini-feedback" data-feedback-for="mini-12"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mini-pro-item">
+                    <h4>13. Känn igen deklinationen: vilken form hör till 4:e deklinationen?</h4>
+                    <div class="mini-fields">
+                        <div class="mini-field">
+                            <div class="mini-field-label" id="mini-13-label">Välj formen som kommer från <span class="latin">fructus</span></div>
+                            <div class="mini-choice-list" role="radiogroup" aria-labelledby="mini-13-label" data-mini-choice="mini-13" data-answer="fructibus">
+                                <label class="mini-choice"><input type="radio" name="mini-13" value="rebus"><span class="latin">rebus</span></label>
+                                <label class="mini-choice"><input type="radio" name="mini-13" value="puellis"><span class="latin">puellis</span></label>
+                                <label class="mini-choice"><input type="radio" name="mini-13" value="fructibus"><span class="latin">fructibus</span></label>
+                                <label class="mini-choice"><input type="radio" name="mini-13" value="templis"><span class="latin">templis</span></label>
+                            </div>
+                            <div class="mini-feedback" data-feedback-for="mini-13"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mini-pro-actions">
+                <button type="button" id="mini-pro-check">Rätta mini-provet</button>
+                <button type="button" id="mini-pro-reset">Rensa svar</button>
+                <span id="mini-pro-score" class="mini-pro-score"></span>
+            </div>
+            <button onclick="document.querySelector('[data-section=\'quiz\']').click()">Till slutquizet</button>
+        </section>
+
+        <section id="quiz" class="section animated">
+            <h2>Slutquiz: Tredje latinprovet</h2>
+
+            <div id="quiz-start">
+                <div class="info-box">
+                    <h3>Dags att testa helheten</h3>
+                    <p>Quizet blandar sentenser, Hercules, pronomen, tempus, deklinationer och stödfrågor. Produktionsfrågor är formulerade så att du först bör tänka fram svaret innan du tittar på alternativen.</p>
+                </div>
+                <div id="best-time-display" class="time-record">Ditt snabbaste resultat: Inte satt än</div>
+                <div class="difficulty-switch-wrapper">
+                    <div class="difficulty-switch">
+                        <label for="difficulty-normal">Svårighetsgrad:</label>
+                        <div class="switch-container">
+                            <input type="radio" id="difficulty-normal" name="difficulty" value="normal" checked>
+                            <label for="difficulty-normal" class="switch-label switch-label-left">Normal</label>
+                            <input type="radio" id="difficulty-crazy" name="difficulty" value="crazy">
+                            <label for="difficulty-crazy" class="switch-label switch-label-right">Crazy Bananas!</label>
+                            <span class="switch-selection"></span>
+                        </div>
+                    </div>
+                </div>
+                <button id="start-quiz-btn">Starta quiz</button>
+            </div>
+
+            <div id="quiz-progress" style="display: none;">
+                <div class="timer" id="quiz-timer">0:00</div>
+                <div class="progress-container">
+                    <div class="progress-bar" id="quiz-progress-bar"></div>
+                </div>
+                <p id="quiz-progress-text">0 av 0 besvarade</p>
+            </div>
+
+            <div id="quiz-questions" style="display: none;"></div>
+            <div id="quiz-result" style="display: none;"></div>
+        </section>
+    </div>
+
+    <script src="../../studyguide-core.js"></script>
+    <script src="latin3vt2026quiz.js"></script>
+    <script src="../../interactive-quiz.js"></script>
+    <script>
+        const LATIN_SECTION_MINI_TEST_SECTIONS = ['sentenser', 'hercules', 'herculesgrammatik', 'pronomen', 'tempus', 'deklinationer', 'stod'];
+        const LATIN_SECTION_MINI_TESTS_ACHIEVEMENT = 'latin-section-mini-tests-perfect';
+        const LATIN_MINI_PRO_ACHIEVEMENT = 'latin-mini-pro-perfect';
+
+        function unlockLatinAchievement(id) {
+            if (typeof window.unlockAchievement !== 'function') return;
+            const didUnlock = window.unlockAchievement(id);
+            if (didUnlock && typeof window.flushAchievementNotifications === 'function') {
+                window.flushAchievementNotifications();
+            }
+        }
+
+        (function initMiniPro() {
+            const miniPro = document.getElementById('mini-pro');
+            const checkButton = document.getElementById('mini-pro-check');
+            const resetButton = document.getElementById('mini-pro-reset');
+            const scoreElement = document.getElementById('mini-pro-score');
+
+            if (!miniPro || !checkButton || !resetButton || !scoreElement) return;
+
+            function normalizeMiniAnswer(value) {
+                return String(value || '')
+                    .toLowerCase()
+                    .normalize('NFD')
+                    .replace(/[\u0300-\u036f]/g, '')
+                    .replace(/(\d+)\s*:\s*e/g, '$1e')
+                    .replace(/[^a-z0-9\s]/g, ' ')
+                    .replace(/\s+/g, ' ')
+                    .trim();
+            }
+
+            function feedbackFor(id) {
+                return miniPro.querySelector(`[data-feedback-for="${id}"]`);
+            }
+
+            function setFeedback(id, isCorrect, message) {
+                const feedback = feedbackFor(id);
+                if (!feedback) return;
+                feedback.textContent = message;
+                feedback.classList.toggle('correct', isCorrect);
+                feedback.classList.toggle('wrong', !isCorrect);
+            }
+
+            function clearFeedback(id) {
+                const feedback = feedbackFor(id);
+                if (!feedback) return;
+                feedback.textContent = '';
+                feedback.classList.remove('correct', 'wrong');
+            }
+
+            function checkTextInput(input) {
+                const actual = normalizeMiniAnswer(input.value);
+                const exactAnswers = (input.dataset.answers || '')
+                    .split('|')
+                    .map(normalizeMiniAnswer)
+                    .filter(Boolean);
+                const containsAnswers = (input.dataset.contains || '')
+                    .split('|')
+                    .map(option => option.split(',').map(normalizeMiniAnswer).filter(Boolean))
+                    .filter(option => option.length);
+
+                let isCorrect = false;
+                if (exactAnswers.length) {
+                    isCorrect = exactAnswers.includes(actual);
+                }
+                if (!isCorrect && containsAnswers.length) {
+                    isCorrect = containsAnswers.some(tokens => tokens.every(token => actual.includes(token)));
+                }
+
+                input.classList.toggle('correct', isCorrect);
+                input.classList.toggle('wrong', !isCorrect);
+                setFeedback(input.id, isCorrect, isCorrect ? 'Rätt.' : 'Inte rätt här.');
+                return isCorrect;
+            }
+
+            function checkChoiceGroup(group) {
+                const id = group.dataset.miniChoice;
+                const correctAnswer = normalizeMiniAnswer(group.dataset.answer);
+                const choices = Array.from(group.querySelectorAll('input[type="radio"]'));
+                const checked = choices.find(choice => choice.checked);
+
+                choices.forEach(choice => {
+                    const label = choice.closest('.mini-choice');
+                    if (label) label.classList.remove('correct', 'wrong');
+                });
+
+                if (!checked) {
+                    setFeedback(id, false, 'Välj ett alternativ.');
+                    return false;
+                }
+
+                const isCorrect = normalizeMiniAnswer(checked.value) === correctAnswer;
+                const checkedLabel = checked.closest('.mini-choice');
+                if (checkedLabel) checkedLabel.classList.add(isCorrect ? 'correct' : 'wrong');
+
+                if (!isCorrect) {
+                    const correctChoice = choices.find(choice => normalizeMiniAnswer(choice.value) === correctAnswer);
+                    const correctLabel = correctChoice?.closest('.mini-choice');
+                    if (correctLabel) correctLabel.classList.add('correct');
+                }
+
+                setFeedback(id, isCorrect, isCorrect ? 'Rätt.' : 'Inte rätt här.');
+                return isCorrect;
+            }
+
+            checkButton.addEventListener('click', () => {
+                const textInputs = Array.from(miniPro.querySelectorAll('input[data-answers], input[data-contains]'));
+                const choiceGroups = Array.from(miniPro.querySelectorAll('[data-mini-choice]'));
+                const results = [
+                    ...textInputs.map(checkTextInput),
+                    ...choiceGroups.map(checkChoiceGroup)
+                ];
+                const correctCount = results.filter(Boolean).length;
+                const totalCount = results.length;
+                scoreElement.textContent = `${correctCount} av ${totalCount} delpoäng`;
+                scoreElement.style.color = correctCount === totalCount ? 'var(--correct)' : 'var(--dark)';
+
+                if (totalCount > 0 && correctCount === totalCount) {
+                    unlockLatinAchievement(LATIN_MINI_PRO_ACHIEVEMENT);
+                }
+            });
+
+            resetButton.addEventListener('click', () => {
+                miniPro.querySelectorAll('input[data-answers], input[data-contains]').forEach(input => {
+                    input.value = '';
+                    input.classList.remove('correct', 'wrong');
+                    clearFeedback(input.id);
+                });
+                miniPro.querySelectorAll('[data-mini-choice]').forEach(group => {
+                    clearFeedback(group.dataset.miniChoice);
+                    group.querySelectorAll('input[type="radio"]').forEach(choice => {
+                        choice.checked = false;
+                        choice.closest('.mini-choice')?.classList.remove('correct', 'wrong');
+                    });
+                });
+                scoreElement.textContent = '';
+                scoreElement.style.color = 'var(--dark)';
+            });
+
+            miniPro.addEventListener('input', event => {
+                if (!event.target.matches('input[data-answers], input[data-contains]')) return;
+                event.target.classList.remove('correct', 'wrong');
+                clearFeedback(event.target.id);
+                scoreElement.textContent = '';
+            });
+
+            miniPro.addEventListener('change', event => {
+                if (!event.target.matches('input[type="radio"]')) return;
+                const group = event.target.closest('[data-mini-choice]');
+                if (!group) return;
+                clearFeedback(group.dataset.miniChoice);
+                group.querySelectorAll('.mini-choice').forEach(choice => choice.classList.remove('correct', 'wrong'));
+                scoreElement.textContent = '';
+            });
+        })();
+
+        initStudyGuide({
+            guideId: 'latin3vt2026',
+            requiredSections: ['sentenser', 'hercules', 'herculesgrammatik', 'pronomen', 'tempus', 'deklinationer', 'stod', 'prov'],
+            sectionQuestions: true,
+            extraAchievements: [
+                {
+                    id: LATIN_SECTION_MINI_TESTS_ACHIEVEMENT,
+                    name: 'Sektionsmästaren',
+                    description: 'Få 100% på alla sidornas mini-test',
+                    icon: '✅',
+                    insertAfterId: 'explorer'
+                },
+                {
+                    id: LATIN_MINI_PRO_ACHIEVEMENT,
+                    name: 'Provform',
+                    description: 'Få 100% på det interaktiva mini-provet',
+                    icon: '✍️',
+                    insertAfterId: LATIN_SECTION_MINI_TESTS_ACHIEVEMENT
+                }
+            ]
+        });
+
+        (function initSectionMiniTestAchievements() {
+            const storageKey = 'latin3vt2026_perfectSectionMiniTests';
+            let perfectSections = JSON.parse(localStorage.getItem(storageKey) || '[]')
+                .filter(section => LATIN_SECTION_MINI_TEST_SECTIONS.includes(section));
+
+            function savePerfectSections() {
+                localStorage.setItem(storageKey, JSON.stringify(perfectSections));
+            }
+
+            function maybeUnlockAllMiniTests() {
+                const allPerfect = LATIN_SECTION_MINI_TEST_SECTIONS
+                    .every(section => perfectSections.includes(section));
+                if (allPerfect) {
+                    unlockLatinAchievement(LATIN_SECTION_MINI_TESTS_ACHIEVEMENT);
+                }
+            }
+
+            function isSectionMiniTestPerfect(sectionId) {
+                const questions = window.questionsDB?.[sectionId] || [];
+                const container = document.getElementById(`${sectionId}-questions`);
+                if (!questions.length || !container) return false;
+
+                return questions.every((_, index) => {
+                    const selected = container.querySelector(`.question:nth-child(${index + 1}) .option.selected`);
+                    return selected?.dataset.correct === 'true';
+                });
+            }
+
+            const baseSelectSectionAnswer = window.selectSectionAnswer;
+            if (typeof baseSelectSectionAnswer !== 'function') return;
+
+            window.selectSectionAnswer = function(section, questionIndex, optionIndex, isCorrect) {
+                baseSelectSectionAnswer(section, questionIndex, optionIndex, isCorrect);
+
+                if (!LATIN_SECTION_MINI_TEST_SECTIONS.includes(section)) return;
+                if (!isSectionMiniTestPerfect(section)) return;
+                if (!perfectSections.includes(section)) {
+                    perfectSections.push(section);
+                    savePerfectSections();
+                }
+                maybeUnlockAllMiniTests();
+            };
+
+            maybeUnlockAllMiniTests();
+        })();
+    </script>
+</body>
+</html>

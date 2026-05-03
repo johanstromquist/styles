@@ -72,6 +72,32 @@ const achievementsData = [
     // Add more achievements here later if needed
 ];
 
+function registerExtraAchievements(extraAchievements = []) {
+    const insertionCounts = {};
+
+    extraAchievements.forEach(achievement => {
+        if (!achievement || !achievement.id || achievementsData.some(existing => existing.id === achievement.id)) {
+            return;
+        }
+
+        const { insertAfterId, ...achievementData } = achievement;
+        const targetIndex = insertAfterId
+            ? achievementsData.findIndex(existing => existing.id === insertAfterId)
+            : -1;
+        const offset = insertionCounts[insertAfterId] || 0;
+        const insertIndex = targetIndex >= 0 ? targetIndex + 1 + offset : achievementsData.length;
+
+        achievementsData.splice(insertIndex, 0, {
+            secret: false,
+            ...achievementData
+        });
+
+        if (insertAfterId) {
+            insertionCounts[insertAfterId] = offset + 1;
+        }
+    });
+}
+
 /**
  * Genererar nyckel för localStorage baserat på guideId.
  * @param {string} baseKey - Grundnyckeln (t.ex. 'visitedSections').
@@ -301,7 +327,7 @@ function unlockAchievement(id) {
         const achievementData = achievementsData.find(ach => ach.id === id);
         if (!achievementData) {
             console.warn(`Tried to unlock unknown achievement: ${id}`);
-            return;
+            return false;
         }
 
         achievementsEarned[currentGuideId].push(id);
@@ -350,7 +376,11 @@ function unlockAchievement(id) {
         if (!newlyUnlockedAchievementsBatch.includes(id)) {
              newlyUnlockedAchievementsBatch.push(id);
         }
+
+        return true;
     }
+
+    return false;
 }
 
 /**
@@ -477,7 +507,8 @@ function initStudyGuide(userConfig) {
     const defaultOptions = {
         guideId: 'default', // Lägg till default guideId
         requiredSections: [],
-        sectionQuestions: true
+        sectionQuestions: true,
+        extraAchievements: []
     };
 
     const config = { ...defaultOptions, ...userConfig };
@@ -487,6 +518,7 @@ function initStudyGuide(userConfig) {
         return;
     }
     currentGuideId = config.guideId; // Sätt global guideId
+    registerExtraAchievements(config.extraAchievements);
 
     // Ladda guide-specifik data från localStorage
     visitedSections[currentGuideId] = JSON.parse(localStorage.getItem(getStorageKey('visitedSections')) || '[]');
@@ -801,6 +833,10 @@ window.loadSectionQuestions = loadSectionQuestions;
 window.selectSectionAnswer = selectSectionAnswer;
 window.unlockAchievement = unlockAchievement;
 window.updateProgressDisplay = updateProgressDisplay;
+window.flushAchievementNotifications = function() {
+    showBatchedAchievementNotifications(newlyUnlockedAchievementsBatch);
+    newlyUnlockedAchievementsBatch = [];
+};
 
 // Keep the resize listener
 let resizeTimeout;
