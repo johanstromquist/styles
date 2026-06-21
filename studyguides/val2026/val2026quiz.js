@@ -1,12 +1,12 @@
 /**
- * Val 2026: Partierna & Partibarometern - Quiz Fragdatabas
- * Innehaller fragor om riksdagspartierna, valmanskapet och valet 2026.
+ * Val 2026: Partierna & Partibarometern - Quiz Frågedatabas
+ * Innehåller frågor om riksdagspartierna, valmanskapet och valet 2026.
  */
 
 window.questionsDB = {
     valsystemet: [
         {
-            question: "Hur manga ledamoter valjs till Sveriges riksdag?",
+            question: "Hur många ledamöter väljs till Sveriges riksdag?",
             options: [
                 "300",
                 "349",
@@ -16,7 +16,7 @@ window.questionsDB = {
             correctIndex: 1
         },
         {
-            question: "Vilket spärr måste ett parti klara för att komma in i riksdagen via riksmandaten?",
+            question: "Vilken spärr måste ett parti klara för att komma in i riksdagen via riksmandaten?",
             options: [
                 "2 procent",
                 "3 procent",
@@ -26,7 +26,7 @@ window.questionsDB = {
             correctIndex: 2
         },
         {
-            question: "Nar hålls riksdagsvalet 2026?",
+            question: "När hålls riksdagsvalet 2026?",
             options: [
                 "Den andra söndagen i september 2026",
                 "Den sista söndagen i oktober 2026",
@@ -36,28 +36,28 @@ window.questionsDB = {
             correctIndex: 0
         },
         {
-            question: "Vad kallas det principen att en statsminister-kandidat godkanns sa lenge ingen absolut majoritet rostar emot?",
+            question: "Vad kallas principen att en statsministerkandidat godkänns så länge ingen absolut majoritet röstar emot?",
             options: [
                 "Positiv parlamentarism",
                 "Negativ parlamentarism",
                 "Konstruktivt misstroendevotum",
-                "Konfidensomrostning"
+                "Konfidensomröstning"
             ],
             correctIndex: 1,
             difficulty: "hard"
         },
         {
-            question: "Vad ar Tidoavtalet?",
+            question: "Vad är Tidöavtalet?",
             options: [
-                "En koalitionsregering dar SD ingår som ministrar",
-                "En overenskommelse som lat M, KD och L bilda regering med stod fran SD",
+                "En koalitionsregering där SD ingår som ministrar",
+                "En överenskommelse som lät M, KD och L bilda regering med stöd från SD",
                 "Ett avtal mellan S och M om samarbete",
-                "En EU-overenskommelse om migration"
+                "En EU-överenskommelse om migration"
             ],
             correctIndex: 1
         },
         {
-            question: "Hur manga valkretsar finns det i Sverige?",
+            question: "Hur många valkretsar finns det i Sverige?",
             options: [
                 "21",
                 "25",
@@ -70,9 +70,9 @@ window.questionsDB = {
     ],
     partierna: [
         {
-            question: "Vem ar partiledare for Socialdemokraterna infor valet 2026?",
+            question: "Vem är partiledare för Socialdemokraterna inför valet 2026?",
             options: [
-                "Stefan Lofven",
+                "Stefan Löfven",
                 "Morgan Johansson",
                 "Magdalena Andersson",
                 "Mona Sahlin"
@@ -80,29 +80,29 @@ window.questionsDB = {
             correctIndex: 2
         },
         {
-            question: "Vem leder Moderaterna och ar statsminister?",
+            question: "Vem leder Moderaterna och är statsminister?",
             options: [
                 "Carl Bildt",
                 "Fredrik Reinfeldt",
                 "Ulf Kristersson",
-                "Gunnar Strang"
+                "Gunnar Sträng"
             ],
             correctIndex: 2
         },
         {
-            question: "Vem ar partiledare for Sverigedemokraterna?",
+            question: "Vem är partiledare för Sverigedemokraterna?",
             options: [
                 "Mattias Karlsson",
-                "Jimmie Akesson",
+                "Jimmie Åkesson",
                 "Richard Jomshof",
-                "Oscar Sjostedt"
+                "Oscar Sjöstedt"
             ],
             correctIndex: 1
         },
         {
-            question: "Vem ar partiledare for Centerpartiet infor 2026 ars val?",
+            question: "Vem är partiledare för Centerpartiet inför 2026 års val?",
             options: [
-                "Annie Loof",
+                "Annie Lööf",
                 "Per Ankersjö",
                 "Elisabeth Thand Ringqvist",
                 "Muharrem Demirok"
@@ -110,9 +110,9 @@ window.questionsDB = {
             correctIndex: 2
         },
         {
-            question: "Vem ar partiledare for Vansterpartiet?",
+            question: "Vem är partiledare för Vänsterpartiet?",
             options: [
-                "Jonas Sjostedt",
+                "Jonas Sjöstedt",
                 "Ulla Andersson",
                 "Nooshi Dadgostar",
                 "Lars Ohly"
@@ -120,47 +120,47 @@ window.questionsDB = {
             correctIndex: 2
         },
         {
-            question: "Vem ar partiledare for Kristdemokraterna?",
+            question: "Vem är partiledare för Kristdemokraterna?",
             options: [
                 "Stefan Attefall",
                 "Ebba Busch",
-                "Goran Hagglund",
+                "Göran Hägglund",
                 "Per Gahrton"
             ],
             correctIndex: 1
         },
         {
-            question: "Vilka tva talespersoner har Miljopartiet infor 2026 ars val?",
+            question: "Vilka två talespersoner har Miljöpartiet inför 2026 års val?",
             options: [
-                "Gustav Fridolin och Isabella Lovin",
-                "Per Bolund och Marta Stenevi",
-                "Amanda Lind och Daniel Hellden",
-                "Asa Romson och Mikaela Valtersson"
+                "Gustav Fridolin och Isabella Lövin",
+                "Per Bolund och Märta Stenevi",
+                "Amanda Lind och Daniel Helldén",
+                "Åsa Romson och Mikaela Valtersson"
             ],
             correctIndex: 2
         },
         {
-            question: "Vem ar partiledare for Liberalerna?",
+            question: "Vem är partiledare för Liberalerna?",
             options: [
                 "Johan Pehrson",
-                "Jan Bjorklund",
+                "Jan Björklund",
                 "Birgitta Ohlsson",
                 "Simona Mohamsson"
             ],
             correctIndex: 3
         },
         {
-            question: "Vilket ar Socialdemokraternas partifarg?",
+            question: "Vilken är Socialdemokraternas partifärg?",
             options: [
-                "Blatt",
-                "Gront",
-                "Rott",
+                "Blått",
+                "Grönt",
+                "Rött",
                 "Gult"
             ],
             correctIndex: 2
         },
         {
-            question: "Vilket parti grundades 1889 och ar Sveriges aldsta och storsta parti?",
+            question: "Vilket parti grundades 1889 och är Sveriges äldsta och största parti?",
             options: [
                 "Moderaterna",
                 "Socialdemokraterna",
@@ -172,17 +172,17 @@ window.questionsDB = {
     ],
     barometer: [
         {
-            question: "Vad ar syftet med en 'valkompass' eller partibarometer?",
+            question: "Vad är syftet med en 'valkompass' eller partibarometer?",
             options: [
-                "Att berätta for valjarna vilket parti de maste rosta pa",
-                "Att ge ett forenklat verktyg for att jamfora sina asikter med partiernas stallningstaganden",
-                "Att ersatta den officiella vallangden",
-                "Att rangordna partiernas popularitet i opinionsundersokningar"
+                "Att berätta för väljarna vilket parti de måste rösta på",
+                "Att ge ett förenklat verktyg för att jämföra sina åsikter med partiernas ställningstaganden",
+                "Att ersätta den officiella vallängden",
+                "Att rangordna partiernas popularitet i opinionsundersökningar"
             ],
             correctIndex: 1
         },
         {
-            question: "Vilken ideologisk familj tillhor Socialdemokraterna?",
+            question: "Vilken ideologisk familj tillhör Socialdemokraterna?",
             options: [
                 "Liberalism",
                 "Socialdemokrati",
@@ -195,45 +195,45 @@ window.questionsDB = {
             question: "Vilken ideologisk position har Sverigedemokraterna?",
             options: [
                 "Socialliberal mitt",
-                "Hoger och nationalkonservativ",
-                "Socialistisk vanster",
-                "Gron mitten"
+                "Höger och nationalkonservativ",
+                "Socialistisk vänster",
+                "Grön mitten"
             ],
             correctIndex: 1
         },
         {
-            question: "Vilket block tillhor Centerpartiet och Liberalerna infor valet 2026?",
+            question: "Vilket block tillhör Centerpartiet och Liberalerna inför valet 2026?",
             options: [
-                "Vaster-blocket (rod-gron)",
-                "Tidopartierna / hager-blocket",
+                "Vänster-blocket (röd-grön)",
+                "Tidöpartierna / höger-blocket",
                 "Mittblocket",
-                "De tillhor inget block"
+                "De tillhör inget block"
             ],
             correctIndex: 1
         },
         {
-            question: "Vilken ideologi ar Miljopartiets bas?",
+            question: "Vilken ideologi är Miljöpartiets bas?",
             options: [
                 "Socialdemokrati",
                 "Konservatism",
-                "Gron politik (ekologism)",
+                "Grön politik (ekologism)",
                 "Liberalism"
             ],
             correctIndex: 2
         },
         {
-            question: "Vilket europeiskt parti-familj tillhor Vansterpartiet?",
+            question: "Vilken europeisk partifamilj tillhör Vänsterpartiet?",
             options: [
                 "Socialister och Demokrater (S&D)",
                 "Renew Europe",
-                "Europavanster / GUE-NGL",
-                "De grona / EFA"
+                "Europavänster / GUE-NGL",
+                "De gröna / EFA"
             ],
             correctIndex: 2,
             difficulty: "hard"
         },
         {
-            question: "Vilken ideologisk beteckning stammer Kristdemokraterna fran?",
+            question: "Vilken ideologisk beteckning stammar Kristdemokraterna från?",
             options: [
                 "Konservativ liberalism",
                 "Kristdemokrati",
@@ -253,64 +253,64 @@ window.questionsDB = {
             correctIndex: 2
         },
         {
-            question: "Moderaterna beskrivs som liberalkonservativa. Vad innebar det?",
+            question: "Moderaterna beskrivs som liberalkonservativa. Vad innebär det?",
             options: [
-                "De forenar socialliberal valfardspolitik med stark statlig styrning",
-                "De forenar ekonomisk liberalism med konservativa vardegrunder",
-                "De ar varken liberala eller konservativa",
-                "De forespråkar ett radikalt brott med alla traditioner"
+                "De förenar socialliberal välfärdspolitik med stark statlig styrning",
+                "De förenar ekonomisk liberalism med konservativa värdegrunder",
+                "De är varken liberala eller konservativa",
+                "De förespråkar ett radikalt brott med alla traditioner"
             ],
             correctIndex: 1,
             difficulty: "hard"
         },
         {
-            question: "Varfor ar en valkompass/partibarometer en 'forenklad pedagogisk modell'?",
+            question: "Varför är en valkompass/partibarometer en 'förenklad pedagogisk modell'?",
             options: [
-                "For att den endast visar de storsta partierna",
-                "For att verklig politik ar mer nyanserad an ett enkelt jamforelseverktyg kan visa",
-                "For att den inte gar att anvanda pa mobil",
-                "For att den kostar pengar att anvanda"
+                "För att den endast visar de största partierna",
+                "För att verklig politik är mer nyanserad än ett enkelt jämförelseverktyg kan visa",
+                "För att den inte går att använda på mobil",
+                "För att den kostar pengar att använda"
             ],
             correctIndex: 1
         }
     ],
     sakfragor: [
         {
-            question: "Vilket problem har dominerats av den politiska debatten under Tidoregeringens mandatperiod?",
+            question: "Vilket problem har dominerat den politiska debatten under Tidöregeringens mandatperiod?",
             options: [
                 "Bostadsbrist och hyresreglering",
-                "Gangkriminalitet och gang-relaterat vald",
-                "Pensioner och aldrevard",
-                "Skola och larabristen"
+                "Gängkriminalitet och gängrelaterat våld",
+                "Pensioner och äldrevård",
+                "Skola och lärarbristen"
             ],
             correctIndex: 1
         },
         {
-            question: "Vad handlar den svenska debatten om 'Sverigelofte' 2026 om?",
+            question: "Vad handlar den svenska debatten om 'Sverigelöftet' 2026 om?",
             options: [
-                "En overenskommelse om att SD ska fa ministerposter om Tidoblocket vinner",
-                "En ekonomisk satsning pa Sverige",
-                "Ett nytt forsvarsavtal med NATO",
-                "En migrationsoppsattning"
+                "En överenskommelse om att SD ska få ministerposter om Tidöblocket vinner",
+                "En ekonomisk satsning på Sverige",
+                "Ett nytt försvarsavtal med NATO",
+                "En migrationsuppgörelse"
             ],
             correctIndex: 0,
             difficulty: "hard"
         },
         {
-            question: "Vilket ar S positioner nar det galler vard och omsorg?",
+            question: "Vilken är S position när det gäller vård och omsorg?",
             options: [
                 "Privatisering och valfrihet",
-                "Starkt offentligfinansieradvalvard och betoning pa vard som rattighet",
+                "Stark offentligfinansierad välfärd och betoning på vård som rättighet",
                 "Kommunerna ska ha inga pengar alls",
                 "All vård ska drivas av frivilligorganisationer"
             ],
             correctIndex: 1
         },
         {
-            question: "Vad ar gransrantan?",
+            question: "Vad är gränsräntan?",
             options: [
                 "En typ av migrationsavgift",
-                "Den lagsta skattesatsen",
+                "Den lägsta skattesatsen",
                 "Riksbankens styrränta",
                 "Andelen migranter man tar emot"
             ],
@@ -318,47 +318,47 @@ window.questionsDB = {
             difficulty: "hard"
         },
         {
-            question: "Vilket NATO-land gick Sverige med i 2024?",
+            question: "Vilket år gick Sverige med i NATO?",
             options: [
                 "2023",
                 "2024",
                 "2025",
-                "Sverige ar inte med i NATO"
+                "Sverige är inte med i NATO"
             ],
             correctIndex: 1
         },
         {
-            question: "Vilket parti vill starkast begransa invandringen till Sverige?",
+            question: "Vilket parti vill starkast begränsa invandringen till Sverige?",
             options: [
                 "Centerpartiet",
-                "Miljopartiet",
-                "Vansterpartiet",
+                "Miljöpartiet",
+                "Vänsterpartiet",
                 "Sverigedemokraterna"
             ],
             correctIndex: 3
         },
         {
-            question: "Vilket parti ar tydligast for en ambitioas klimatpolitik och mot karnkraft?",
+            question: "Vilket parti är tydligast för en ambitiös klimatpolitik och mot kärnkraft?",
             options: [
                 "Sverigedemokraterna",
                 "Moderaterna",
-                "Miljopartiet",
+                "Miljöpartiet",
                 "Kristdemokraterna"
             ],
             correctIndex: 2
         },
         {
-            question: "Vad handlar 'gångkriminalitet' om i den svenska debatten?",
+            question: "Vad handlar 'gängkriminalitet' om i den svenska debatten?",
             options: [
-                "Brott begangna av pensionarer",
-                "Organiserade brottsganger, skjutningar och sprängningar",
-                "Trafik- och cykelvagbrott",
-                "Vit-kragskriminalitet i finanssektorn"
+                "Brott begångna av pensionärer",
+                "Organiserade brottsgäng, skjutningar och sprängningar",
+                "Trafik- och cykelvägsbrott",
+                "Vitkragskriminalitet i finanssektorn"
             ],
             correctIndex: 1
         },
         {
-            question: "Vad ar Riksbankens styrränta ungefar i mitten av 2026?",
+            question: "Vad är Riksbankens styrränta ungefär i mitten av 2026?",
             options: [
                 "5,0 procent",
                 "3,5 procent",
@@ -369,22 +369,22 @@ window.questionsDB = {
             difficulty: "crazy"
         },
         {
-            question: "Vilket parti ar mest positivt till privatisering av valfarden (skola, vard, omsorg)?",
+            question: "Vilket parti är mest positivt till privatisering av välfärden (skola, vård, omsorg)?",
             options: [
-                "Vansterpartiet",
-                "Miljopartiet",
+                "Vänsterpartiet",
+                "Miljöpartiet",
                 "Socialdemokraterna",
                 "Moderaterna"
             ],
             correctIndex: 3
         },
         {
-            question: "Vilket block leder i opinionsmätningarna infor valet 2026 (juni 2026)?",
+            question: "Vilket block leder i opinionsmätningarna inför valet 2026 (juni 2026)?",
             options: [
-                "Tidoblocket (M, KD, L, SD)",
-                "Rod-gron sidan (S, V, MP, C)",
+                "Tidöblocket (M, KD, L, SD)",
+                "Röd-gröna sidan (S, V, MP, C)",
                 "Mitten-blocket",
-                "Bada blocken ar jamna"
+                "Båda blocken är jämna"
             ],
             correctIndex: 1,
             difficulty: "hard"
@@ -401,7 +401,7 @@ window.questionsDB = {
             difficulty: "crazy"
         },
         {
-            question: "Vilket parti riskerar att hamna under riksdagsspärren (4%) infor valet 2026?",
+            question: "Vilket parti riskerar att hamna under riksdagsspärren (4%) inför valet 2026?",
             options: [
                 "Moderaterna",
                 "Liberalerna",
@@ -412,11 +412,11 @@ window.questionsDB = {
             difficulty: "crazy"
         },
         {
-            question: "Vilket parti höjer typiskt skatterna for att finansiera valf??rd och offentliga tjanster?",
+            question: "Vilket parti höjer typiskt skatterna för att finansiera välfärd och offentliga tjänster?",
             options: [
                 "Moderaterna",
                 "Sverigedemokraterna",
-                "Vansterpartiet",
+                "Vänsterpartiet",
                 "Liberalerna"
             ],
             correctIndex: 2,
