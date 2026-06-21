@@ -1,0 +1,146 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "totalIdeologies": 6,
+    "description": "Ideology definitions for Nation Builder educational game"
+  },
+  "ideologies": {
+    "liberal": {
+      "name": "Liberalism",
+      "description": "Emphasizes individual freedom, market economics, democratic governance, and limited government intervention.",
+      "coreValues": [
+        "Individual liberty and rights",
+        "Free market economics",
+        "Democratic participation",
+        "Rule of law and constitutional government",
+        "Cultural diversity and tolerance"
+      ],
+      "priorityMetrics": [
+        "economicGrowth",
+        "citizenParticipation",
+        "ruleOfLaw",
+        "culturalDiversity",
+        "socialMobility"
+      ],
+      "successPattern": "Thrives with high economic growth, strong democratic institutions, cultural diversity, and individual mobility"
+    },
+    "conservative": {
+      "name": "Conservatism",
+      "description": "Values tradition, stability, established institutions, and gradual rather than radical change.",
+      "coreValues": [
+        "Traditional values and institutions",
+        "Social stability and order",
+        "Gradual, evolutionary change",
+        "Strong law enforcement",
+        "Religious and cultural heritage"
+      ],
+      "priorityMetrics": [
+        "economicStability",
+        "ruleOfLaw",
+        "internalStability",
+        "religiousSpiritualParticipation",
+        "lawEnforcementEffectiveness"
+      ],
+      "successPattern": "Excels with stable institutions, low crime, strong rule of law, and cultural continuity"
+    },
+    "socialist": {
+      "name": "Socialism",
+      "description": "Prioritizes economic equality, collective ownership, and strong government role in ensuring social welfare.",
+      "coreValues": [
+        "Economic equality and social justice",
+        "Collective ownership and cooperation",
+        "Strong social safety net",
+        "Worker rights and organization",
+        "Universal public services"
+      ],
+      "priorityMetrics": [
+        "incomeInequality",
+        "healthcareAccess",
+        "educationQuality",
+        "workerOrganization",
+        "socialCohesion"
+      ],
+      "successPattern": "Succeeds with low inequality, universal services, strong worker rights, and social cohesion"
+    },
+    "ecological": {
+      "name": "Ecologism",
+      "description": "Centers environmental sustainability, ecological balance, and long-term planetary health in all policy decisions.",
+      "coreValues": [
+        "Environmental sustainability and protection",
+        "Ecological balance and biodiversity",
+        "Renewable energy and green technology",
+        "Sustainable development practices",
+        "Intergenerational responsibility"
+      ],
+      "priorityMetrics": [
+        "environmentalQuality",
+        "renewableEnergyAdoption",
+        "sustainabilityPractices",
+        "resourceConservation"
+      ],
+      "successPattern": "Thrives with clean environment, renewable energy, sustainable practices, and resource conservation"
+    },
+    "authoritarian": {
+      "name": "Authoritarianism",
+      "description": "Emphasizes strong centralized leadership, order over freedom, and concentrated state power for stability and control.",
+      "coreValues": [
+        "Strong centralized leadership",
+        "Order and stability over individual freedom",
+        "Concentrated state power",
+        "National unity and discipline",
+        "Efficient decision-making"
+      ],
+      "priorityMetrics": [
+        "politicalStability",
+        "nationalSecurity",
+        "governanceEffectiveness",
+        "informationControl",
+        "internalStability"
+      ],
+      "successPattern": "Effective with strong institutions, low crime, high security, and efficient governance"
+    },
+    "feminist": {
+      "name": "Feminism",
+      "description": "Focuses on gender equality, social justice, and dismantling patriarchal structures across all areas of society.",
+      "coreValues": [
+        "Gender equality and women's rights",
+        "Social justice and intersectionality",
+        "Care work recognition and support",
+        "Work-life balance and family policy",
+        "Inclusive and diverse representation"
+      ],
+      "priorityMetrics": [
+        "socialMobility",
+        "careWorkIntegration",
+        "educationQuality",
+        "workLifeBalance",
+        "culturalDiversity"
+      ],
+      "successPattern": "Succeeds with gender equality, inclusive policies, care work support, and diverse representation"
+    }
+  },
+  "crossCuttingThemes": {
+    "protectionism": {
+      "description": "Protective policies appear across ideologies but serve different purposes",
+      "variants": {
+        "economic": "Liberal and conservative protectionism for domestic industries",
+        "cultural": "Conservative and authoritarian protection of traditional values",
+        "environmental": "Ecological protectionism for natural resources",
+        "social": "Socialist and feminist protection of vulnerable groups"
+      }
+    },
+    "populism": {
+      "description": "Appeal to 'the people' manifests differently across ideologies",
+      "variants": {
+        "left": "Socialist populism focusing on economic inequality",
+        "right": "Conservative populism emphasizing cultural identity",
+        "democratic": "Liberal populism promoting democratic participation"
+      }
+    }
+  },
+  "educationalNotes": {
+    "purpose": "These definitions help students understand how different ideological frameworks shape policy priorities and governance approaches",
+    "usage": "The game tracks alignment with these ideologies based on policy choices, not explicit ideological labels",
+    "realWorld": "Real political systems often blend elements from multiple ideologies rather than following pure ideological lines"
+  }
+}

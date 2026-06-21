@@ -1,0 +1,1116 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2024-01-01",
+  "questionTemplates": {
+    "economic": {
+      "domain": "economic",
+      "description": "Questions about economic development, trade, taxation, and business regulation",
+      "questions": [
+        {
+          "id": "econ_001",
+          "template": "How should Newlandia approach economic development in its early years?",
+          "phase": ["Foundation"],
+          "difficulty": "basic",
+          "choices": [
+            {
+              "text": "Focus on attracting foreign investment through low taxes and minimal regulation",
+              "ideologyAlignment": {
+                "liberal": 0.8,
+                "conservative": 0.6,
+                "socialist": 0.1,
+                "ecological": 0.3,
+                "authoritarian": 0.4,
+                "feminist": 0.4
+              },
+              "metricImpacts": {
+                "economicGrowth": 15,
+                "unemployment": -10,
+                "incomeInequality": 10,
+                "businessConfidence": 20,
+                "environmentalQuality": -5,
+                "taxRevenue": -10
+              },
+              "policyEscalation": {
+                "track": "market_freedom",
+                "level": 1
+              }
+            },
+            {
+              "text": "Establish strong worker protections and progressive taxation from the start",
+              "ideologyAlignment": {
+                "liberal": 0.4,
+                "conservative": 0.2,
+                "socialist": 0.9,
+                "ecological": 0.6,
+                "authoritarian": 0.3,
+                "feminist": 0.7
+              },
+              "metricImpacts": {
+                "economicGrowth": 5,
+                "unemployment": -5,
+                "incomeInequality": -15,
+                "workerRights": 20,
+                "taxRevenue": 15,
+                "businessConfidence": -10
+              },
+              "policyEscalation": {
+                "track": "wealth_redistribution",
+                "level": 1
+              }
+            },
+            {
+              "text": "Create a mixed economy balancing market forces with strategic government intervention",
+              "ideologyAlignment": {
+                "liberal": 0.6,
+                "conservative": 0.4,
+                "socialist": 0.5,
+                "ecological": 0.5,
+                "authoritarian": 0.5,
+                "feminist": 0.5
+              },
+              "metricImpacts": {
+                "economicGrowth": 10,
+                "unemployment": -7,
+                "incomeInequality": -5,
+                "businessConfidence": 10,
+                "taxRevenue": 5,
+                "governmentEfficiency": 10
+              },
+              "policyEscalation": {
+                "track": "mixed_economy",
+                "level": 1
+              }
+            }
+          ],
+          "context": {
+            "background": "As a new nation, Newlandia must establish its economic foundation and approach to development.",
+            "stakes": "Early economic decisions will shape the country's development trajectory for decades.",
+            "realWorldConnections": ["Economic development models", "Foreign investment policies", "Tax policy debates"]
+          }
+        },
+        {
+          "id": "econ_002",
+          "template": "A major corporation wants to build a factory in Newlandia, but environmental groups are concerned about pollution. How do you respond?",
+          "phase": ["Foundation", "Growth"],
+          "difficulty": "intermediate",
+          "triggers": {
+            "economicGrowth": { "min": 40 },
+            "environmentalQuality": { "min": 30 }
+          },
+          "choices": [
+            {
+              "text": "Welcome the corporation with tax incentives and streamlined regulations",
+              "ideologyAlignment": {
+                "liberal": 0.7,
+                "conservative": 0.8,
+                "socialist": 0.2,
+                "ecological": 0.1,
+                "authoritarian": 0.6,
+                "feminist": 0.3
+              },
+              "metricImpacts": {
+                "economicGrowth": 20,
+                "unemployment": -15,
+                "environmentalQuality": -15,
+                "businessConfidence": 25,
+                "publicHealth": -5,
+                "taxRevenue": 10
+              },
+              "policyEscalation": {
+                "track": "market_freedom",
+                "level": 2
+              }
+            },
+            {
+              "text": "Require strict environmental standards and community benefit agreements",
+              "ideologyAlignment": {
+                "liberal": 0.5,
+                "conservative": 0.3,
+                "socialist": 0.7,
+                "ecological": 0.9,
+                "authoritarian": 0.4,
+                "feminist": 0.6
+              },
+              "metricImpacts": {
+                "economicGrowth": 10,
+                "unemployment": -8,
+                "environmentalQuality": 5,
+                "businessConfidence": 5,
+                "publicHealth": 10,
+                "ruleOfLaw": 15
+              },
+              "policyEscalation": {
+                "track": "environmental_protection",
+                "level": 2
+              }
+            },
+            {
+              "text": "Reject the proposal to protect the environment and local communities",
+              "ideologyAlignment": {
+                "liberal": 0.2,
+                "conservative": 0.1,
+                "socialist": 0.4,
+                "ecological": 0.9,
+                "authoritarian": 0.2,
+                "feminist": 0.5
+              },
+              "metricImpacts": {
+                "economicGrowth": -5,
+                "unemployment": 5,
+                "environmentalQuality": 15,
+                "businessConfidence": -20,
+                "publicHealth": 10,
+                "happiness": 15
+              },
+              "policyEscalation": {
+                "track": "environmental_protection",
+                "level": 3
+              }
+            }
+          ],
+          "context": {
+            "background": "Economic development often conflicts with environmental protection, requiring difficult trade-offs.",
+            "stakes": "This decision will influence future business investment and environmental policy.",
+            "realWorldConnections": ["Environmental regulations", "Corporate responsibility", "Sustainable development"]
+          }
+        }
+      ]
+    },
+    "education": {
+      "domain": "education",
+      "description": "Questions about educational systems, funding, curriculum, and access",
+      "questions": [
+        {
+          "id": "edu_001",
+          "template": "How should Newlandia structure its education system?",
+          "phase": ["Foundation"],
+          "difficulty": "basic",
+          "choices": [
+            {
+              "text": "Create a centralized public education system with standardized curriculum",
+              "ideologyAlignment": {
+                "liberal": 0.6,
+                "conservative": 0.4,
+                "socialist": 0.8,
+                "ecological": 0.5,
+                "authoritarian": 0.7,
+                "feminist": 0.6
+              },
+              "metricImpacts": {
+                "educationQuality": 15,
+                "educationAccess": 20,
+                "socialMobility": 15,
+                "governmentEfficiency": 10,
+                "incomeInequality": -10,
+                "taxRevenue": -15
+              },
+              "policyEscalation": {
+                "track": "state_authority",
+                "level": 1
+              }
+            },
+            {
+              "text": "Allow market-based education with school choice and private options",
+              "ideologyAlignment": {
+                "liberal": 0.8,
+                "conservative": 0.7,
+                "socialist": 0.2,
+                "ecological": 0.3,
+                "authoritarian": 0.3,
+                "feminist": 0.4
+              },
+              "metricImpacts": {
+                "educationQuality": 10,
+                "educationAccess": -5,
+                "socialMobility": 5,
+                "incomeInequality": 10,
+                "businessConfidence": 15,
+                "innovation": 20
+              },
+              "policyEscalation": {
+                "track": "market_freedom",
+                "level": 1
+              }
+            },
+            {
+              "text": "Establish community-controlled schools with local curriculum flexibility",
+              "ideologyAlignment": {
+                "liberal": 0.5,
+                "conservative": 0.6,
+                "socialist": 0.6,
+                "ecological": 0.7,
+                "authoritarian": 0.2,
+                "feminist": 0.7
+              },
+              "metricImpacts": {
+                "educationQuality": 12,
+                "educationAccess": 15,
+                "socialMobility": 10,
+                "happiness": 20,
+                "culturalDiversity": 15,
+                "democraticParticipation": 15
+              },
+              "policyEscalation": {
+                "track": "community_control",
+                "level": 1
+              }
+            }
+          ],
+          "context": {
+            "background": "Education systems shape society's future and reflect fundamental values about equality and opportunity.",
+            "stakes": "Educational structure will influence social mobility and cultural development for generations.",
+            "realWorldConnections": ["School choice debates", "Educational equity", "Standardized testing"]
+          }
+        }
+      ]
+    },
+    "healthcare": {
+      "domain": "healthcare",
+      "description": "Questions about healthcare systems, access, funding, and public health",
+      "questions": [
+        {
+          "id": "health_001",
+          "template": "How should Newlandia organize its healthcare system?",
+          "phase": ["Foundation"],
+          "difficulty": "basic",
+          "choices": [
+            {
+              "text": "Establish universal healthcare funded through taxation",
+              "ideologyAlignment": {
+                "liberal": 0.6,
+                "conservative": 0.2,
+                "socialist": 0.9,
+                "ecological": 0.7,
+                "authoritarian": 0.5,
+                "feminist": 0.8
+              },
+              "metricImpacts": {
+                "healthcareAccess": 25,
+                "publicHealth": 20,
+                "incomeInequality": -15,
+                "taxRevenue": -20,
+                "happiness": 20,
+                "lifeExpectancy": 10
+              },
+              "policyEscalation": {
+                "track": "wealth_redistribution",
+                "level": 2
+              }
+            },
+            {
+              "text": "Create a market-based system with private insurance and competition",
+              "ideologyAlignment": {
+                "liberal": 0.8,
+                "conservative": 0.8,
+                "socialist": 0.1,
+                "ecological": 0.3,
+                "authoritarian": 0.4,
+                "feminist": 0.3
+              },
+              "metricImpacts": {
+                "healthcareAccess": 5,
+                "publicHealth": 5,
+                "businessConfidence": 20,
+                "innovation": 15,
+                "incomeInequality": 15,
+                "economicGrowth": 10
+              },
+              "policyEscalation": {
+                "track": "market_freedom",
+                "level": 2
+              }
+            },
+            {
+              "text": "Develop a mixed system with public basic care and private options",
+              "ideologyAlignment": {
+                "liberal": 0.7,
+                "conservative": 0.5,
+                "socialist": 0.5,
+                "ecological": 0.6,
+                "authoritarian": 0.5,
+                "feminist": 0.6
+              },
+              "metricImpacts": {
+                "healthcareAccess": 15,
+                "publicHealth": 15,
+                "businessConfidence": 10,
+                "taxRevenue": -10,
+                "happiness": 10,
+                "economicGrowth": 5
+              },
+              "policyEscalation": {
+                "track": "mixed_economy",
+                "level": 2
+              }
+            }
+          ],
+          "context": {
+            "background": "Healthcare systems reflect fundamental values about social responsibility and individual choice.",
+            "stakes": "Healthcare decisions affect every citizen's quality of life and the nation's economic productivity.",
+            "realWorldConnections": ["Universal healthcare debates", "Healthcare costs", "Medical innovation"]
+          }
+        }
+      ]
+    },
+    "environmental": {
+      "domain": "environmental",
+      "description": "Questions about environmental protection, climate change, and sustainable development",
+      "questions": [
+        {
+          "id": "env_001",
+          "template": "How should Newlandia balance economic development with environmental protection?",
+          "phase": ["Foundation", "Growth"],
+          "difficulty": "intermediate",
+          "choices": [
+            {
+              "text": "Prioritize economic growth now, address environment later when more prosperous",
+              "ideologyAlignment": {
+                "liberal": 0.6,
+                "conservative": 0.8,
+                "socialist": 0.3,
+                "ecological": 0.1,
+                "authoritarian": 0.6,
+                "feminist": 0.3
+              },
+              "metricImpacts": {
+                "economicGrowth": 20,
+                "environmentalQuality": -20,
+                "businessConfidence": 25,
+                "publicHealth": -10,
+                "climateResilience": -15,
+                "naturalResources": -10
+              },
+              "policyEscalation": {
+                "track": "market_freedom",
+                "level": 2
+              }
+            },
+            {
+              "text": "Implement strong environmental protections even if it slows economic growth",
+              "ideologyAlignment": {
+                "liberal": 0.4,
+                "conservative": 0.2,
+                "socialist": 0.6,
+                "ecological": 0.9,
+                "authoritarian": 0.3,
+                "feminist": 0.7
+              },
+              "metricImpacts": {
+                "economicGrowth": -5,
+                "environmentalQuality": 25,
+                "businessConfidence": -15,
+                "publicHealth": 15,
+                "climateResilience": 20,
+                "naturalResources": 15
+              },
+              "policyEscalation": {
+                "track": "environmental_protection",
+                "level": 2
+              }
+            },
+            {
+              "text": "Pursue green economic development that creates jobs while protecting environment",
+              "ideologyAlignment": {
+                "liberal": 0.7,
+                "conservative": 0.4,
+                "socialist": 0.7,
+                "ecological": 0.8,
+                "authoritarian": 0.4,
+                "feminist": 0.7
+              },
+              "metricImpacts": {
+                "economicGrowth": 10,
+                "environmentalQuality": 15,
+                "businessConfidence": 5,
+                "publicHealth": 10,
+                "innovation": 20,
+                "unemployment": -10
+              },
+              "policyEscalation": {
+                "track": "sustainable_development",
+                "level": 2
+              }
+            }
+          ],
+          "context": {
+            "background": "Environmental protection often conflicts with short-term economic interests.",
+            "stakes": "Environmental decisions have long-term consequences for future generations.",
+            "realWorldConnections": ["Climate change policy", "Sustainable development", "Green New Deal"]
+          }
+        }
+      ]
+    },
+    "socialJustice": {
+      "domain": "socialJustice",
+      "description": "Questions about equality, civil rights, and social inclusion",
+      "questions": [
+        {
+          "id": "social_001",
+          "template": "How should Newlandia address historical inequalities and promote social justice?",
+          "phase": ["Foundation", "Growth"],
+          "difficulty": "intermediate",
+          "choices": [
+            {
+              "text": "Focus on equal opportunity and merit-based advancement without special programs",
+              "ideologyAlignment": {
+                "liberal": 0.8,
+                "conservative": 0.8,
+                "socialist": 0.3,
+                "ecological": 0.4,
+                "authoritarian": 0.5,
+                "feminist": 0.4
+              },
+              "metricImpacts": {
+                "socialMobility": 5,
+                "incomeInequality": 5,
+                "minorityRights": -5,
+                "genderEquality": -5,
+                "happiness": 10,
+                "civilLiberties": 15
+              },
+              "policyEscalation": {
+                "track": "individual_merit",
+                "level": 1
+              }
+            },
+            {
+              "text": "Implement affirmative action and targeted programs for disadvantaged groups",
+              "ideologyAlignment": {
+                "liberal": 0.6,
+                "conservative": 0.2,
+                "socialist": 0.8,
+                "ecological": 0.7,
+                "authoritarian": 0.4,
+                "feminist": 0.9
+              },
+              "metricImpacts": {
+                "socialMobility": 20,
+                "incomeInequality": -15,
+                "minorityRights": 25,
+                "genderEquality": 20,
+                "happiness": -5,
+                "taxRevenue": -10
+              },
+              "policyEscalation": {
+                "track": "social_equality",
+                "level": 2
+              }
+            },
+            {
+              "text": "Address systemic inequalities through structural economic and social reforms",
+              "ideologyAlignment": {
+                "liberal": 0.5,
+                "conservative": 0.1,
+                "socialist": 0.9,
+                "ecological": 0.6,
+                "authoritarian": 0.3,
+                "feminist": 0.8
+              },
+              "metricImpacts": {
+                "socialMobility": 25,
+                "incomeInequality": -25,
+                "minorityRights": 20,
+                "genderEquality": 20,
+                "workerRights": 20,
+                "economicGrowth": -10
+              },
+              "policyEscalation": {
+                "track": "wealth_redistribution",
+                "level": 3
+              }
+            }
+          ],
+          "context": {
+            "background": "Social justice involves addressing historical inequalities and creating fair opportunities for all.",
+            "stakes": "Social justice policies shape the inclusiveness and fairness of society.",
+            "realWorldConnections": ["Affirmative action", "Civil rights", "Systemic inequality"]
+          }
+        }
+      ]
+    },
+    "militarySecurity": {
+      "domain": "militarySecurity",
+      "description": "Questions about defense, security, and law enforcement",
+      "questions": [
+        {
+          "id": "military_001",
+          "template": "How should Newlandia approach national defense and security?",
+          "phase": ["Foundation"],
+          "difficulty": "basic",
+          "choices": [
+            {
+              "text": "Build a strong military and robust security apparatus to protect national interests",
+              "ideologyAlignment": {
+                "liberal": 0.4,
+                "conservative": 0.8,
+                "socialist": 0.3,
+                "ecological": 0.2,
+                "authoritarian": 0.9,
+                "feminist": 0.3
+              },
+              "metricImpacts": {
+                "nationalSecurity": 25,
+                "internalStability": 15,
+                "taxRevenue": -20,
+                "civilLiberties": -10,
+                "internationalRelations": -5,
+                "economicGrowth": -5
+              },
+              "policyEscalation": {
+                "track": "state_authority",
+                "level": 2
+              }
+            },
+            {
+              "text": "Maintain minimal defense forces and focus on diplomacy and international cooperation",
+              "ideologyAlignment": {
+                "liberal": 0.7,
+                "conservative": 0.3,
+                "socialist": 0.6,
+                "ecological": 0.8,
+                "authoritarian": 0.2,
+                "feminist": 0.7
+              },
+              "metricImpacts": {
+                "nationalSecurity": 5,
+                "internationalRelations": 20,
+                "taxRevenue": 15,
+                "civilLiberties": 15,
+                "economicGrowth": 10,
+                "happiness": 10
+              },
+              "policyEscalation": {
+                "track": "international_cooperation",
+                "level": 2
+              }
+            },
+            {
+              "text": "Create citizen militias and community-based security while avoiding large military",
+              "ideologyAlignment": {
+                "liberal": 0.5,
+                "conservative": 0.6,
+                "socialist": 0.7,
+                "ecological": 0.6,
+                "authoritarian": 0.4,
+                "feminist": 0.5
+              },
+              "metricImpacts": {
+                "nationalSecurity": 15,
+                "internalStability": 10,
+                "happiness": 20,
+                "democraticParticipation": 15,
+                "civilLiberties": 10,
+                "taxRevenue": 5
+              },
+              "policyEscalation": {
+                "track": "community_control",
+                "level": 2
+              }
+            }
+          ],
+          "context": {
+            "background": "National security involves balancing protection needs with civil liberties and resource allocation.",
+            "stakes": "Security decisions affect both safety and freedom of citizens.",
+            "realWorldConnections": ["Military spending", "National security vs privacy", "Diplomacy vs force"]
+          }
+        }
+      ]
+    },
+    "governance": {
+      "domain": "governance",
+      "description": "Questions about democratic institutions, transparency, and government structure",
+      "questions": [
+        {
+          "id": "gov_001",
+          "template": "How should Newlandia structure its democratic institutions?",
+          "phase": ["Foundation"],
+          "difficulty": "basic",
+          "choices": [
+            {
+              "text": "Create strong central government with efficient decision-making processes",
+              "ideologyAlignment": {
+                "liberal": 0.5,
+                "conservative": 0.6,
+                "socialist": 0.6,
+                "ecological": 0.4,
+                "authoritarian": 0.8,
+                "feminist": 0.4
+              },
+              "metricImpacts": {
+                "governmentEfficiency": 25,
+                "democraticParticipation": -10,
+                "transparency": -5,
+                "ruleOfLaw": 15,
+                "economicGrowth": 10,
+                "corruption": 5
+              },
+              "policyEscalation": {
+                "track": "state_authority",
+                "level": 1
+              }
+            },
+            {
+              "text": "Emphasize participatory democracy with extensive citizen involvement in decisions",
+              "ideologyAlignment": {
+                "liberal": 0.7,
+                "conservative": 0.3,
+                "socialist": 0.8,
+                "ecological": 0.9,
+                "authoritarian": 0.2,
+                "feminist": 0.8
+              },
+              "metricImpacts": {
+                "governmentEfficiency": -5,
+                "democraticParticipation": 25,
+                "transparency": 20,
+                "civilLiberties": 15,
+                "happiness": 15,
+                "corruption": -10
+              },
+              "policyEscalation": {
+                "track": "democratic_participation",
+                "level": 2
+              }
+            },
+            {
+              "text": "Balance central coordination with strong local autonomy and federalism",
+              "ideologyAlignment": {
+                "liberal": 0.6,
+                "conservative": 0.7,
+                "socialist": 0.5,
+                "ecological": 0.7,
+                "authoritarian": 0.3,
+                "feminist": 0.6
+              },
+              "metricImpacts": {
+                "governmentEfficiency": 10,
+                "democraticParticipation": 15,
+                "transparency": 10,
+                "ruleOfLaw": 10,
+                "happiness": 15,
+                "culturalDiversity": 15
+              },
+              "policyEscalation": {
+                "track": "federalism",
+                "level": 2
+              }
+            }
+          ],
+          "context": {
+            "background": "Democratic institutions must balance efficiency with participation and representation.",
+            "stakes": "Governance structures determine how responsive and effective government will be.",
+            "realWorldConnections": ["Federalism vs centralization", "Direct democracy", "Government efficiency"]
+          }
+        }
+      ]
+    }
+  },
+  "gameMetrics": {
+    "economic": [
+      {
+        "id": "economicGrowth",
+        "name": "Economic Growth",
+        "description": "Overall growth rate of the national economy",
+        "category": "economic",
+        "scale": "0-100",
+        "higherIsBetter": true
+      },
+      {
+        "id": "unemployment",
+        "name": "Unemployment Rate",
+        "description": "Percentage of population without employment",
+        "category": "economic",
+        "scale": "0-100",
+        "higherIsBetter": false
+      },
+      {
+        "id": "incomeInequality",
+        "name": "Income Inequality",
+        "description": "Gap between rich and poor citizens",
+        "category": "economic",
+        "scale": "0-100",
+        "higherIsBetter": false
+      },
+      {
+        "id": "businessConfidence",
+        "name": "Business Confidence",
+        "description": "Level of optimism among business leaders",
+        "category": "economic",
+        "scale": "0-100",
+        "higherIsBetter": true
+      },
+      {
+        "id": "taxRevenue",
+        "name": "Tax Revenue",
+        "description": "Government income from taxation",
+        "category": "economic",
+        "scale": "0-100",
+        "higherIsBetter": true
+      },
+      {
+        "id": "innovation",
+        "name": "Innovation Index",
+        "description": "Level of technological and creative innovation",
+        "category": "economic",
+        "scale": "0-100",
+        "higherIsBetter": true
+      },
+      {
+        "id": "workerRights",
+        "name": "Worker Rights",
+        "description": "Protection and empowerment of workers",
+        "category": "economic",
+        "scale": "0-100",
+        "higherIsBetter": true
+      }
+    ],
+    "social": [
+      {
+        "id": "educationQuality",
+        "name": "Education Quality",
+        "description": "Overall quality of educational system",
+        "category": "social",
+        "scale": "0-100",
+        "higherIsBetter": true
+      },
+      {
+        "id": "educationAccess",
+        "name": "Education Access",
+        "description": "Availability of education to all citizens",
+        "category": "social",
+        "scale": "0-100",
+        "higherIsBetter": true
+      },
+      {
+        "id": "healthcareAccess",
+        "name": "Healthcare Access",
+        "description": "Availability of healthcare services",
+        "category": "social",
+        "scale": "0-100",
+        "higherIsBetter": true
+      },
+      {
+        "id": "publicHealth",
+        "name": "Public Health",
+        "description": "Overall health of the population",
+        "category": "social",
+        "scale": "0-100",
+        "higherIsBetter": true
+      },
+      {
+        "id": "socialMobility",
+        "name": "Social Mobility",
+        "description": "Ability for citizens to improve their social status",
+        "category": "social",
+        "scale": "0-100",
+        "higherIsBetter": true
+      },
+      {
+        "id": "culturalDiversity",
+        "name": "Cultural Diversity",
+        "description": "Acceptance and celebration of different cultures",
+        "category": "social",
+        "scale": "0-100",
+        "higherIsBetter": true
+      },
+      {
+        "id": "genderEquality",
+        "name": "Gender Equality",
+        "description": "Equal rights and opportunities for all genders",
+        "category": "social",
+        "scale": "0-100",
+        "higherIsBetter": true
+      },
+      {
+        "id": "minorityRights",
+        "name": "Minority Rights",
+        "description": "Protection and empowerment of minority groups",
+        "category": "social",
+        "scale": "0-100",
+        "higherIsBetter": true
+      }
+    ],
+    "governance": [
+      {
+        "id": "governmentEfficiency",
+        "name": "Government Efficiency",
+        "description": "Effectiveness of government operations",
+        "category": "governance",
+        "scale": "0-100",
+        "higherIsBetter": true
+      },
+      {
+        "id": "transparency",
+        "name": "Transparency",
+        "description": "Openness of government processes",
+        "category": "governance",
+        "scale": "0-100",
+        "higherIsBetter": true
+      },
+      {
+        "id": "democraticParticipation",
+        "name": "Democratic Participation",
+        "description": "Level of citizen involvement in governance",
+        "category": "governance",
+        "scale": "0-100",
+        "higherIsBetter": true
+      },
+      {
+        "id": "civilLiberties",
+        "name": "Civil Liberties",
+        "description": "Protection of individual rights and freedoms",
+        "category": "governance",
+        "scale": "0-100",
+        "higherIsBetter": true
+      },
+      {
+        "id": "ruleOfLaw",
+        "name": "Rule of Law",
+        "description": "Fair and consistent application of laws",
+        "category": "governance",
+        "scale": "0-100",
+        "higherIsBetter": true
+      },
+      {
+        "id": "corruption",
+        "name": "Corruption Level",
+        "description": "Extent of government corruption",
+        "category": "governance",
+        "scale": "0-100",
+        "higherIsBetter": false
+      }
+    ],
+    "environmental": [
+      {
+        "id": "environmentalQuality",
+        "name": "Environmental Quality",
+        "description": "Overall health of the natural environment",
+        "category": "environmental",
+        "scale": "0-100",
+        "higherIsBetter": true
+      },
+      {
+        "id": "climateResilience",
+        "name": "Climate Resilience",
+        "description": "Ability to adapt to climate change",
+        "category": "environmental",
+        "scale": "0-100",
+        "higherIsBetter": true
+      },
+      {
+        "id": "naturalResources",
+        "name": "Natural Resources",
+        "description": "Conservation of natural resources",
+        "category": "environmental",
+        "scale": "0-100",
+        "higherIsBetter": true
+      },
+      {
+        "id": "renewableEnergy",
+        "name": "Renewable Energy",
+        "description": "Use of sustainable energy sources",
+        "category": "environmental",
+        "scale": "0-100",
+        "higherIsBetter": true
+      }
+    ],
+    "security": [
+      {
+        "id": "nationalSecurity",
+        "name": "National Security",
+        "description": "Protection from external threats",
+        "category": "security",
+        "scale": "0-100",
+        "higherIsBetter": true
+      },
+      {
+        "id": "internalStability",
+        "name": "Internal Stability",
+        "description": "Domestic peace and order",
+        "category": "security",
+        "scale": "0-100",
+        "higherIsBetter": true
+      },
+      {
+        "id": "crimePrevention",
+        "name": "Crime Prevention",
+        "description": "Effectiveness in preventing crime",
+        "category": "security",
+        "scale": "0-100",
+        "higherIsBetter": true
+      },
+      {
+        "id": "emergencyPreparedness",
+        "name": "Emergency Preparedness",
+        "description": "Readiness for natural disasters and emergencies",
+        "category": "security",
+        "scale": "0-100",
+        "higherIsBetter": true
+      },
+      {
+        "id": "internationalRelations",
+        "name": "International Relations",
+        "description": "Quality of relationships with other nations",
+        "category": "security",
+        "scale": "0-100",
+        "higherIsBetter": true
+      }
+    ],
+    "qualityOfLife": [
+      {
+        "id": "lifeExpectancy",
+        "name": "Life Expectancy",
+        "description": "Average lifespan of citizens",
+        "category": "qualityOfLife",
+        "scale": "0-100",
+        "higherIsBetter": true
+      },
+      {
+        "id": "happiness",
+        "name": "Citizen Happiness",
+        "description": "Overall satisfaction and well-being of citizens",
+        "category": "qualityOfLife",
+        "scale": "0-100",
+        "higherIsBetter": true
+      },
+      {
+        "id": "workLifeBalance",
+        "name": "Work-Life Balance",
+        "description": "Balance between work demands and personal life",
+        "category": "qualityOfLife",
+        "scale": "0-100",
+        "higherIsBetter": true
+      }
+    ]
+  },
+  "ideologyScores": {
+    "liberal": {
+      "name": "Liberal",
+      "description": "Emphasizes individual freedom, market economics, and limited government",
+      "characteristics": [
+        "Individual liberty and rights",
+        "Free market economics", 
+        "Limited government intervention",
+        "Meritocracy and equal opportunity",
+        "Civil liberties protection"
+      ]
+    },
+    "conservative": {
+      "name": "Conservative", 
+      "description": "Values tradition, stability, and gradual change",
+      "characteristics": [
+        "Traditional values and institutions",
+        "Gradual rather than radical change",
+        "Strong law and order",
+        "Family and community focus",
+        "Respect for authority and hierarchy"
+      ]
+    },
+    "socialist": {
+      "name": "Socialist",
+      "description": "Advocates for economic equality and collective ownership",
+      "characteristics": [
+        "Economic equality and redistribution",
+        "Worker rights and collective ownership",
+        "Strong social safety net",
+        "Government role in economy",
+        "Class consciousness and solidarity"
+      ]
+    },
+    "ecological": {
+      "name": "Ecological",
+      "description": "Prioritizes environmental protection and sustainability",
+      "characteristics": [
+        "Environmental protection priority",
+        "Sustainable development",
+        "Long-term thinking",
+        "Interconnectedness awareness",
+        "Quality of life over growth"
+      ]
+    },
+    "authoritarian": {
+      "name": "Authoritarian",
+      "description": "Favors strong leadership and centralized control",
+      "characteristics": [
+        "Strong central authority",
+        "Order and stability priority",
+        "Efficient decision-making",
+        "National unity and purpose",
+        "Limited political opposition"
+      ]
+    },
+    "feminist": {
+      "name": "Feminist",
+      "description": "Advocates for gender equality and women's rights",
+      "characteristics": [
+        "Gender equality promotion",
+        "Women's rights protection",
+        "Challenging patriarchal structures",
+        "Inclusive representation",
+        "Care work recognition"
+      ]
+    }
+  },
+  "policyEscalationTracks": {
+    "market_freedom": {
+      "name": "Market Freedom",
+      "description": "Increasing reliance on free market mechanisms",
+      "levels": [
+        "Basic market economy",
+        "Reduced regulations",
+        "Minimal government intervention",
+        "Laissez-faire capitalism"
+      ]
+    },
+    "wealth_redistribution": {
+      "name": "Wealth Redistribution", 
+      "description": "Increasing government role in reducing inequality",
+      "levels": [
+        "Progressive taxation",
+        "Social programs expansion",
+        "Wealth caps and transfers",
+        "Socialist economic model"
+      ]
+    },
+    "environmental_protection": {
+      "name": "Environmental Protection",
+      "description": "Increasing environmental regulations and protection",
+      "levels": [
+        "Basic environmental standards",
+        "Strict regulations",
+        "Environmental priority over growth",
+        "Deep ecology transformation"
+      ]
+    },
+    "state_authority": {
+      "name": "State Authority",
+      "description": "Increasing centralized government control",
+      "levels": [
+        "Strong central government",
+        "Expanded state powers",
+        "Authoritarian measures",
+        "Total state control"
+      ]
+    },
+    "social_equality": {
+      "name": "Social Equality",
+      "description": "Increasing focus on social justice and equality",
+      "levels": [
+        "Equal opportunity policies",
+        "Affirmative action programs",
+        "Systemic inequality addressing",
+        "Radical social transformation"
+      ]
+    },
+    "traditional_stability": {
+      "name": "Traditional Stability",
+      "description": "Increasing emphasis on traditional values and stability",
+      "levels": [
+        "Traditional values respect",
+        "Conservative social policies",
+        "Resistance to social change",
+        "Reactionary traditionalism"
+      ]
+    }
+  }
+} 

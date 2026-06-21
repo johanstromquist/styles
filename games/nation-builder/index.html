@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nation Builder - Educational Governance Simulation</title>
+    <meta name="description" content="Lead the fictional nation of Newlandia for 20 years and discover how different ideological approaches shape society through policy decisions and crisis management.">
+    <meta name="theme-color" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Nation Builder">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Accessibility and responsive meta tags -->
+    <meta name="color-scheme" content="light dark">
+    <meta name="format-detection" content="telephone=no">
+    
+    <!-- Skip link for screen readers -->
+    <style>
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 10000;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .skip-link:focus {
+            top: 6px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <!-- Header with game title and navigation -->
+    <header class="game-header" role="banner">
+        <div class="header-content">
+            <h1>Nation Builder</h1>
+            <p class="subtitle">Lead Newlandia for 20 Years</p>
+        </div>
+        <nav class="game-nav" role="navigation" aria-label="Game controls">
+            <button id="save-game" class="nav-btn" aria-label="Save current game progress">
+                <span class="btn-icon" aria-hidden="true">💾</span>
+                <span class="btn-text">Save Game</span>
+            </button>
+            <button id="load-game" class="nav-btn" aria-label="Load previously saved game">
+                <span class="btn-icon" aria-hidden="true">📁</span>
+                <span class="btn-text">Load Game</span>
+            </button>
+            <button id="reset-game" class="nav-btn" aria-label="Start a new game">
+                <span class="btn-icon" aria-hidden="true">🔄</span>
+                <span class="btn-text">New Game</span>
+            </button>
+            <button id="ai-settings" class="nav-btn" aria-label="Configure AI-enhanced features">
+                <span class="btn-icon" aria-hidden="true">🤖</span>
+                <span class="btn-text">AI Features</span>
+            </button>
+            <button id="help" class="nav-btn" aria-label="Show game help and instructions">
+                <span class="btn-icon" aria-hidden="true">❓</span>
+                <span class="btn-text">Help</span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main game container -->
+    <main id="main-content" class="game-container" role="main">
+        <!-- Streamlined Top Metrics Bar -->
+        <section class="top-metrics-bar" id="top-metrics" aria-label="Key national indicators">
+            <div class="key-metrics">
+                <div class="metric-indicator" id="economy-indicator" data-tooltip="Economic Health">
+                    <div class="metric-icon">💰</div>
+                    <div class="metric-data">
+                        <span class="metric-value" id="economy-value">50</span>
+                        <span class="metric-trend" id="economy-trend">➡️</span>
+                    </div>
+                    <div class="metric-label">Economy</div>
+                </div>
+                
+                <div class="metric-indicator" id="society-indicator" data-tooltip="Social Wellbeing">
+                    <div class="metric-icon">👥</div>
+                    <div class="metric-data">
+                        <span class="metric-value" id="society-value">50</span>
+                        <span class="metric-trend" id="society-trend">➡️</span>
+                    </div>
+                    <div class="metric-label">Society</div>
+                </div>
+                
+                <div class="metric-indicator" id="environment-indicator" data-tooltip="Environmental Quality">
+                    <div class="metric-icon">🌱</div>
+                    <div class="metric-data">
+                        <span class="metric-value" id="environment-value">50</span>
+                        <span class="metric-trend" id="environment-trend">➡️</span>
+                    </div>
+                    <div class="metric-label">Environment</div>
+                </div>
+                
+                <div class="metric-indicator" id="security-indicator" data-tooltip="Security & Stability">
+                    <div class="metric-icon">🛡️</div>
+                    <div class="metric-data">
+                        <span class="metric-value" id="security-value">50</span>
+                        <span class="metric-trend" id="security-trend">➡️</span>
+                    </div>
+                    <div class="metric-label">Security</div>
+                </div>
+                
+                <div class="metric-indicator" id="governance-indicator" data-tooltip="Government Effectiveness">
+                    <div class="metric-icon">🏛️</div>
+                    <div class="metric-data">
+                        <span class="metric-value" id="governance-value">50</span>
+                        <span class="metric-trend" id="governance-trend">➡️</span>
+                    </div>
+                    <div class="metric-label">Governance</div>
+                </div>
+                
+                <div class="metric-indicator" id="happiness-indicator" data-tooltip="Citizen Satisfaction">
+                    <div class="metric-icon">😊</div>
+                    <div class="metric-data">
+                        <span class="metric-value" id="happiness-value">50</span>
+                        <span class="metric-trend" id="happiness-trend">➡️</span>
+                    </div>
+                    <div class="metric-label">Happiness</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game progress and timeline -->
+        <section class="timeline-section" aria-label="Game progress timeline">
+            <div class="year-display">
+                <span class="current-year">Year <span id="current-year" aria-live="polite">1</span></span>
+                <span class="phase-display">Phase: <span id="current-phase" aria-live="polite">Foundation</span></span>
+            </div>
+            <div class="timeline-bar" role="progressbar" aria-label="Game progress" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100">
+                <div class="timeline-progress" id="timeline-progress" aria-hidden="true"></div>
+                <span class="sr-only" id="timeline-description">5% complete - Year 1 of 20</span>
+            </div>
+        </section>
+
+        <!-- Society Visualization Area (replacing the old city section) -->
+        <section class="society-visualization" id="society-sim">
+            <div class="simulation-container" id="simulation-container">
+                <h2>Your Society</h2>
+                <p class="society-status">Building the foundation of Newlandia...</p>
+                <div class="society-canvas" id="society-canvas">
+                    <!-- 3D/Visual society simulation will be rendered here -->
+                    <div class="society-placeholder">
+                        🏘️ Society visualization loading...
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Decision interface for questions and choices -->
+        <section class="decision-section" id="decision-interface">
+            <div class="decision-card">
+                <h2 id="decision-title">Welcome to Newlandia</h2>
+                <div class="decision-content">
+                    <p id="decision-description">You have been elected as the leader of Newlandia, a developing nation with great potential. Over the next 20 years, your decisions will shape the future of this country and its people. Every choice you make will reflect your values and approach to governance.</p>
+                    <div class="decision-context" id="decision-context">
+                        <!-- Additional context information -->
+                    </div>
+                </div>
+                <div class="choices-container" id="choices-container">
+                    <button class="choice-btn" id="start-game">Begin Your Leadership</button>
+                </div>
+                <div class="decision-progress">
+                    <span id="decision-counter">Welcome</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Budget Allocation System -->
+        <section class="budget-allocation" id="budget-control">
+            <div class="budget-header">
+                <h2>National Budget Allocation</h2>
+                <div class="budget-summary">
+                    <span class="total-budget">Annual Budget: <strong>$100B</strong></span>
+                    <span class="budget-status">Balanced Budget</span>
+                </div>
+            </div>
+            <div class="budget-sliders">
+                <div class="budget-category" data-category="education">
+                    <div class="category-info">
+                        <span class="category-icon">🎓</span>
+                        <span class="category-name">Education</span>
+                        <span class="allocation-percent" id="education-percent">20%</span>
+                    </div>
+                    <div class="slider-container">
+                        <input type="range" id="education-slider" class="budget-slider" 
+                               min="5" max="35" value="20" data-category="education">
+                        <div class="slider-track">
+                            <div class="slider-fill education-fill"></div>
+                        </div>
+                    </div>
+                    <div class="allocation-amount" id="education-amount">$20B</div>
+                </div>
+
+                <div class="budget-category" data-category="healthcare">
+                    <div class="category-info">
+                        <span class="category-icon">🏥</span>
+                        <span class="category-name">Healthcare</span>
+                        <span class="allocation-percent" id="healthcare-percent">18%</span>
+                    </div>
+                    <div class="slider-container">
+                        <input type="range" id="healthcare-slider" class="budget-slider" 
+                               min="8" max="30" value="18" data-category="healthcare">
+                        <div class="slider-track">
+                            <div class="slider-fill healthcare-fill"></div>
+                        </div>
+                    </div>
+                    <div class="allocation-amount" id="healthcare-amount">$18B</div>
+                </div>
+
+                <div class="budget-category" data-category="military">
+                    <div class="category-info">
+                        <span class="category-icon">🛡️</span>
+                        <span class="category-name">Defense</span>
+                        <span class="allocation-percent" id="military-percent">15%</span>
+                    </div>
+                    <div class="slider-container">
+                        <input type="range" id="military-slider" class="budget-slider" 
+                               min="5" max="25" value="15" data-category="military">
+                        <div class="slider-track">
+                            <div class="slider-fill military-fill"></div>
+                        </div>
+                    </div>
+                    <div class="allocation-amount" id="military-amount">$15B</div>
+                </div>
+
+                <div class="budget-category" data-category="infrastructure">
+                    <div class="category-info">
+                        <span class="category-icon">🏗️</span>
+                        <span class="category-name">Infrastructure</span>
+                        <span class="allocation-percent" id="infrastructure-percent">20%</span>
+                    </div>
+                    <div class="slider-container">
+                        <input type="range" id="infrastructure-slider" class="budget-slider" 
+                               min="10" max="30" value="20" data-category="infrastructure">
+                        <div class="slider-track">
+                            <div class="slider-fill infrastructure-fill"></div>
+                        </div>
+                    </div>
+                    <div class="allocation-amount" id="infrastructure-amount">$20B</div>
+                </div>
+
+                <div class="budget-category" data-category="environment">
+                    <div class="category-info">
+                        <span class="category-icon">🌱</span>
+                        <span class="category-name">Environment</span>
+                        <span class="allocation-percent" id="environment-percent">12%</span>
+                    </div>
+                    <div class="slider-container">
+                        <input type="range" id="environment-slider" class="budget-slider" 
+                               min="2" max="20" value="12" data-category="environment">
+                        <div class="slider-track">
+                            <div class="slider-fill environment-fill"></div>
+                        </div>
+                    </div>
+                    <div class="allocation-amount" id="environment-amount">$12B</div>
+                </div>
+
+                <div class="budget-category" data-category="social">
+                    <div class="category-info">
+                        <span class="category-icon">🤝</span>
+                        <span class="category-name">Social Services</span>
+                        <span class="allocation-percent" id="social-percent">15%</span>
+                    </div>
+                    <div class="slider-container">
+                        <input type="range" id="social-slider" class="budget-slider" 
+                               min="5" max="25" value="15" data-category="social">
+                        <div class="slider-track">
+                            <div class="slider-fill social-fill"></div>
+                        </div>
+                    </div>
+                    <div class="allocation-amount" id="social-amount">$15B</div>
+                </div>
+            </div>
+            <div class="budget-controls">
+                <button id="reset-budget" class="budget-btn secondary">Reset to Default</button>
+                <button id="apply-budget" class="budget-btn primary">Apply Changes</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Crisis event overlay system -->
+    <div class="crisis-overlay" id="crisis-overlay" style="display: none;">
+        <div class="crisis-modal">
+            <div class="crisis-header">
+                <h2 id="crisis-title">Crisis Event</h2>
+                <span class="crisis-type" id="crisis-type">Emergency</span>
+                <span class="crisis-urgency" id="crisis-urgency">URGENCY: HIGH</span>
+            </div>
+            <div class="crisis-content">
+                <p id="crisis-description">An unexpected event requires your immediate attention.</p>
+                <div class="crisis-context" id="crisis-context">
+                    <!-- Additional context information -->
+                </div>
+            </div>
+            <div class="crisis-choices" id="crisis-choices">
+                <!-- Crisis response options -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Results and reflection sections -->
+    <section class="results-section" id="results-section" style="display: none;">
+        <div class="results-container">
+            <h2>Your 20-Year Leadership Analysis</h2>
+            
+            <div class="results-tabs">
+                <button class="tab-btn active" data-tab="ideology">Ideological Profile</button>
+                <button class="tab-btn" data-tab="performance">Performance Summary</button>
+                <button class="tab-btn" data-tab="reflection">Reflection</button>
+                <button class="tab-btn" data-tab="insights">Learning Insights</button>
+                <button class="tab-btn" data-tab="comparisons">Country Comparisons</button>
+            </div>
+            
+            <div class="tab-content active" id="ideology-tab">
+                <div class="ideology-analysis" id="ideology-analysis">
+                    <!-- Ideological alignment results -->
+                </div>
+            </div>
+            
+            <div class="tab-content" id="performance-tab">
+                <div class="metrics-summary" id="metrics-summary">
+                    <!-- Final metrics summary -->
+                </div>
+            </div>
+            
+            <div class="tab-content" id="reflection-tab">
+                <div class="reflection-questions" id="reflection-questions">
+                    <!-- Generated reflection questions -->
+                </div>
+            </div>
+            
+            <div class="tab-content" id="insights-tab">
+                <div class="learning-insights" id="learning-insights">
+                    <!-- Key learning moments and insights -->
+                </div>
+            </div>
+            
+            <div class="tab-content" id="comparisons-tab">
+                <div class="country-comparisons" id="country-comparisons">
+                    <!-- Real-world country comparisons -->
+                </div>
+            </div>
+            
+            <div class="sharing-options" id="sharing-options">
+                <button id="export-results" class="action-btn">Export Results</button>
+                <button id="play-again" class="action-btn">Play Again</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Citizen stories modal -->
+    <div class="story-modal" id="story-modal" style="display: none;">
+        <div class="story-content">
+            <button class="close-story" id="close-story">&times;</button>
+            <div class="citizen-profile" id="citizen-profile">
+                <!-- Citizen information and photo -->
+            </div>
+            <div class="story-text" id="story-text">
+                <!-- Personal story content -->
+            </div>
+            <div class="story-actions">
+                <button id="next-story" class="story-btn">Next Story</button>
+                <button id="close-stories" class="story-btn">Continue Game</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading and progress indicators -->
+    <div class="loading-overlay" id="loading-overlay" style="display: none;">
+        <div class="loading-spinner"></div>
+        <p id="loading-text">Preparing your next decision...</p>
+    </div>
+
+    <!-- Performance Debug Panel (Hidden by default) -->
+    <div id="performance-debug" class="performance-debug" style="display: none;">
+        <div class="debug-header">
+            <h3>Performance Monitor</h3>
+            <button id="close-debug" class="close-debug">×</button>
+        </div>
+        <div class="debug-content">
+            <div class="debug-section">
+                <h4>System Performance</h4>
+                <div class="debug-metrics">
+                    <div class="debug-metric">
+                        <span class="metric-label">Memory Usage:</span>
+                        <span id="memory-usage" class="metric-value">--</span>
+                    </div>
+                    <div class="debug-metric">
+                        <span class="metric-label">DOM Nodes:</span>
+                        <span id="dom-nodes" class="metric-value">--</span>
+                    </div>
+                    <div class="debug-metric">
+                        <span class="metric-label">Load Time:</span>
+                        <span id="load-time" class="metric-value">--</span>
+                    </div>
+                    <div class="debug-metric">
+                        <span class="metric-label">FPS:</span>
+                        <span id="fps-counter" class="metric-value">--</span>
+                    </div>
+                </div>
+            </div>
+            <div class="debug-section">
+                <h4>Browser Support</h4>
+                <div class="debug-capabilities">
+                    <div class="capability-item">
+                        <span class="capability-name">Performance API:</span>
+                        <span id="perf-api-support" class="capability-status">--</span>
+                    </div>
+                    <div class="capability-item">
+                        <span class="capability-name">Intersection Observer:</span>
+                        <span id="io-support" class="capability-status">--</span>
+                    </div>
+                    <div class="capability-item">
+                        <span class="capability-name">Local Storage:</span>
+                        <span id="storage-support" class="capability-status">--</span>
+                    </div>
+                </div>
+            </div>
+            <div class="debug-section">
+                <h4>Optimizations</h4>
+                <div class="debug-optimizations">
+                    <div class="optimization-item">
+                        <span class="optimization-name">DOM Pool Size:</span>
+                        <span id="dom-pool-size" class="optimization-value">--</span>
+                    </div>
+                    <div class="optimization-item">
+                        <span class="optimization-name">Cached Functions:</span>
+                        <span id="cached-functions" class="optimization-value">--</span>
+                    </div>
+                    <div class="optimization-item">
+                        <span class="optimization-name">Error Count:</span>
+                        <span id="error-count" class="optimization-value">--</span>
+                    </div>
+                </div>
+            </div>
+            <div class="debug-actions">
+                <button id="clear-cache" class="debug-btn">Clear Cache</button>
+                <button id="optimize-memory" class="debug-btn">Optimize Memory</button>
+                <button id="export-report" class="debug-btn">Export Report</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Settings Modal -->
+    <div class="modal" id="ai-settings-modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🤖 AI-Enhanced Features</h2>
+                <button class="close-modal" onclick="closeAISettings()">&times;</button>
+            </div>
+            
+            <div class="ai-status-section">
+                <div class="status-display" id="ai-status-display">
+                    <div class="status-indicator" id="ai-status-indicator">
+                        <span class="status-dot disabled">●</span>
+                        <span id="ai-status-text">AI features disabled</span>
+                    </div>
+                    <div class="ai-usage-info" id="ai-usage-info" style="display: none;">
+                        <small>Usage: <span id="ai-usage-count">0</span>/<span id="ai-usage-limit">50</span> requests</small>
+                        <small>Provider: <span id="ai-provider-display">None</span></small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ai-features-info">
+                <h3>What AI Features Provide:</h3>
+                <ul class="features-list">
+                    <li>🎯 <strong>Personalized Reflection:</strong> Custom questions based on your leadership choices</li>
+                    <li>🔄 <strong>"What If" Analysis:</strong> Explore alternative decision paths and outcomes</li>
+                    <li>🌍 <strong>Real-World Connections:</strong> Links to current events and historical examples</li>
+                    <li>📊 <strong>Ideological Explanations:</strong> Deeper insights into your governance approach</li>
+                </ul>
+                
+                <div class="privacy-notice">
+                    <h4>Privacy & Safety:</h4>
+                    <ul>
+                        <li>✅ All data is anonymized before sending to AI providers</li>
+                        <li>✅ API keys are stored locally in your browser only</li>
+                        <li>✅ Content is filtered for educational appropriateness</li>
+                        <li>✅ Rate limiting prevents excessive usage</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="ai-configuration" id="ai-configuration">
+                <div class="config-section">
+                    <h3>Configuration</h3>
+                    
+                    <div class="form-group">
+                        <label for="ai-provider-select">AI Provider:</label>
+                        <select id="ai-provider-select">
+                            <option value="openai">OpenAI (GPT-3.5-Turbo) - Recommended</option>
+                            <option value="anthropic">Anthropic (Claude-3-Haiku)</option>
+                            <option value="local">Local (Ollama) - Advanced Users</option>
+                        </select>
+                        <small class="help-text">OpenAI provides the most reliable experience</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="api-key-input">API Key:</label>
+                        <div class="api-key-container">
+                            <input type="password" id="api-key-input" placeholder="Enter your API key" class="api-key-field">
+                            <button type="button" id="toggle-api-key" class="toggle-password">👁️</button>
+                        </div>
+                        <small class="help-text">
+                            <span id="api-key-help">Get your OpenAI API key from <a href="https://platform.openai.com/api-keys" target="_blank">platform.openai.com</a></span>
+                        </small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="ai-consent-checkbox">
+                            <span class="checkmark"></span>
+                            I understand and consent to using AI features for educational enhancement
+                        </label>
+                        <small class="help-text">Required to enable AI features</small>
+                    </div>
+                </div>
+
+                <div class="config-actions">
+                    <button id="test-ai-connection" class="secondary-button" disabled>
+                        <span class="button-text">Test Connection</span>
+                        <span class="button-spinner" style="display: none;">⏳</span>
+                    </button>
+                    <button id="save-ai-config" class="primary-button" disabled>
+                        <span class="button-text">Enable AI Features</span>
+                        <span class="button-spinner" style="display: none;">⏳</span>
+                    </button>
+                </div>
+                
+                <div class="test-result" id="test-result" style="display: none;">
+                    <div class="result-message" id="result-message"></div>
+                </div>
+            </div>
+
+            <div class="ai-management" id="ai-management" style="display: none;">
+                <h3>Manage AI Features</h3>
+                <div class="management-actions">
+                    <button id="reset-ai-usage" class="secondary-button">Reset Usage Counter</button>
+                    <button id="disable-ai" class="danger-button">Disable AI Features</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game JavaScript modules -->
+    <script type="module" src="js/responsive.js"></script>
+<script type="module" src="js/assessmentAnalytics.js"></script>
+<script type="module" src="js/dataManager.js"></script>
+    <script type="module" src="js/performanceOptimizer.js"></script>
+    <script type="module" src="js/game.js"></script>
+    <script type="module" src="js/questionEngine.js"></script>
+    <script type="module" src="js/scenarios.js"></script>
+    <script type="module" src="js/crises.js"></script>
+    <script type="module" src="js/outcomes.js"></script>
+    <script type="module" src="js/timeline.js"></script>
+    <script type="module" src="js/scoring.js"></script>
+    <script type="module" src="js/citizenStories.js"></script>
+    <script type="module" src="js/endGameAnalysis.js"></script>
+    <script type="module" src="js/llmIntegration.js"></script>
+    <script type="module" src="js/cityVisualization.js"></script>
+    <script type="module" src="js/dataManager.js"></script>
+    <script type="module" src="js/assessmentAnalytics.js"></script>
+    <script type="module" src="js/responsive.js"></script>
+</body>
+</html> 

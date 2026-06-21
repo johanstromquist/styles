@@ -1,0 +1,10 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+We're building an educational game to help students understand how different ideologies and policy will have different impact on a nation.
+
+Out game is stored in ./games/nation-builder - that is the root for this particular module. Make sure you create all files with this folder as the root.
+
+Always refer to the [PLAN.md](mdc:games/nation-builder/PLAN.md) for next steps, and to the [README.md](mdc:games/nation-builder/README.md) for any additional details around how we think about different aspects of the game, game loop or game play.

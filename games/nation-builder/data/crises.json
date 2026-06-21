@@ -1,0 +1,643 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "totalCrises": 24,
+    "distribution": "40% random, 60% consequence-driven",
+    "description": "Crisis scenarios for Nation Builder educational game"
+  },
+  "random": [
+    {
+      "id": "natural_disaster",
+      "type": "environmental",
+      "subtype": "natural_disaster",
+      "title": "Natural Disaster Strikes {nation}",
+      "description": "A major earthquake has struck the capital region, causing widespread damage and disrupting essential services.",
+      "context": "Emergency services are overwhelmed and thousands of citizens need immediate assistance.",
+      "phases": ["Foundation", "Growth", "Maturity", "Legacy"],
+      "choices": [
+        {
+          "text": "Massive government disaster relief and reconstruction program",
+          "ideologyAlignment": { "socialist": 7, "authoritarian": 4, "feminist": 3 },
+          "metricImpacts": { 
+            "internalStability": 5, 
+            "publicDebt": 8, 
+            "socialCohesion": 4,
+            "healthcareAccess": 3
+          },
+          "policyImpacts": { 
+            "state_authority": 10, 
+            "wealth_redistribution": 8 
+          },
+          "consequences": "Comprehensive government response builds public trust but significantly increases national debt."
+        },
+        {
+          "text": "Coordinate private sector and volunteer relief efforts",
+          "ideologyAlignment": { "liberal": 7, "conservative": 5 },
+          "metricImpacts": { 
+            "socialCohesion": 5, 
+            "economicGrowth": 3, 
+            "citizenParticipation": 4,
+            "internalStability": 2
+          },
+          "policyImpacts": { 
+            "market_freedom": 8, 
+            "social_equality": 5 
+          },
+          "consequences": "Market-based response mobilizes resources efficiently but coverage may be uneven."
+        },
+        {
+          "text": "Focus on long-term resilience and disaster prevention",
+          "ideologyAlignment": { "ecological": 8, "liberal": 4 },
+          "metricImpacts": { 
+            "sustainabilityPractices": 6, 
+            "environmentalQuality": 4,
+            "publicDebt": 4,
+            "internalStability": 1
+          },
+          "policyImpacts": { 
+            "environmental_protection": 12 
+          },
+          "consequences": "Investment in resilience helps prevent future disasters but provides limited immediate relief."
+        }
+      ],
+      "consequences": {
+        "immediate": "The disaster has caused significant infrastructure damage and displaced thousands of families.",
+        "longTerm": "Recovery efforts will shape public expectations of government crisis response for years to come."
+      }
+    },
+    {
+      "id": "pandemic_outbreak",
+      "type": "health",
+      "subtype": "pandemic",
+      "title": "Pandemic Outbreak in {nation}",
+      "description": "A highly contagious disease has emerged, spreading rapidly across the nation and threatening public health.",
+      "context": "Hospitals are reaching capacity and the economy faces potential shutdown.",
+      "phases": ["Growth", "Maturity", "Legacy"],
+      "choices": [
+        {
+          "text": "Strict lockdowns and comprehensive government health response",
+          "ideologyAlignment": { "authoritarian": 8, "socialist": 6 },
+          "metricImpacts": { 
+            "healthcareAccess": 8, 
+            "economicGrowth": -6, 
+            "internalStability": 3,
+            "citizenParticipation": -4
+          },
+          "policyImpacts": { 
+            "state_authority": 15, 
+            "social_equality": 8 
+          },
+          "consequences": "Aggressive public health measures save lives but damage the economy and restrict freedoms."
+        },
+        {
+          "text": "Voluntary guidelines with market-based healthcare solutions",
+          "ideologyAlignment": { "liberal": 8, "conservative": 5 },
+          "metricImpacts": { 
+            "economicGrowth": -2, 
+            "healthcareAccess": 3, 
+            "citizenParticipation": 2,
+            "internalStability": -2
+          },
+          "policyImpacts": { 
+            "market_freedom": 10, 
+            "traditional_stability": 5 
+          },
+          "consequences": "Light-touch approach preserves economic activity but may result in higher infection rates."
+        },
+        {
+          "text": "Targeted protection for vulnerable populations",
+          "ideologyAlignment": { "conservative": 6, "liberal": 4, "feminist": 5 },
+          "metricImpacts": { 
+            "healthcareAccess": 5, 
+            "economicGrowth": -3, 
+            "socialCohesion": 3,
+            "careWorkIntegration": 4
+          },
+          "policyImpacts": { 
+            "social_equality": 8, 
+            "traditional_stability": 8 
+          },
+          "consequences": "Focused approach balances health and economic concerns while protecting the most vulnerable."
+        }
+      ],
+      "consequences": {
+        "immediate": "The pandemic is spreading rapidly and overwhelming healthcare systems.",
+        "longTerm": "The response will define the relationship between individual liberty and collective health."
+      }
+    },
+    {
+      "id": "cyber_attack",
+      "type": "security",
+      "subtype": "cyber_attack",
+      "title": "Major Cyber Attack on {nation}",
+      "description": "Foreign hackers have launched a coordinated cyber attack on critical infrastructure and government systems.",
+      "context": "Power grids, financial systems, and communication networks are compromised.",
+      "phases": ["Growth", "Maturity", "Legacy"],
+      "choices": [
+        {
+          "text": "Massive cybersecurity expansion and digital surveillance",
+          "ideologyAlignment": { "authoritarian": 9, "conservative": 4 },
+          "metricImpacts": { 
+            "nationalSecurity": 8, 
+            "informationControl": 6, 
+            "citizenParticipation": -5,
+            "economicStability": 3
+          },
+          "policyImpacts": { 
+            "state_authority": 15, 
+            "social_equality": -8 
+          },
+          "consequences": "Enhanced cybersecurity protects against future attacks but increases government surveillance."
+        },
+        {
+          "text": "Public-private cybersecurity partnership",
+          "ideologyAlignment": { "liberal": 7, "conservative": 5 },
+          "metricImpacts": { 
+            "nationalSecurity": 5, 
+            "economicGrowth": 3, 
+            "tradeBalance": 2
+          },
+          "policyImpacts": { 
+            "market_freedom": 8, 
+            "traditional_stability": 5 
+          },
+          "consequences": "Collaborative approach leverages private sector expertise while maintaining oversight."
+        },
+        {
+          "text": "International cooperation and cyber diplomacy",
+          "ideologyAlignment": { "liberal": 6, "socialist": 4 },
+          "metricImpacts": { 
+            "nationalSecurity": 4, 
+            "conflictResolution": 5, 
+            "tradeBalance": 3
+          },
+          "policyImpacts": { 
+            "social_equality": 5, 
+            "traditional_stability": 8 
+          },
+          "consequences": "Diplomatic approach builds international norms but may be slower to implement."
+        }
+      ],
+      "consequences": {
+        "immediate": "Critical systems are offline and national security is compromised.",
+        "longTerm": "The response will shape digital security policy and international cyber relations."
+      }
+    },
+    {
+      "id": "refugee_crisis",
+      "type": "social",
+      "subtype": "migration_crisis",
+      "title": "Refugee Crisis at {nation}'s Borders",
+      "description": "Thousands of refugees from a neighboring conflict have arrived seeking asylum and safety.",
+      "context": "Border facilities are overwhelmed and public opinion is divided on how to respond.",
+      "phases": ["Growth", "Maturity", "Legacy"],
+      "choices": [
+        {
+          "text": "Open borders with comprehensive refugee support programs",
+          "ideologyAlignment": { "socialist": 8, "feminist": 7, "liberal": 5 },
+          "metricImpacts": { 
+            "culturalDiversity": 6, 
+            "socialCohesion": -2, 
+            "publicDebt": 6,
+            "careWorkIntegration": 4
+          },
+          "policyImpacts": { 
+            "social_equality": 15, 
+            "wealth_redistribution": 10 
+          },
+          "consequences": "Humanitarian response enhances international reputation but strains domestic resources."
+        },
+        {
+          "text": "Controlled admission with integration requirements",
+          "ideologyAlignment": { "liberal": 6, "conservative": 4 },
+          "metricImpacts": { 
+            "culturalDiversity": 3, 
+            "socialCohesion": 2, 
+            "publicDebt": 3,
+            "borderSecurity": 3
+          },
+          "policyImpacts": { 
+            "traditional_stability": 8, 
+            "social_equality": 5 
+          },
+          "consequences": "Measured approach balances humanitarian concerns with domestic stability."
+        },
+        {
+          "text": "Strict border controls and minimal refugee admission",
+          "ideologyAlignment": { "conservative": 8, "authoritarian": 6 },
+          "metricImpacts": { 
+            "borderSecurity": 6, 
+            "socialCohesion": 3, 
+            "culturalDiversity": -3,
+            "conflictResolution": -4
+          },
+          "policyImpacts": { 
+            "state_authority": 12, 
+            "traditional_stability": 10 
+          },
+          "consequences": "Restrictive policy maintains domestic stability but damages international relationships."
+        }
+      ],
+      "consequences": {
+        "immediate": "Thousands of refugees need immediate shelter, food, and medical care.",
+        "longTerm": "The response will define the nation's approach to immigration and humanitarian crises."
+      }
+    },
+    {
+      "id": "trade_war",
+      "type": "economic",
+      "subtype": "trade_conflict",
+      "title": "Trade War Threatens {nation}'s Economy",
+      "description": "A major trading partner has imposed significant tariffs on key exports, threatening economic stability.",
+      "context": "Export industries are facing massive losses and workers fear unemployment.",
+      "phases": ["Growth", "Maturity", "Legacy"],
+      "choices": [
+        {
+          "text": "Retaliatory tariffs and trade protection measures",
+          "ideologyAlignment": { "conservative": 7, "authoritarian": 5 },
+          "metricImpacts": { 
+            "tradeBalance": -3, 
+            "employmentRate": 2, 
+            "economicGrowth": -2,
+            "internalStability": 3
+          },
+          "policyImpacts": { 
+            "state_authority": 10, 
+            "traditional_stability": 8 
+          },
+          "consequences": "Protectionist response defends domestic industry but escalates trade conflict."
+        },
+        {
+          "text": "Economic diversification and new market development",
+          "ideologyAlignment": { "liberal": 7, "conservative": 3 },
+          "metricImpacts": { 
+            "economicGrowth": 4, 
+            "tradeBalance": 2, 
+            "employmentRate": 3
+          },
+          "policyImpacts": { 
+            "market_freedom": 12, 
+            "traditional_stability": 5 
+          },
+          "consequences": "Market-based adaptation creates new opportunities but takes time to develop."
+        },
+        {
+          "text": "Worker retraining and social support programs",
+          "ideologyAlignment": { "socialist": 8, "feminist": 5 },
+          "metricImpacts": { 
+            "socialMobility": 5, 
+            "workLifeBalance": 4, 
+            "publicDebt": 5,
+            "workerOrganization": 3
+          },
+          "policyImpacts": { 
+            "wealth_redistribution": 12, 
+            "social_equality": 8 
+          },
+          "consequences": "Social support helps workers transition but requires significant government investment."
+        }
+      ],
+      "consequences": {
+        "immediate": "Export industries are laying off workers and economic uncertainty is rising.",
+        "longTerm": "The response will shape the nation's approach to international trade and economic policy."
+      }
+    },
+    {
+      "id": "energy_crisis",
+      "type": "economic",
+      "subtype": "energy_shortage",
+      "title": "Energy Crisis Grips {nation}",
+      "description": "Rising energy costs and supply disruptions are causing widespread economic hardship.",
+      "context": "Citizens face high heating bills while businesses struggle with production costs.",
+      "phases": ["Growth", "Maturity", "Legacy"],
+      "choices": [
+        {
+          "text": "Emergency renewable energy transition program",
+          "ideologyAlignment": { "ecological": 9, "socialist": 6 },
+          "metricImpacts": { 
+            "renewableEnergyAdoption": 8, 
+            "environmentalQuality": 5, 
+            "publicDebt": 8,
+            "sustainabilityPractices": 6
+          },
+          "policyImpacts": { 
+            "environmental_protection": 15, 
+            "state_authority": 10 
+          },
+          "consequences": "Aggressive green transition addresses long-term sustainability but requires massive investment."
+        },
+        {
+          "text": "Domestic fossil fuel expansion and energy independence",
+          "ideologyAlignment": { "conservative": 8, "liberal": 4 },
+          "metricImpacts": { 
+            "economicGrowth": 5, 
+            "employmentRate": 4, 
+            "environmentalQuality": -4,
+            "energySecurity": 6
+          },
+          "policyImpacts": { 
+            "market_freedom": 10, 
+            "traditional_stability": 8 
+          },
+          "consequences": "Fossil fuel expansion provides short-term relief but worsens environmental problems."
+        },
+        {
+          "text": "Energy efficiency programs and consumption reduction",
+          "ideologyAlignment": { "ecological": 6, "conservative": 4 },
+          "metricImpacts": { 
+            "sustainabilityPractices": 6, 
+            "publicDebt": 3, 
+            "resourceConservation": 5
+          },
+          "policyImpacts": { 
+            "environmental_protection": 8, 
+            "traditional_stability": 5 
+          },
+          "consequences": "Conservation approach reduces demand but may not fully address supply issues."
+        }
+      ],
+      "consequences": {
+        "immediate": "Energy costs are rising rapidly and supply disruptions are affecting daily life.",
+        "longTerm": "The response will determine the nation's energy future and environmental trajectory."
+      }
+    },
+    {
+      "id": "corruption_scandal",
+      "type": "political",
+      "subtype": "corruption",
+      "title": "Major Corruption Scandal Rocks {nation}",
+      "description": "High-ranking government officials have been implicated in a massive corruption scheme.",
+      "context": "Public trust in government is plummeting as details of the scandal emerge.",
+      "phases": ["Growth", "Maturity", "Legacy"],
+      "choices": [
+        {
+          "text": "Comprehensive anti-corruption investigation and reforms",
+          "ideologyAlignment": { "liberal": 8, "socialist": 6, "feminist": 5 },
+          "metricImpacts": { 
+            "transparencyAccountability": 8, 
+            "ruleOfLaw": 6, 
+            "citizenParticipation": 4,
+            "politicalStability": -2
+          },
+          "policyImpacts": { 
+            "social_equality": 12, 
+            "state_authority": -5 
+          },
+          "consequences": "Thorough investigation restores trust but may reveal more systemic problems."
+        },
+        {
+          "text": "Limited investigation to maintain government stability",
+          "ideologyAlignment": { "conservative": 6, "authoritarian": 7 },
+          "metricImpacts": { 
+            "politicalStability": 3, 
+            "transparencyAccountability": -3, 
+            "citizenParticipation": -4
+          },
+          "policyImpacts": { 
+            "state_authority": 8, 
+            "traditional_stability": 10 
+          },
+          "consequences": "Controlled response maintains stability but fails to address underlying corruption."
+        },
+        {
+          "text": "Independent oversight and citizen participation in reforms",
+          "ideologyAlignment": { "liberal": 7, "socialist": 5, "feminist": 6 },
+          "metricImpacts": { 
+            "citizenParticipation": 8, 
+            "transparencyAccountability": 6, 
+            "socialCohesion": 3
+          },
+          "policyImpacts": { 
+            "social_equality": 15, 
+            "state_authority": -8 
+          },
+          "consequences": "Citizen-led reforms build democratic engagement but may slow immediate action."
+        }
+      ],
+      "consequences": {
+        "immediate": "Government credibility is severely damaged and public protests are growing.",
+        "longTerm": "The response will shape public trust in institutions and democratic governance."
+      }
+    },
+    {
+      "id": "demographic_crisis",
+      "type": "social",
+      "subtype": "aging_population",
+      "title": "Demographic Crisis Challenges {nation}",
+      "description": "Rapidly aging population and declining birth rates threaten economic sustainability.",
+      "context": "Healthcare and pension systems face overwhelming pressure as the workforce shrinks.",
+      "phases": ["Maturity", "Legacy"],
+      "choices": [
+        {
+          "text": "Comprehensive family support and childcare programs",
+          "ideologyAlignment": { "feminist": 9, "socialist": 7 },
+          "metricImpacts": { 
+            "careWorkIntegration": 8, 
+            "workLifeBalance": 6, 
+            "publicDebt": 8,
+            "socialMobility": 4
+          },
+          "policyImpacts": { 
+            "social_equality": 15, 
+            "wealth_redistribution": 12 
+          },
+          "consequences": "Family support programs may boost birth rates but require significant public investment."
+        },
+        {
+          "text": "Immigration programs to address workforce shortages",
+          "ideologyAlignment": { "liberal": 7, "socialist": 4 },
+          "metricImpacts": { 
+            "culturalDiversity": 6, 
+            "economicGrowth": 4, 
+            "socialCohesion": -2
+          },
+          "policyImpacts": { 
+            "social_equality": 8, 
+            "market_freedom": 5 
+          },
+          "consequences": "Immigration addresses immediate workforce needs but may create social tensions."
+        },
+        {
+          "text": "Automation and technology to maintain productivity",
+          "ideologyAlignment": { "liberal": 8, "conservative": 3 },
+          "metricImpacts": { 
+            "economicGrowth": 6, 
+            "employmentRate": -3, 
+            "economicStability": 3
+          },
+          "policyImpacts": { 
+            "market_freedom": 12, 
+            "traditional_stability": 3 
+          },
+          "consequences": "Technology solutions maintain economic output but may displace workers."
+        }
+      ],
+      "consequences": {
+        "immediate": "Social services are strained and economic growth is slowing.",
+        "longTerm": "The response will determine how the nation adapts to fundamental demographic changes."
+      }
+    }
+  ],
+  "consequenceDriven": [
+    {
+      "id": "market_instability",
+      "type": "economic",
+      "subtype": "market_volatility",
+      "title": "Market Instability from Policy Conflicts",
+      "description": "Conflicting economic policies have created uncertainty and market volatility.",
+      "context": "Investors are confused by mixed signals from government policy directions.",
+      "triggers": {
+        "conflicting_tracks": ["market_freedom", "wealth_redistribution"],
+        "threshold": 50
+      },
+      "choices": [
+        {
+          "text": "Clarify commitment to free market principles",
+          "ideologyAlignment": { "liberal": 8, "conservative": 4 },
+          "metricImpacts": { 
+            "economicStability": 4, 
+            "economicGrowth": 3, 
+            "incomeInequality": 3 
+          },
+          "policyImpacts": { 
+            "market_freedom": 10, 
+            "wealth_redistribution": -8 
+          }
+        },
+        {
+          "text": "Strengthen redistribution and market regulation",
+          "ideologyAlignment": { "socialist": 8, "feminist": 4 },
+          "metricImpacts": { 
+            "economicStability": 3, 
+            "incomeInequality": -4, 
+            "socialCohesion": 4 
+          },
+          "policyImpacts": { 
+            "wealth_redistribution": 10, 
+            "market_freedom": -8 
+          }
+        }
+      ]
+    },
+    {
+      "id": "authority_resistance",
+      "type": "political",
+      "subtype": "civil_resistance",
+      "title": "Resistance to Authoritarian Measures",
+      "description": "Growing resistance movements challenge increasing government authority.",
+      "context": "Civil society groups organize against expanding state control.",
+      "triggers": {
+        "policy_track": "state_authority",
+        "threshold": 70
+      },
+      "choices": [
+        {
+          "text": "Suppress resistance movements",
+          "ideologyAlignment": { "authoritarian": 9 },
+          "metricImpacts": { 
+            "internalStability": 4, 
+            "citizenParticipation": -8, 
+            "ruleOfLaw": -4 
+          },
+          "policyImpacts": { 
+            "state_authority": 15, 
+            "social_equality": -12 
+          }
+        },
+        {
+          "text": "Engage in dialogue and compromise",
+          "ideologyAlignment": { "liberal": 6, "socialist": 5 },
+          "metricImpacts": { 
+            "citizenParticipation": 6, 
+            "socialCohesion": 4, 
+            "politicalStability": -2 
+          },
+          "policyImpacts": { 
+            "state_authority": -8, 
+            "social_equality": 8 
+          }
+        }
+      ]
+    },
+    {
+      "id": "environmental_backlash",
+      "type": "environmental",
+      "subtype": "policy_backlash",
+      "title": "Economic Backlash Against Environmental Policies",
+      "description": "Business groups and workers protest against strict environmental regulations.",
+      "context": "Environmental policies are blamed for economic hardship and job losses.",
+      "triggers": {
+        "policy_track": "environmental_protection",
+        "threshold": 80
+      },
+      "choices": [
+        {
+          "text": "Maintain environmental priorities despite opposition",
+          "ideologyAlignment": { "ecological": 9, "socialist": 5 },
+          "metricImpacts": { 
+            "environmentalQuality": 6, 
+            "economicGrowth": -4, 
+            "socialCohesion": -3 
+          },
+          "policyImpacts": { 
+            "environmental_protection": 10, 
+            "state_authority": 8 
+          }
+        },
+        {
+          "text": "Moderate environmental policies to address economic concerns",
+          "ideologyAlignment": { "liberal": 5, "conservative": 6 },
+          "metricImpacts": { 
+            "economicGrowth": 3, 
+            "employmentRate": 2, 
+            "environmentalQuality": -3 
+          },
+          "policyImpacts": { 
+            "environmental_protection": -8, 
+            "market_freedom": 8 
+          }
+        }
+      ]
+    },
+    {
+      "id": "inequality_protests",
+      "type": "social",
+      "subtype": "inequality_unrest",
+      "title": "Mass Protests Against Growing Inequality",
+      "description": "Widespread protests erupt as income inequality reaches critical levels.",
+      "context": "Citizens demand action on wealth concentration and social mobility.",
+      "triggers": {
+        "metric": "incomeInequality",
+        "threshold": 70
+      },
+      "choices": [
+        {
+          "text": "Implement emergency wealth redistribution measures",
+          "ideologyAlignment": { "socialist": 9, "feminist": 6 },
+          "metricImpacts": { 
+            "incomeInequality": -8, 
+            "socialCohesion": 6, 
+            "economicGrowth": -3 
+          },
+          "policyImpacts": { 
+            "wealth_redistribution": 15, 
+            "social_equality": 12 
+          }
+        },
+        {
+          "text": "Focus on economic growth to lift all incomes",
+          "ideologyAlignment": { "liberal": 6, "conservative": 7 },
+          "metricImpacts": { 
+            "economicGrowth": 5, 
+            "employmentRate": 3, 
+            "incomeInequality": 2 
+          },
+          "policyImpacts": { 
+            "market_freedom": 10, 
+            "traditional_stability": 5 
+          }
+        }
+      ]
+    }
+  ]
+} 
