@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Val 2026: Partierna &amp; Partibarometern</title>
+    <link rel="stylesheet" href="../../studyguide.css">
+    <style>
+        /* === PARTY CARDS === */
+        .party-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 24px 0;
+        }
+        .party-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.10);
+            border-left: 6px solid #999;
+            padding: 20px 18px 16px 18px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        .party-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.14);
+        }
+        .party-card-abbr {
+            font-size: 2.2em;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+        .party-card-name {
+            font-size: 0.98em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 6px;
+        }
+        .party-card-leader {
+            font-size: 0.88em;
+            color: #555;
+            margin-bottom: 4px;
+        }
+        .party-card-bloc {
+            font-size: 0.82em;
+            font-weight: 600;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 10px;
+        }
+        .party-card-positions {
+            font-size: 0.87em;
+            color: #444;
+            padding-left: 0;
+            list-style: none;
+        }
+        .party-card-positions li::before {
+            content: "- ";
+            color: #999;
+        }
+        .party-card-btn {
+            margin-top: 12px;
+            background: none;
+            border: 2px solid currentColor;
+            border-radius: 6px;
+            padding: 5px 12px;
+            font-size: 0.83em;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.2s, color 0.2s;
+        }
+        .party-card-btn:hover {
+            color: #fff !important;
+        }
+
+        /* Party colour accents */
+        .pc-s  { border-left-color: #ED1B34; }
+        .pc-s  .party-card-abbr { color: #ED1B34; }
+        .pc-s  .party-card-btn  { color: #ED1B34; border-color: #ED1B34; }
+        .pc-s  .party-card-btn:hover { background: #ED1B34; }
+
+        .pc-m  { border-left-color: #52BDEC; }
+        .pc-m  .party-card-abbr { color: #1B6CA8; }
+        .pc-m  .party-card-btn  { color: #1B6CA8; border-color: #1B6CA8; }
+        .pc-m  .party-card-btn:hover { background: #1B6CA8; }
+
+        .pc-sd { border-left-color: #005B99; }
+        .pc-sd .party-card-abbr { color: #005B99; }
+        .pc-sd .party-card-btn  { color: #005B99; border-color: #005B99; }
+        .pc-sd .party-card-btn:hover { background: #005B99; }
+
+        .pc-c  { border-left-color: #009933; }
+        .pc-c  .party-card-abbr { color: #007A28; }
+        .pc-c  .party-card-btn  { color: #007A28; border-color: #007A28; }
+        .pc-c  .party-card-btn:hover { background: #007A28; }
+
+        .pc-v  { border-left-color: #D1001C; }
+        .pc-v  .party-card-abbr { color: #A0000F; }
+        .pc-v  .party-card-btn  { color: #A0000F; border-color: #A0000F; }
+        .pc-v  .party-card-btn:hover { background: #A0000F; }
+
+        .pc-kd { border-left-color: #005DA6; }
+        .pc-kd .party-card-abbr { color: #005DA6; }
+        .pc-kd .party-card-btn  { color: #005DA6; border-color: #005DA6; }
+        .pc-kd .party-card-btn:hover { background: #005DA6; }
+
+        .pc-l  { border-left-color: #006AB3; }
+        .pc-l  .party-card-abbr { color: #006AB3; }
+        .pc-l  .party-card-btn  { color: #006AB3; border-color: #006AB3; }
+        .pc-l  .party-card-btn:hover { background: #006AB3; }
+
+        .pc-mp { border-left-color: #53A045; }
+        .pc-mp .party-card-abbr { color: #3A7A30; }
+        .pc-mp .party-card-btn  { color: #3A7A30; border-color: #3A7A30; }
+        .pc-mp .party-card-btn:hover { background: #3A7A30; }
+
+        /* === PARTY EXPANSION MODAL === */
+        .party-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.55);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .party-modal-overlay.active {
+            display: flex;
+        }
+        .party-modal-box {
+            background: #fff;
+            border-radius: 12px;
+            max-width: 640px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 32px 28px 24px 28px;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+        }
+        .party-modal-close {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            background: none;
+            border: none;
+            font-size: 1.8em;
+            cursor: pointer;
+            color: #555;
+            line-height: 1;
+        }
+        .party-modal-header {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 3px solid #eee;
+        }
+        .party-modal-abbr {
+            font-size: 2.8em;
+            font-weight: 900;
+            line-height: 1;
+        }
+        .party-modal-fullname {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #333;
+        }
+        .party-modal-body h4 {
+            margin: 16px 0 6px 0;
+            font-size: 1em;
+            color: var(--primary);
+        }
+        .party-modal-body p, .party-modal-body ul {
+            font-size: 0.94em;
+            color: #444;
+            line-height: 1.65;
+        }
+        .party-modal-body ul {
+            padding-left: 18px;
+        }
+
+        /* === BLOC BOX === */
+        .bloc-box {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        .bloc-card {
+            flex: 1 1 280px;
+            background: #fff;
+            border-radius: 10px;
+            padding: 18px 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.09);
+        }
+        .bloc-card h4 {
+            margin: 0 0 10px 0;
+            font-size: 1.05em;
+        }
+        .bloc-card .bloc-parties {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .bloc-pill {
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.83em;
+            font-weight: 700;
+            color: #fff;
+        }
+        .pill-s  { background: #ED1B34; }
+        .pill-m  { background: #1B6CA8; }
+        .pill-sd { background: #005B99; }
+        .pill-c  { background: #007A28; }
+        .pill-v  { background: #A0000F; }
+        .pill-kd { background: #005DA6; }
+        .pill-l  { background: #006AB3; }
+        .pill-mp { background: #3A7A30; }
+
+        /* === POLLS MINI CHART === */
+        .poll-bars {
+            margin: 18px 0;
+        }
+        .poll-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+        }
+        .poll-party-label {
+            width: 50px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .poll-bar-wrap {
+            flex: 1;
+            background: #eee;
+            border-radius: 4px;
+            height: 18px;
+            overflow: hidden;
+        }
+        .poll-bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+        .poll-pct {
+            width: 44px;
+            text-align: right;
+            font-size: 0.88em;
+            color: #555;
+            flex-shrink: 0;
+        }
+
+        /* === BAROMETER === */
+        .barometer-section {
+            background: #f9fafc;
+            border-radius: 12px;
+            padding: 28px 24px;
+            margin: 20px 0;
+        }
+        .barometer-statement {
+            background: #fff;
+            border: 1px solid #dde;
+            border-radius: 8px;
+            padding: 18px 16px 14px 16px;
+            margin-bottom: 16px;
+            transition: box-shadow 0.2s;
+        }
+        .barometer-statement:focus-within {
+            box-shadow: 0 0 0 3px rgba(var(--primary-rgb, 37,99,235),0.18);
+        }
+        .barometer-statement p {
+            font-size: 0.97em;
+            font-weight: 600;
+            margin: 0 0 12px 0;
+            color: #222;
+        }
+        .barometer-stance-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .barometer-btn {
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 2px solid #ccd;
+            background: #fff;
+            font-size: 0.85em;
+            cursor: pointer;
+            transition: background 0.15s, border-color 0.15s, color 0.15s;
+            font-weight: 600;
+        }
+        .barometer-btn.agree   { border-color: #3a7a30; color: #3a7a30; }
+        .barometer-btn.neutral { border-color: #888; color: #666; }
+        .barometer-btn.disagree{ border-color: #c0392b; color: #c0392b; }
+        .barometer-btn.active  { color: #fff !important; }
+        .barometer-btn.agree.active    { background: #3a7a30; border-color: #3a7a30; }
+        .barometer-btn.neutral.active  { background: #888; border-color: #888; }
+        .barometer-btn.disagree.active { background: #c0392b; border-color: #c0392b; }
+
+        .barometer-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .barometer-submit-btn {
+            background: var(--primary, #2563eb);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 24px;
+            font-size: 1em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .barometer-submit-btn:hover {
+            background: #1a4db8;
+        }
+        .barometer-reset-btn {
+            background: none;
+            color: #666;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            padding: 10px 18px;
+            font-size: 0.95em;
+            cursor: pointer;
+        }
+
+        .barometer-results {
+            display: none;
+            margin-top: 24px;
+        }
+        .barometer-results.visible {
+            display: block;
+        }
+        .barometer-result-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+        .bar-result-abbr {
+            width: 46px;
+            font-weight: 900;
+            font-size: 1.0em;
+            flex-shrink: 0;
+        }
+        .bar-result-wrap {
+            flex: 1;
+            background: #eee;
+            border-radius: 5px;
+            height: 22px;
+            overflow: hidden;
+        }
+        .bar-result-fill {
+            height: 100%;
+            border-radius: 5px;
+            transition: width 1s ease;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 8px;
+        }
+        .bar-result-pct {
+            width: 46px;
+            text-align: right;
+            font-weight: 700;
+            font-size: 0.95em;
+            flex-shrink: 0;
+        }
+        .bar-result-note {
+            font-size: 0.82em;
+            color: #666;
+            margin-bottom: 2px;
+            padding-left: 58px;
+        }
+        .barometer-disclaimer {
+            margin-top: 22px;
+            background: #fffbea;
+            border: 1px solid #f0c040;
+            border-radius: 8px;
+            padding: 14px 16px;
+            font-size: 0.87em;
+            color: #7a5700;
+        }
+        .barometer-reflection {
+            margin-top: 14px;
+            background: #eef6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 14px 16px;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.92em;
+            color: #1e3a5f;
+        }
+
+        /* === ISSUES / SAKFRAGOR === */
+        .issue-chip {
+            display: inline-block;
+            background: #e8f0fe;
+            color: #2a5298;
+            padding: 3px 10px;
+            border-radius: 14px;
+            font-size: 0.82em;
+            font-weight: 600;
+            margin: 2px;
+        }
+
+        /* === PROGRESS DISPLAY === */
+        .intro-hero {
+            background: linear-gradient(135deg, #1a3460 0%, #2c5282 100%);
+            color: white;
+            padding: 36px 32px;
+            border-radius: 12px;
+            margin-bottom: 28px;
+            text-align: center;
+        }
+        .intro-hero h2 {
+            color: white;
+            font-size: 1.9em;
+            margin-bottom: 12px;
+        }
+        .intro-hero p {
+            font-size: 1.1em;
+            opacity: 0.93;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 600px) {
+            .party-grid {
+                grid-template-columns: 1fr;
+            }
+            .barometer-stance-group {
+                flex-direction: column;
+            }
+            .barometer-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <header>
+        <h1>Val 2026: Partierna &amp; Partibarometern</h1>
+        <p>Riksdagspartierna, valrorelsen och din politiska kompass</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#" class="active" data-section="intro">Start</a></li>
+            <li><a href="#" data-section="valsystemet">Valsystemet</a></li>
+            <li><a href="#" data-section="partierna">Partierna</a></li>
+            <li><a href="#" data-section="sakfragor">Sakfragor</a></li>
+            <li><a href="#" data-section="barometer">Partibarometer</a></li>
+            <li><a href="#" data-section="quiz">Quiz</a></li>
+        </ul>
+    </nav>
+
+    <!-- INTRO -->
+    <section id="intro" class="section active animated">
+        <div class="intro-hero">
+            <h2>Val 2026</h2>
+            <p>Den 13 september 2026 rostar Sverige. Vilka partier kamps om makten? Vad skiljer dem at? Och var hamnar du pa den politiska kartan?</p>
+        </div>
+
+        <div class="info-box">
+            <h3>Sa anvander du guiden</h3>
+            <p>Den har studiehandledningen ar del 2 i serien om svensk politik. Du lär dig om de atta riksdagspartierna, deras ledare och politiska positioner, de stora valfragorna 2026 och hur valssystemet fungerar. Avslutar med den interaktiva partibarometern som matchar dina asikter mot partiernas politik.</p>
+            <ul>
+                <li>Klicka pa ett parti for att lasa mer om det.</li>
+                <li>Genomfor partibarometern for att se vilket parti du ligger narmast.</li>
+                <li>Avsluta med quizet for att testa dina kunskaper!</li>
+            </ul>
+        </div>
+
+        <div class="flex-container">
+            <div class="card">
+                <h3>Dina framsteg</h3>
+                <div class="best-score-display">
+                    <p><span class="icon">checkmark</span> Ratt svar: <strong id="best-score-correct">--</strong></p>
+                    <p><span class="icon">clock</span> Tid: <strong id="best-score-time">--:--</strong></p>
+                    <p><span class="icon">star</span> Poang: <strong id="best-score-points">----</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <button onclick="document.querySelector('[data-section=\'valsystemet\']').click()">Börja lara dig</button>
+
+        <div id="achievements-list" class="achievements"></div>
+    </section>
+
+    <!-- VALSYSTEMET -->
+    <section id="valsystemet" class="section animated">
+        <h2>Det svenska valsystemet</h2>
+
+        <div class="subsection theme-blue">
+            <h3>Hur fungerar riksdagsvalet?</h3>
+
+            <div class="info-box">
+                <h4>Proportionellt valsystem</h4>
+                <p>Sverige anvander ett <strong>proportionellt valsystem</strong> med oppna listor. Det innebar att partierna far ungefar lika manga riksdagsledamoter som andelen roster de far i valet. Den som far flest roster bland kandidaterna inom ett parti far okat chans att komma in i riksdagen.</p>
+            </div>
+
+            <div class="flex-container icon-card-deck theme-benefit">
+                <div class="card">
+                    <h4>349 ledamoter</h4>
+                    <p>Riksdagen bestar av 349 ledamoter som valjs vart fjarde ar. 310 valjs fran 29 valkretsar, och 39 ar utjamningsmandat.</p>
+                </div>
+                <div class="card">
+                    <h4>Fyraprocentsspärren</h4>
+                    <p>Ett parti maste fa minst <strong>4% av rösterna</strong> nationellt for att delta i fordelningen av riksdagsmandat. Alternativt kravs 12% i en enskild valkrets.</p>
+                </div>
+                <div class="card">
+                    <h4>13 september 2026</h4>
+                    <p>Riksdagsvalet halls den <strong>andra söndagen i september</strong> 2026, tillsammans med regions- och kommunval. Det ar den forsta riksdagsvalet sedan Sverige gick med i NATO.</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4>Negativ parlamentarism</h4>
+                <p>En statsministerkandidat godkanns av riksdagen om inte en <strong>absolut majoritet</strong> (minst 175 ledamoter) rostar emot. Det innebar att en minoritetsregering kan styra utan att ha aktivt stod fran en majoritet – sa lange oppositionen inte blockar. Denna princip kallas <strong>negativ parlamentarism</strong>.</p>
+            </div>
+        </div>
+
+        <div class="subsection theme-yellow">
+            <h3>Tidoregeringen 2022-2026</h3>
+            <p>Efter valet 2022 formade Moderaterna (M), Kristdemokraterna (KD) och Liberalerna (L) en minoritetsregering med <strong>konfidensavtal</strong> fran Sverigedemokraterna (SD). Avtalet kallades <strong>Tidoavtalet</strong> (efter herrgarden Tido dar forhandlingarna hölls). Ulf Kristersson (M) utnamndes till statsminister.</p>
+            <p>De fyra Tidopartierna (M, KD, L, SD) kallas ocksa haegre-blocket. Pa motstaende sida finns de rödgröna partierna (S, V, MP) med stöd i varierende utstrackning av Centerpartiet (C).</p>
+
+            <div class="info-box">
+                <h4>Sverige lovftet 2026</h4>
+                <p>Den 13 mars 2026 annonserade Liberalerna och Sverigedemokraterna ett avtal kallat "Sverigelovet". Om Tidoblocket vinner valet lovar L att SD ska fa kabinettsplatser i regeringen. Avtalet innehaller ocksa ett gemensamt val att halla en folkomrostning om att anta euron som valuta, i samband med valet 2030.</p>
+            </div>
+        </div>
+
+        <div class="subsection theme-green">
+            <h3>Blocken infor 2026</h3>
+
+            <div class="bloc-box">
+                <div class="bloc-card">
+                    <h4>Hager / Tidoblocket</h4>
+                    <div class="bloc-parties">
+                        <span class="bloc-pill pill-m">M</span>
+                        <span class="bloc-pill pill-kd">KD</span>
+                        <span class="bloc-pill pill-l">L</span>
+                        <span class="bloc-pill pill-sd">SD</span>
+                    </div>
+                    <p style="margin-top:10px;font-size:0.9em;">Statsminister Kristersson leder denna sida. SD stodjer men ar inte i regeringen (fore Sverigelovet).</p>
+                </div>
+                <div class="bloc-card">
+                    <h4>Rod-grona sidan</h4>
+                    <div class="bloc-parties">
+                        <span class="bloc-pill pill-s">S</span>
+                        <span class="bloc-pill pill-v">V</span>
+                        <span class="bloc-pill pill-mp">MP</span>
+                        <span class="bloc-pill pill-c">C</span>
+                    </div>
+                    <p style="margin-top:10px;font-size:0.9em;">Socialdemokraterna leder oppositionen. Centerpartiet ar mer osäkert nar det gäller bloktillhorighet.</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4>Opinionsläget juni 2026</h4>
+                <p>Socialdemokraterna leder i opinionsmätningarna med ca 32-33%, folgt av SD ca 19%, M ca 17%, V ca 8%, MP ca 7% och C ca 6%. Liberalerna riskerar att hamna under riksdagsspärren med ca 2-3% i matningarna.</p>
+                <div class="poll-bars" id="poll-bars-container">
+                    <!-- filled by JS -->
+                </div>
+                <p style="font-size:0.82em;color:#888;margin:8px 0 0 0;">Kalla: aggregat av Novus, SCB, Ipsos, Demoskop, Verian (juni 2026). Felmarginaler tillkommer.</p>
+            </div>
+        </div>
+
+        <div class="section-quiz">
+            <h4>Reflektera</h4>
+            <div id="valsystemet-questions" class="quiz-container"></div>
+        </div>
+
+        <button onclick="document.querySelector('[data-section=\'partierna\']').click()">Till Partierna</button>
+    </section>
+
+    <!-- PARTIERNA -->
+    <section id="partierna" class="section animated">
+        <h2>De atta riksdagspartierna</h2>
+
+        <p>Riksdagen 2022-2026 bestar av atta partier. Har presenteras de med sina farger, ledare och viktigaste positioner. Klicka pa "Las mer" for att fa en djupare genomgang av varje partis historia och politik.</p>
+
+        <div class="party-grid" id="party-grid-container">
+
+            <div class="party-card pc-s">
+                <div class="party-card-abbr">S</div>
+                <div class="party-card-name">Socialdemokraterna</div>
+                <div class="party-card-leader">Partiledare: Magdalena Andersson</div>
+                <div class="party-card-bloc">Vänster-blocket | Oppositionsparti</div>
+                <ul class="party-card-positions">
+                    <li>Stark offentligfinansierad valfard (skola, vård, omsorg)</li>
+                    <li>Skatter ska finansiera gemensamma tjanster</li>
+                    <li>Bekampa gängkriminalitet med fler poliser och sociala insatser</li>
+                    <li>Aktiv arbetsmarknadspolitik</li>
+                    <li>Regulerad migration och krav pa integration</li>
+                </ul>
+                <button class="party-card-btn" onclick="openPartyModal('s')">Las mer</button>
+            </div>
+
+            <div class="party-card pc-m">
+                <div class="party-card-abbr">M</div>
+                <div class="party-card-name">Moderaterna</div>
+                <div class="party-card-leader">Partiledare: Ulf Kristersson</div>
+                <div class="party-card-bloc">Hager-blocket | Regeringsparti</div>
+                <ul class="party-card-positions">
+                    <li>Lagre skatter och storre frihet for individen</li>
+                    <li>Valfrihet och konkurrens i valfarden</li>
+                    <li>Strad brottsbekampning och harda straff</li>
+                    <li>Utokad karnkraft</li>
+                    <li>Stram migrationspolitik</li>
+                </ul>
+                <button class="party-card-btn" onclick="openPartyModal('m')">Las mer</button>
+            </div>
+
+            <div class="party-card pc-sd">
+                <div class="party-card-abbr">SD</div>
+                <div class="party-card-name">Sverigedemokraterna</div>
+                <div class="party-card-leader">Partiledare: Jimmie Akesson</div>
+                <div class="party-card-bloc">Hager-blocket | Stödparti</div>
+                <ul class="party-card-positions">
+                    <li>Kraftigt reducerad invandring</li>
+                    <li>Lag och ordning som hogsta prioritet</li>
+                    <li>Skydda svensk kultur och nationell identitet</li>
+                    <li>Utokad karnkraft</li>
+                    <li>Kritisk till EU-federalism</li>
+                </ul>
+                <button class="party-card-btn" onclick="openPartyModal('sd')">Las mer</button>
+            </div>
+
+            <div class="party-card pc-c">
+                <div class="party-card-abbr">C</div>
+                <div class="party-card-name">Centerpartiet</div>
+                <div class="party-card-leader">Partiledare: Elisabeth Thand Ringqvist</div>
+                <div class="party-card-bloc">Mitt / Oppositionen</div>
+                <ul class="party-card-positions">
+                    <li>Decentralisering och landsbyggd</li>
+                    <li>Ekonomisk liberalism och fritt foretagande</li>
+                    <li>Liberalare migrationspolitik</li>
+                    <li>Klimatsmarta losningar for landsbygden</li>
+                    <li>Stark EU-integration</li>
+                </ul>
+                <button class="party-card-btn" onclick="openPartyModal('c')">Las mer</button>
+            </div>
+
+            <div class="party-card pc-v">
+                <div class="party-card-abbr">V</div>
+                <div class="party-card-name">Vansterpartiet</div>
+                <div class="party-card-leader">Partiledare: Nooshi Dadgostar</div>
+                <div class="party-card-bloc">Vanster-blocket | Oppositionsparti</div>
+                <ul class="party-card-positions">
+                    <li>Offentlig valfard utan vinstintresse</li>
+                    <li>Kraftigt hojda skatter pa kapital och hogre inkomster</li>
+                    <li>Feminism och jamstalldhet</li>
+                    <li>Ambitiös klimatpolitik</li>
+                    <li>Kritisk till EU</li>
+                </ul>
+                <button class="party-card-btn" onclick="openPartyModal('v')">Las mer</button>
+            </div>
+
+            <div class="party-card pc-kd">
+                <div class="party-card-abbr">KD</div>
+                <div class="party-card-name">Kristdemokraterna</div>
+                <div class="party-card-leader">Partiledare: Ebba Busch</div>
+                <div class="party-card-bloc">Hager-blocket | Regeringsparti</div>
+                <ul class="party-card-positions">
+                    <li>Familjen som samhallets grundval</li>
+                    <li>Stod till civilsamhallet och religiosa organisationer</li>
+                    <li>Lag och ordning, harda straff</li>
+                    <li>Karnkraft som klimatlosning</li>
+                    <li>Restriktivare migrationspolitik</li>
+                </ul>
+                <button class="party-card-btn" onclick="openPartyModal('kd')">Las mer</button>
+            </div>
+
+            <div class="party-card pc-l">
+                <div class="party-card-abbr">L</div>
+                <div class="party-card-name">Liberalerna</div>
+                <div class="party-card-leader">Partiledare: Simona Mohamsson</div>
+                <div class="party-card-bloc">Hager-blocket | Regeringsparti</div>
+                <ul class="party-card-positions">
+                    <li>Utbildning och kunskapsskola som prioritet</li>
+                    <li>Individens fri- och rattigheter</li>
+                    <li>Stark EU-integration</li>
+                    <li>Liberal syn pa migration</li>
+                    <li>Feminism och HBTQ-rattigheter</li>
+                </ul>
+                <button class="party-card-btn" onclick="openPartyModal('l')">Las mer</button>
+            </div>
+
+            <div class="party-card pc-mp">
+                <div class="party-card-abbr">MP</div>
+                <div class="party-card-name">Miljopartiet</div>
+                <div class="party-card-leader">Talespersoner: Amanda Lind &amp; Daniel Hellden</div>
+                <div class="party-card-bloc">Vanster-blocket | Oppositionsparti</div>
+                <ul class="party-card-positions">
+                    <li>Klimatet och biologisk mangfald i fokus</li>
+                    <li>Mot karnkraft, for fornybar energi</li>
+                    <li>Generosare flyktingmottagande</li>
+                    <li>Djurrattigheterna och halsosammare matvanor</li>
+                    <li>Feminist och antirasistisk politik</li>
+                </ul>
+                <button class="party-card-btn" onclick="openPartyModal('mp')">Las mer</button>
+            </div>
+
+        </div>
+
+        <div class="section-quiz">
+            <h4>Reflektera</h4>
+            <div id="partierna-questions" class="quiz-container"></div>
+        </div>
+
+        <button onclick="document.querySelector('[data-section=\'sakfragor\']').click()">Till Sakfragorna</button>
+    </section>
+
+    <!-- SAKFRAGOR -->
+    <section id="sakfragor" class="section animated">
+        <h2>Valfragorna 2026</h2>
+
+        <p>Infor varje val domineras debatten av ett antal sakfragor. Har ar de viktigaste amnesomradena infor valet 2026.</p>
+
+        <div class="subsection theme-red">
+            <h3>Brottslighet och gang</h3>
+            <p>Under mandatperioden 2022-2026 har <strong>gangkriminaliteten, skjutningar och sprängningar</strong> dominerat nyhetsbilden. Sverige har haft en av Europas hogsta skjutningsdodligheter per capita. Frågor om polisresurser, straff for unga lagoverträdare, anonyma vittnens möjligheter och om frigivningssystemet star hogst pa dagordningen.</p>
+            <div class="info-box">
+                <h4>Partiskillnader</h4>
+                <ul>
+                    <li><strong>SD, M, KD:</strong> Aven hardare straff, anonyma vittnen, utvisning av utlandska medborgare som begar brott.</li>
+                    <li><strong>S:</strong> Fler poliser, sociala insatser, ekonomisk jamstalldhet som brottsforebyggande.</li>
+                    <li><strong>V, MP:</strong> Sociala orsaker till brott i fokus; varnar for rasprofilering.</li>
+                    <li><strong>C, L:</strong> Kombination av harda tag och sociala insatser; rattssäkerhetsaspekter.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="subsection theme-blue">
+            <h3>Migration och integration</h3>
+            <p>Migration har omformat svensk politik under ett decennium. Tidoregeringen har genomfort en av de mest restriktiva kursomlaggningarna i modern tid: längre folkbokföringskrav for medborgarskap (8 ar), spraktest, hogre inkomstkrav for anhoriginvandring, och temporara uppehallstillstand for asylsokande fran juli 2026.</p>
+            <div class="info-box">
+                <h4>Partiskillnader</h4>
+                <ul>
+                    <li><strong>SD:</strong> Kraftigt reducerad invandring, aterbrottsvandring, skydda nationell identitet.</li>
+                    <li><strong>M, KD, L:</strong> Restriktiv men humanitar migrationspolitik; betoning pa integration.</li>
+                    <li><strong>S:</strong> Reglerad migration, skarpta integrationskrav.</li>
+                    <li><strong>C:</strong> Mer liberal syn pa arbetskraftsinvandring och flyktingmottagande.</li>
+                    <li><strong>V, MP:</strong> Generosare asylmottagande; kritik mot nuvarande restriktioner.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="subsection theme-yellow">
+            <h3>Ekonomi och levnadskostnader</h3>
+            <p>Sverige upplevde inflation och hoga energipriser. Riksbanken har sänkt styrrantan till ca 1,75% (maj 2026) men ekonomin visade svaga siffror. Regeringen satsade 17,5 miljarder i hushallslattnader. Debatterna handlar om skatter, bolanerantor, energipriser och arbetsloshet.</p>
+            <div class="info-box">
+                <h4>Partiskillnader</h4>
+                <ul>
+                    <li><strong>M, L, KD:</strong> Skattesankningar, avregleringar, friere marknad.</li>
+                    <li><strong>S:</strong> Aktiv stat, trygghetssystem, investeringar i industrin.</li>
+                    <li><strong>V:</strong> Kraftiga skattehöjningar pa kapital och hogre inkomster, gratis valfard.</li>
+                    <li><strong>C:</strong> Ekonomisk liberalism, företagarvänlig, sänkta regelbörda.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="subsection theme-green">
+            <h3>Klimat och energi</h3>
+            <p>Sverige har tagit ett historiskt steg: Tidoregeringen har oppnat for ny karnkraft. Debatten star mellan de som vill bygga ut karnkraft for att trygga elforsorjningen och de som forespraker fornybar energi (sol, vind, vattenkraft). Klimatomstallningen, nar den ska ske och vem som ska betala, ar en central fragestallning.</p>
+            <div class="info-box">
+                <h4>Partiskillnader</h4>
+                <ul>
+                    <li><strong>M, KD, SD:</strong> Pro-karnkraft; kritiska till vindkraft pa land.</li>
+                    <li><strong>L:</strong> Pro-karnkraft och EU:s klimatmal.</li>
+                    <li><strong>S:</strong> Stod for karnkraft men ocksa utbyggnad av fornybart.</li>
+                    <li><strong>MP:</strong> Mot karnkraft; for kraftfulla klimatinsatser och forvybar energi.</li>
+                    <li><strong>V:</strong> Karnkraftsskeptisk; stark klimatpolitik.</li>
+                    <li><strong>C:</strong> Pro-fornybart, forespråkar marknadslösningar.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="subsection theme-purple">
+            <h3>Vard, skola och omsorg</h3>
+            <p>Kaon inom varden, larar- och sjukskoterskebrist, och kvaliten i skolan ar stendiga fragerstallningar. Fran en internationellt sett hog skolstandard har Sverige halkat efter i PISA-matningarna, aven om trenden bryts. Vinstregleringar i valfarden delar blocken skarpt.</li>
+            <div class="info-box">
+                <h4>Partiskillnader</h4>
+                <ul>
+                    <li><strong>V, S, MP:</strong> Offentliga aktorer i valfarden; begränsa eller forbjud vinstuttag.</li>
+                    <li><strong>M, KD, C, L:</strong> Valfrihet, konkurrens och privata alternativ ar bra for kvaliteten.</li>
+                    <li><strong>SD:</strong> Nationell kontroll av valfarden; skeptisk till vinst men ocksa till centralisering.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section-quiz">
+            <h4>Reflektera</h4>
+            <div id="sakfragor-questions" class="quiz-container"></div>
+        </div>
+
+        <button onclick="document.querySelector('[data-section=\'barometer\']').click()">Till Partibarometern</button>
+    </section>
+
+    <!-- BAROMETER -->
+    <section id="barometer" class="section animated">
+        <h2>Partibarometern – Din politiska kompass</h2>
+
+        <div class="info-box">
+            <h4>Hur fungerar det?</h4>
+            <p>Ta stallning till 14 politiska pastaenden. For varje pasting valjer du <strong>Haller med</strong>, <strong>Neutral</strong> eller <strong>Haller inte med</strong>. Partibarometern jamfor sedan dina svar med de atta riksdagspartiernas stallningstaganden och visar hur val du overensstammer med varje parti.</p>
+        </div>
+
+        <div class="barometer-section">
+            <div id="barometer-statements">
+
+                <div class="barometer-statement" data-idx="0">
+                    <p>1. Sverige borde kraftigt minska antalet asylsokande per ar.</p>
+                    <div class="barometer-stance-group">
+                        <button class="barometer-btn agree"   onclick="setStance(0,'agree')">Haller med</button>
+                        <button class="barometer-btn neutral" onclick="setStance(0,'neutral')">Neutral</button>
+                        <button class="barometer-btn disagree" onclick="setStance(0,'disagree')">Haller inte med</button>
+                    </div>
+                </div>
+
+                <div class="barometer-statement" data-idx="1">
+                    <p>2. Vinstuttag i skattefinansierade valfardstjänster (skola, vård) bör regleras strängt eller forbjudas.</p>
+                    <div class="barometer-stance-group">
+                        <button class="barometer-btn agree"   onclick="setStance(1,'agree')">Haller med</button>
+                        <button class="barometer-btn neutral" onclick="setStance(1,'neutral')">Neutral</button>
+                        <button class="barometer-btn disagree" onclick="setStance(1,'disagree')">Haller inte med</button>
+                    </div>
+                </div>
+
+                <div class="barometer-statement" data-idx="2">
+                    <p>3. Sverige bör bygga ny karnkraft for att sakerstalla elforsorjningen.</p>
+                    <div class="barometer-stance-group">
+                        <button class="barometer-btn agree"   onclick="setStance(2,'agree')">Haller med</button>
+                        <button class="barometer-btn neutral" onclick="setStance(2,'neutral')">Neutral</button>
+                        <button class="barometer-btn disagree" onclick="setStance(2,'disagree')">Haller inte med</button>
+                    </div>
+                </div>
+
+                <div class="barometer-statement" data-idx="3">
+                    <p>4. Skatterna pa hogre inkomster och kapital bor hojas kraftigt.</p>
+                    <div class="barometer-stance-group">
+                        <button class="barometer-btn agree"   onclick="setStance(3,'agree')">Haller med</button>
+                        <button class="barometer-btn neutral" onclick="setStance(3,'neutral')">Neutral</button>
+                        <button class="barometer-btn disagree" onclick="setStance(3,'disagree')">Haller inte med</button>
+                    </div>
+                </div>
+
+                <div class="barometer-statement" data-idx="4">
+                    <p>5. Sverige bor satsa mer pa fornybar energi (sol, vind, vattenkraft) nar det galler klimatomstallningen.</p>
+                    <div class="barometer-stance-group">
+                        <button class="barometer-btn agree"   onclick="setStance(4,'agree')">Haller med</button>
+                        <button class="barometer-btn neutral" onclick="setStance(4,'neutral')">Neutral</button>
+                        <button class="barometer-btn disagree" onclick="setStance(4,'disagree')">Haller inte med</button>
+                    </div>
+                </div>
+
+                <div class="barometer-statement" data-idx="5">
+                    <p>6. Straffen for grova brott bör skarpas och fler brottsmlingar utvisas.</p>
+                    <div class="barometer-stance-group">
+                        <button class="barometer-btn agree"   onclick="setStance(5,'agree')">Haller med</button>
+                        <button class="barometer-btn neutral" onclick="setStance(5,'neutral')">Neutral</button>
+                        <button class="barometer-btn disagree" onclick="setStance(5,'disagree')">Haller inte med</button>
+                    </div>
+                </div>
+
+                <div class="barometer-statement" data-idx="6">
+                    <p>7. Familjen och traditionella vardegrunder bör spela en storre roll i samhallspolitiken.</p>
+                    <div class="barometer-stance-group">
+                        <button class="barometer-btn agree"   onclick="setStance(6,'agree')">Haller med</button>
+                        <button class="barometer-btn neutral" onclick="setStance(6,'neutral')">Neutral</button>
+                        <button class="barometer-btn disagree" onclick="setStance(6,'disagree')">Haller inte med</button>
+                    </div>
+                </div>
+
+                <div class="barometer-statement" data-idx="7">
+                    <p>8. Individens valfrihet – att vala skola, laskar och doktor – ar viktigare an likvardighet.</p>
+                    <div class="barometer-stance-group">
+                        <button class="barometer-btn agree"   onclick="setStance(7,'agree')">Haller med</button>
+                        <button class="barometer-btn neutral" onclick="setStance(7,'neutral')">Neutral</button>
+                        <button class="barometer-btn disagree" onclick="setStance(7,'disagree')">Haller inte med</button>
+                    </div>
+                </div>
+
+                <div class="barometer-statement" data-idx="8">
+                    <p>9. Sverige bör ha en generosare flyktingpolitik och ta emot fler flyktingar.</p>
+                    <div class="barometer-stance-group">
+                        <button class="barometer-btn agree"   onclick="setStance(8,'agree')">Haller med</button>
+                        <button class="barometer-btn neutral" onclick="setStance(8,'neutral')">Neutral</button>
+                        <button class="barometer-btn disagree" onclick="setStance(8,'disagree')">Haller inte med</button>
+                    </div>
+                </div>
+
+                <div class="barometer-statement" data-idx="9">
+                    <p>10. Skattesankningar ar ett effektivt satt att skapa tillvaxt och jobb.</p>
+                    <div class="barometer-stance-group">
+                        <button class="barometer-btn agree"   onclick="setStance(9,'agree')">Haller med</button>
+                        <button class="barometer-btn neutral" onclick="setStance(9,'neutral')">Neutral</button>
+                        <button class="barometer-btn disagree" onclick="setStance(9,'disagree')">Haller inte med</button>
+                    </div>
+                </div>
+
+                <div class="barometer-statement" data-idx="10">
+                    <p>11. Klimatfragan ar en av de viktigaste politiska utmaningarna och kräver mer ambitiosa mál.</p>
+                    <div class="barometer-stance-group">
+                        <button class="barometer-btn agree"   onclick="setStance(10,'agree')">Haller med</button>
+                        <button class="barometer-btn neutral" onclick="setStance(10,'neutral')">Neutral</button>
+                        <button class="barometer-btn disagree" onclick="setStance(10,'disagree')">Haller inte med</button>
+                    </div>
+                </div>
+
+                <div class="barometer-statement" data-idx="11">
+                    <p>12. Sverige bor ha stärkt EU-integration och ge mer makt till EU:s gemensamma institutioner.</p>
+                    <div class="barometer-stance-group">
+                        <button class="barometer-btn agree"   onclick="setStance(11,'agree')">Haller med</button>
+                        <button class="barometer-btn neutral" onclick="setStance(11,'neutral')">Neutral</button>
+                        <button class="barometer-btn disagree" onclick="setStance(11,'disagree')">Haller inte med</button>
+                    </div>
+                </div>
+
+                <div class="barometer-statement" data-idx="12">
+                    <p>13. Offentliga medel bor satsa pa ett starkt socialskyddsnät, aven om det kräver hogre skatter.</p>
+                    <div class="barometer-stance-group">
+                        <button class="barometer-btn agree"   onclick="setStance(12,'agree')">Haller med</button>
+                        <button class="barometer-btn neutral" onclick="setStance(12,'neutral')">Neutral</button>
+                        <button class="barometer-btn disagree" onclick="setStance(12,'disagree')">Haller inte med</button>
+                    </div>
+                </div>
+
+                <div class="barometer-statement" data-idx="13">
+                    <p>14. Smafforetag och egenforetagare bor ha lattare regler och lagre skatter for att vallagas.</p>
+                    <div class="barometer-stance-group">
+                        <button class="barometer-btn agree"   onclick="setStance(13,'agree')">Haller med</button>
+                        <button class="barometer-btn neutral" onclick="setStance(13,'neutral')">Neutral</button>
+                        <button class="barometer-btn disagree" onclick="setStance(13,'disagree')">Haller inte med</button>
+                    </div>
+                </div>
+
+            </div><!-- end barometer-statements -->
+
+            <div class="barometer-actions">
+                <button class="barometer-submit-btn" onclick="showBarometerResults()">Visa resultat</button>
+                <button class="barometer-reset-btn" onclick="resetBarometer()">Gör om</button>
+            </div>
+
+            <div class="barometer-results" id="barometer-results">
+                <h3 style="margin-bottom:16px;">Ditt resultat</h3>
+                <div id="barometer-result-bars"></div>
+                <div class="barometer-disclaimer">
+                    <strong>OBS: Forenklad pedagogisk modell.</strong> Den har partibarometern ar ett utbildningsverktyg och inte politisk radgivning. Partiernas stallningstaganden ar forenklade och representerar generella tendenser, inte detaljer. Riktig politik ar mer nyanserad. Anvand resultatet som en startpunkt for vidare diskussion – inte som ett enkelt svar.
+                </div>
+                <div class="barometer-reflection">
+                    <strong>Reflektera:</strong> Stammer resultatet med din egen bild av var du befinner dig politiskt? Ar det nagot pastaende dar du tycker att din stallning borde paverka resultatet mer – eller mindre? Prata med klasskamrater om likheter och skillnader!
+                </div>
+            </div>
+
+        </div><!-- end barometer-section -->
+
+        <div class="section-quiz">
+            <h4>Reflektera</h4>
+            <div id="barometer-questions" class="quiz-container"></div>
+        </div>
+
+        <button onclick="document.querySelector('[data-section=\'quiz\']').click()">Till Quizet</button>
+    </section>
+
+    <!-- QUIZ -->
+    <section id="quiz" class="section animated">
+        <h2>Quiz: Val 2026</h2>
+
+        <div id="quiz-start">
+            <div class="info-box">
+                <h3>Dags att testa dina kunskaper!</h3>
+                <p>Du har lart dig om valsystemet, de atta riksdagspartierna, deras ledare och positioner, och valfragorna 2026. Testa vad du minns!</p>
+            </div>
+            <div id="best-time-display" class="time-record">Ditt snabbaste resultat: Inte satt an</div>
+            <div class="difficulty-switch-wrapper">
+                <div class="difficulty-switch">
+                    <label for="difficulty-normal">Svarighetsgrad:</label>
+                    <div class="switch-container">
+                        <input type="radio" id="difficulty-normal" name="difficulty" value="normal" checked>
+                        <label for="difficulty-normal" class="switch-label switch-label-left">Normal</label>
+                        <input type="radio" id="difficulty-crazy" name="difficulty" value="crazy">
+                        <label for="difficulty-crazy" class="switch-label switch-label-right">Crazy Bananas!</label>
+                        <span class="switch-selection"></span>
+                    </div>
+                </div>
+            </div>
+            <button id="start-quiz-btn">Starta Quiz</button>
+        </div>
+
+        <div id="quiz-progress" style="display: none;">
+            <div class="timer" id="quiz-timer">0:00</div>
+            <div class="progress-container">
+                <div class="progress-bar" id="quiz-progress-bar"></div>
+            </div>
+            <p id="quiz-progress-text">0 av 0 besvarade</p>
+        </div>
+
+        <div id="quiz-questions" style="display: none;"></div>
+        <div id="quiz-result" style="display: none;"></div>
+    </section>
+
+</div><!-- end container -->
+
+<!-- PARTY DETAIL MODAL -->
+<div class="party-modal-overlay" id="party-modal-overlay" onclick="closePartyModal(event)">
+    <div class="party-modal-box" id="party-modal-box">
+        <button class="party-modal-close" onclick="document.getElementById('party-modal-overlay').classList.remove('active')">&times;</button>
+        <div class="party-modal-header">
+            <span class="party-modal-abbr" id="pm-abbr"></span>
+            <span class="party-modal-fullname" id="pm-fullname"></span>
+        </div>
+        <div class="party-modal-body" id="pm-body"></div>
+    </div>
+</div>
+
+<!-- SCRIPTS -->
+<script src="../../studyguide-core.js"></script>
+<script src="val2026quiz.js"></script>
+<script src="../../interactive-quiz.js"></script>
+<script>
+    initStudyGuide({
+        guideId: 'val2026',
+        requiredSections: ['valsystemet', 'partierna', 'sakfragor', 'barometer'],
+        sectionQuestions: true
+    });
+</script>
+
+<!-- POLL BARS (inline, runs once) -->
+<script>
+(function() {
+    var polls = [
+        { abbr: 'S',  pct: 32.6, color: '#ED1B34' },
+        { abbr: 'SD', pct: 19.4, color: '#005B99' },
+        { abbr: 'M',  pct: 17.3, color: '#1B6CA8' },
+        { abbr: 'V',  pct:  8.4, color: '#A0000F' },
+        { abbr: 'MP', pct:  6.8, color: '#3A7A30' },
+        { abbr: 'C',  pct:  6.0, color: '#007A28' },
+        { abbr: 'KD', pct:  5.3, color: '#005DA6' },
+        { abbr: 'L',  pct:  2.3, color: '#006AB3' }
+    ];
+    var container = document.getElementById('poll-bars-container');
+    if (!container) return;
+    var html = '';
+    polls.forEach(function(p) {
+        html += '<div class="poll-row">' +
+            '<span class="poll-party-label" style="color:' + p.color + '">' + p.abbr + '</span>' +
+            '<div class="poll-bar-wrap"><div class="poll-bar-fill" style="width:' + (p.pct / 40 * 100) + '%;background:' + p.color + ';"></div></div>' +
+            '<span class="poll-pct">' + p.pct + '%</span>' +
+            '</div>';
+    });
+    container.innerHTML = html;
+})();
+</script>
+
+<!-- PARTY MODAL DATA & LOGIC -->
+<script>
+var partyData = {
+    s: {
+        abbr: 'S',
+        color: '#ED1B34',
+        name: 'Socialdemokraterna',
+        body: '<h4>Historia och rotter</h4>' +
+              '<p>Grundat 1889 som ett arbetarparti ar Socialdemokraterna Sveriges aldsta och storsta parti. Fran 1932 till 1976 styrde partiet sammanhangande – en period som lade grunden till den svenska modellen med stark fackforeningsrorelse, aktiv arbetsmarknadspolitik och utbyggd valfard. Magdalena Andersson var landets forsta kvinnliga statsminister 2021-2022.</p>' +
+              '<h4>Ideologi</h4>' +
+              '<p>Socialdemokrati: frihet, jamstalldhet och solidaritet. Partiet forenas av tron pa att en stark stat och gemensamma losningar skapar bättre livsvillkor for alla, inte bara de som har rad.</p>' +
+              '<h4>Nyckelpositioner infor 2026</h4>' +
+              '<ul>' +
+              '<li>Kraftiga satsningar pa sjukvarden och larabristen</li>' +
+              '<li>Bekampning av gangkriminalitet med baade haerdare tag och sociala insatser</li>' +
+              '<li>Hojd a-kassa och starkt socialskyddsnät</li>' +
+              '<li>Regulated migration med skarpa integrationskrav</li>' +
+              '<li>Investering i industri och green transition</li>' +
+              '</ul>' +
+              '<h4>Blockplacering</h4><p>Rod-grona sidan, oppositionsparti. Samarbetar med V och MP; vill ha med C i ett nytt majoritetsstyre.</p>'
+    },
+    m: {
+        abbr: 'M',
+        color: '#1B6CA8',
+        name: 'Moderaterna',
+        body: '<h4>Historia och rotter</h4>' +
+              '<p>Moderaterna (tidigare Hogern) bildades 1904 och representerar den borgerliga hogern. Under Alliansen 2006-2014 ledde Fredrik Reinfeldt partiet i regering. Ulf Kristersson tog over som partiledare 2017 och blev statsminister 2022 med stod av Tidoavtalet.</p>' +
+              '<h4>Ideologi</h4>' +
+              '<p>Liberal konservatism: tron pa individens frihet, marknadsekonomi och personligt ansvar, kombinerat med konservativa vardegrunder om ordning, trygghet och rattssäkerhet.</p>' +
+              '<h4>Nyckelpositioner infor 2026</h4>' +
+              '<ul>' +
+              '<li>Skattelättnader for arbete och foretagande</li>' +
+              '<li>Valfrihet och konkurrens i valfarden</li>' +
+              '<li>Karnkraftsutbyggnad</li>' +
+              '<li>Stram migrationspolitik</li>' +
+              '<li>Hardare straff och fler poliser</li>' +
+              '</ul>' +
+              '<h4>Blockplacering</h4><p>Hager-blocket (Tido). Statsministerpartiet i innevarande mandatperiod.</p>'
+    },
+    sd: {
+        abbr: 'SD',
+        color: '#005B99',
+        name: 'Sverigedemokraterna',
+        body: '<h4>Historia och rotter</h4>' +
+              '<p>Sverigedemokraterna grundades 1988 ur nationalistiska kretsar. Under Jimmie Akessons ledning sedan 2005 har partiet genomgatt en professionalisering och vuxit kraftigt. SD kom in i riksdagen for forsta gangen 2010 med 5,7%. Vid valet 2022 fick SD 20,5% och ar nu riksdagens nast storsta parti.</p>' +
+              '<h4>Ideologi</h4>' +
+              '<p>Nationalkonservativism och hagerpopu lism. Partiet forespråkar en stark nationell identitet, restriktiv invandring och traditionella vardegrunder. Det klassificeras som hogerpopulistiskt.</p>' +
+              '<h4>Nyckelpositioner infor 2026</h4>' +
+              '<ul>' +
+              '<li>Drastiskt reducerad invandring och asylmottagande</li>' +
+              '<li>Aterbrotsvandring (ekonomiska incitament att atervanda)</li>' +
+              '<li>Lag och ordning: anonyma vittnen, hardare straff</li>' +
+              '<li>Skydda svensk kultur och nationell identitet</li>' +
+              '<li>Pro-karnkraft</li>' +
+              '</ul>' +
+              '<h4>Blockplacering</h4><p>Hager-blocket: stodparti till Tidoregeringen 2022-2026. Enligt Sverigelovet kan SD fa kabinettsplatser om blocket vinner 2026.</p>'
+    },
+    c: {
+        abbr: 'C',
+        color: '#007A28',
+        name: 'Centerpartiet',
+        body: '<h4>Historia och rotter</h4>' +
+              '<p>Grundat 1913 som ett bondeparti (Bondeforbundet) fore 1957. C har roter i den agrara rorelsen och foretrader sedan langa tid tillbaka inte bara bonder utan ocksa liberalism och decentralisering. Elisabeth Thand Ringqvist valdes till partiledare 2024 efter Annie Loof.</p>' +
+              '<h4>Ideologi</h4>' +
+              '<p>Liberalism kombinerat med agrara traditioner: decentralisering, individens frihet, ekologisk hallbarhet och starkt stod for naringsliv och landsbyggd. Tillhor nordiska agrara familjen men ar idag i huvudsak ett liberalt mittenparti.</p>' +
+              '<h4>Nyckelpositioner infor 2026</h4>' +
+              '<ul>' +
+              '<li>Ekonomisk liberalism: lagre skatter, farre regler</li>' +
+              '<li>Mer makt till kommuner och regioner</li>' +
+              '<li>Liberal syn pa invandring och arbetskraftsinvandring</li>' +
+              '<li>Pro-EU och stark EU-integration</li>' +
+              '<li>Klimatomstallning via marknadslösningar</li>' +
+              '</ul>' +
+              '<h4>Blockplacering</h4><p>Oklar/mitt: C har stottat bade S-regeringar och borgerliga regeringar. Infor 2026 soker de en opposition mot Tido.</p>'
+    },
+    v: {
+        abbr: 'V',
+        color: '#A0000F',
+        name: 'Vansterpartiet',
+        body: '<h4>Historia och rotter</h4>' +
+              '<p>Vansterpartiet bildades 1921 som Sveriges Kommunistiska Parti, bytte namn till Vansterpartiet Kommunisterna 1967 och till bara Vansterpartiet 1990. Under Nooshi Dadgostar, vald till partiledare 2020, har partiet fokuserat pa valfardspolitik och feminism.</p>' +
+              '<h4>Ideologi</h4>' +
+              '<p>Demokratisk socialism: marknadsekonomin behovs regleras kraftigt; offentliga tjanster ska ga till alla utan vinstintresse; ekonomisk jamstalldhet ar avg orande for ett rattvist samhälle.</p>' +
+              '<h4>Nyckelpositioner infor 2026</h4>' +
+              '<ul>' +
+              '<li>Forbjud vinstuttag ur skattefinansierad valfard</li>' +
+              '<li>Kraftiga skattehöjningar pa hogre inkomster och kapital</li>' +
+              '<li>Kortare arbetstid</li>' +
+              '<li>Ambitiös klimatpolitik</li>' +
+              '<li>Starkt rattssystem for HBTQ-rattigheter och feminism</li>' +
+              '</ul>' +
+              '<h4>Blockplacering</h4><p>Rod-grona sidan, oppositionsparti. Samarbetar yttre med S och MP men ar inte i regeringen.</p>'
+    },
+    kd: {
+        abbr: 'KD',
+        color: '#005DA6',
+        name: 'Kristdemokraterna',
+        body: '<h4>Historia och rotter</h4>' +
+              '<p>Grundat 1964 med rotter i kristen demokrati och den europeiska KD-familjen. Partiet forenar konservativa vardegrunder med en positiv syn pa valfardsstaten. Ebba Busch ar partiledare sedan 2015.</p>' +
+              '<h4>Ideologi</h4>' +
+              '<p>Kristdemokrati: samhallet ses som ett organiskt narverk av familjer, civilsamhalle och lokalsamhallen snarare an bara individer och stat. Tron pa subsidiaritetsprincipen (beslut ska fattas sa nara medborgarna som möjligt) och familjens roll.</p>' +
+              '<h4>Nyckelpositioner infor 2026</h4>' +
+              '<ul>' +
+              '<li>Starka familjepolitik: hojt barnbidrag, lattare for foraeldrar att va hemma</li>' +
+              '<li>Frihet for religiosa och ideella organisationer att driva valfard</li>' +
+              '<li>Pro-karnkraft och nuclear renaissance</li>' +
+              '<li>Hardare tag mot kriminalitet</li>' +
+              '<li>Restriktiv men humanitar migrationspolitik</li>' +
+              '</ul>' +
+              '<h4>Blockplacering</h4><p>Hager-blocket (Tido). Regeringsparti i Kristersson-kabinett.</p>'
+    },
+    l: {
+        abbr: 'L',
+        color: '#006AB3',
+        name: 'Liberalerna',
+        body: '<h4>Historia och rotter</h4>' +
+              '<p>Med rotter i Frisinnade Landsforeningen (1900) och Folkpartiet liberalerna fick partiet nuvarande namn 2015. Simona Mohamsson valdes till partiledare. Liberalerna ar EU-positiva och har historiskt profilurat sig pa utbildning och integration.</p>' +
+              '<h4>Ideologi</h4>' +
+              '<p>Konservativ liberalism och liberalism: individens frihet ar central, men kombinerat med ansvar och samhallssolidaritet. Partiet har rort sig at hoger sedan 2000-talet men berhaller pro-EU-linje och oppen syn pa migration.</p>' +
+              '<h4>Nyckelpositioner infor 2026</h4>' +
+              '<ul>' +
+              '<li>Kunskapsskola med hoga krav och betyg tidigt</li>' +
+              '<li>Stark EU-integration (och euro-folkomrostning 2030 via Sverigelovet)</li>' +
+              '<li>Karnkraft for klimatneutralt elnat</li>' +
+              '<li>HBTQ-rattigheter och individuell frihet</li>' +
+              '<li>Liberal men reglerad migration</li>' +
+              '</ul>' +
+              '<h4>Blockplacering</h4><p>Hager-blocket (Tido). Riskerar ricksdagsspärren (2-3% i matningarna juni 2026).</p>'
+    },
+    mp: {
+        abbr: 'MP',
+        color: '#3A7A30',
+        name: 'Miljopartiet de grona',
+        body: '<h4>Historia och rotter</h4>' +
+              '<p>Grundat 1981 ur antikarnkraftsrorelse efter 1980 ars atomkraftsomrostning. MP kom in i riksdagen 1988, trillade ut 1991 men aterkom 1994 och har darefter behallit representation. Partiet leddes 2022-2025 av Per Bolund och Marta Stenevi; nu av Amanda Lind och Daniel Hellden.</p>' +
+              '<h4>Ideologi</h4>' +
+              '<p>Gron politik: ekologisk hallbarhet, social rattv isa och direktdemokrati. Klimat, biologisk mangfald och djurrattigheterna star i centrum. Partiet ar feminitistiskt och antidiskrimineringsoritenerat.</p>' +
+              '<h4>Nyckelpositioner infor 2026</h4>' +
+              '<ul>' +
+              '<li>Klimatmal langt over EU:s minimikrav</li>' +
+              '<li>Kraftig utbyggnad av fornybar energi; mot karnkraft</li>' +
+              '<li>Generosare asylmottagande</li>' +
+              '<li>Vegetarisk och klimatsmart matpolitik</li>' +
+              '<li>Starka djurrattigheter</li>' +
+              '</ul>' +
+              '<h4>Blockplacering</h4><p>Rod-grona sidan, oppositionsparti. Riskerar att hamna under riksdagsspärren – MP har tidigare fallit ur riksdagen (2010).</p>'
+    }
+};
+
+function openPartyModal(key) {
+    var data = partyData[key];
+    if (!data) return;
+    document.getElementById('pm-abbr').textContent = data.abbr;
+    document.getElementById('pm-abbr').style.color = data.color;
+    document.getElementById('pm-fullname').textContent = data.name;
+    document.getElementById('party-modal-box').style.borderTop = '6px solid ' + data.color;
+    document.getElementById('pm-body').innerHTML = data.body;
+    document.getElementById('party-modal-overlay').classList.add('active');
+    // prevent body scroll
+    document.body.style.overflow = 'hidden';
+}
+
+function closePartyModal(event) {
+    if (event.target === document.getElementById('party-modal-overlay')) {
+        document.getElementById('party-modal-overlay').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+// close on ESC
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        document.getElementById('party-modal-overlay').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+});
+</script>
+
+<!-- BAROMETER LOGIC -->
+<script>
+(function() {
+    var LS_PREFIX = 'val2026-barometer-';
+
+    // stances[statementIdx] = 'agree' | 'neutral' | 'disagree' | null
+    var stances = new Array(14).fill(null);
+
+    // Party positions per statement:
+    // Values: 1=agree, 0=neutral, -1=disagree
+    // Statements:
+    //  0: Kraftigt minska asylsokande
+    //  1: Begränsa vinst i valfard
+    //  2: Ny karnkraft
+    //  3: Hoj skatter pa hogre inkomster/kapital
+    //  4: Satsa pa fornybar energi
+    //  5: Skarp straff, utvisa fler
+    //  6: Familj och traditionella vardegrunder
+    //  7: Valfrihet viktigare an likvardighet
+    //  8: Generosare flyktingpolitik
+    //  9: Skattesankningar skapar jobb
+    // 10: Klimat ar viktig, ambitiosa mal
+    // 11: Starkare EU-integration
+    // 12: Starkt socialskyddsnät ok med hoga skatter
+    // 13: Lattare regler/skatter for smaforetagare
+
+    var partyPositions = {
+        s:  [ 0,  1, -1,  1,  1,  1,  0, -1, -1, -1,  1,  0,  1,  0],
+        m:  [ 1, -1,  1, -1,  0,  1,  0,  1, -1,  1,  0,  0, -1,  1],
+        sd: [ 1, -1,  1, -1,  0,  1,  1, -1, -1,  0,  0, -1, -1,  0],
+        c:  [-1,  0,  0, -1,  1,  0,  0,  1,  1,  1,  1,  1, -1,  1],
+        v:  [-1,  1, -1,  1,  1,  0,  0, -1,  1, -1,  1, -1,  1, -1],
+        kd: [ 1, -1,  1, -1,  0,  1,  1,  0, -1,  0,  0,  0, -1,  1],
+        l:  [ 0, -1,  1, -1,  0,  1,  0,  1,  0,  1,  0,  1, -1,  1],
+        mp: [-1,  1, -1,  0,  1, -1, -1, -1,  1, -1,  1,  0,  1, -1]
+    };
+
+    var partyMeta = {
+        s:  { label: 'S',  color: '#ED1B34', name: 'Socialdemokraterna' },
+        m:  { label: 'M',  color: '#1B6CA8', name: 'Moderaterna' },
+        sd: { label: 'SD', color: '#005B99', name: 'Sverigedemokraterna' },
+        c:  { label: 'C',  color: '#007A28', name: 'Centerpartiet' },
+        v:  { label: 'V',  color: '#A0000F', name: 'Vansterpartiet' },
+        kd: { label: 'KD', color: '#005DA6', name: 'Kristdemokraterna' },
+        l:  { label: 'L',  color: '#006AB3', name: 'Liberalerna' },
+        mp: { label: 'MP', color: '#3A7A30', name: 'Miljopartiet' }
+    };
+
+    // Convert user stance string to numeric
+    function stanceToNum(s) {
+        if (s === 'agree')   return  1;
+        if (s === 'disagree') return -1;
+        return 0; // neutral or unanswered
+    }
+
+    window.setStance = function(idx, stance) {
+        stances[idx] = stance;
+        // update buttons
+        var stmt = document.querySelector('.barometer-statement[data-idx="' + idx + '"]');
+        if (!stmt) return;
+        var btns = stmt.querySelectorAll('.barometer-btn');
+        btns.forEach(function(btn) {
+            btn.classList.remove('active');
+            if (btn.classList.contains(stance)) btn.classList.add('active');
+        });
+        // save to localStorage
+        try { localStorage.setItem(LS_PREFIX + 'stances', JSON.stringify(stances)); } catch(e) {}
+    };
+
+    window.showBarometerResults = function() {
+        var scores = {};
+        var maxPossible = 14;
+
+        Object.keys(partyPositions).forEach(function(party) {
+            var pos = partyPositions[party];
+            var match = 0;
+            for (var i = 0; i < 14; i++) {
+                var userNum = stanceToNum(stances[i]);
+                var partyNum = pos[i];
+                // agreement: both same sign; max agreement score = 1 per statement
+                if (userNum === 0 || partyNum === 0) {
+                    // if either is neutral, half credit
+                    match += 0.5;
+                } else if (userNum === partyNum) {
+                    match += 1;
+                } else {
+                    // disagreement
+                    match += 0;
+                }
+            }
+            scores[party] = Math.round((match / maxPossible) * 100);
+        });
+
+        // sort descending
+        var sorted = Object.keys(scores).sort(function(a,b) { return scores[b] - scores[a]; });
+
+        var html = '';
+        sorted.forEach(function(party, rank) {
+            var meta = partyMeta[party];
+            var pct = scores[party];
+            var noteText = pct >= 70 ? 'Hog overensstammelse' :
+                           pct >= 50 ? 'Viss overensstammelse' :
+                           'Lag overensstammelse';
+            html += '<div class="barometer-result-row">' +
+                '<span class="bar-result-abbr" style="color:' + meta.color + '">' + meta.label + '</span>' +
+                '<div class="bar-result-wrap">' +
+                '<div class="bar-result-fill" style="width:' + pct + '%;background:' + meta.color + '"></div>' +
+                '</div>' +
+                '<span class="bar-result-pct">' + pct + '%</span>' +
+                '</div>' +
+                '<div class="bar-result-note">' + meta.name + ' — ' + noteText + '</div>';
+        });
+
+        document.getElementById('barometer-result-bars').innerHTML = html;
+        var resultsEl = document.getElementById('barometer-results');
+        resultsEl.classList.add('visible');
+        resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        // save result
+        try { localStorage.setItem(LS_PREFIX + 'results', JSON.stringify(scores)); } catch(e) {}
+    };
+
+    window.resetBarometer = function() {
+        stances = new Array(14).fill(null);
+        // clear all button states
+        document.querySelectorAll('.barometer-btn').forEach(function(btn) {
+            btn.classList.remove('active');
+        });
+        document.getElementById('barometer-results').classList.remove('visible');
+        try {
+            localStorage.removeItem(LS_PREFIX + 'stances');
+            localStorage.removeItem(LS_PREFIX + 'results');
+        } catch(e) {}
+        // scroll back to top of barometer
+        document.querySelector('.barometer-section').scrollIntoView({ behavior: 'smooth' });
+    };
+
+    // Restore saved state on load
+    try {
+        var saved = localStorage.getItem(LS_PREFIX + 'stances');
+        if (saved) {
+            var savedStances = JSON.parse(saved);
+            if (Array.isArray(savedStances)) {
+                savedStances.forEach(function(stance, idx) {
+                    if (stance) window.setStance(idx, stance);
+                });
+            }
+        }
+    } catch(e) {}
+
+})();
+</script>
+
+</body>
+</html>

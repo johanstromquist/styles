@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Svensk Politik: En orientering - Interaktiv Studiehandledning</title>
+    <link rel="stylesheet" href="../../studyguide.css">
+    <style>
+        /* Topic-specific styling */
+        .politics-intro {
+            background: linear-gradient(135deg, #003087 0%, #006AA7 60%, #FECC02 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .politics-intro h2 {
+            color: white;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        .politics-intro p {
+            font-size: 1.15em;
+            opacity: 0.97;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        /* Flow diagram for lawmaking process */
+        .law-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin: 25px 0;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .law-step {
+            background: #e8f4f8;
+            border-left: 4px solid var(--primary);
+            padding: 14px 20px;
+            border-radius: 6px;
+            position: relative;
+        }
+        .law-step strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 4px;
+        }
+        .law-arrow {
+            text-align: center;
+            font-size: 1.5em;
+            color: var(--primary);
+            margin: 4px 0;
+            line-height: 1;
+        }
+
+        /* Power pyramid */
+        .power-pyramid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            margin: 25px 0;
+        }
+        .pyramid-level {
+            border-radius: 8px;
+            padding: 12px 20px;
+            text-align: center;
+            font-weight: 600;
+            color: white;
+        }
+        .pyramid-level.eu   { width: 95%; background: #2563EB; }
+        .pyramid-level.nat  { width: 80%; background: #006AA7; }
+        .pyramid-level.reg  { width: 65%; background: #0891B2; }
+        .pyramid-level.kom  { width: 50%; background: #0E7490; }
+
+        .concept-box {
+            background: #e8f4f8;
+            border-left: 4px solid var(--primary);
+            padding: 18px 22px;
+            border-radius: 8px;
+            margin: 18px 0;
+        }
+        .concept-box strong {
+            color: var(--primary);
+        }
+
+        /* Scale left-right */
+        .political-scale {
+            position: relative;
+            margin: 25px 0;
+            padding: 20px 0 40px;
+        }
+        .scale-bar {
+            height: 18px;
+            border-radius: 9px;
+            background: linear-gradient(to right, #c0392b, #e67e22, #f1c40f, #27ae60, #2980b9, #1a237e);
+            position: relative;
+        }
+        .scale-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8px;
+        }
+        .scale-labels span {
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+        .scale-labels span:first-child { color: #c0392b; }
+        .scale-labels span:last-child  { color: #1a237e; }
+
+        .chapter-transition {
+            text-align: center;
+            padding: 30px 20px;
+            margin: 30px 0;
+            border-top: 2px solid #e0e0e0;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        .chapter-transition p {
+            font-size: 1.05em;
+            color: #555;
+            font-style: italic;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Riksdag seat diagram (simple CSS) */
+        .seat-diagram {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .seat-diagram .seat-count {
+            font-size: 3em;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+        .seat-diagram .seat-label {
+            font-size: 1em;
+            color: #555;
+        }
+
+        @media (max-width: 600px) {
+            .politics-intro { padding: 25px 15px; }
+            .pyramid-level.eu  { width: 100%; }
+            .pyramid-level.nat { width: 100%; }
+            .pyramid-level.reg { width: 100%; }
+            .pyramid-level.kom { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Svensk Politik: En orientering</h1>
+            <p>Statsvetenskap för gymnasiet — Del 1 av 3</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#" class="active" data-section="intro">Start</a></li>
+                <li><a href="#" data-section="demokrati">Demokrati</a></li>
+                <li><a href="#" data-section="grundlagar">Grundlagar</a></li>
+                <li><a href="#" data-section="riksdagen">Riksdagen</a></li>
+                <li><a href="#" data-section="regeringen">Regeringen</a></li>
+                <li><a href="#" data-section="valsystemet">Valsystemet</a></li>
+                <li><a href="#" data-section="nivaer">Nivåer</a></li>
+                <li><a href="#" data-section="paverkan">Påverkan</a></li>
+                <li><a href="#" data-section="quiz">Quiz</a></li>
+            </ul>
+        </nav>
+
+        <!-- =================== INTRO =================== -->
+        <section id="intro" class="section active animated">
+            <div class="politics-intro">
+                <h2>Välkommen till Svensk Politik</h2>
+                <p>Hur styrs Sverige egentligen? Vem fattar besluten? Hur kan du påverka? Den här guiden ger dig en orientering i det svenska statsskicket — från grundlagarna till valdagen.</p>
+            </div>
+
+            <div class="info-box">
+                <h3>🗺️ Så använder du guiden</h3>
+                <p>Gå igenom avsnitten i ordning med hjälp av navigationsmenyn. Varje avsnitt avslutas med ett par reflektionsfrågor för att kolla att du hängt med. Avsluta med det stora quizet!</p>
+                <ul class="styled-list check-list-alt green-checks">
+                    <li>7 innehållsavsnitt med interaktiva frågor</li>
+                    <li>49 quizfrågor totalt — normal och crazy-läge</li>
+                    <li>Achievements och poängsystem</li>
+                </ul>
+            </div>
+
+            <div class="flex-container">
+                <div class="card">
+                    <h3>🏆 Dina framsteg</h3>
+                    <div class="best-score-display">
+                        <p><span class="icon">✔️</span> Rätt svar: <strong id="best-score-correct">--</strong></p>
+                        <p><span class="icon">⏱️</span> Tid: <strong id="best-score-time">--:--</strong></p>
+                        <p><span class="icon">⭐</span> Poäng: <strong id="best-score-points">----</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="document.querySelector('[data-section=\'demokrati\']').click()">Börja orienteringen</button>
+
+            <div id="achievements-list" class="achievements"></div>
+        </section>
+
+        <!-- =================== DEMOKRATI =================== -->
+        <section id="demokrati" class="section animated">
+            <h2>Demokrati och Sveriges statsskick</h2>
+
+            <div class="subsection theme-blue">
+                <h3><span class="box-icon">🏛️</span> Vad är demokrati?</h3>
+                <p>Ordet demokrati kommer från grekiskans <em>demos</em> (folk) och <em>kratos</em> (styre) — alltså <strong>folkstyre</strong>. Grundtanken är att den politiska makten ytterst tillhör medborgarna, inte en kung, en adel eller en kyrka. Detta kallas <strong>folksuveränitet</strong>.</p>
+
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <h4>Direkt demokrati 🗣️</h4>
+                        <p>Medborgarna fattar besluten direkt — t.ex. vid folkomröstningar. Fungerar bäst i små grupper. Används ibland som komplement i Sverige.</p>
+                    </div>
+                    <div class="comparison-item">
+                        <h4>Representativ demokrati 🗳️</h4>
+                        <p>Medborgarna väljer representanter (politiker) som fattar besluten åt dem. <strong>Sverige använder detta system.</strong> Riksdagens 349 ledamöter representerar folket.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection theme-yellow">
+                <h3><span class="box-icon">👑</span> Konstitutionell monarki</h3>
+                <p>Sverige är en <strong>konstitutionell monarki</strong> — vi har en kung (Carl XVI Gustaf), men hans makt är begränsad av grundlagen. Kungen har i dag en <em>ceremoniell och representativ</em> roll: han inviger riksmötet, representerar Sverige utomlands och är ett nationellt symboliskt centrum. Han styr inte landet och fattar inga politiska beslut.</p>
+
+                <div class="concept-box">
+                    <p><strong>Jämför med:</strong> En republik (t.ex. Frankrike) har en president som statsöverhuvud. I Sverige är statsministern den faktiska ledaren, men statschefen är kungen — utan politisk makt.</p>
+                </div>
+            </div>
+
+            <div class="subsection theme-green">
+                <h3><span class="box-icon">⚖️</span> Parlamentarism</h3>
+                <p>Sverige styrs enligt principen om <strong>parlamentarism</strong>: regeringen måste ha riksdagens förtroende för att kunna styra. Om riksdagen röstar igenom en <em>misstroendeförklaring</em> mot statsministern måste hela regeringen avgå (eller utlysa extra val).</p>
+
+                <dl class="definition-list-alt">
+                    <dt><span class="list-icon">📋</span> <strong>Folksuveränitet:</strong></dt>
+                    <dd>All offentlig makt i Sverige utgår från folket (Regeringsformen 1 kap. 1 §).</dd>
+                    <dt><span class="list-icon">🗳️</span> <strong>Parlamentarism:</strong></dt>
+                    <dd>Regeringen är ansvarig inför riksdagen — inte inför kungen.</dd>
+                    <dt><span class="list-icon">📜</span> <strong>Rättsstat:</strong></dt>
+                    <dd>Alla — inklusive staten — är bundna av lagen. Ingen kan stå över grundlagen.</dd>
+                    <dt><span class="list-icon">🌐</span> <strong>Representativ demokrati:</strong></dt>
+                    <dd>Folket väljer representanter vart fjärde år till riksdag, kommuner och regioner.</dd>
+                </dl>
+            </div>
+
+            <div class="section-quiz">
+                <h4>Reflektera</h4>
+                <div id="demokrati-questions" class="quiz-container"></div>
+            </div>
+
+            <button onclick="document.querySelector('[data-section=\'grundlagar\']').click()">Till Grundlagarna</button>
+        </section>
+
+        <!-- =================== GRUNDLAGAR =================== -->
+        <section id="grundlagar" class="section animated">
+            <h2>De fyra grundlagarna</h2>
+
+            <div class="subsection theme-purple">
+                <h3><span class="box-icon">📜</span> Vad är en grundlag?</h3>
+                <p>En grundlag är en <em>överordnad lag</em> som anger spelreglerna för hur Sverige styrs. Den skyddar medborgarnas fri- och rättigheter och kan inte ändras lika lätt som vanliga lagar — riksdagen måste rösta igenom en ändring <strong>två gånger</strong> med ett val emellan. Det ger medborgarna möjlighet att ta ställning i valet.</p>
+                <div class="warning-box">
+                    <h4><span class="box-icon">⚠️</span> Grundlagen styr lagen</h4>
+                    <p>Om en vanlig lag strider mot grundlagen är den ogiltiga. Grundlagarna är alltså överordnade alla andra lagar i Sverige.</p>
+                </div>
+            </div>
+
+            <div class="subsection theme-blue">
+                <h3><span class="box-icon">📗</span> Regeringsformen (RF)</h3>
+                <p>Regeringsformen är den viktigaste grundlagen och kom i sin nuvarande form 1974. Den fastslår att:</p>
+                <ul class="styled-list check-list-alt">
+                    <li>All offentlig makt utgår från folket</li>
+                    <li>Sverige är en representativ demokrati</li>
+                    <li>Riksdagen är det högsta beslutande organet</li>
+                    <li>Medborgares fri- och rättigheter skyddas (t.ex. yttrande-, mötes- och demonstrationsfrihet)</li>
+                </ul>
+                <p>RF reglerar också hur statsmakterna — riksdag, regering och domstolar — förhåller sig till varandra.</p>
+            </div>
+
+            <div class="subsection theme-green">
+                <h3><span class="box-icon">📰</span> Tryckfrihetsförordningen (TF)</h3>
+                <p>Tryckfrihetsförordningen från 1766 är en av världens äldsta tryckfrihetslagar och skyddar rätten att fritt publicera tryckt material utan förhandscensur. Den bygger på principen att <em>offentlighetsprincipen</em> gäller: allmänheten har som huvudregel rätt att ta del av myndigheternas handlingar.</p>
+                <div class="concept-box">
+                    <p><strong>Offentlighetsprincipen</strong> innebär att svenska medborgare har rätt att begära ut offentliga handlingar från myndigheter. Det är en viktig del av demokratin och möjliggör granskning av makten.</p>
+                </div>
+            </div>
+
+            <div class="subsection theme-yellow">
+                <h3><span class="box-icon">📻</span> Yttrandefrihetsgrundlagen (YGL)</h3>
+                <p>YGL från 1991 kompletterar TF och ger motsvarande skydd för <strong>radio, tv, film och digitala medier</strong>. Skyddar journalister och ger medborgare rätt att uttrycka åsikter i dessa medier utan att censureras i förväg.</p>
+            </div>
+
+            <div class="subsection theme-orange">
+                <h3><span class="box-icon">👸</span> Successionsordningen (SO)</h3>
+                <p>Successionsordningen reglerar <strong>arvsrätten till tronen</strong> — vem som får bli kung eller drottning. Sedan 1980 gäller <em>könsneutral tronföljd</em>: det äldsta barnet ärver tronen, oavsett kön. Kronprinsessan Victoria är näst i tur.</p>
+            </div>
+
+            <div class="subsection theme-cyan">
+                <h3><span class="box-icon">⚡</span> Maktdelning i Sverige</h3>
+                <p>Sverige delar inte upp makten lika strängt som t.ex. USA, men principerna om maktdelning finns. De tre statsmakterna är:</p>
+
+                <div class="flex-container icon-card-deck theme-lifestyle animated-children-stagger">
+                    <div class="card">
+                        <h4><span class="box-icon">📋</span> Lagstiftande makt</h4>
+                        <p><strong>Riksdagen</strong> — de folkvalda beslutar om lagar och budget. Ingen annan kan stifta lagar.</p>
+                    </div>
+                    <div class="card">
+                        <h4><span class="box-icon">🏛️</span> Verkställande makt</h4>
+                        <p><strong>Regeringen</strong> — genomför riksdagens beslut och styr landet via myndigheter.</p>
+                    </div>
+                    <div class="card">
+                        <h4><span class="box-icon">⚖️</span> Dömande makt</h4>
+                        <p><strong>Domstolarna</strong> — oberoende av regering och riksdag, tillämpar lagarna i enskilda fall.</p>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <h4><span class="box-icon">💡</span> Sveriges särart</h4>
+                    <p>I Sverige saknas en renodlad konstitutionsdomstol. Istället granskar <strong>Konstitutionsutskottet (KU)</strong> i riksdagen att regeringen följer reglerna. Lagrådet (en rådgivande instans av höga jurister) granskar lagförslag innan de antas.</p>
+                </div>
+            </div>
+
+            <div class="section-quiz">
+                <h4>Reflektera</h4>
+                <div id="grundlagar-questions" class="quiz-container"></div>
+            </div>
+
+            <button onclick="document.querySelector('[data-section=\'riksdagen\']').click()">Till Riksdagen</button>
+        </section>
+
+        <!-- =================== RIKSDAGEN =================== -->
+        <section id="riksdagen" class="section animated">
+            <h2>Riksdagen</h2>
+
+            <div class="subsection theme-blue">
+                <h3><span class="box-icon">🏛️</span> Vad är riksdagen?</h3>
+                <p>Riksdagen är <strong>Sveriges högsta beslutande församling</strong> — de folkvalda representanternas parlament. Den håller till i riksdagshuset vid Helgeandsholmen i Stockholm.</p>
+
+                <div class="seat-diagram">
+                    <span class="seat-count">349</span>
+                    <span class="seat-label">ledamöter väljs vart 4:e år i allmänna val</span>
+                </div>
+
+                <p>Riksdagen har fem grundläggande uppgifter:</p>
+                <ul class="icon-list-alt cols-2">
+                    <li><span class="list-icon">📋</span> <strong>Stifta lagar</strong> — riksdagen är den enda som kan skapa, ändra eller upphäva lagar</li>
+                    <li><span class="list-icon">💰</span> <strong>Besluta om statens budget</strong> — godkänner inkomster och utgifter</li>
+                    <li><span class="list-icon">🔍</span> <strong>Kontrollera regeringen</strong> — via utskott, frågor och KU-granskning</li>
+                    <li><span class="list-icon">🌍</span> <strong>Arbeta med EU-frågor</strong> — via EU-nämnden och utskotten</li>
+                    <li><span class="list-icon">🤝</span> <strong>Påverka utrikespolitiken</strong> — Utrikesnämnden samråder med regeringen</li>
+                </ul>
+            </div>
+
+            <div class="subsection theme-green">
+                <h3><span class="box-icon">📋</span> Talmannen och presidiet</h3>
+                <p>Riksdagens arbete leds av <strong>talmannen</strong>. Talmannen är riksdagens högste ämbetsman och leder det parlamentariska arbetet i kammaren. År 2026 är talmannen <strong>Andreas Norlén</strong> (Moderaterna).</p>
+                <p>Till sin hjälp har talmannen tre vice talmän som tillsammans bildar <em>presidiet</em>.</p>
+                <div class="info-box">
+                    <h4><span class="box-icon">🏅</span> Talmannens uppgifter</h4>
+                    <ul class="styled-list check-list-alt">
+                        <li>Leder debatter i riksdagens kammare</li>
+                        <li>Föreslår statsminister efter val (kallas statsministeromröstning)</li>
+                        <li>Representerar riksdagen utåt</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="subsection theme-yellow">
+                <h3><span class="box-icon">🗂️</span> Utskotten — motorn i riksdagen</h3>
+                <p>Riksdagen arbetar i <strong>utskott</strong> — specialiserade arbetsgrupper som bereder ärenden innan hela kammaren röstar. Alla riksdagspartier är representerade i varje utskott.</p>
+
+                <div class="flex-container icon-card-deck theme-benefit animated-children-stagger">
+                    <div class="card">
+                        <h4><span class="box-icon">📊</span> Finansutskottet</h4>
+                        <p>Bereder statens budget och ekonomiska frågor.</p>
+                    </div>
+                    <div class="card">
+                        <h4><span class="box-icon">🔍</span> Konstitutionsutskottet (KU)</h4>
+                        <p>Granskar att regeringen följer reglerna. Kan kritisera ministrar.</p>
+                    </div>
+                    <div class="card">
+                        <h4><span class="box-icon">🌐</span> Utrikesutskottet</h4>
+                        <p>Bereder utrikespolitiska frågor och internationella avtal.</p>
+                    </div>
+                    <div class="card">
+                        <h4><span class="box-icon">👷</span> Arbetsmarknadsutskottet</h4>
+                        <p>Bereder lagar om arbetsmarknad och arbetsrätt.</p>
+                    </div>
+                </div>
+                <p><small>Det finns totalt 15 fackutskott plus EU-nämnden och Utrikesnämnden.</small></p>
+            </div>
+
+            <div class="subsection theme-purple">
+                <h3><span class="box-icon">⚡</span> Hur en lag till</h3>
+                <p>Lagstiftningsprocessen steg för steg:</p>
+
+                <div class="law-flow">
+                    <div class="law-step">
+                        <strong>1. Initiativ</strong>
+                        Regeringen lägger fram en <em>proposition</em>, eller en ledamot lämnar en <em>motion</em>.
+                    </div>
+                    <div class="law-arrow">↓</div>
+                    <div class="law-step">
+                        <strong>2. Utskottsbehandling</strong>
+                        Relevant utskott granskar förslaget, hör experter och skriver ett <em>betänkande</em>.
+                    </div>
+                    <div class="law-arrow">↓</div>
+                    <div class="law-step">
+                        <strong>3. Kammarens debatt</strong>
+                        Hela riksdagen diskuterar utskottets betänkande i kammaren.
+                    </div>
+                    <div class="law-arrow">↓</div>
+                    <div class="law-step">
+                        <strong>4. Omröstning</strong>
+                        349 ledamöter röstar. Enkel majoritet (175+) krävs för vanliga lagar.
+                    </div>
+                    <div class="law-arrow">↓</div>
+                    <div class="law-step">
+                        <strong>5. Kungörande</strong>
+                        Riksdagsbeslut undertecknas och publiceras i <em>Svensk Författningssamling (SFS)</em>. Lagen gäller!
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <h4><span class="box-icon">⚠️</span> Grundlagsändringar — ett undantag</h4>
+                    <p>För att ändra en grundlag krävs att riksdagen röstar igenom ändringen <strong>två gånger</strong> med ett riksdagsval emellan. Det ger medborgarna möjlighet att ta ställning till frågan i valet.</p>
+                </div>
+            </div>
+
+            <div class="subsection theme-cyan">
+                <h3><span class="box-icon">🛡️</span> Riksdagens kontrollmakt</h3>
+                <p>Riksdagen kontrollerar regeringen på flera sätt:</p>
+                <dl class="definition-list-alt">
+                    <dt><span class="list-icon">🔍</span> <strong>KU-granskning:</strong></dt>
+                    <dd>Konstitutionsutskottet granskar varje år om regeringen har följt reglerna. Kan rikta kritik.</dd>
+                    <dt><span class="list-icon">❌</span> <strong>Misstroendeförklaring:</strong></dt>
+                    <dd>Om en majoritet av riksdagen (minst 175 ledamöter) röstar mot en minister eller statsministern måste denne avgå.</dd>
+                    <dt><span class="list-icon">❓</span> <strong>Interpellation/fråga:</strong></dt>
+                    <dd>Ledamöter kan ställa muntliga och skriftliga frågor till ministrar om regeringens arbete.</dd>
+                    <dt><span class="list-icon">💼</span> <strong>Riksrevisionen:</strong></dt>
+                    <dd>Granskar hur staten använder skattemedlen. Oberoende av regeringen.</dd>
+                    <dt><span class="list-icon">👤</span> <strong>JO (Justitieombudsmannen):</strong></dt>
+                    <dd>Medborgare som är missnöjda med myndigheters handläggning kan anmäla till JO.</dd>
+                </dl>
+            </div>
+
+            <div class="section-quiz">
+                <h4>Reflektera</h4>
+                <div id="riksdagen-questions" class="quiz-container"></div>
+            </div>
+
+            <button onclick="document.querySelector('[data-section=\'regeringen\']').click()">Till Regeringen</button>
+        </section>
+
+        <!-- =================== REGERINGEN =================== -->
+        <section id="regeringen" class="section animated">
+            <h2>Regeringen och statsministern</h2>
+
+            <div class="subsection theme-blue">
+                <h3><span class="box-icon">🏛️</span> Regeringens roll</h3>
+                <p>Medan riksdagen bestämmer vilka lagar som ska gälla, är det <strong>regeringens uppgift att styra landet</strong> — att verkställa riksdagens beslut, förbereda nya lagförslag och leda de statliga myndigheterna.</p>
+
+                <div class="info-box">
+                    <h4><span class="box-icon">💡</span> Statsministern 2026</h4>
+                    <p>Sedan 2022 är <strong>Ulf Kristersson</strong> (Moderaterna) Sveriges statsminister. Han leder en koalitionsregering bestående av Moderaterna, Kristdemokraterna och Liberalerna, med parlamentariskt stöd från Sverigedemokraterna.</p>
+                </div>
+            </div>
+
+            <div class="subsection theme-green">
+                <h3><span class="box-icon">🔄</span> Regeringsbildning</h3>
+                <p>Efter ett riksdagsval börjar <em>regeringsbildningsprocessen</em>:</p>
+
+                <div class="timeline">
+                    <div class="timeline-event left">
+                        <div class="timeline-content">
+                            <span class="timeline-date">Steg 1</span>
+                            <h4>Talmannen tar initiativ</h4>
+                            <p>Talmannen konsulterar partiledarna och föreslår en statsministerkandidat för riksdagen.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-event right">
+                        <div class="timeline-content">
+                            <span class="timeline-date">Steg 2</span>
+                            <h4>Statsministeromröstning</h4>
+                            <p>Riksdagen röstar om förslaget. Kandidaten väljs om <em>färre än hälften</em> (174 eller färre) röstar nej. Det räcker alltså att inte ha en majoritet emot sig.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-event left">
+                        <div class="timeline-content">
+                            <span class="timeline-date">Steg 3</span>
+                            <h4>Statsministern utser ministrar</h4>
+                            <p>Statsministern väljer sina ministrar (statsråd) fritt — utan riksdagens godkännande.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-event right">
+                        <div class="timeline-content">
+                            <span class="timeline-date">Steg 4</span>
+                            <h4>Regeringen tillträder</h4>
+                            <p>Vid ett konselj inför statschefen (kungen) tillträder den nya regeringen formellt.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection theme-yellow">
+                <h3><span class="box-icon">🚫</span> Förbudet mot ministerstyre</h3>
+                <p>En av de viktigaste principerna i svensk förvaltning är <strong>ministrarna får inte ge direktiv till myndigheter i enskilda ärenden</strong>. Detta kallas <em>förbudet mot ministerstyre</em> (eller det svenska förvaltningstraditionens kärna).</p>
+
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <h4>Vad ministern FÅR ✅</h4>
+                        <p>Sätta ramarna för myndigheternas arbete via regleringsbrev, förordningar och budgettilldelning. Forma politiken generellt.</p>
+                    </div>
+                    <div class="comparison-item">
+                        <h4>Vad ministern INTE får ❌</h4>
+                        <p>Ringa en myndighet och beordra ett visst beslut i ett enskilt ärende (t.ex. en byggnadslov eller ett tillstånd). Det vore ett grundlagsbrott.</p>
+                    </div>
+                </div>
+
+                <div class="concept-box">
+                    <p>Syftet är att myndighetsbeslut ska fattas <strong>självständigt och opartiskt</strong> — inte på politisk order. Medborgare ska kunna lita på rättssäkerhet.</p>
+                </div>
+            </div>
+
+            <div class="subsection theme-orange">
+                <h3><span class="box-icon">🏢</span> Regeringskansliet och myndigheterna</h3>
+                <p>Regeringen har <strong>Regeringskansliet</strong> till sin hjälp — med Statsrådsberedningen, Finansdepartementet och en rad andra departement. Departementens uppgift är att bereda och genomföra regeringens beslut.</p>
+
+                <p>Under regeringen ligger <strong>ca 370 statliga myndigheter</strong> — allt från Polismyndigheten och Skatteverket till Folkhälsomyndigheten och Trafikverket. De genomför i praktiken de beslut riksdagen och regeringen fattat.</p>
+
+                <div class="info-box">
+                    <h4><span class="box-icon">🔗</span> Kedjan: Riksdag → Regering → Myndigheter</h4>
+                    <p>Riksdagen stiftar lagen. Regeringen utfärdar förordningar som preciserar lagen. Myndigheterna tillämpar reglerna i verkligheten. Medborgaren möter systemet via myndigheten — t.ex. Försäkringskassan eller Migrationsverket.</p>
+                </div>
+            </div>
+
+            <div class="section-quiz">
+                <h4>Reflektera</h4>
+                <div id="regeringen-questions" class="quiz-container"></div>
+            </div>
+
+            <button onclick="document.querySelector('[data-section=\'valsystemet\']').click()">Till Valsystemet</button>
+        </section>
+
+        <!-- =================== VALSYSTEMET =================== -->
+        <section id="valsystemet" class="section animated">
+            <h2>Valsystemet</h2>
+
+            <div class="subsection theme-blue">
+                <h3><span class="box-icon">🗳️</span> Allmänna, fria och hemliga val</h3>
+                <p>Alla demokratiska val i Sverige bygger på tre grundprinciper:</p>
+
+                <div class="flex-container icon-card-deck theme-benefit animated-children-stagger">
+                    <div class="card">
+                        <h4><span class="box-icon">🌍</span> Allmänna val</h4>
+                        <p>Alla svenska medborgare som fyllt 18 år på valdagen har rösträtt. Ingen diskriminering på grund av kön, klass, etnicitet eller religion.</p>
+                    </div>
+                    <div class="card">
+                        <h4><span class="box-icon">🕊️</span> Fria val</h4>
+                        <p>Ingen kan tvingas att rösta på ett visst parti. Du väljer fritt utan påtryckning.</p>
+                    </div>
+                    <div class="card">
+                        <h4><span class="box-icon">🔒</span> Hemliga val</h4>
+                        <p>Din röst är hemlig. Ingen — inte ens staten — kan se hur du röstat. Valsedeln läggs i ett ogenomskinligt kuvert.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection theme-green">
+                <h3><span class="box-icon">📊</span> Proportionellt valsystem</h3>
+                <p>Sverige har ett <strong>proportionellt valsystem</strong> — partierna får mandat i proportion till sin röstandel. Om ett parti får 30 % av rösterna, får det ungefär 30 % av mandaten. Det gör att även mindre partier kan komma in i riksdagen.</p>
+
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <h4>Sverige: Proportionellt 🇸🇪</h4>
+                        <p>20 % av rösterna → ca 20 % av mandaten. Ger rättvis representation, möjliggör flerpartisystem.</p>
+                    </div>
+                    <div class="comparison-item">
+                        <h4>USA/UK: Majoritetsval 🇺🇸🇬🇧</h4>
+                        <p>"First past the post" — den som får flest röster i ett distrikt vinner allt. Gynnar tvåpartisystem.</p>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <h4><span class="box-icon">🔢</span> Riksdagens 349 mandat</h4>
+                    <ul class="styled-list check-list-alt">
+                        <li><strong>310 fasta valkretsmandat</strong> — fördelade på 29 valkretsar (i huvudsak Sveriges 21 län + Stockholms stad och Gotland)</li>
+                        <li><strong>39 utjämningsmandat</strong> — fördelas nationellt för att göra resultatet mer proportionellt</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="subsection theme-yellow">
+                <h3><span class="box-icon">🎯</span> 4 %-spärren</h3>
+                <p>För att komma in i riksdagen måste ett parti klara <strong>minst 4 % av alla riksdagsröster</strong> i hela landet. Syftet är att undvika att riksdagen splittras i alltför många små partier som försvårar att bilda stabila regeringar.</p>
+
+                <div class="concept-box">
+                    <p><strong>Undantag:</strong> Ett parti som inte når 4 % nationellt kan ändå få mandat om det får <em>minst 12 % av rösterna i en enskild valkrets</em>. I praktiken har detta aldrig skett i modern tid.</p>
+                </div>
+
+                <div class="warning-box">
+                    <h4><span class="box-icon">⚠️</span> "Bortkastade" röster?</h4>
+                    <p>Om du röstar på ett parti som inte klarar 4 %-spärren, räknas din röst inte till något mandat i riksdagen. Det är en kritiserad aspekt av systemet.</p>
+                </div>
+            </div>
+
+            <div class="subsection theme-purple">
+                <h3><span class="box-icon">✅</span> Personval</h3>
+                <p>Sedan 1998 kan svenska väljare <strong>personrösta</strong> — kryssa för en specifik kandidat på partiets valsedel. Om en kandidat får personröster från minst <strong>5 % av partiets väljare</strong> i valkretsen, klättrar kandidaten upp på listan oavsett partiets rangordning.</p>
+                <p>I riksdagsvalet 2022 personröstade drygt <strong>25 %</strong> av väljarna. Det ger väljarna viss möjlighet att påverka <em>vem</em> som representerar partiet, inte bara <em>vilket</em> parti som vinner.</p>
+            </div>
+
+            <div class="subsection theme-cyan">
+                <h3><span class="box-icon">📅</span> Fyra val — tre på samma dag</h3>
+                <p>Sverige håller fyra olika val. Tre av dem hålls <em>samma dag</em>:</p>
+
+                <div class="timeline-horizontal">
+                    <div class="timeline-horizontal-event">
+                        <div class="timeline-horizontal-content">
+                            <span class="timeline-horizontal-date">Vart 4:e år</span>
+                            <h4>🏛️ Riksdagsval</h4>
+                            <p>349 ledamöter väljs. Nationellt. Gul valsedel.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-horizontal-event">
+                        <div class="timeline-horizontal-content">
+                            <span class="timeline-horizontal-date">Vart 4:e år</span>
+                            <h4>🏥 Regionval</h4>
+                            <p>Regionfullmäktige i alla 21 regioner. Blå valsedel.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-horizontal-event">
+                        <div class="timeline-horizontal-content">
+                            <span class="timeline-horizontal-date">Vart 4:e år</span>
+                            <h4>🏘️ Kommunval</h4>
+                            <p>Kommunfullmäktige i alla 290 kommuner. Vit valsedel.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-horizontal-event">
+                        <div class="timeline-horizontal-content">
+                            <span class="timeline-horizontal-date">Vart 5:e år</span>
+                            <h4>🇪🇺 EU-parlamentsval</h4>
+                            <p>Sverige väljer 21 ledamöter till Europaparlamentet. Separat valdag.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <h4><span class="box-icon">📌</span> Valdagen</h4>
+                    <p>Riksdags-, region- och kommunvalen hålls alltid den <strong>andra söndagen i september</strong> vart fjärde år. Nästa ordinarie val hålls <strong>hösten 2026</strong>. Du kan förtidsrösta i ca 18 dagar innan valdagen.</p>
+                </div>
+            </div>
+
+            <div class="subsection theme-orange">
+                <h3><span class="box-icon">↔️</span> Höger–vänster-skalan och blockpolitik</h3>
+                <p>Partier brukar placeras på en politisk skala från <strong>vänster</strong> till <strong>höger</strong>. Det handlar framförallt om synen på statens roll i ekonomin och samhället:</p>
+
+                <div class="political-scale">
+                    <div class="scale-bar"></div>
+                    <div class="scale-labels">
+                        <span>Vänster</span>
+                        <span>Mitten</span>
+                        <span>Höger</span>
+                    </div>
+                </div>
+
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <h4>Vänster 🔴</h4>
+                        <p>Betonar jämlikhet, stark välfärdsstat, hög skatt, offentlig sektor, fackliga rättigheter. Ex: Vänsterpartiet, Socialdemokraterna.</p>
+                    </div>
+                    <div class="comparison-item">
+                        <h4>Höger 🔵</h4>
+                        <p>Betonar individens frihet, marknadsekonomi, lägre skatter, privatisering. Ex: Moderaterna, Kristdemokraterna.</p>
+                    </div>
+                </div>
+
+                <div class="concept-box">
+                    <p>I Sverige har politiken sedan länge präglats av <strong>blockpolitik</strong>: ett vänsterblock (Socialdemokraterna, Vänsterpartiet, Miljöpartiet) mot ett högerblock (Moderaterna, Kristdemokraterna, Liberalerna, Sverigedemokraterna). Blocken samarbetar internt för att nå riksdagsmajoritet.</p>
+                </div>
+            </div>
+
+            <div class="section-quiz">
+                <h4>Reflektera</h4>
+                <div id="valsystemet-questions" class="quiz-container"></div>
+            </div>
+
+            <button onclick="document.querySelector('[data-section=\'nivaer\']').click()">Till Nivåerna</button>
+        </section>
+
+        <!-- =================== NIVAER =================== -->
+        <section id="nivaer" class="section animated">
+            <h2>Politiska nivåer: Kommuner, regioner och EU</h2>
+
+            <div class="subsection theme-blue">
+                <h3><span class="box-icon">🗺️</span> Makten på tre nivåer</h3>
+                <p>Den offentliga makten i Sverige är fördelad på tre nivåer — lokalt, regionalt och nationellt — plus EU-nivån ovanpå. Varje nivå har sina ansvarsområden och sina folkvalda organ.</p>
+
+                <div class="power-pyramid">
+                    <div class="pyramid-level eu">🇪🇺 EU — gemensam lagstiftning och politik för 27 länder</div>
+                    <div class="pyramid-level nat">🏛️ Nationell nivå — Riksdag + Regering + myndigheter</div>
+                    <div class="pyramid-level reg">🏥 Regional nivå — 21 regioner (sjukvård, kollektivtrafik)</div>
+                    <div class="pyramid-level kom">🏘️ Kommunal nivå — 290 kommuner (skola, omsorg, plan)</div>
+                </div>
+            </div>
+
+            <div class="subsection theme-green">
+                <h3><span class="box-icon">🏘️</span> Kommunerna</h3>
+                <p>Sverige har <strong>290 kommuner</strong> med befolkning från ett par tusen till nästan en miljon (Stockholms stad). Kommunerna styrs av <em>kommunfullmäktige</em> som väljs vart fjärde år.</p>
+
+                <div class="info-box">
+                    <h4><span class="box-icon">🏫</span> Kommunens ansvarsområden</h4>
+                    <ul class="styled-list check-list-alt green-checks">
+                        <li>Förskola och grundskola</li>
+                        <li>Äldreomsorg och hemtjänst</li>
+                        <li>Stadsplanering och bygglov</li>
+                        <li>Renhållning och vatten/avlopp</li>
+                        <li>Socialtjänst och individ/familjeomsorg</li>
+                        <li>Lokala vägar och parker</li>
+                    </ul>
+                </div>
+
+                <div class="concept-box">
+                    <p><strong>Kommunalt självstyre</strong> innebär att kommunerna har rätt att besluta i lokala angelägenheter och ta ut kommunal inkomstskatt. Det är kommunalskatten som finansierar skola och omsorg — och den varierar mellan kommuner.</p>
+                </div>
+            </div>
+
+            <div class="subsection theme-yellow">
+                <h3><span class="box-icon">🏥</span> Regionerna</h3>
+                <p>Sverige har <strong>21 regioner</strong> (tidigare kallade landsting). De styrs av <em>regionfullmäktige</em> och väljs vart fjärde år — samma dag som riksdags- och kommunvalet.</p>
+
+                <ul class="icon-list-alt">
+                    <li><span class="list-icon">🏥</span> <strong>Sjukvård:</strong> Regionen ansvarar för primärvård, sjukhus och specialistvård</li>
+                    <li><span class="list-icon">🚌</span> <strong>Kollektivtrafik:</strong> Bussar, pendeltåg och spårvagnar (ofta via bolag)</li>
+                    <li><span class="list-icon">🦷</span> <strong>Tandvård:</strong> För barn och unga (upp till 23 år) och subventionerad vuxentandvård</li>
+                    <li><span class="list-icon">🎭</span> <strong>Kultur och folkhögskolor:</strong> Regional kulturverksamhet</li>
+                </ul>
+            </div>
+
+            <div class="subsection theme-purple">
+                <h3><span class="box-icon">🇪🇺</span> EU-nivån</h3>
+                <p>Sverige har varit EU-medlem sedan 1995. Det innebär att en del av lagstiftningen beslutas på europeisk nivå och gäller direkt i alla 27 medlemsländer.</p>
+
+                <dl class="definition-list-alt">
+                    <dt><span class="list-icon">🏛️</span> <strong>Europaparlamentet:</strong></dt>
+                    <dd>Folkvalda från alla EU-länder — Sverige väljer 21 ledamöter vart femte år. Beslutar om EU-lagstiftning.</dd>
+                    <dt><span class="list-icon">🤝</span> <strong>Ministerrådet (Rådet):</strong></dt>
+                    <dd>Ministrarna från alla EU-länder möts per sakområde. Sverige representeras av sin minister.</dd>
+                    <dt><span class="list-icon">⚙️</span> <strong>EU-kommissionen:</strong></dt>
+                    <dd>EU:s "regering" — lägger fram förslag till lagstiftning. Sverige har en kommissionär.</dd>
+                </dl>
+
+                <div class="concept-box">
+                    <p><strong>EU-rätten är överordnad</strong> nationell rätt inom de områden EU har befogenhet (t.ex. handel, miljö, konkurrens). Riksdagen kan alltså inte stifta lagar som strider mot EU-rätten inom dessa områden.</p>
+                </div>
+            </div>
+
+            <div class="section-quiz">
+                <h4>Reflektera</h4>
+                <div id="nivaer-questions" class="quiz-container"></div>
+            </div>
+
+            <button onclick="document.querySelector('[data-section=\'paverkan\']').click()">Till Medborgarinflytande</button>
+        </section>
+
+        <!-- =================== PAVERKAN =================== -->
+        <section id="paverkan" class="section animated">
+            <h2>Hur medborgare påverkar politiken</h2>
+
+            <div class="subsection theme-green">
+                <h3><span class="box-icon">💪</span> Du har fler sätt att påverka än du tror</h3>
+                <p>Att rösta vart fjärde år är det viktigaste — men det är långt ifrån det enda sättet att göra din röst hörd i en demokrati. Sveriges system erbjuder många kanaler för medborgarinflytande.</p>
+
+                <div class="flex-container icon-card-deck theme-lifestyle animated-children-stagger">
+                    <div class="card">
+                        <h4><span class="box-icon">🗳️</span> Rösta</h4>
+                        <p>Det grundläggande demokratiska verktyget. Riksdag, region, kommun och EU-parlamentet vart 4:e/5:e år.</p>
+                    </div>
+                    <div class="card">
+                        <h4><span class="box-icon">🎪</span> Engagera dig i ett parti</h4>
+                        <p>Bli partimedlem, kandidera till ett uppdrag, påverka partiets politik inifrån.</p>
+                    </div>
+                    <div class="card">
+                        <h4><span class="box-icon">📢</span> Demonstrera</h4>
+                        <p>Demonstrations- och mötesfriheten skyddas av grundlagen. Fredliga manifestationer är en viktig kanal.</p>
+                    </div>
+                    <div class="card">
+                        <h4><span class="box-icon">✍️</span> Skriv debattartiklar</h4>
+                        <p>Insändare och debattartiklar i tidningar, sociala medier och podcaster formar den offentliga opinionen.</p>
+                    </div>
+                    <div class="card">
+                        <h4><span class="box-icon">📬</span> Kontakta politiker</h4>
+                        <p>Skriv mail, ring eller träffa din riksdagsledamot, kommunpolitiker eller minister.</p>
+                    </div>
+                    <div class="card">
+                        <h4><span class="box-icon">🤝</span> Intresseorganisationer</h4>
+                        <p>Fack, branschföreningar, ideella organisationer och NGO:er driver frågor och lobbyer mot politiker.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection theme-blue">
+                <h3><span class="box-icon">🏢</span> Intresseorganisationer och lobbying</h3>
+                <p>En <strong>intresseorganisation</strong> samlar människor med gemensamma intressen för att påverka politiken. De är ett viktigt komplement till partierna i demokratin.</p>
+
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <h4>Fackföreningar 🔨</h4>
+                        <p>Organiserar löntagare — t.ex. LO, TCO, Saco. Driver frågor om lön, arbetsmiljö och arbetsrätt.</p>
+                    </div>
+                    <div class="comparison-item">
+                        <h4>Arbetsgivarorganisationer 🏭</h4>
+                        <p>Organiserar företag — t.ex. Svenskt Näringsliv. Driver företagens intressen gentemot politiken.</p>
+                    </div>
+                    <div class="comparison-item">
+                        <h4>Miljöorganisationer 🌿</h4>
+                        <p>T.ex. Greenpeace, Naturskyddsföreningen. Driver miljö- och klimatfrågor.</p>
+                    </div>
+                    <div class="comparison-item">
+                        <h4>Idrotts- och kulturliv 🎭</h4>
+                        <p>Riksidrottsförbundet och kultursektorn har starkt inflytande på bidragspolitiken.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection theme-yellow">
+                <h3><span class="box-icon">📰</span> Mediernas roll</h3>
+                <p>Fria och oberoende medier är en förutsättning för demokrati. Journalister granskar makten, avslöjar missförhållanden och ger medborgarna den information de behöver för att fatta välgrundade beslut.</p>
+
+                <ul class="icon-list-alt">
+                    <li><span class="list-icon">🔍</span> <strong>Granska makten:</strong> Undersökande journalistik avslöjar korruption och missbruk</li>
+                    <li><span class="list-icon">📣</span> <strong>Sätta dagordningen:</strong> Medierna påverkar vilka frågor politikerna måste ta itu med</li>
+                    <li><span class="list-icon">🌐</span> <strong>Sprida information:</strong> Nyheter och fakta som medborgarna behöver för att rösta informerat</li>
+                    <li><span class="list-icon">💬</span> <strong>Möjliggöra debatt:</strong> Forum för åsiktsutbyte och opinionsbildning</li>
+                </ul>
+
+                <div class="info-box">
+                    <h4><span class="box-icon">🔓</span> Offentlighetsprincipen — ett unikt verktyg</h4>
+                    <p>Sverige har sedan 1766 (världens äldsta tryckfrihetslagstiftning!) en <strong>offentlighetsprincip</strong>: alla kan begära ut handlingar från myndigheter. Det gör det möjligt för journalister och medborgare att granska hur skattemedlen används och hur beslut fattas.</p>
+                </div>
+            </div>
+
+            <div class="subsection theme-purple">
+                <h3><span class="box-icon">🗣️</span> Opinionsbildning och civil olydnad</h3>
+                <p><strong>Opinionsbildning</strong> handlar om att försöka påverka vad allmänheten och politikerna tycker — via media, sociala nätverk, kampanjer och debatt. Det är en central del av demokratin.</p>
+
+                <div class="warning-box">
+                    <h4><span class="box-icon">⚠️</span> Gränsen: Civil olydnad</h4>
+                    <p><strong>Civil olydnad</strong> är att medvetet bryta mot en lag för att uppmärksamma ett orättfärdigt tillstånd (t.ex. att blockera en väg i klimatprotest). Det är lagligt att ha synpunkter men olagligt att hindra trafiken — en gräns som ofta diskuteras i demokratiteorin.</p>
+                </div>
+            </div>
+
+            <div class="subsection theme-cyan">
+                <h3><span class="box-icon">📊</span> Medborgarförslag och folkomröstning</h3>
+                <dl class="definition-list-alt">
+                    <dt><span class="list-icon">📝</span> <strong>Medborgarförslag (kommunalt):</strong></dt>
+                    <dd>Medborgare i en kommun kan lämna förslag direkt till kommunfullmäktige. Fullmäktige måste ta ställning till förslaget.</dd>
+                    <dt><span class="list-icon">🗳️</span> <strong>Folkomröstning:</strong></dt>
+                    <dd>Riksdagen kan utlysa rådgivande folkomröstningar i viktiga frågor. Exempel: EU-folkomröstningen 1994, euron 2003. Riksdagen är inte formellt bunden av resultatet, men det är politiskt svårt att ignorera.</dd>
+                    <dt><span class="list-icon">✍️</span> <strong>EU-medborgarinitiativ:</strong></dt>
+                    <dd>Om minst en miljon EU-medborgare i minst sju länder skriver under kan EU-kommissionen tvingas ta upp ett förslag.</dd>
+                </dl>
+            </div>
+
+            <div class="chapter-transition">
+                <p>Nu har du koll på det svenska politiska systemets grunder — från grundlagarna till hur du själv kan påverka. Dags att testa dina kunskaper!</p>
+            </div>
+
+            <div class="section-quiz">
+                <h4>Reflektera</h4>
+                <div id="paverkan-questions" class="quiz-container"></div>
+            </div>
+
+            <button onclick="document.querySelector('[data-section=\'quiz\']').click()">Till Quizet</button>
+        </section>
+
+        <!-- =================== QUIZ =================== -->
+        <section id="quiz" class="section animated">
+            <h2>Quiz: Svensk Politik</h2>
+
+            <div id="quiz-start">
+                <div class="info-box">
+                    <h3>Dags att testa dina kunskaper!</h3>
+                    <p>Du har gått igenom demokrati, grundlagar, riksdag, regering, valsystem, nivåer och medborgarinflytande. Nu är det dags att se hur mycket du verkligen kan om det svenska statsskicket!</p>
+                </div>
+                <div id="best-time-display" class="time-record">Ditt snabbaste resultat: Inte satt än</div>
+                <div class="difficulty-switch-wrapper">
+                    <div class="difficulty-switch">
+                        <label for="difficulty-normal">Svårighetsgrad:</label>
+                        <div class="switch-container">
+                            <input type="radio" id="difficulty-normal" name="difficulty" value="normal" checked>
+                            <label for="difficulty-normal" class="switch-label switch-label-left">Normal</label>
+                            <input type="radio" id="difficulty-crazy" name="difficulty" value="crazy">
+                            <label for="difficulty-crazy" class="switch-label switch-label-right">Crazy Bananas!</label>
+                            <span class="switch-selection"></span>
+                        </div>
+                    </div>
+                </div>
+                <button id="start-quiz-btn">Starta Quiz</button>
+            </div>
+
+            <div id="quiz-progress" style="display: none;">
+                <div class="timer" id="quiz-timer">0:00</div>
+                <div class="progress-container">
+                    <div class="progress-bar" id="quiz-progress-bar"></div>
+                </div>
+                <p id="quiz-progress-text">0 av 0 besvarade</p>
+            </div>
+
+            <div id="quiz-questions" style="display: none;"></div>
+            <div id="quiz-result" style="display: none;"></div>
+        </section>
+
+    </div><!-- end .container -->
+
+    <script src="../../studyguide-core.js"></script>
+    <script src="svenskpolitik1quiz.js"></script>
+    <script src="../../interactive-quiz.js"></script>
+    <script>
+        initStudyGuide({
+            guideId: 'svenskpolitik1',
+            requiredSections: ['demokrati', 'grundlagar', 'riksdagen', 'regeringen', 'valsystemet', 'nivaer', 'paverkan'],
+            sectionQuestions: true
+        });
+    </script>
+
+</body>
+</html>

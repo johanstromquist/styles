@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tankesmedjan Timbro - Interaktiv Studiehandledning</title>
+    <link rel="stylesheet" href="../../studyguide.css">
+    <style>
+        .timbro-intro-banner {
+            background: linear-gradient(135deg, #1a3a5c 0%, #2d6a9f 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .timbro-intro-banner h2 {
+            color: white;
+            font-size: 1.9em;
+            margin-bottom: 15px;
+        }
+        .timbro-intro-banner p {
+            font-size: 1.1em;
+            opacity: 0.95;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        .quote-pull {
+            background: #f0f6fb;
+            border-left: 5px solid #2d6a9f;
+            padding: 20px 28px;
+            margin: 25px 0;
+            font-style: italic;
+            font-size: 1.05em;
+            position: relative;
+        }
+        .quote-pull::before {
+            content: '\201C';
+            font-size: 3.5em;
+            color: #2d6a9f;
+            opacity: 0.25;
+            position: absolute;
+            top: -8px;
+            left: 8px;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        .quote-pull .source {
+            font-style: normal;
+            font-size: 0.88em;
+            color: #555;
+            margin-top: 12px;
+            text-align: right;
+        }
+        .balance-note {
+            background: #fff8e7;
+            border: 1.5px solid #d4a84b;
+            border-radius: 6px;
+            padding: 14px 18px;
+            font-size: 0.95em;
+            margin: 18px 0;
+            color: #5a4010;
+        }
+        .balance-note strong {
+            color: #8b6914;
+        }
+        .vd-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 10px;
+            margin: 18px 0;
+        }
+        .vd-item {
+            background: #f5f8fa;
+            border-left: 3px solid var(--primary);
+            padding: 10px 14px;
+            border-radius: 4px;
+            font-size: 0.95em;
+        }
+        .vd-item .years {
+            color: #888;
+            font-size: 0.88em;
+        }
+        @media (max-width: 768px) {
+            .timbro-intro-banner { padding: 24px; }
+            .timbro-intro-banner h2 { font-size: 1.4em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <header>
+            <h1>Tankesmedjan Timbro</h1>
+            <p>Idéer, makt och opinionsbildning — del 3 i serien om svensk politik</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#" class="active" data-section="intro">Start</a></li>
+                <li><a href="#" data-section="tankesmedja">Vad är en tankesmedja?</a></li>
+                <li><a href="#" data-section="ursprung">Ursprung</a></li>
+                <li><a href="#" data-section="ideologi">Ideologi</a></li>
+                <li><a href="#" data-section="struktur">Struktur</a></li>
+                <li><a href="#" data-section="metoder">Metoder</a></li>
+                <li><a href="#" data-section="inflytande">Inflytande & Kritik</a></li>
+                <li><a href="#" data-section="arvet">Timbro idag</a></li>
+                <li><a href="#" data-section="quiz">Quiz</a></li>
+            </ul>
+        </nav>
+
+        <!-- ===================== INTRO ===================== -->
+        <section id="intro" class="section active animated">
+            <div class="timbro-intro-banner">
+                <h2>Välkommen till guiden om Timbro</h2>
+                <p>Timbro är en av Sveriges mest inflytelserika — och mest omdiskuterade — organisationer. Den kallas en tankesmedja och arbetar sedan 1978 för marknadsekonomi, personlig frihet och öppna samhällen. Men vad gör egentligen en tankesmedja? Och hur stor är Timbros påverkan på svensk politik och debatt?</p>
+            </div>
+
+            <div class="info-box">
+                <h3>Hur du använder guiden</h3>
+                <p>Guiden presenterar Timbros historia, struktur och metoder balanserat: du möter både Timbros <em>egna</em> beskrivningar och <em>kritikernas</em> perspektiv. Håll ögonen öppna för markeringarna:</p>
+                <ul class="styled-list">
+                    <li><strong>Timbro själva beskriver...</strong> — Timbros egna formuleringar</li>
+                    <li><strong>Kritiker menar...</strong> — ifrågasättanden och alternativa tolkningar</li>
+                </ul>
+                <p>Avsluta med quizet för att testa vad du lärt dig!</p>
+            </div>
+
+            <div class="flex-container">
+                <div class="card">
+                    <h3>🏆 Dina framsteg</h3>
+                    <div class="best-score-display">
+                        <p><span class="icon">✔️</span> Rätt svar: <strong id="best-score-correct">--</strong></p>
+                        <p><span class="icon">⏱️</span> Tid: <strong id="best-score-time">--:--</strong></p>
+                        <p><span class="icon">⭐</span> Poäng: <strong id="best-score-points">----</strong></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>📚 Del 3 av 3</h3>
+                    <p>Den här guiden är den tredje i en serie om svensk politik. Har du läst om <strong>Ideologier</strong> och <strong>Upplysningen</strong>? Börja gärna med dem om du inte gjort det!</p>
+                </div>
+            </div>
+
+            <button onclick="document.querySelector('[data-section=\'tankesmedja\']').click()">Starta guiden</button>
+
+            <div id="achievements-list" class="achievements"></div>
+        </section>
+
+        <!-- ===================== VAD ÄR EN TANKESMEDJA? ===================== -->
+        <section id="tankesmedja" class="section animated">
+            <h2>Vad är en tankesmedja?</h2>
+
+            <div class="subsection theme-blue">
+                <h3><span class="box-icon">🏛️</span> Definition</h3>
+                <div class="definition">
+                    <h4>Tankesmedja (think tank)</h4>
+                    <p>En organisation som bedriver forskning, analys och opinionsbildning — ofta med en tydlig ideologisk utgångspunkt — i syfte att påverka politiska beslutsfattare, journalister och den allmänna opinionen på lång sikt.</p>
+                </div>
+                <p>En tankesmedja är varken ett renodlat forskningsinstitut (utan politisk agenda) eller ett politiskt parti (som söker röster). Den verkar i gränslandet: med kunskapsambition men med en ideologisk kompass.</p>
+            </div>
+
+            <div class="subsection theme-lblue">
+                <h3><span class="box-icon">🔍</span> Tankesmedjans verktyg</h3>
+                <div class="flex-container icon-card-deck theme-benefit">
+                    <div class="card">
+                        <h4><span class="box-icon">📖</span> Böcker & rapporter</h4>
+                        <p>Publicerar analyser och utredningar som sprids till politiker, journalister och akademiker.</p>
+                    </div>
+                    <div class="card">
+                        <h4><span class="box-icon">🎙️</span> Seminarier</h4>
+                        <p>Skapar arenor för idédebatt och kontakter mellan makthavare och tänkare.</p>
+                    </div>
+                    <div class="card">
+                        <h4><span class="box-icon">✍️</span> Debattartiklar</h4>
+                        <p>Sätter agendan i medier som DN Debatt och Aftonbladet kultur.</p>
+                    </div>
+                    <div class="card">
+                        <h4><span class="box-icon">🎓</span> Utbildning</h4>
+                        <p>Formar nästa generations politiker, journalister och opinionsbildare.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection theme-green">
+                <h3><span class="box-icon">🌍</span> Timbro i det europeiska landskapet</h3>
+                <p>Sverige har flera tankesmedjor med olika politisk färg. Timbro befinner sig på det marknadsliberala/klassiskt liberala fältet. Till höger om mitten på den ekonomiska axeln, men inte nödvändigtvis auktoritär på den sociala axeln.</p>
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <h4>Marknadsliberala 🏦</h4>
+                        <p><strong>Timbro</strong> (Sverige), <strong>IEA</strong> (UK), <strong>Cato Institute</strong> (USA) — betonar fri marknad, liten stat, individuella rättigheter.</p>
+                    </div>
+                    <div class="comparison-item">
+                        <h4>Socialdemokratiska/vänster 🌹</h4>
+                        <p><strong>Arena Idé</strong> (Sverige), <strong>Fabian Society</strong> (UK), <strong>Friedrich-Ebert-Stiftung</strong> (DE) — betonar omfördelning, välfärdsstat, facklig rörelse.</p>
+                    </div>
+                </div>
+                <p>Timbro är sedan länge medlem i <strong>Epicenter</strong>, ett europeiskt nätverk av marknadsorienterade tankesmedjor.</p>
+            </div>
+
+            <div class="subsection theme-yellow">
+                <h3><span class="box-icon">📜</span> Den första svenska tankesmedjan</h3>
+                <p>Föregångare till Timbro i Sverige var <strong>SNS (Studieförbundet Näringsliv och Samhälle)</strong>, grundat 1948 som ett svar på socialdemokraternas efterkrigsprogram. Flera personer centrala för SNS:s tillkomst spelade sedan viktiga roller vid Timbros grundande.</p>
+                <div class="info-box">
+                    <h4><span class="box-icon">💡</span> Varför just 1970-talets Sverige?</h4>
+                    <p>Timbro föds i ett Sverige där socialdemokraterna dominerat riksdagen i nästan 40 år. Vänsterideologier präglar debatten. Idéer om löntagarfonder och utökat statligt ägande diskuteras öppet. Det är i den kontexten som Timbros grundare ser behovet av en motrörelse på idéplanet.</p>
+                </div>
+            </div>
+
+            <div class="section-quiz">
+                <h4>Reflektera</h4>
+                <div id="tankesmedja-questions" class="quiz-container"></div>
+            </div>
+
+            <button onclick="document.querySelector('[data-section=\'ursprung\']').click()">Till ursprunget</button>
+        </section>
+
+        <!-- ===================== URSPRUNG ===================== -->
+        <section id="ursprung" class="section animated">
+            <h2>Ursprung: SAF, Eskilsson och grundandet 1978</h2>
+
+            <div class="subsection theme-orange">
+                <h3><span class="box-icon">📅</span> Tidslinje: från idé till institution</h3>
+                <div class="timeline">
+                    <div class="timeline-event left">
+                        <div class="timeline-content">
+                            <span class="timeline-date">1940-tal</span>
+                            <h4>Näringslivets Fond bildas</h4>
+                            <p>Företrädare för näringslivet bildar en fond för att försvara fri ekonomi mot statliga interventioner som blivit populära under 1930-talskrisen och krigsekonomin.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-event right">
+                        <div class="timeline-content">
+                            <span class="timeline-date">1968</span>
+                            <h4>Vänstervågens genomslag</h4>
+                            <p>Sture Eskilsson, informationschef på SAF, observerar hur begrepp som "näringsliv" och "vinst" börjar betraktas negativt av studenter. En ny generation formas av vänsterradikala idéer.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-event left">
+                        <div class="timeline-content">
+                            <span class="timeline-date">Mars 1971</span>
+                            <h4>Det "hemliga PM"</h4>
+                            <p>Eskilsson sänder en strategisk promemoria till SAF:s ledning. Han identifierar ett behov av systematisk opinionsbildning för att stärka marknadsliberala idéer — och pekar ut den intellektuella eliten som nyckelgrupp. PM:et läcker och skapar uppmärksamhet.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-event right">
+                        <div class="timeline-content">
+                            <span class="timeline-date">1978</span>
+                            <h4>Timbro grundas</h4>
+                            <p>SAF genomför Eskilssons plan. Utredningsbyrån för Samhällsfrågor (driven av Näringslivets Fond) slås samman med det befintliga bolaget Timbro. Eskilsson blir förste VD. Syftet: en plattform för oberoende intellektuell diskussion, frigjord från SAF:s direkta stämpel.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-event left">
+                        <div class="timeline-content">
+                            <span class="timeline-date">1980</span>
+                            <h4>Nyliberalismens inträde</h4>
+                            <p>Timbro ger ut Henri Lepages <em>Imorgon kapitalism</em> — boken som introducerade begreppet "nyliberalism" i Sverige. 1983 följer Friedrich Hayeks <em>Frihetens grundvalar</em>.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-event right">
+                        <div class="timeline-content">
+                            <span class="timeline-date">4 oktober 1983</span>
+                            <h4>Demonstrationen mot löntagarfonder</h4>
+                            <p>Timbro och Utredningsbyrån deltar i att organisera en massdemonstration på 75 000 personer mot socialdemokraternas planer på löntagarfonder. Datumet 4/10 blir symboliskt för marknadsliberal aktivism i Sverige.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-event left">
+                        <div class="timeline-content">
+                            <span class="timeline-date">1991</span>
+                            <h4>Systemskifte</h4>
+                            <p>Flera personer knutna till Timbro och dess nätverk ("Generationerna") kommer att ingå i den borgerliga regeringen under Carl Bildt 1991–1994. En period av marknadsliberala reformer inleds.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-event right">
+                        <div class="timeline-content">
+                            <span class="timeline-date">2003</span>
+                            <h4>Stiftelsen Fritt Näringsliv tar över</h4>
+                            <p>SAF har 2001 gått samman med Industriförbundet och bildat Svenskt Näringsliv. En ny stiftelse — Stiftelsen Fritt Näringsliv — bildas med ett grundkapital på ca 300 miljoner kronor och tar över som finansiär av Timbro.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection theme-purple">
+                <h3><span class="box-icon">👤</span> Sture Eskilsson — mannen bakom strategin</h3>
+                <div class="info-box">
+                    <h4>Sture Eskilsson (1925–2022)</h4>
+                    <p>Informationschef på SAF och Timbros förste VD (1978–1981). Han är i dag erkänd som den drivande kraften bakom Timbros grundande. Hans PM från 1971 kallas ibland "det hemliga dokumentet" — men Eskilsson ansåg det vara ett vanligt strategidokument.</p>
+                    <p>Hans grundtanke: <em>idéer förändrar samhällen, och den som kontrollerar idéklimatet kan påverka politiken på lång sikt</em>. Han pekade ut den intellektuella eliten — akademiker, journalister, lärare — som de viktigaste målgrupperna.</p>
+                </div>
+                <div class="quote-pull">
+                    "Den rådande vänsterns dominans av idéklimatet hade knappast varit möjlig utan de insatser som gjordes av unga filosofer."
+                    <div class="source">— Sture Eskilsson, PM till SAF, mars 1971 (citerat i Timbros historiebeskrivning)</div>
+                </div>
+                <div class="balance-note">
+                    <strong>Obs — balanserat perspektiv:</strong> Eskilssons PM uppmärksammades omedelbart av vänstermedia som ett "hemligt dokument" om hur storföretagen ville styra opinionen. Socialdemokratiska tidningen Arbetet och tidskriften FIB/Kulturfront (med bl.a. Jan Guillou) rapporterade kritiskt. En het debatt uppstod om demokratin och maktkoncentration.
+                </div>
+            </div>
+
+            <div class="subsection theme-yellow">
+                <h3><span class="box-icon">🔤</span> Varifrån kommer namnet Timbro?</h3>
+                <p>Bakgrunden är enkel men inte uppenbar: <strong>Ernfrid Browaldh</strong> (1889–1982), direktör i Handelsbanken och en tidig röst för fri ekonomi, namngav ett fastighetsbolag efter sina barn <strong>Tore</strong> och <strong>Ing-Marie Bro</strong>waldh — TI-M-BRO. Bolaget ägde lokaler som bland annat SNS hyrde. När tankesmedjan bildades 1978 ärvde den detta namn via Stiftelsen för Fritt Näringsliv.</p>
+            </div>
+
+            <div class="section-quiz">
+                <h4>Reflektera</h4>
+                <div id="ursprung-questions" class="quiz-container"></div>
+            </div>
+
+            <button onclick="document.querySelector('[data-section=\'ideologi\']').click()">Till ideologin</button>
+        </section>
+
+        <!-- ===================== IDEOLOGI ===================== -->
+        <section id="ideologi" class="section animated">
+            <h2>Syfte &amp; Ideologi</h2>
+
+            <div class="subsection theme-blue">
+                <h3><span class="box-icon">🎯</span> Timbros uppdrag i egna ord</h3>
+                <div class="quote-pull">
+                    "Timbro är Nordens främsta marknadsliberala tankesmedja. Sedan starten 1978 är uppdraget att långsiktigt bilda opinion för marknadsekonomi, fri företagsamhet, individuell frihet och ett öppet samhälle."
+                    <div class="source">— Timbro.se, Om oss (2024)</div>
+                </div>
+                <p>Timbro beskriver sig som <strong>partipolitiskt oberoende</strong> och ger inga donationer till politiska partier. Organisationen menar att dess anställda "förenas av ett antal övertygelser" snarare än av partitillhörighet.</p>
+            </div>
+
+            <div class="subsection theme-lblue">
+                <h3><span class="box-icon">⚖️</span> Klassisk liberalism vs nyliberalism</h3>
+                <div class="info-box">
+                    <h4>Vad är klassisk liberalism?</h4>
+                    <p>Klassisk liberalism betonar individens frihet, begränsad statsmakt, privat äganderätt och frihandel. Filosofer som Adam Smith, John Locke och Friedrich Hayek är viktiga referenser. Timbro hänvisar ofta till <em>klassisk liberalism</em> för att skilja sig från "socialliberalism" (som accepterar omfördelning) och från det mer extrema begreppet "nyliberalism".</p>
+                </div>
+                <div class="balance-note">
+                    <strong>Begreppsdebatt:</strong> Begreppet "nyliberalism" är omstritt. Timbro introducerade det i Sverige 1980 via boken <em>Imorgon kapitalism</em>. I dag används det oftast av <em>kritiker</em> av den marknadsorienterade politiken, medan förespråkarna föredrar "klassisk liberalism" eller bara "liberalism". Var uppmärksam på vem som använder vilket ord och i vilket syfte.
+                </div>
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <h4>Timbros självbild 📋</h4>
+                        <ul>
+                            <li>Klassisk liberal / marknadsliberal</li>
+                            <li>Idédriven, ej intresseorganisation</li>
+                            <li>Partipolitiskt oberoende</li>
+                            <li>Långsiktig opinionsbildning</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-item">
+                        <h4>Kritikernas bild 🔍</h4>
+                        <ul>
+                            <li>Nyliberal / högerideologisk</li>
+                            <li>Arbetsgivarintressen i ny förpackning</li>
+                            <li>Nära koppling till borgerliga partier</li>
+                            <li>Påverkan på politik och media</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection theme-green">
+                <h3><span class="box-icon">💡</span> Tre nyckelövertygelser</h3>
+                <div class="flex-container icon-card-deck theme-benefit animated-children-stagger">
+                    <div class="card">
+                        <h4><span class="box-icon">🗽</span> Individens rätt</h4>
+                        <p>Rätten att forma sitt eget liv utan statlig inblandning. Individen, inte kollektivet, är den grundläggande politiska enheten.</p>
+                    </div>
+                    <div class="card">
+                        <h4><span class="box-icon">🏪</span> Valfrihet framför jämlikhet</h4>
+                        <p>Timbro menar att valfrihet är viktigare än ekonomisk jämlikhet. En stat som omfördelar resurser begränsar per definition någons frihet.</p>
+                    </div>
+                    <div class="card">
+                        <h4><span class="box-icon">📉</span> Begränsad statsmakt</h4>
+                        <p>Politikens makt över individer och företag bör minska. Marknaden anses bättre än staten på att fördela resurser effektivt.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection theme-yellow">
+                <h3><span class="box-icon">📚</span> Ideologiska inspirationskällor</h3>
+                <p>Timbro förlag har publicerat ett brett utbud av klassisk liberal litteratur, bl.a. verk av:</p>
+                <ul class="icon-list-alt cols-2">
+                    <li><span class="list-icon">📖</span> <strong>Friedrich Hayek</strong> — <em>Frihetens grundvalar</em>, <em>Vägen till träldom</em></li>
+                    <li><span class="list-icon">📖</span> <strong>Milton Friedman</strong> — <em>Fri att välja</em></li>
+                    <li><span class="list-icon">📖</span> <strong>Ayn Rand</strong> — Objektivism och individualismfilosofi</li>
+                    <li><span class="list-icon">📖</span> <strong>Frédéric Bastiat</strong> — Klassisk frihandelsekonomi</li>
+                    <li><span class="list-icon">📖</span> <strong>Robert Nozick</strong> — Libertariansk politisk filosofi</li>
+                    <li><span class="list-icon">📖</span> <strong>Adam Smith</strong> — <em>Nationernas välstånd</em></li>
+                </ul>
+            </div>
+
+            <div class="section-quiz">
+                <h4>Reflektera</h4>
+                <div id="ideologi-questions" class="quiz-container"></div>
+            </div>
+
+            <button onclick="document.querySelector('[data-section=\'struktur\']').click()">Till strukturen</button>
+        </section>
+
+        <!-- ===================== STRUKTUR ===================== -->
+        <section id="struktur" class="section animated">
+            <h2>Struktur &amp; Finansiering</h2>
+
+            <div class="subsection theme-blue">
+                <h3><span class="box-icon">🏗️</span> Organisationskartan</h3>
+                <div class="info-box">
+                    <h4>Stiftelsen Fritt Näringsliv (SFN)</h4>
+                    <p>Timbros juridiska och finansiella moderorganisation sedan 2003. Bildades när SAF och Industriförbundet gick samman och bildade <strong>Svenskt Näringsliv</strong>. SFN fick ett grundkapital på ca 300 miljoner kronor från Svenskt Näringsliv och är nu Timbros ägare och finansiär.</p>
+                    <p>Utöver Timbro finansierar SFN även andra verksamheter, bl.a. tankesmedjan <strong>Frivärlden</strong> (utrikes- och säkerhetspolitik, grundad 2011) och den årliga <strong>Stiftelsekonferensen</strong>.</p>
+                </div>
+                <div class="balance-note">
+                    <strong>Kopplingen till arbetsgivarna:</strong> Kritiker menar att kopplingen Timbro → SFN → Svenskt Näringsliv innebär att Timbro ytterst finansieras av svenska arbetsgivare och att detta bör beaktas när man tolkar Timbros rapporter. Timbro betonar å sin sida att SFN är en självständig stiftelse och att det inte förekommer redaktionell styrning från finansiären.
+                </div>
+            </div>
+
+            <div class="subsection theme-lblue">
+                <h3><span class="box-icon">💰</span> Budget och storlek</h3>
+                <div class="flex-container icon-card-deck theme-lifestyle animated-children-stagger">
+                    <div class="card">
+                        <h4><span class="box-icon">📊</span> Årsbudget</h4>
+                        <p>Ca <strong>30 miljoner kronor</strong> per år — finansierat helt av Stiftelsen Fritt Näringsliv. Timbro tar inga pengar direkt från partier, men har historiskt mottagit extern finansiering (se Inflytande och Kritik).</p>
+                    </div>
+                    <div class="card">
+                        <h4><span class="box-icon">👥</span> Personal</h4>
+                        <p>Ca <strong>25 anställda</strong> — men den löpande verksamheten involverar betydligt fler frivilliga skribenter, externa experter och akademipraktikanter.</p>
+                    </div>
+                    <div class="card">
+                        <h4><span class="box-icon">📍</span> Kontor</h4>
+                        <p>Huvudkontor på <strong>Kungsgatan 60, Stockholm</strong> sedan 2007. Partipolitiskt oberoende — ger inga donationer till politiska partier.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection theme-green">
+                <h3><span class="box-icon">🗞️</span> Timbros plattformar</h3>
+                <ul class="icon-list-alt">
+                    <li><span class="list-icon">📰</span> <strong>Smedjan</strong> — Timbros nättidning för löpande debatt och kommentar. Ursprungligen kallad <em>Marknadsekonomisk Tidskrift</em> (1991 döpt om).</li>
+                    <li><span class="list-icon">📚</span> <strong>Timbro förlag</strong> — ger ut böcker av svenska och internationella liberala tänkare.</li>
+                    <li><span class="list-icon">🖥️</span> <strong>Timbro Medieinstitut (MIT)</strong> — granskar hur media rapporterar om näringsliv och ekonomi. Återstartat 2007.</li>
+                    <li><span class="list-icon">🎓</span> <strong>Campus Timbro</strong> — Timbros samlingsnamn för utbildningar: Stureakademin, Reformakademin, Digitala akademin m.fl.</li>
+                </ul>
+            </div>
+
+            <div class="subsection theme-yellow">
+                <h3><span class="box-icon">🎓</span> Campus Timbro — utbildningsverksamheten</h3>
+                <p>En central del av Timbros strategi är att forma kommande generationer av opinionsbildare. Eskilssons ursprungliga PM pekade just på den intellektuella eliten som nyckelgrupp.</p>
+                <div class="flex-container icon-card-deck animated-children-stagger">
+                    <div class="card">
+                        <h4><span class="box-icon">🏛️</span> Stureakademin</h4>
+                        <p>Ettårig utbildning i politisk filosofi, kommunikation och skrivande. Startad 2003, uppkallad efter Sture Eskilsson. Har inspirerat ett tiotal liknande utbildningar av andra aktörer.</p>
+                    </div>
+                    <div class="card">
+                        <h4><span class="box-icon">📈</span> Reformakademin</h4>
+                        <p>Fördjupning i praktiska ekonomiska frågor och policyforskning. Riktar sig till dem som vill arbeta med samhällsekonomi och reformagendor.</p>
+                    </div>
+                    <div class="card">
+                        <h4><span class="box-icon">📱</span> Digitala akademin</h4>
+                        <p>Fokus på digital kommunikation för unga i klassiskt liberalt och centerborgerligt sammanhang.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection theme-purple">
+                <h3><span class="box-icon">👔</span> Timbros VD:ar genom historien</h3>
+                <p>Listan över Timbros ledare speglar också organisationens historia och nära kopplingar till det borgerliga politiska fältet:</p>
+                <div class="vd-list">
+                    <div class="vd-item">Sture Eskilsson <span class="years">1978–1981</span></div>
+                    <div class="vd-item">Mats Svegfors <span class="years">1981–1983</span></div>
+                    <div class="vd-item">Kjell-Erik Selin <span class="years">1983–1988</span></div>
+                    <div class="vd-item">Mats Johansson <span class="years">1988–1995</span></div>
+                    <div class="vd-item">Odd Eiken <span class="years">1995–1996</span></div>
+                    <div class="vd-item">PJ Anders Linder <span class="years">1996–2000</span></div>
+                    <div class="vd-item">Mattias Bengtsson <span class="years">2000–2005</span></div>
+                    <div class="vd-item">Cecilia Stegö Chiló <span class="years">2005–2006</span></div>
+                    <div class="vd-item">Maria Rankka <span class="years">2006–2010</span></div>
+                    <div class="vd-item">Markus Uvell <span class="years">2010–2014</span></div>
+                    <div class="vd-item">Karin Svanborg-Sjövall <span class="years">2014–2020</span></div>
+                    <div class="vd-item">Benjamin Dousa <span class="years">2020–2023</span></div>
+                    <div class="vd-item"><strong>PM Nilsson</strong> <span class="years">2023–</span></div>
+                </div>
+                <div class="balance-note">
+                    <strong>Notera:</strong> Cecilia Stegö Chiló gick direkt från Timbros VD-post till kulturminister i Alliansregeringen 2006. Det är ett exempel på den koppling mellan Timbro och den borgerliga politiken som kritiker lyfter fram och som Timbro menar inte undergräver organisationens oberoende.
+                </div>
+            </div>
+
+            <div class="section-quiz">
+                <h4>Reflektera</h4>
+                <div id="struktur-questions" class="quiz-container"></div>
+            </div>
+
+            <button onclick="document.querySelector('[data-section=\'metoder\']').click()">Till metoderna</button>
+        </section>
+
+        <!-- ===================== METODER ===================== -->
+        <section id="metoder" class="section animated">
+            <h2>Metoder för opinionsbildning</h2>
+
+            <div class="subsection theme-blue">
+                <h3><span class="box-icon">🎯</span> Den långsiktiga strategin</h3>
+                <p>Kärnan i Timbros strategi är <em>idédrivenhet</em>: man försöker inte vinna ett enskilt val, utan påverka det allmänna idéklimatet under lång tid. Eskilssons PM pekade ut det: idéer sprider sig från intellektuella till journalister, till politiker, till väljare — och det tar decennier.</p>
+                <div class="info-box">
+                    <h4><span class="box-icon">🔄</span> Idéernas pipeline</h4>
+                    <p>Timbros modell kan beskrivas som en kedja: <strong>forskning &amp; böcker → seminarier &amp; debattartiklar → journalister &amp; bloggare → det politiska samtalet → partipolitik &amp; lagstiftning</strong>. Processen tar tid, men Timbro menar att den är mer hållbar än kortsiktig kampanjpolitik.</p>
+                </div>
+            </div>
+
+            <div class="subsection theme-green">
+                <h3><span class="box-icon">📖</span> Bokutgivning — en nyckelmetod</h3>
+                <p>Timbro förlag är en av Sveriges mest produktiva aktörer inom politisk idédebatt. Förlaget ger ut:</p>
+                <ul class="styled-list check-list-alt">
+                    <li>Klassiska liberala verk i ny svensk översättning (Hayek, Friedman, Rand, Nozick, Bastiat m.fl.)</li>
+                    <li>Aktuella svenska debattböcker och policyrpporter</li>
+                    <li>Internationella böcker om globalisering, frihandel och demokrati</li>
+                </ul>
+                <div class="quote-pull">
+                    "Till världskapitalismens försvar" av Johan Norberg (2001) är Timbros mest spridda publikation — översatt till ett trettiotal språk och publicerad lagom till EU-toppmötet i Göteborg och de s.k. Göteborgskravallerna.
+                    <div class="source">— Timbros historiebeskrivning</div>
+                </div>
+            </div>
+
+            <div class="subsection theme-orange">
+                <h3><span class="box-icon">🌐</span> Internationella nätverk</h3>
+                <p>Timbro verkar inte isolerat — det ingår i ett globalt nätverk av liksinnade organisationer.</p>
+                <div class="flex-container icon-card-deck animated-children-stagger">
+                    <div class="card">
+                        <h4><span class="box-icon">🌍</span> Atlas Network</h4>
+                        <p>Ett USA-baserat globalt nätverk av marknadsliberala tankesmedjor. Timbro har sedan 1980-talet haft nära samarbete med Atlas Network — ideologiskt utbyte, gemensamma konferenser och stipendier.</p>
+                    </div>
+                    <div class="card">
+                        <h4><span class="box-icon">🇪🇺</span> Epicenter</h4>
+                        <p>Europanätverket av marknadsvänliga tankesmedjor som Timbro är member i. Samordnar europeisk frihandelsdebatt och deltar i EU-policyprocesser.</p>
+                    </div>
+                    <div class="card">
+                        <h4><span class="box-icon">📊</span> Populsim-indexet</h4>
+                        <p>Timbro publicerar sedan 2017 ett europeiskt index som mäter valstöd för auktoritärapopulistiska partier — en rapport som fått bred internationell uppmärksamhet.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection theme-yellow">
+                <h3><span class="box-icon">✍️</span> Mediearbete och debatt</h3>
+                <p>Timbros anställda medverkar regelbundet i medier som DN Debatt, Svenska Dagbladet och SVT/SR. Nättidningen Smedjan publicerar dagliga kommentarer, analyser och debattartiklar. Timbro Medieinstitut (MIT) granskar hur ekonomijournalistik bedrivs.</p>
+                <div class="balance-note">
+                    <strong>Obs — kritisk reflektion:</strong> Kritiker menar att Timbros medietränade debattörer ges oproportionerligt stort utrymme i medier med tanke på att organisationen representerar en snäv ideologisk linje. Timbro menar å sin sida att de bidrar till ett mer mångsidigt debattklimat och att deras analyser är välgrundade.
+                </div>
+            </div>
+
+            <div class="section-quiz">
+                <h4>Reflektera</h4>
+                <div id="metoder-questions" class="quiz-container"></div>
+            </div>
+
+            <button onclick="document.querySelector('[data-section=\'inflytande\']').click()">Till inflytande och kritik</button>
+        </section>
+
+        <!-- ===================== INFLYTANDE & KRITIK ===================== -->
+        <section id="inflytande" class="section animated">
+            <h2>Inflytande, politik och kritik</h2>
+
+            <div class="subsection theme-blue">
+                <h3><span class="box-icon">📈</span> Timbros roll i systemskiftet</h3>
+                <p>Under 1980- och 1990-talen genomgick Sverige en markant politisk förskjutning: avreglering, privatisering och valfrihet fick genomslag i praktiken — inte bara som idéer. Den borgerliga regeringen under Carl Bildt (1991–1994) genomförde ett antal marknadsorienterade reformer.</p>
+                <div class="info-box">
+                    <h4><span class="box-icon">🔗</span> Personliga kopplingar</h4>
+                    <p>Historiker och journalister har noterat att flera personer aktiva i Timbros nätverk under 1980-talet kom att inta centrala positioner i Bildtregeringen. Bland de mest citerade exemplen:</p>
+                    <ul class="styled-list">
+                        <li><strong>Carl Bildt</strong> — statsminister 1991–1994, nära koppling till Timbros idémiljö</li>
+                        <li><strong>Ulf Kristersson</strong> — nuvarande statsminister (2022–), bidrog som ung till Timbroprojektet "Socialstatsprojektet" under 1990-talet</li>
+                        <li><strong>Anders Borg</strong> — finansminister 2006–2014, publicerade rapporter vid City-universitetet (Timbro-knutet) under 1990-talet</li>
+                        <li><strong>Gunnar Hörkmark</strong> — projektledare vid Timbros City-universitet, senare EU-parlamentariker</li>
+                    </ul>
+                </div>
+                <div class="balance-note">
+                    <strong>Balanserat perspektiv:</strong> Det är viktigt att skilja på korrelation och kausalitet. Att Timbro-knutna personer hamnade i regeringspositioner kan bero på att de delade ideologiska övertygelser med sina partier snarare än att Timbro styrde politiken. Dessutom speglade 1990-talets reformer en internationell trend mot avreglering.
+                </div>
+            </div>
+
+            <div class="subsection theme-orange">
+                <h3><span class="box-icon">⚠️</span> Kritik mot Timbro</h3>
+                <div class="warning-box">
+                    <h4><span class="box-icon">🔍</span> Finansieringskritik</h4>
+                    <p><strong>Kritiker menar</strong> att Timbros finansieringskedja — Timbro ← Stiftelsen Fritt Näringsliv ← Svenskt Näringsliv — innebär att en samhällspåverkande organisation ytterst finansieras av landets arbetsgivareorganisation, utan krav på redovisning av exakt vilka intressen som prioriteras.</p>
+                    <p>Därtill har Timbro mottagit extern finansiering som ifrågasatts:</p>
+                    <ul>
+                        <li>Via <strong>Atlas Network</strong> ska medel ha flödat från den amerikanska oljejätten <strong>ExxonMobil</strong> till Timbro under tidigt 2000-tal, bl.a. för nyhetsbrevet <em>Ekvilibrium</em> som publicerade klimatskeptiska kommentarer. (Källa: Dagens ETC, 2024, med dokumentär bekräftelse.)</li>
+                        <li>Ca <strong>2 miljoner kronor</strong> mottogs av <strong>Pfizer</strong> för att starta enheten Timbro Hälsa, som drev marknadsorienterade sjukvårdsreformer. (Bekräftat av f.d. VD Mattias Bengtsson i intervjuer.)</li>
+                    </ul>
+                </div>
+                <div class="balance-note">
+                    <strong>Timbros svar:</strong> F.d. VD Mattias Bengtsson har bekräftat de externa kontakterna men menar att Timbros redaktionella linje var oberoende av vem som finansierade. Timbro betonar idag sin transparens om att SFN är enda finansiär.
+                </div>
+            </div>
+
+            <div class="subsection theme-yellow">
+                <h3><span class="box-icon">🤔</span> Har tankesmedjor verkligen inflytande?</h3>
+                <p>Det är en genuint öppen fråga i statsvetenskapen. Argumenten går åt båda håll:</p>
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <h4>Argument FÖR inflytande 📣</h4>
+                        <ul>
+                            <li>Timbro-knutna idéer om avreglering och valfrihet genomsyrar 1990-talets reformer</li>
+                            <li>Alumni hamnar i nyckelpositioner i politik och media</li>
+                            <li>Begrepp som Timbro populariserade (valfrihet, new public management) dominerar nu debatten</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-item">
+                        <h4>Argument MOT direkt inflytande 🧐</h4>
+                        <ul>
+                            <li>Svårt att bevisa kausalitet — kanske speglar Timbro idéer som ändå blivit populära</li>
+                            <li>Internationella trender (Thatcher, Reagan) påverkade Sverige oavsett Timbro</li>
+                            <li>Partier väljer sin politik; tankesmedjor kan inte tvinga dem</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-quiz">
+                <h4>Reflektera</h4>
+                <div id="inflytande-questions" class="quiz-container"></div>
+            </div>
+
+            <button onclick="document.querySelector('[data-section=\'arvet\']').click()">Timbro idag</button>
+        </section>
+
+        <!-- ===================== ARVET / TIMBRO IDAG ===================== -->
+        <section id="arvet" class="section animated">
+            <h2>Timbro idag</h2>
+
+            <div class="subsection theme-blue">
+                <h3><span class="box-icon">📅</span> Verksamheten 2024–2026</h3>
+                <p>Under <strong>PM Nilsson</strong> (VD sedan 2023) fortsätter Timbro sitt arbete med fyra programområden: <strong>ekonomisk politik, miljö, välfärd och arbetsmarknad</strong>. Varje år ges det ut böcker, rapporter och briefing papers.</p>
+                <div class="flex-container icon-card-deck animated-children-stagger">
+                    <div class="card">
+                        <h4><span class="box-icon">🌳</span> Miljö</h4>
+                        <p>Timbro förespråkar marknadsorienterade lösningar på miljöproblem — t.ex. koldioxidskatter och handel med utsläppsrätter — snarare än regleringar och förbud.</p>
+                    </div>
+                    <div class="card">
+                        <h4><span class="box-icon">🏥</span> Välfärd</h4>
+                        <p>Timbro förespråkar fri etablering, valfrihet och konkurrens i välfärdssektorn — i opposition mot offentliga monopol.</p>
+                    </div>
+                    <div class="card">
+                        <h4><span class="box-icon">👷</span> Arbetsmarknad</h4>
+                        <p>Timbro förespråkar mer flexibla anställningsformer och ifrågasätter delar av den svenska modellens kollektiva lösningar.</p>
+                    </div>
+                    <div class="card">
+                        <h4><span class="box-icon">💹</span> Ekonomi</h4>
+                        <p>Lägre skatter, minskad statsskuld och mer marknadskonkurrens är återkommande tema i Timbros ekonomipolitiska analyser.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection theme-green">
+                <h3><span class="box-icon">🌏</span> Timbro i ett bredare sammanhang</h3>
+                <p>Timbro är ett av de bästa exemplen på hur <em>idéer kan organiseras</em> för politisk påverkan. Oavsett om man gillar Timbros idéer eller inte är det värt att förstå hur organisationen fungerar — eftersom liknande strukturer finns på hela det politiska spektrat.</p>
+                <div class="info-box">
+                    <h4><span class="box-icon">⚖️</span> En nyckelreflektion för samhällskunskapen</h4>
+                    <p>Nästa gång du läser en rapport, en debattartikel eller ett uttalande från en "expert" — fråga dig: Vem ligger bakom? Vem finansierar? Vilka intressen gynnas? Det gör dig till en bättre medborgare och en mer kritisk mediakonsument.</p>
+                </div>
+            </div>
+
+            <div class="subsection theme-yellow">
+                <h3><span class="box-icon">🔮</span> Vad hände sedan?</h3>
+                <ul class="styled-list check-list-alt">
+                    <li>Stureakademin (startad 2003) har utbildat hundratals unga för karriärer inom politik, journalism och näringsliv.</li>
+                    <li>Timbros Populism-index (2017, uppdaterat 2024) är en välciterad källa i europeisk statsvetenskap.</li>
+                    <li>Timbro förlag ger ut klassisk liberal litteratur och aktuell debatt varje år.</li>
+                    <li>Nättidningen Smedjan publiceras dagligen och håller Timbros röst aktiv i den löpande samhällsdebatten.</li>
+                </ul>
+            </div>
+
+            <div class="section-quiz">
+                <h4>Reflektera</h4>
+                <div id="arvet-questions" class="quiz-container"></div>
+            </div>
+
+            <button onclick="document.querySelector('[data-section=\'quiz\']').click()">Till Quizet</button>
+        </section>
+
+        <!-- ===================== QUIZ ===================== -->
+        <section id="quiz" class="section animated">
+            <h2>Quiz: Tankesmedjan Timbro</h2>
+
+            <div id="quiz-start">
+                <div class="info-box">
+                    <h3>Dags att testa dina kunskaper!</h3>
+                    <p>Du har gått igenom Timbros ursprung, ideologi, struktur, metoder och inflytande. Nu är det dags att se hur mycket du har lärt dig — och hur kritiskt du kan tänka kring tankesmedjor som maktfaktor.</p>
+                </div>
+                <div id="best-time-display" class="time-record">Ditt snabbaste resultat: Inte satt än</div>
+                <div class="difficulty-switch-wrapper">
+                    <div class="difficulty-switch">
+                        <label for="difficulty-normal">Svårighetsgrad:</label>
+                        <div class="switch-container">
+                            <input type="radio" id="difficulty-normal" name="difficulty" value="normal" checked>
+                            <label for="difficulty-normal" class="switch-label switch-label-left">Normal</label>
+                            <input type="radio" id="difficulty-crazy" name="difficulty" value="crazy">
+                            <label for="difficulty-crazy" class="switch-label switch-label-right">Crazy Bananas!</label>
+                            <span class="switch-selection"></span>
+                        </div>
+                    </div>
+                </div>
+                <button id="start-quiz-btn">Starta Quiz</button>
+            </div>
+
+            <div id="quiz-progress" style="display: none;">
+                <div class="timer" id="quiz-timer">0:00</div>
+                <div class="progress-container">
+                    <div class="progress-bar" id="quiz-progress-bar"></div>
+                </div>
+                <p id="quiz-progress-text">0 av 0 besvarade</p>
+            </div>
+
+            <div id="quiz-questions" style="display: none;"></div>
+            <div id="quiz-result" style="display: none;"></div>
+        </section>
+
+    </div><!-- /.container -->
+
+    <script src="../../studyguide-core.js"></script>
+    <script src="timbro1quiz.js"></script>
+    <script src="../../interactive-quiz.js"></script>
+    <script>
+        initStudyGuide({
+            guideId: 'timbro1',
+            requiredSections: ['tankesmedja', 'ursprung', 'ideologi', 'struktur', 'metoder', 'inflytande', 'arvet'],
+            sectionQuestions: true
+        });
+    </script>
+
+</body>
+</html>
